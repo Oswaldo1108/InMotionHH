@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".c_Almacen.Almacen.ReubicarPiezas"
+    android:background="@color/fondoAzul"
+    android:id="@+id/Pantalla_principal">
+
+     <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Código\nPosición"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/textView122"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="80dp"
+        android:text="Nueva\nPosición"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView124"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Lote"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView78"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView78"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="CantxCon."
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView156"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView156"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Contenedores:"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView122"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edtx_ConfirmarCodigo"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Escaneé código"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView122"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
+        app:layout_constraintTop_toTopOf="@+id/textView122" />
+
+    <EditText
+        android:id="@+id/edtx_Cantidad"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="@string/ingrese_cantidad"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/textView156"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
+        app:layout_constraintTop_toTopOf="@+id/textView156"
+        />
+
+    <EditText
+        android:id="@+id/edtx_Lote"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        android:hint="Lote"
+        android:inputType="none"
+        app:layout_constraintBottom_toBottomOf="@+id/textView124"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
+        app:layout_constraintTop_toTopOf="@+id/textView124" />
+
+    <EditText
+        android:id="@+id/edtx_CantxEmp"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        android:hint="Cantidad por contenedor"
+        android:inputType="none"
+        app:layout_constraintBottom_toBottomOf="@+id/textView78"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Lote"
+        app:layout_constraintTop_toTopOf="@+id/textView78"
+        />
+
+    <EditText
+        android:id="@+id/edtx_Codigo"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Escaneé código"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView35"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView35"
+        app:layout_constraintTop_toTopOf="@+id/textView35" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Producto"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView124"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edtx_Producto"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        android:hint="Producto"
+        android:inputType="none"
+        app:layout_constraintBottom_toBottomOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView35"
+        app:layout_constraintTop_toTopOf="@+id/textView36" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_tabla_embarques"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/edtx_Producto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView35">
+
+        <LinearLayout
+            android:id="@+id/LL2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <de.codecrafters.tableview.SortableTableView
+                android:id="@+id/tableView_Salida"
+                android:layout_width="1000dp"
+
+                android:layout_height="match_parent"
+                android:background="@drawable/orilla_layout"
+                android:baselineAligned="false"
+                android:divider="@color/grisAXC"
+                android:dividerHeight="1dp"
+                android:nestedScrollingEnabled="true"
+                app:tableView_columnCount="6"
+
+                app:tableView_headerColor="@color/Transparente"
+                tools:layout_editor_absoluteX="181dp"
+                tools:layout_editor_absoluteY="8dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

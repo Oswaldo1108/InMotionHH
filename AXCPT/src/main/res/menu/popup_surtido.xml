@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/Empaque"
+        android:title="Empaque"
+        android:icon="@drawable/ic_empaque"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/EmpaqueNE"
+        android:title="Empaques N.E."
+        android:icon="@drawable/ic_directo_posici_n"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/Piezas"
+        android:title="Piezas"
+        android:icon="@drawable/ic_contenedor"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/PalletCompleto"
+        android:title="Pallet Completo"
+        android:icon="@drawable/ic_contenedor"
+        app:showAsAction="always"/>
+
+</menu>

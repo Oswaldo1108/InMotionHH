@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/blancoLetraStd"
+    tools:context="com.automatica.axc_lib.Activities.cIncidencia.Incidencia">
+
+
+    <ImageButton
+        android:id="@+id/imgb_undo"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/boton_axc_normal"
+        android:scaleType="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_ElegirLote"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_ElegirLote"
+        app:srcCompat="@drawable/ic_baseline_undo_negro" />
+
+    <EditText
+        android:id="@+id/edtx_Producto"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="180dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:inputType="textNoSuggestions"
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtv_2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_2" />
+
+    <TextView
+        android:id="@+id/txtv_2"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Producto:"
+        android:textColor="@color/camposAzul"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtv_4"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Conteo:"
+        android:textColor="@color/camposAzul"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_2" />
+
+    <TextView
+        android:id="@+id/txtv_conteo"
+        style="@style/EstiloTexto_Blanco_Bold"
+
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="0"
+        android:textColor="@color/RojoStd"
+        app:layout_constraintStart_toEndOf="@+id/txtv_4"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_2" />
+
+    <Button
+        android:id="@+id/btn_ElegirLote"
+        style="@style/Estilo_Boton_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="registrar piezas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgb_AtrasRep2"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_4"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

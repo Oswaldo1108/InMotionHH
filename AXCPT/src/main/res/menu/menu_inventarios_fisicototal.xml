@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/baja_inventarios"
+        android:icon="@drawable/ic__1cons_pallet"
+        android:title="Baja pallet"
+        app:showAsAction="always"
+        />
+    <item android:id="@+id/alta_inventarios"
+        android:icon="@drawable/ic__1cons_pallet"
+        android:title="Nuevo pallet"
+        app:showAsAction="always"
+        />
+    <item android:id="@+id/validar_inventarios"
+        android:icon="@drawable/ic__1cons_pallet"
+        android:title="Validar pallet"
+        app:showAsAction="always"
+        />
+</menu>

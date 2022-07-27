@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul"
+    tools:context="com.automatica.AXCPT.c_Almacen.Almacen_Transferencia.Transferencia_Envio.OLD.Almacen_Transferencia_SurtirEmpaque">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout9"
+        android:layout_width="0dp"
+        android:layout_height="271dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Pallet">
+
+        <TextView
+            android:id="@+id/txtv_Lote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            app:layout_constraintStart_toEndOf="@+id/txtv_Empaques_Label"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Empaques" />
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Orden Comp:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView54"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Lote:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView52" />
+
+        <TextView
+            android:id="@+id/txtv_label_empaques"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Cantidad:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Estatus:"
+
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_label_empaques" />
+
+        <TextView
+            android:id="@+id/txtv_Empaques_Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Paquetes:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Producto"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtv_Producto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            app:layout_constraintStart_toEndOf="@+id/txtv_Empaques_Label"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtv_Cantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            app:layout_constraintStart_toEndOf="@+id/txtv_Empaques_Label"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Lote" />
+
+        <TextView
+            android:id="@+id/txtv_Estatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            app:layout_constraintStart_toEndOf="@+id/txtv_Empaques_Label"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Cantidad" />
+
+        <TextView
+            android:id="@+id/txtv_Emp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="18dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            app:layout_constraintStart_toEndOf="@+id/txtv_Empaques_Label"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Estatus" />
+
+        <TextView
+            android:id="@+id/txtv_Empaques"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            app:layout_constraintStart_toEndOf="@+id/txtv_Empaques_Label"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Producto" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="Motivo:"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/txtv_TipoConsulta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="28dp"
+        android:text="Pallet:"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView59" />
+
+    <TextView
+        android:id="@+id/txtv_Confirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Confirma\nPallet"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_Ubicacion" />
+
+    <TextView
+        android:id="@+id/txtv_Ubicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Ubicación"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
+
+    <EditText
+        android:id="@+id/edtx_Pallet"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="@string/escanear_Pallet"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView59"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <EditText
+        android:id="@+id/edtx_ConfirmaPallet"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/volver_escanear_Pallet"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtv_Confirmar"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Ubicacion" />
+
+    <EditText
+        android:id="@+id/edtx_Ubicacion"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtv_Confirmar"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView59"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+        <Spinner
+            android:id="@+id/spn_Motivo"
+            android:layout_width="0dp"
+            android:layout_height="31dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

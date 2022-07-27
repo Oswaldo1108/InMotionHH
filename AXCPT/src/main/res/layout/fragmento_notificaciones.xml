@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/negroTrans"
+        tools:context=".Fragmentos.FragNotificaciones">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="90dp"
+                android:background="@color/camposAzul"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtx_CodigoPallet">
+                <include
+                    android:id="@+id/cl_header"
+                    layout="@layout/cl_header"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:background="@drawable/orilla_layout_cuadro_top_blanco"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="3dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="2dp"
+                    android:layout_height="match_parent">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </FrameLayout>

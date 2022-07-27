@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/fondoAzul"
+    tools:context="com.automatica.axc_lib.Activities.cIncidencia.Incidencia">
+
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/cl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:id="@+id/edtx_TextoCabecera"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:gravity="top|start"
+        android:hint="Ingrese el texto de cabecera."
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/btn_CancelarTarima"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado4" />
+
+    <EditText
+        android:id="@+id/edtx_NotaEntrega"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/txtSizeBig"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Ingrese nota de entrega."
+        android:inputType="textNoSuggestions"
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_Seleccionado2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado3"
+        app:layout_constraintTop_toTopOf="@+id/txtv_Seleccionado2" />
+
+    <EditText
+        android:id="@+id/edtx_CartaPorte"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/txtSizeBig"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Ingrese carta de porte."
+        android:inputType="textNoSuggestions"
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_Seleccionado3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado3"
+        app:layout_constraintTop_toTopOf="@+id/txtv_Seleccionado3" />
+
+    <Button
+        android:id="@+id/btn_GuardarTextos"
+        style="@style/Estilo_Boton_Reg"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="Guardar textos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_TextoCabecera" />
+
+    <TextView
+        android:id="@+id/txtv_Seleccionado2"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Nota de\nentrega:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+    <TextView
+        android:id="@+id/txtv_Seleccionado3"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Carta de\nporte:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado2" />
+
+    <TextView
+        android:id="@+id/txtv_Seleccionado4"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Texto de cabecera:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

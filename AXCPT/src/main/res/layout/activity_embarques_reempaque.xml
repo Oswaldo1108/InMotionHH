@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/fondoAzul"
+    android:layout_height="match_parent"
+    android:id="@+id/Pantalla_principal"
+    tools:context=".c_Embarques.Reempaque.Embarques_Reempaque">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <include
+        android:id="@+id/customtableview"
+        layout="@layout/customtableview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView39"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+
+    <TextView
+        android:id="@+id/textView38"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Pallet:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView8"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Embarque:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/edtx_embarque"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:hint="Ingrese Orden de Embarque"
+        android:paddingStart="5dp"
+        android:layout_marginEnd="8dp"
+        android:singleLine="true"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+
+    <TextView
+        android:id="@+id/tv_pallet"
+        style="@style/EstiloTexto_Blanco_Reg_Consulta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="@+id/textView38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView38"
+        app:layout_constraintTop_toTopOf="@+id/textView38" />
+
+    <TextView
+        android:id="@+id/textView39"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Carrito de surtido"
+        app:layout_constraintBottom_toTopOf="@+id/vw_spinnerProducto"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/edtx_pallet"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:hint="Ingrese código de pallet"
+        android:paddingStart="5dp"
+        android:layout_marginEnd="8dp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/textView39"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toTopOf="@+id/textView39" />
+
+    <include
+        android:id="@+id/vw_spinnerProducto"
+        layout="@layout/vw_spinner"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textView40"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="74dp"
+        android:text="Cantidad:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+    <EditText
+        android:id="@+id/edtx_cantidad"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:singleLine="true"
+        android:paddingStart="5dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Ingrese cantidad"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/textView40"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toTopOf="@+id/textView40" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_sku"
+        android:thumb="@drawable/thumb_switch"
+        android:text="SKU "
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edtx_cantidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/edtx_cantidad"
+        app:layout_constraintTop_toBottomOf="@+id/vw_spinnerProducto" />
+
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Button
+        android:id="@+id/btn_CerrarTarima"
+        style="@style/Estilo_Boton_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:text="Terminar"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

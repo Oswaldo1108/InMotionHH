@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/Empaque"
+        android:title="Empaque"
+        android:icon="@drawable/ic_empaque"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/Pallet"
+        android:title="Directo a piso"
+        android:icon="@drawable/ic_directo_posici_n"
+        app:showAsAction="always"/>
+    <item android:id="@+id/Contenedor"
+        android:title="Contenedor"
+        android:icon="@drawable/ic_contenedor"
+        app:showAsAction="always"/>
+
+</menu>

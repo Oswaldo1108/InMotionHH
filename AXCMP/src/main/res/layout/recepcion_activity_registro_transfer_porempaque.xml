@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout14"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginTop="10dp"
+        android:text="Pallet"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/txtv_Pallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:text="-"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="25dp"
+        android:text="Paquetes Registrados"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/txtv_EmpReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="107dp"
+        android:layout_marginRight="107dp"
+        android:text="-"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_PrimerEmpaque" />
+
+    <Button
+        android:id="@+id/btn_CerrarTarima"
+        style="@style/Estilo_Boton_Reg"
+        android:layout_width="0dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Cerrar Tarima"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/edtx_PrimerEmpaque"
+        android:layout_width="178dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:ems="10"
+        style="@style/Estilo_EditText_Reg"
+        android:hint="Código del Paquete"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_EmpxPallet" />
+
+    <EditText
+        android:id="@+id/edtx_Traspaso"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="253dp"
+        android:layout_height="28dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        android:inputType="none"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+
+        android:layout_marginTop="18dp"
+        android:text="Cantidad"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout6" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Código Paquete"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+    <EditText
+        android:id="@+id/edtx_EmpxPallet"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="97dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="7dp"
+        android:ems="10"
+        android:inputType="number"
+        android:nextFocusDown="@id/edtx_EmpxPallet"
+        android:nextFocusForward="@id/edtx_EmpxPallet"
+        android:nextFocusUp="@id/edtx_EmpxPallet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Empaque" />
+
+    <EditText
+        android:id="@+id/edtx_Empaque"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="97dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:nextFocusDown="@id/edtx_EmpxPallet"
+        android:nextFocusForward="@id/edtx_EmpxPallet"
+        android:nextFocusUp="@id/edtx_EmpxPallet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout6" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Paquetes por\nPallet"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Traspaso"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout6"
+        android:layout_width="0dp"
+        android:layout_height="185dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Caducidad"
+
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView111" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Cant. Tot."
+
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="90dp"
+            android:text="Cant. Rec."
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/textView40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="4dp"
+            android:text="Fecha trab."
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+        <TextView
+
+            android:id="@+id/txtv_Caducidad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Prod" />
+
+        <TextView
+
+            android:id="@+id/txtv_CantidadRegistrada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="90dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+
+            android:id="@+id/txtv_CantidadTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_UnidadMedida" />
+
+        <TextView
+
+            android:id="@+id/txtv_UnidadMedida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Caducidad" />
+
+        <TextView
+
+            android:id="@+id/txtv_Prod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="1dp"
+            android:inputType="textMultiLine"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Lote" />
+
+        <TextView
+
+            android:id="@+id/txtv_Lote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:inputType="textMultiLine"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Traspaso" />
+
+        <TextView
+
+            android:id="@+id/txtv_Traspaso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="textMultiLine"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="1dp"
+            android:text="Producto"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="3dp"
+            android:text="Lote"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView91" />
+
+        <TextView
+            android:id="@+id/textView91"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Traspaso"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

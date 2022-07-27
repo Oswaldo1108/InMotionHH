@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceCategory android:title="@string/txt_pref_licencia">
+
+        <SwitchPreference
+            android:key="DebugMode"
+            android:title="@string/debugmode"
+            android:summary="Activar modo debug"
+
+            />
+        <EditTextPreference
+            android:key="licenciaAXC"
+            android:title="@string/txt_pref_licencia"
+            android:summary="Licencia de AXC de este dispositivo"
+            >
+        </EditTextPreference>
+
+        <EditTextPreference
+            android:key="direccionWebService"
+            android:title="@string/txt_pref_web_service"
+            android:summary="Cambiar direccion del web service"
+            >
+        </EditTextPreference>
+
+        <EditTextPreference
+            android:key="estacion"
+            android:title="@string/txt_pref_numero_handheld"
+            android:summary="Handheld"
+            >
+        </EditTextPreference>
+        <EditTextPreference
+            android:key="usuario"
+            android:title="@string/txt_usuario"
+            android:summary="De Uso de la aplicacion, no modificar"
+            >
+        </EditTextPreference>
+        <EditTextPreference
+            android:key="Apertura"
+            android:title="@string/txt_apertura"
+            android:summary="De Uso de la aplicacion, no modificar"
+            >
+        </EditTextPreference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

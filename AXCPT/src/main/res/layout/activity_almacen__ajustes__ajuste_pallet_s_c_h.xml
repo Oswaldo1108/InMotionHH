@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/fondoAzul"
+    android:id="@+id/Pantalla_principal"
+    android:layout_height="match_parent"
+    tools:context=".c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_AjustePalletSCH">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+
+    </FrameLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView61"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView60"
+                app:layout_constraintTop_toTopOf="@+id/textView61">
+
+                <Spinner
+                    android:id="@+id/spnr_NumParte"
+                    android:layout_width="0dp"
+                    android:layout_height="31dp"
+                    android:backgroundTint="#111111"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/txtv_EmpaquesReg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:text="-"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView63"
+                app:layout_constraintStart_toEndOf="@+id/textView63"
+                app:layout_constraintTop_toTopOf="@+id/textView63" />
+
+            <TextView
+                android:id="@+id/textView64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Pallet:"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView63" />
+
+
+
+            <TextView
+                android:id="@+id/textView57"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Ajuste:"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/textView60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Búsqueda:"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView133" />
+
+            <TextView
+                android:id="@+id/textView61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Articulo:"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView60" />
+
+            <TextView
+                android:id="@+id/textView67"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Cantidad:"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView61" />
+
+            <TextView
+                android:id="@+id/textView62"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="27dp"
+                android:text="Cant. de \nempaques:"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView99" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textView97"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:text="Fecha cad."
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView67" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textView99"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="23dp"
+                android:text="Lote"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView97" />
+
+            <TextView
+                android:id="@+id/textView63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Empaques registrados:"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView62"/>
+
+            <EditText
+                android:id="@+id/edtx_Empaque"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Cantidad por empaque"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/textView67"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView60"
+                app:layout_constraintTop_toTopOf="@+id/textView67" />
+
+            <EditText
+                android:id="@+id/txtv_Producto"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/capturar_producto"
+                android:inputType="textNoSuggestions"
+                app:layout_constraintBottom_toBottomOf="@+id/textView60"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView60"
+                app:layout_constraintTop_toTopOf="@+id/textView60" />
+
+            <EditText
+                android:id="@+id/edtx_CodigoPallet"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Capturar cantidad"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="@+id/textView62"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView60"
+                app:layout_constraintTop_toTopOf="@+id/textView62" />
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/edtx_Caducidad"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:focusedByDefault="false"
+                android:hint="@string/capturar_caducidad"
+                android:inputType="none"
+
+
+                app:layout_constraintBottom_toBottomOf="@+id/textView97"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView60"
+                app:layout_constraintTop_toTopOf="@+id/textView97" />
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/edtx_Lote"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/capturar_lote_producto"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/textView99"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView60"
+                app:layout_constraintTop_toTopOf="@+id/textView99" />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btn_CerrarTarima"
+                style="@style/Estilo_Boton_Reg"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="8dp"
+                android:text="Cerrar Tarima"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView64" />
+
+            <TextView
+                android:id="@+id/txtv_Pallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView64"
+                app:layout_constraintStart_toEndOf="@+id/textView64"
+                app:layout_constraintTop_toTopOf="@+id/textView64" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout6"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView57"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/txtv_Producto"
+                app:layout_constraintTop_toTopOf="@+id/textView57">
+
+                <Spinner
+                    android:id="@+id/spnr_Ajuste"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:backgroundTint="#111111"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textView133"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Mercado:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView57" />
+
+            <include
+                android:visibility="gone"
+                android:id="@+id/vw_spinner"
+                layout="@layout/vw_spinner"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView133"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout6"
+                app:layout_constraintTop_toTopOf="@+id/textView133" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

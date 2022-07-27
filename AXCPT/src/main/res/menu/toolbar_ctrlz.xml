@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/ctrlz"
+        android:icon="@drawable/ic_baseline_undo_24"
+        android:title="Cancelar surtido"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/borrar_datos"
+        android:icon="@drawable/ic_borrar"
+        android:title="vaciar campos"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/InformacionDispositivo"
+        android:icon="@drawable/ic_borrar"
+        android:title="Información de este dispositivo"
+        app:showAsAction="never"
+        />
+</menu>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/Pantalla_principal"
+    android:background="@color/fondoAzul"
+    tools:context=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_old">
+
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/toolbar" />
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="67dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ConstraintDeLosEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Órden de producción"
+                style="@style/EstiloTexto_Blanco_Bold"/>
+
+            <EditText
+                android:id="@+id/edtx_OrdenProduccion"
+                android:singleLine="true"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/estatico_orden_produccion"
+              />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ConstraintLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/orilla_layout"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:padding="10dp"
+                >
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView50"
+                        style="@style/EstiloTexto_Blanco_Bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cod. Material:"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvCodMaterial"
+                        style="@style/EstiloTexto_Blanco_Reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="-"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/textView19"
+                        style="@style/EstiloTexto_Blanco_Bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Producto:"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtv_Producto"
+                        style="@style/EstiloTexto_Blanco_Reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="36dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="-"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textView65"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/textView65"
+                        style="@style/EstiloTexto_Blanco_Bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad total "
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtv_Producto" />
+
+                    <TextView
+                        android:id="@+id/txtv_Cantidad"
+                        style="@style/EstiloTexto_Blanco_Reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="-"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/textView88"
+                        style="@style/EstiloTexto_Blanco_Bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad reg."
+                        />
+                    <TextView
+                        android:id="@+id/txtv_CantidadReg"
+                        style="@style/EstiloTexto_Blanco_Reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="-"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+                    <TextView
+                        android:id="@+id/textView21"
+                        style="@style/EstiloTexto_Blanco_Bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lote"
+                        />
+                    <TextView
+                        android:id="@+id/txtv_Lote"
+                        style="@style/EstiloTexto_Blanco_Reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:text="-"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/textView86"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Máquina"
+                android:textStyle="bold"
+              />
+
+
+            <include
+                android:layout_gravity="center"
+                android:id="@+id/spnr_Maquinas"
+                layout="@layout/vw_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+              />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Num. serie"
+                    android:textStyle="bold"
+                    />
+
+                <EditText
+                    android:id="@+id/edtx_numSerie"
+                    android:layout_marginEnd="10dp"
+                    style="@style/Estilo_EditText_Reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="10dp"
+                    android:hint="@string/escanear_numSerie"
+                    android:singleLine="true"
+                    />
+
+                <ToggleButton
+                    android:visibility="gone"
+                    android:textOff=""
+                    android:textOn=""
+                    android:layout_marginStart="5dp"
+                    android:checked="false"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/toggle_num_serie"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:id="@+id/textView55"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Paquete"
+                android:textStyle="bold"
+               />
+
+            <EditText
+                android:id="@+id/edtx_Empaque"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:hint="@string/escanear_empaque"
+              />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <HorizontalScrollView
+                android:id="@+id/hsv_tabla_embarques"
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView55"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:id="@+id/LL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <de.codecrafters.tableview.SortableTableView
+                        android:id="@+id/tableView"
+                        android:layout_width="380dp"
+
+                        android:layout_height="match_parent"
+                        android:background="@drawable/orilla_layout"
+                        android:baselineAligned="false"
+                        android:divider="@color/grisAXC"
+                        android:dividerHeight="1dp"
+                        android:nestedScrollingEnabled="true"
+                        app:tableView_columnCount="1"
+
+                        app:tableView_headerColor="@color/Transparente" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <include
+                android:id="@+id/customtableview"
+                layout="@layout/customtableview"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Linear1"/>
+
+
+
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            >
+
+            <TextView
+
+                android:id="@+id/textView85"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Cantidad de paquetes:"
+               />
+
+            <TextView
+                android:id="@+id/txtv_CantidadEmpaques"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="-"
+               />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            >
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btn_CancelarTarima"
+                style="@style/Estilo_Boton_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Cancelar\nTarima "
+               />
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btn_CerrarTarima"
+                style="@style/Estilo_Boton_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Cerrar\nTarima"
+               />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

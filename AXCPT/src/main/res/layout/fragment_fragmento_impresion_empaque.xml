@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/negroTrans"
+    tools:context=".Fragmentos.FragmentoImpresionEmpaque">
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="1000dp"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/Pantalla_principal"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        android:background="@drawable/orilla_layout_cuadro_fondo_azul"
+        android:layout_marginTop="27dp"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/cl_header2"
+            android:id="@+id/cl_header"/>
+        <LinearLayout
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="Impresora: "
+                />
+
+            <include layout="@layout/vw_spinner"
+                android:id="@+id/vw_spinner"
+                android:layout_height="30dp"
+                android:layout_width="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cantidad: "
+                style="@style/EstiloTexto_Blanco_Bold"/>
+            <EditText
+                android:id="@+id/edtx_Busqueda"
+                android:singleLine="true"
+                android:layout_marginStart="8dp"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                style="@style/Estilo_EditText_WhiteBackground"/>
+        </LinearLayout>
+        <androidx.legacy.widget.Space
+            android:layout_width="20dp"
+            android:layout_height="16dp"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

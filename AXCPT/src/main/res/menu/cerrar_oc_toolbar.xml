@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/recargar"
+        android:icon="@drawable/ic_recargar"
+        android:title="Recargar página"
+        app:showAsAction="never"
+        />
+
+
+    <item android:id="@+id/InformacionDispositivo"
+        android:icon="@drawable/device_info"
+        android:title="Información de este dispositivo"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/CerrarOC"
+        android:icon="@drawable/cerrar_doc"
+        android:title="Cerrar Orden"
+        app:showAsAction="always"
+        />
+</menu>

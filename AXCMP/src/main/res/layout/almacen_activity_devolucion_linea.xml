@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul"
+    tools:context="com.automatica.AXCMP.c_Almacen.Almacen_Transferencia.Transferencia_Envio.Almacen_Transferencia_SurtirEmpaque">
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="65dp"
+        android:text="Pallet"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/txtv_TipoConsulta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
+        android:text="Número de\nParte"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView59" />
+
+    <TextView
+        android:id="@+id/textView78"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:text="Resultados"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_TipoConsulta" />
+
+    <TextView
+        android:id="@+id/textView79"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="28dp"
+        android:text="Cantidad"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView78" />
+
+    <TextView
+        android:id="@+id/txtv_UnidadMedida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="----"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edtx_Empaque"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout13" />
+
+    <TextView
+        android:id="@+id/textView81"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
+        android:text="Confirma\nPallet"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView79" />
+
+    <EditText
+        android:id="@+id/edtx_Pallet"
+        android:layout_width="215dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="34dp"
+        android:background="@color/blancoLetraStd"
+        android:ems="10"
+        android:hint="@string/escanear_Pallet"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/txtSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <EditText
+        android:id="@+id/edtx_ConfirmaPallet"
+        android:layout_width="215dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="34dp"
+        android:background="@color/blancoLetraStd"
+        android:clickable="true"
+        android:ems="10"
+        android:focusable="true"
+
+        android:hint="@string/estatico_producto"
+        android:inputType="textNo"
+        android:textSize="@dimen/txtSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarHolder" />
+
+    <EditText
+        android:id="@+id/edtx_Empaque"
+        android:layout_width="142dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/blancoLetraStd"
+        android:clickable="true"
+        android:ems="10"
+        android:focusable="true"
+        android:hint="@string/estatico_lote"
+        android:inputType="number"
+        android:textSize="@dimen/txtSize"
+        app:layout_constraintStart_toEndOf="@+id/textView79"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout13" />
+
+    <EditText
+        android:id="@+id/edtx_Cantidad"
+        android:layout_width="215dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="34dp"
+        android:background="@color/blancoLetraStd"
+        android:ems="10"
+        android:hint="@string/volver_escanear_Pallet"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/txtSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Empaque" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:background="@color/blancoLetraStd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Pallet">
+
+        <Spinner
+            android:id="@+id/spn_Motivo"
+            android:layout_width="215dp"
+            android:layout_height="31dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

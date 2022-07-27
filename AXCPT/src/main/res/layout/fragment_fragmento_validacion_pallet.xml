@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@color/negroTrans"
+    tools:context=".c_Embarques.Surtido_Pedidos.Validacion.fragmento_validacion_transporte">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/orilla_layout_fondoazul"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/include2"
+            layout="@layout/cl_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/textView117"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Param1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include2" />
+
+        <EditText
+            android:id="@+id/edtx_Codigo"
+            style="@style/Estilo_EditText_WhiteBackground"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Esceneé código"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@+id/textView117"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView117"
+            app:layout_constraintTop_toTopOf="@+id/textView117" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/orilla_layout"
+            android:orientation="vertical"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView117">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tx_param1"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="Param1:" />
+
+                <TextView
+                    android:id="@+id/tv_codigo"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="Producto:" />
+
+                <TextView
+                    android:id="@+id/tv_Numparte"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="Descripción:" />
+
+                <TextView
+                    android:id="@+id/tv_Producto"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tipoC"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="Empaques:" />
+
+                <TextView
+                    android:id="@+id/tv_empaque"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="Estatus:" />
+
+                <TextView
+                    android:id="@+id/tv_Estatus"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView132"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Comentario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <EditText
+            android:id="@+id/edtx_Comentario"
+            style="@style/Estilo_EditText_WhiteBackground"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/orilla_layout_edtx"
+            android:hint="Ingrese un comentario"
+            android:inputType="textMultiLine"
+            android:overScrollMode="always"
+            android:padding="8dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbarThumbVertical="@drawable/thumb_scrollbar"
+            android:scrollbarTrackVertical="@drawable/track_scrollbar"
+            android:scrollbars="vertical"
+            android:textColorHint="#4a4a4a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView132" />
+
+        <Button
+            android:id="@+id/btn_Aceptar"
+            style="@style/Estilo_Boton_Reg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="Rechazar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_Comentario" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

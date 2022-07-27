@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til3">
+
+        <EditText
+            android:id="@+id/edtx_Ruta"
+            style="@style/Estilo_EditText_WhiteBackground"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:paddingStart="5dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:ems="10"
+            android:hint="Ruta"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Usuario" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til2">
+
+        <EditText
+            android:id="@+id/edtx_DireccionIP"
+            style="@style/Estilo_EditText_WhiteBackground"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:paddingStart="5dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:ems="10"
+            android:hint="Dirección IP"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Usuario" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchNotificaciones">
+
+        <EditText
+            android:id="@+id/edtx_Estacion"
+            style="@style/Estilo_EditText_WhiteBackground"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:ems="10"
+            android:hint="Estación"
+            android:inputType="text"
+            android:paddingStart="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Usuario" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtv_Licencia"
+        style="@style/EstiloTexto_Negro_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:enabled="false"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:text="Licencia"
+        app:layout_constraintEnd_toEndOf="@+id/qr_code"
+        app:layout_constraintStart_toStartOf="@+id/qr_code"
+        app:layout_constraintTop_toBottomOf="@+id/qr_code" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/qr_code"
+        android:layout_width="256px"
+        android:layout_height="256px"
+        android:src="@mipmap/logo_axc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+        android:id="@+id/switchNotificaciones"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="Notificaciones    "
+        android:thumb="@drawable/thumb_switch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_Licencia" />
+    <Button
+
+        android:id="@+id/btn_Registrar"
+        style="@style/Estilo_Boton_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Registrar "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

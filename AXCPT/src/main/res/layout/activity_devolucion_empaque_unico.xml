@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".c_Almacen.Devolucion.DevolucionEmpaqueUnico"
+    android:id="@+id/Pantalla_principal"
+    android:background="@color/fondoAzul">
+
+    <include
+        android:id="@id/toolbar"
+        layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SKUs"
+                style="@style/EstiloTexto_Blanco_Bold"/>
+            <include
+                android:id="@+id/vw_spinner"
+                layout="@layout/vw_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/orilla_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Doc."
+                    style="@style/EstiloTexto_Blanco_Bold"/>
+
+                <TextView
+                    android:id="@+id/tvDocumento"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    style="@style/EstiloTexto_Blanco_Reg"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Partida"
+                    android:layout_marginStart="10dp"
+                    style="@style/EstiloTexto_Blanco_Bold"/>
+
+                <TextView
+                    android:id="@+id/tvPartida"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    style="@style/EstiloTexto_Blanco_Reg"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Artículo"
+                    style="@style/EstiloTexto_Blanco_Bold"/>
+
+                <TextView
+                    android:id="@+id/tvArticulo"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    style="@style/EstiloTexto_Blanco_Reg"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cant. Total"
+                    style="@style/EstiloTexto_Blanco_Bold"/>
+
+                <TextView
+                    android:id="@+id/tvCantTotal"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    style="@style/EstiloTexto_Blanco_Reg"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cant. Reg."
+                    android:layout_marginStart="10dp"
+                    style="@style/EstiloTexto_Blanco_Bold"/>
+
+                <TextView
+                    android:id="@+id/tvCantReg"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    style="@style/EstiloTexto_Blanco_Reg"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UM"
+                    style="@style/EstiloTexto_Blanco_Bold"/>
+
+                <TextView
+                    android:id="@+id/tvUM"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    style="@style/EstiloTexto_Blanco_Reg"/>
+            </LinearLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+            <ScrollView
+                android:scrollbarThumbVertical="@drawable/thumb_scrollbar"
+                android:scrollbarTrackVertical="@drawable/track_scrollbar_transp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="90dp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginTop="10dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Código de empaque"
+                            style="@style/EstiloTexto_Blanco_Bold"/>
+
+                        <EditText
+                            android:id="@+id/edtxEmpaque"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            style="@style/Estilo_EditText_Reg"
+                            android:singleLine="true"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginTop="10dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Número de serie"
+                            style="@style/EstiloTexto_Blanco_Bold"
+                            />
+
+                        <EditText
+                            android:id="@+id/edtxNumSerie"
+                            android:layout_width="100dp"
+                            android:layout_height="30dp"
+                            style="@style/Estilo_EditText_Reg"
+                            android:layout_weight="1"
+                            android:singleLine="true"
+                            android:enabled="true"
+                            android:focusable="true"
+                            />
+
+                        <include
+                            android:layout_gravity="center"
+                            android:id="@+id/spinnerSerial"
+                            layout="@layout/vw_spinner"
+                            android:layout_width="180dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="10dp"
+                            android:visibility="gone" />
+
+                        <ToggleButton
+                            android:id="@+id/toggleNumSerie"
+                            android:layout_gravity="center"
+                            android:textOff=""
+                            android:textOn=""
+                            android:checked="false"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:enabled="false"
+                            android:background="@drawable/toggle_num_serie"/>
+
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginTop="10dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        >
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="SKU"
+                            style="@style/EstiloTexto_Blanco_Bold"/>
+
+                        <EditText
+                            android:id="@+id/edtxSKU"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            style="@style/Estilo_EditText_Reg"
+                            android:singleLine="true"
+                            android:enabled="false"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Comentarios:"
+                        android:paddingLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        style="@style/EstiloTexto_Blanco_Bold"/>
+
+                    <EditText
+                        android:id="@+id/edtxComentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        style="@style/Estilo_EditText_Reg"
+                        android:singleLine="false"
+                        />
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginTop="10dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        >
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Cantidad empaque"
+                            style="@style/EstiloTexto_Blanco_Bold"/>
+
+                        <EditText
+                            android:id="@+id/edtxCantidad"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            style="@style/Estilo_EditText_Reg"
+                            android:singleLine="true"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginTop="10dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Confirmar empaque"
+                            style="@style/EstiloTexto_Blanco_Bold"/>
+
+                        <EditText
+                            android:id="@+id/edtxConfirmar"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            style="@style/Estilo_EditText_Reg"
+                            android:singleLine="true"
+                            android:enabled="true"
+                            />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:visibility="gone"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Empaques por Pallet"
+                            style="@style/EstiloTexto_Blanco_Bold"/>
+
+                        <EditText
+                            android:id="@+id/edtxEmpxpallet"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            style="@style/Estilo_EditText_Reg"
+                            android:singleLine="true"
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_marginTop="30dp"
+                        android:paddingLeft="20dp"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Empaques registrados"
+                            style="@style/EstiloTexto_Blanco_Bold"/>
+
+                        <TextView
+                            android:id="@+id/tvEmpReg"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="-"
+                            style="@style/EstiloTexto_Blanco_Reg"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:text="Pallet"
+                            style="@style/EstiloTexto_Blanco_Bold"/>
+
+                        <TextView
+                            android:id="@+id/tvPallet"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            style="@style/EstiloTexto_Blanco_Reg_Consulta"/>
+                    </LinearLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

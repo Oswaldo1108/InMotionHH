@@ -1,0 +1,117 @@
+package com.automatica.AXCMP.c_Almacen.Almacen_Devolucion_Proveedor;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.automatica.AXCMP.Principal.adaptadorTablaMenuPrincipal;
+import com.automatica.AXCMP.Principal.constructorTablaMenuPrincipal;
+import com.automatica.AXCMP.R;
+import com.automatica.AXCMP.Servicios.cambiaColorStatusBar;
+import com.automatica.AXCMP.Servicios.sobreDispositivo;
+
+import java.util.ArrayList;
+
+public class Devolucion_Seleccion_Tipo_Devolucion extends AppCompatActivity
+{
+    ListView ListaAlmacen;
+    Context contexto = this;
+    View vista;
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.principal_activity_menu);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        this.getSupportActionBar().setTitle("Tipo de devolución");
+
+
+
+
+        new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Devolucion_Seleccion_Tipo_Devolucion.this);
+
+        ArrayList<constructorTablaMenuPrincipal> lista = new ArrayList<>();
+
+
+        int iconoAlmacen1 = R.drawable.icono_mov_alm_v5_envio_pallet;
+        int iconoAlmacen2 = R.drawable.icono_mov_alm_v5_envio_emp;
+
+        constructorTablaMenuPrincipal Colocar = new constructorTablaMenuPrincipal(iconoAlmacen1,"Pallet","Descripción Pallet");
+        constructorTablaMenuPrincipal Reubicar = new constructorTablaMenuPrincipal(iconoAlmacen2,"Empaque","Descripción Pallet");
+
+        lista.add(Colocar);
+        lista.add(Reubicar);
+        final Bundle b = getIntent().getExtras();
+
+       // String Transferencia = b.getString("Transferencia");
+
+        ListaAlmacen = (ListView) findViewById(R.id.lstv_MenuPrincipal);
+        ListaAlmacen.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                Intent intent = null;
+                switch (position)
+                {
+                    case 0:
+                        intent = new Intent(Devolucion_Seleccion_Tipo_Devolucion.this, Devolucion_Pallet.class);
+
+                        break;
+                    case 1:
+                        intent = new Intent(Devolucion_Seleccion_Tipo_Devolucion.this, Devolucion_Empaque.class);
+                        break;
+
+                }
+
+                intent.putExtras(b);
+                if(intent!=null)startActivity(intent);
+            }
+        });
+
+        adaptadorTablaMenuPrincipal adaptador = new adaptadorTablaMenuPrincipal(Devolucion_Seleccion_Tipo_Devolucion.this, R.layout.menu_item, lista);
+        ListaAlmacen.setAdapter(adaptador);
+
+
+
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        try {
+            getMenuInflater().inflate(R.menu.menu_principal_toolbar, menu);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText( this, "error al llenar toolbar", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if((id == R.id.InformacionDispositivo))
+        {
+            new sobreDispositivo(contexto,vista);
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+}

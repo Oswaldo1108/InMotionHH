@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".c_Almacen.Cuarentena.CuarentenaEmpaque"
+    android:id="@+id/Pantalla_principal"
+    android:background="@color/fondoAzul">
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:text="Código de empaque"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <EditText
+        android:id="@+id/edtxCodigoEmpaque"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Capturar código"
+        android:singleLine="true"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tv1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv1"
+        app:layout_constraintTop_toTopOf="@+id/tv1" />
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/orilla_layout"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="Artículo"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvArticulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="-"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="SKU"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvSKU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="-"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="Cantidad"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvCantidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="-"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="Pallet"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvPallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/EstiloTexto_Blanco_Reg_Consulta"
+                android:text="-"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <TextView
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="Estatus"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/tvEstatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:text="-"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv2"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:text="Posición Cuarentena"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll1" />
+
+    <EditText
+        android:id="@+id/edtxConfirmaEmpaque"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Código Posición"
+        android:singleLine="true"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tv2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv2"
+        app:layout_constraintTop_toTopOf="@+id/tv2" />
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

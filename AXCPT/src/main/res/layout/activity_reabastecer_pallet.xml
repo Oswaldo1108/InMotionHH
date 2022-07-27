@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".c_Almacen.Almacen.ReabastecerPallet"
+    android:background="@color/fondoAzul"
+    android:id="@+id/Pantalla_principal">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:focusedByDefault="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/textView871"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Pallet"
+               />
+
+            <EditText
+                android:id="@+id/edtx_Empaque"
+
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/escanear_Pallet"
+                android:inputType="textPersonName"
+               />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/orilla_layout"
+          >
+
+            <TextView
+                android:id="@+id/textView38"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Articulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/textView46"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Remisión"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+            <TextView
+                android:id="@+id/textView82"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="UM"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView92" />
+
+            <TextView
+                android:id="@+id/textView66"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Cantidad"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
+            <TextView
+                android:id="@+id/textView92"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Empaques"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView66" />
+
+            <TextView
+                android:id="@+id/txtv_Pallet_Producto"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toEndOf="@+id/textView38"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/txtv_Pallet_Lote"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toEndOf="@+id/textView38"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Pallet_Producto" />
+
+            <TextView
+                android:id="@+id/txtv_Estatus"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toEndOf="@+id/textView38"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Pallet_Cantidad_Empaques" />
+
+            <TextView
+                android:id="@+id/txtv_Pallet_Cantidad"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toEndOf="@+id/textView38"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Pallet_Lote" />
+
+            <TextView
+                android:id="@+id/txtv_Pallet_Cantidad_Empaques"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toEndOf="@+id/textView38"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Pallet_Cantidad" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/textView87"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Posición"
+            />
+
+        <EditText
+            android:id="@+id/edtx_ConfirmarEmpaque"
+
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="Posición a Reabastecer"
+            android:inputType="textPersonName"
+            />
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

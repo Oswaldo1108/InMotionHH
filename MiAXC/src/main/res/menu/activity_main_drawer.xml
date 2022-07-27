@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/resumen"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/empaque"
+            android:title="Consultas" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/incidencias"
+            android:title="Visor de incidencias" />
+        <item
+            android:id="@+id/Menu_Reimpresion_Etiquetas"
+            android:icon="@drawable/ic_print"
+            android:title="Reimpresión de etiquetas" />
+
+        <item
+            android:id="@+id/Kardex"
+            android:icon="@drawable/resumen"
+            android:title="Referencia" />
+
+        <item
+            android:id="@+id/Referencia"
+            android:icon="@drawable/resumen"
+            android:title="Kardex" />
+
+        <item
+            android:id="@+id/MapaAlmacen"
+            android:icon="@drawable/resumen"
+            android:title="Mapa del almacén" />
+
+        <!--<item-->
+        <!--android:id="@+id/nav_manage"-->
+        <!--android:icon="@drawable/ic_menu_manage"-->
+        <!--android:title="Tools" />-->
+    </group>
+
+
+
+    <item android:title="Documentos">
+        <menu>
+            <item
+                android:id="@+id/lib_Embarque"
+                android:icon="@drawable/resumen"
+                android:title="Liberación de embarques" />
+            <item
+                android:id="@+id/lib_Transfer"
+                android:icon="@drawable/resumen"
+                android:title="Liberación de Transferencia" />
+            <item
+                android:id="@+id/Cons_Eb"
+                android:icon="@drawable/resumen"
+                android:title="Ordenes de recepción" />
+        </menu>
+    </item>
+
+
+
+
+
+
+    <item android:title="Otros">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/configuracion"
+                android:title="Configuración" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_exit"
+                android:title="Salir" />
+        </menu>
+    </item>
+
+</menu>

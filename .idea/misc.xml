@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/act_reubicacion_por_cantidad.xml" value="0.264" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_cancelacion_embarque.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_cuarentena_contenedor.xml" value="0.3020833333333333" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_embarques__seleccion__orden.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_inventarios__confirmar_empaque_granel.xml" value="0.259375" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recepcion_empaques.xml" value="0.4" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recepcion_refacciones.xml" value="0.259375" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_reempaque__reempaque.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/almacen_armado_pallet_liquidos.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/content_cancelar_tarima.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/fragment_cancelar_tarima.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inventarios_activity_por_producto.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inventarios_activity_por_producto_multi.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/principal_activity_menu.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_empaque_armado.xml" value="0.2609375" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_empaque_ne.xml" value="0.259375" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_empaque_ne_armado.xml" value="0.259375" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_piezas_armado.xml" value="0.259375" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/toolbar.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/traspaso_surtido_pallet.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/menu/toolbar_borrar_datos.xml" value="0.3875" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_consulta_empaques_por_pallet.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_consulta_ordenes.xml" value="0.264" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_embarques_reempaque.xml" value="0.3734375" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_inventarios__menu.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_menu_old.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_primeray_ultima.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_recepcion_contenedor.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_recepcion_empaques.xml" value="0.3734375" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/activity_recepcion_seleccionar.xml" value="0.4" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/cl_header.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/content_validacion.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/embarques_activity_validacion_pallet_det.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/fragment_fragmento__menu.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/fragment_fragmento_consulta.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/fragment_fragmento_validar_empaques.xml" value="0.4" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/fragment_validacion.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/layout/principal_activity_menu.xml" value="0.15" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/menu/main_toolbar.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/menu/menu_principal_toolbar.xml" value="0.25" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/menu/menu_principal_toolbar_notificaciones.xml" value="0.15" />
+        <entry key="..\:/Users/Juan Ramos/StudioProjects/AXCHHVDE/AXCPT/src/main/res/menu/toolbar_borrar_datos.xml" value="0.25" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/drawable/ic__1cons_pallet.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/drawable/ic_empaque.xml" value="0.22205128205128205" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/drawable/ic_pallet_etiquetado.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/drawable/ic_pallet_no_etiquetado.xml" value="0.22205128205128205" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/drawable/ic_reubicar_contenedor.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/drawable/ic_reubicar_empaque.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/drawable/ic_reubicar_pallet.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_almacen__ajustes__ajuste_pallet.xml" value="0.26145833333333335" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_colocar.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_cuarentena_contenedor.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_cuarentena_empaque.xml" value="0.25" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_embarques__seleccion__orden.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_embarques_reempaque.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_inventarios__baja_empaque_n_e.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_inventarios__confirmar_empaque_granel.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_menu.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_primeray_ultima.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recepcion_contenedor.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recepcion_dap.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recepcion_empaques.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recepcion_pallet_ne.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recepcion_seleccionar.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recepcion_seleccionar_partidas.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recuperar_contenedor.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_recuperar_empaque.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_reempaque__reempaque.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_reubicar.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_reubicar_contenedor.xml" value="0.22" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_reubicar_empaque.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/activity_surtido_pallet_mult_prod.xml" value="0.25" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/almacen_activity_colocar.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/axc_action_footbar.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/content_cancelar_tarima.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/content_insert_info.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/fragment_cancelar_tarima.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/fragment_fragmento__menu.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/fragment_registra_datos.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inv_act_reg_pallet_nuevo.xml" value="0.25" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inv_act_reg_pallet_nuevo_ne.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inv_act_valida_pallet.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inventarios_activity_confirmar_empaque.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inventarios_activity_confirmar_empaque_ne.xml" value="0.3828125" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inventarios_activity_inventiario_ciclico_por_posicion_det.xml" value="0.25" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/inventarios_activity_por_producto.xml" value="0.33" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/principal_activity_menu.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/recepcion_activity_registro_seleccion_oc.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/recepcion_activity_registrooc.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_seleccion_partida.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_empaque_armado.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_empaque_ne.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_empaque_ne_armado.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_picking_ne_armado.xml" value="0.371875" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/layout/surtido_surtido_piezas_armado.xml" value="0.25" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/menu/cerrar_oc_toolbar_cancelar.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/menu/ciclicos_cancelar_pallet.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/menu/ciclicos_recarga_toolbar.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/menu/menu_inventarios_fisicototal.xml" value="0.209375" />
+        <entry key="..\:/Users/Juan/AndroidStudioProjects/AXCHHCiesa/AXCPT/src/main/res/menu/popup_etiquetados.xml" value="0.209375" />
+      </map>
+    </option>
+  </component>
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

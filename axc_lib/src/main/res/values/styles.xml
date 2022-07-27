@@ -1,0 +1,158 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DialogWhenLarge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name="ButtonView" parent="@style/AlertDialog">
+        <!-- text color for the button -->
+        <!-- Background tint for the button -->
+        <item name="android:background">@drawable/boton_dialog_reg</item>
+        <item name="paddingEnd">2dp</item>
+        <!--<item name="backgroundTint">@color/negroTrans</item>-->
+    </style>
+    <style name="Estilo_Boton_AXC_rojo" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroN</item>
+        <item name="android:background">@drawable/orilla_boton_rojo</item>
+        <item name="android:textColorPrimary">@color/negroN</item>
+        <item name="android:height">74dp</item>
+        <item name="android:width">155dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroN</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Base application theme. -->
+
+    <style name="AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textColorPrimary">#595959</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">#000000</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+
+    <style name="EstiloTexto_Blanco_Bold" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:textColorPrimary">@color/blancoLetraStd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/blancoLetraStd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EstiloTexto_Blanco_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:textColorPrimary">@color/blancoLetraStd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/blancoLetraStd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+    </style>
+
+    <style name="EstiloTexto_Negro_Bold" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroLetrastd</item>
+        <item name="android:textColorPrimary">@color/negroLetrastd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EstiloTexto_Negro_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroLetrastd</item>
+        <item name="android:textColorPrimary">@color/negroLetrastd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+    </style>
+
+    <style name="EstiloTexto_Sugerencia_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/VerdeSemaforo</item>
+        <item name="android:textColorPrimary">@color/VerdeSemaforo</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/VerdeSemaforo</item>
+        <item name="android:textSize">@dimen/txtSizeBig</item>
+    </style>
+
+    <style name="Estilo_EditText_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroLetrastd</item>
+        <item name="android:background">@drawable/orilla_layout_edtx</item>
+        <item name="android:textColorPrimary">@color/negroLetrastd</item>
+        <item name="android:height">28dp</item>
+        <item name="android:width">170dp</item>
+        <item name="android:paddingLeft">3dp</item>
+
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+    </style>
+
+    <style name="Estilo_EditText_WhiteBackground" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroLetrastd</item>
+        <item name="android:background">@drawable/orilla_layout_edtx</item>
+        <item name="android:textColorPrimary">@color/negroLetrastd</item>
+        <item name="android:height">28dp</item>
+        <item name="android:width">170dp</item>
+        <item name="android:paddingLeft">3dp</item>
+
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+    </style>
+
+    <style name="Estilo_Boton_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:background">@drawable/boton_redondo</item>
+        <item name="android:textColorPrimary">@color/blancoLetraStd</item>
+        <item name="android:height">74dp</item>
+        <item name="android:width">155dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+    </style>
+
+
+    <style name="Estilo_Boton_MiAXC" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/AzulStd</item>
+        <item name="android:background">@color/Transparente</item>
+        <item name="android:textColorPrimary">@color/AzulStd</item>
+        <item name="android:height">74dp</item>
+        <item name="android:width">155dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="Estilo_Boton_Rojo" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/RojoSemaforo</item>
+        <item name="android:background">@drawable/orilla_roja_layout</item>
+        <item name="android:textColorPrimary">@color/RojoSemaforo</item>
+        <item name="android:height">74dp</item>
+        <item name="android:width">155dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtSize</item>
+    </style>
+
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+
+    <style name="ToolbarTitleTheme" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:gravity">center_horizontal|center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

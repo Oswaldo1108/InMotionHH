@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/palletne"
+        android:title="Validación de calidad"
+        android:icon="@drawable/icono_rec_v5_validacion_qa"
+        app:showAsAction="always"/>
+    <item android:id="@+id/etiquetado"
+        android:title="Validación de ingreso"
+        android:icon="@drawable/icono_surt_v5_validacion"
+        app:showAsAction="always"/>
+
+</menu>

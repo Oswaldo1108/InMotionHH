@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.automatica.AXCMP"
+    android:screenOrientation="portrait">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:requestLegacyExternalStorage="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".MiAXC.preference_container"
+            android:label="@string/title_activity_preference_container"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+        <activity android:name=".Principal.Intro_Activity"
+                android:screenOrientation="portrait">
+
+        </activity>
+
+
+
+        <activity android:name=".Principal.Intro_Activity_LibVLC"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+
+        </activity>
+
+
+
+
+    <activity
+            android:name=".MiAXC.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.automatica.miaxc.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".MiAXC.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Principal.Incidencia"
+            android:label="@string/title_activity_picture"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Principal.Login"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+
+            <!-- android:theme="@style/SplashTheme"> -->
+
+        </activity>
+
+        <activity
+            android:name=".Servicios.preferencias"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Principal.Inicio_Menu_RecyclerView" />
+        <activity android:name=".Principal.Preferencias_AXC" />
+        <activity android:name=".Principal.Intro_Activity_V2"/>
+        <activity android:name=".MiAXC.ConsultaPosiciones.act_Mapa_Almacen" />
+        <activity android:name=".MiAXC.ConsultaTransacciones.act_MiAXC_ConsultaTransacciones"  />
+        <activity android:name=".MiAXC.Kardex.act_MiAXC_Kardex"
+                  android:windowSoftInputMode="stateHidden|adjustResize"
+                  android:screenOrientation="landscape"/>
+        <activity android:name=".Maulec.MainActivity_MLC"  />
+        <activity android:name=".ImpresionEtiquetas.act_MiAXC_Impresion_Etiquetas"   />
+        <activity android:name=".Servicios.CaptureClass" />
+        <activity android:name=".Liberaciones.LiberacionEmbarque.act_MiAXC_Liberacion_Embarque" android:windowSoftInputMode="adjustPan|adjustResize" android:screenOrientation="landscape"/>
+        <activity android:name=".Liberaciones.act_MiAXC_Consolidacion_Pedidos" android:screenOrientation="landscape" />
+        <activity android:name=".Liberaciones.LiberacionTransfer.act_MiAXC_Liberacion_Transferencia"  android:screenOrientation="landscape"/>
+        <activity android:name=".Liberaciones.LiberacionOrdenCompra.act_MiAXC_Liberacion_OrdenCompra" android:screenOrientation="landscape"  />
+        <activity android:name=".Coflex.MainActivity_CFLX" />
+        <activity android:name=".MiAXC.ConsultaReferencia.act_MiAXC_ConsultaReferencia" />
+        <activity android:name=".Coflex.act_Mapa_Almacen_CFLX" android:screenOrientation="portrait"/>
+        <activity android:name=".Coflex.Liberaciones_CFLX.act_MiAXC_Liberacion_Orden_Surtido" android:screenOrientation="landscape" />
+        <activity android:name=".Coflex.Liberaciones_CFLX.LiberacionOC.act_MiAXC_Liberacion_OrdenCompra_cflx" android:screenOrientation="landscape" android:windowSoftInputMode="adjustResize"
+
+            />
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+    </application>
+
+</manifest>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/txtv_TipoDetalle5"
+        style="@style/EstiloTexto_Negro_Bold_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Hora de\ninicio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_TipoDetalle4" />
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/cl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout15"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtv_Fecha2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_Fecha2">
+
+        <Spinner
+            android:id="@+id/spnr_OrdenesCompra"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/txtv_Fecha2"
+        style="@style/EstiloTexto_Negro_Bold_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Máquina"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/include2" />
+
+    <TextView
+        android:id="@+id/txtv_TipoDetalle"
+        style="@style/EstiloTexto_Negro_Bold_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Fecha\nelaboración"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_Fecha2" />
+
+    <TextView
+        android:id="@+id/txtv_TipoDetalle2"
+        style="@style/EstiloTexto_Negro_Bold_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Fecha de\nterminación"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_TipoDetalle5" />
+
+    <TextView
+        android:id="@+id/txtv_TipoDetalle3"
+        style="@style/EstiloTexto_Negro_Bold_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Hora de\nterminación"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_TipoDetalle2" />
+
+    <TextView
+        android:id="@+id/txtv_TipoDetalle4"
+        style="@style/EstiloTexto_Negro_Bold_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Fecha de\ninicio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_TipoDetalle" />
+
+    <EditText
+        android:id="@+id/edtx_FechaActual"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        android:inputType="none"
+
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_TipoDetalle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtv_TipoDetalle2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_TipoDetalle" />
+
+    <EditText
+        android:id="@+id/edtx_Maquina"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+
+
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_Fecha2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtv_TipoDetalle2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_Fecha2" />
+
+    <EditText
+        android:id="@+id/edtx_FechaTermina"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_TipoDetalle2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtv_TipoDetalle2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_TipoDetalle2" />
+
+    <EditText
+        android:id="@+id/edtx_HoraTermina"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_TipoDetalle3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtv_TipoDetalle2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_TipoDetalle3" />
+
+    <EditText
+        android:id="@+id/edtx_FechaInicio"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_TipoDetalle4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtv_TipoDetalle2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_TipoDetalle4" />
+
+    <EditText
+        android:id="@+id/edtx_HoraInicio"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:focusedByDefault="false"
+
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_TipoDetalle5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txtv_TipoDetalle2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_TipoDetalle5" />
+
+    <Button
+        android:id="@+id/btn_RegistreCierre"
+        style="@style/Estilo_Boton_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="Registrar cierre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_TipoDetalle3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/palletne"
+        android:title="Pallet No Etiquetado"
+        android:icon="@drawable/ic_pallet_no_etiquetado"
+        app:showAsAction="always"/>
+    <item android:id="@+id/etiquetado"
+        android:title="Empaque"
+        android:icon="@drawable/ic_empaque"
+        app:showAsAction="always"/>
+    <item android:id="@+id/PyU"
+        android:title="Primera y Última"
+        android:icon="@drawable/ic_primera_ultima"
+        app:showAsAction="always"/>
+    <item android:id="@+id/registrorefacciones"
+        android:title="Multiples SKU"
+        android:icon="@drawable/ic_contenedor"
+        app:showAsAction="always"/>
+    <item android:id="@+id/DAP"
+        android:title="Directo a posición"
+        android:icon="@drawable/ic_directo_posici_n"
+        app:showAsAction="always"/>
+    <item android:id="@+id/contenedor"
+        android:title="Contenedor"
+        android:icon="@drawable/ic_contenedor"
+        app:showAsAction="always"/>
+
+</menu>

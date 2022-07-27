@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/Pantalla_principal"
+    android:background="@color/fondoAzul"
+    tools:context=".c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_BajaEmpaqueSCH">
+    <EditText
+        android:id="@+id/edtx_CodigoPallet"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        style="@style/Estilo_EditText_Reg"
+        android:ems="10"
+        android:hint="Capturar pallet"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView70"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout12" />
+
+    <EditText
+        android:id="@+id/edtx_ConfirmacionPallet"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Capturar pallet"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/textView104"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView76"
+        app:layout_constraintTop_toTopOf="@+id/textView104" />
+
+    <EditText
+        android:id="@+id/edtx_CantEmpaque"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Cantidad de empaques"
+        android:paddingStart="3dp"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/textView76"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView76"
+        app:layout_constraintTop_toTopOf="@+id/textView76" />
+
+    <TextView
+        android:id="@+id/textView70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Código \nPallet"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView73" />
+
+    <TextView
+        android:id="@+id/textView104"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="70dp"
+        android:text="Confirmar \nPallet"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView76"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Cant. De\nPaquetes"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView104"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView73"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Ajuste"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_tabla_embarques"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView109"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_CodigoPallet">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <de.codecrafters.tableview.SortableTableView
+                android:id="@+id/tableView_OC"
+                android:layout_width="1500dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/orilla_layout"
+                android:divider="@color/blancoLetraStd"
+                android:dividerHeight="1dip"
+                android:nestedScrollingEnabled="true"
+                app:tableView_columnCount="10"
+                app:tableView_headerColor="@color/Transparente"
+
+                />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout12"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView70"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <Spinner
+            android:id="@+id/spnr_Ajuste"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:backgroundTint="#111111"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/textView108"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Lote"
+        app:layout_constraintBottom_toTopOf="@+id/textView76"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/edtx_Lote"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Seleccione un campo"
+        android:enabled="false"
+        android:paddingStart="3dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView108"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView108"
+        app:layout_constraintTop_toTopOf="@+id/textView108" />
+
+    <TextView
+        android:id="@+id/textView109"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Articulo"
+        app:layout_constraintBottom_toTopOf="@+id/textView108"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edtx_numparte"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="3dp"
+        android:paddingLeft="3dp"
+        android:enabled="false"
+        android:layout_marginEnd="8dp"
+        android:hint="Seleccione un campo"
+        app:layout_constraintBottom_toBottomOf="@+id/textView109"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView109"
+        app:layout_constraintTop_toTopOf="@+id/textView109" />
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

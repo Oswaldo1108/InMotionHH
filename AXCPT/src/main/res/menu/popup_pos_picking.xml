@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/Posicion"
+        android:title="Empaque"
+        app:itemTextAppearance="?android:attr/textAppearanceLarge"
+        android:icon="@drawable/ic_empaque"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/Picking"
+        android:title="Directo a piso"
+        app:itemTextAppearance="?android:attr/textAppearanceLarge"
+        android:icon="@drawable/ic_directo_posici_n"
+        app:showAsAction="always"/>
+
+
+</menu>

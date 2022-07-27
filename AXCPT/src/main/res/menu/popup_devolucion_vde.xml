@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/empaque"
+        android:title="Empaque"
+        android:icon="@drawable/ic_empaque"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/empaqueunico"
+        android:title="Empaque único"
+        android:icon="@drawable/ic_contenedor"
+        app:showAsAction="always"/>
+    <item android:id="@+id/palletne"
+        android:title="Pallet No Etiquetado"
+        android:icon="@drawable/ic_pallet_no_etiquetado"
+        app:showAsAction="always"/>
+
+</menu>

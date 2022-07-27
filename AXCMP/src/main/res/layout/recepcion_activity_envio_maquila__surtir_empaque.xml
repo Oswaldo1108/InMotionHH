@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul"
+    tools:context=".c_Almacen.Envios_Maquila.Almacen_Envio_Maquila_Envio_Empaque">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout5"
+        android:layout_width="345dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/blancoLetraStd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+
+            android:id="@+id/txtv_Partida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="60dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="8dp"
+            android:inputType="textMultiLine"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView111"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_OC" />
+
+        <TextView
+
+            android:id="@+id/txtv_Producto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="1dp"
+            android:inputType="textMultiLine"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Partida" />
+
+        <TextView
+
+            android:id="@+id/txtv_Cantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="4dp"
+            android:inputType="textMultiLine"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView20"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Producto" />
+
+        <TextView
+
+            android:id="@+id/txtv_OC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="93dp"
+            android:layout_marginLeft="93dp"
+            android:layout_marginTop="10dp"
+            android:inputType="textMultiLine"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView14"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+
+            android:layout_marginTop="8dp"
+            android:text="Partida"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+
+            android:layout_marginTop="3dp"
+            android:text="Producto"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView111" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+
+            android:layout_marginTop="32dp"
+            android:text="Cantidad"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView111" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:text="OC"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout6"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/blancoLetraStd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Cantidad">
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
+
+            android:text="LoteCantidadRegistrada"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
+
+            android:text="Contenido"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView39" />
+
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="8dp"
+
+            android:text="Producto"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11111" />
+
+        <TextView
+
+            android:id="@+id/txtv_Prod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginLeft="43dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView39"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_caducidad" />
+
+        <TextView
+
+            android:id="@+id/txtv_CantidadTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Prod" />
+
+        <TextView
+
+            android:id="@+id/txtv_Lote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="81dp"
+            android:layout_marginLeft="81dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_CantidadTotal" />
+
+        <TextView
+
+            android:id="@+id/txtv_caducidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="31dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="10dp"
+            android:inputType="textMultiLine"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toEndOf="@+id/textView11111"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView11111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+
+            android:layout_marginTop="10dp"
+            android:text="Caducidad"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="168dp"
+        android:text="Empaque"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/textView81"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:text="Confirma\nPaquete"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout6" />
+
+    <EditText
+        android:id="@+id/edtx_Cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/blancoLetraStd"
+        android:ems="10"
+        android:hint="@string/escanear_empaque"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/txtSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <EditText
+        android:id="@+id/edtx_ConfirmaEmpaque"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/blancoLetraStd"
+        android:ems="10"
+        android:hint="@string/volver_escanear_empaque"
+        android:inputType="textPersonName"
+        android:textSize="@dimen/txtSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout6" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_controles"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+    <Button
+        android:id="@+id/btn_LiberarEmbarque"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Eliminar"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_LiberarEmbarque3"
+        app:layout_constraintEnd_toEndOf="@+id/imgb_Buscar"
+        app:layout_constraintStart_toEndOf="@+id/btn_LiberarEmbarque3"
+        app:layout_constraintTop_toTopOf="@+id/btn_LiberarEmbarque3" />
+
+    <Button
+        android:id="@+id/btn_LiberarEmbarque2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="LIBERAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_LiberarEmbarque3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_LiberarEmbarque4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Agregar Artículo"
+        app:layout_constraintEnd_toEndOf="@+id/vw_Spinner_Lote"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Embarque3"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <Button
+        android:id="@+id/btn_LiberarEmbarque3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_LiberarEmbarque2"
+        app:layout_constraintEnd_toStartOf="@+id/btn_LiberarEmbarque"
+        app:layout_constraintStart_toEndOf="@+id/btn_LiberarEmbarque2"
+        app:layout_constraintTop_toTopOf="@+id/btn_LiberarEmbarque2" />
+
+    <EditText
+        android:id="@+id/edtx_Embarque3"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+
+        android:ems="10"
+        android:focusable="true"
+        android:hint="Cantidad"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/vw_Spinner_Lote"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/vw_Spinner_Lote"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+    ñ<EditText
+        android:id="@+id/edtx_Referencia"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="top|start"
+        android:hint="Toque para ingresar referencia."
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/vw_Spinner_Almacen2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/vw_Spinner_Almacen2"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <EditText
+        android:id="@+id/edtx_Embarque"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:ems="10"
+        android:focusable="true"
+        android:hint="Toque para ingresar"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgb_Buscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/Transparente"
+        android:scaleType="centerInside"
+        android:src="@drawable/blanco_oc"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/textView122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imgb_Buscar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/Transparente"
+        android:scaleType="centerInside"
+        android:src="@drawable/lupa"
+        app:layout_constraintBottom_toBottomOf="@+id/textView124"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edtx_Embarque"
+        app:layout_constraintTop_toTopOf="@+id/edtx_Embarque"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgb_Buscar"
+        app:layout_constraintEnd_toEndOf="@+id/imgb_Buscar"
+        app:layout_constraintStart_toStartOf="@+id/imgb_Buscar"
+        app:layout_constraintTop_toBottomOf="@+id/imgb_Buscar"
+        app:layout_constraintVertical_bias="0.73" />
+
+    <TextView
+        android:id="@+id/textView122"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="4dp"
+        android:text="Ordenes de compra"
+        android:textSize="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView124"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transferencia"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/edtx_Embarque"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Embarque"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Embarque" />
+
+    <TextView
+        android:id="@+id/textView21"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Referencia"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/edtx_Referencia"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Referencia"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Referencia" />
+
+    <TextView
+        android:id="@+id/textView22"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Producto"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/vw_Spinner_Producto"
+        app:layout_constraintStart_toStartOf="@+id/vw_Spinner_Producto"
+        app:layout_constraintTop_toBottomOf="@+id/vw_Spinner_Producto" />
+
+    <TextView
+        android:id="@+id/textView23"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lote"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/vw_Spinner_Lote"
+        app:layout_constraintStart_toStartOf="@+id/vw_Spinner_Lote"
+        app:layout_constraintTop_toBottomOf="@+id/vw_Spinner_Lote" />
+
+    <TextView
+        android:id="@+id/textView24"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/edtx_Embarque3"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Embarque3"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Embarque3" />
+
+    <TextView
+        android:id="@+id/textView17"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Origen"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/vw_Spinner_Almacen"
+        app:layout_constraintStart_toStartOf="@+id/vw_Spinner_Almacen"
+        app:layout_constraintTop_toBottomOf="@+id/vw_Spinner_Almacen" />
+
+    <TextView
+        android:id="@+id/textView20"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destino"
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/vw_Spinner_Almacen2"
+        app:layout_constraintStart_toStartOf="@+id/vw_Spinner_Almacen2"
+        app:layout_constraintTop_toBottomOf="@+id/vw_Spinner_Almacen2" />
+
+    <View
+        android:id="@+id/view9"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/fondoAzul"
+        app:layout_constraintBottom_toTopOf="@+id/btn_LiberarEmbarque2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </View>
+
+    <View
+        android:id="@+id/view10"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/fondoAzul"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21">
+
+    </View>
+
+    <include
+        android:id="@+id/vw_Spinner_Almacen"
+        layout="@layout/vw_spinner"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/edtx_Embarque"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Embarque"
+        app:layout_constraintTop_toBottomOf="@+id/textView124" />
+
+    <include
+        android:id="@+id/vw_Spinner_Lote"
+        layout="@layout/vw_spinner"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/edtx_Embarque"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Embarque"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <include
+        android:id="@+id/vw_Spinner_Producto"
+        layout="@layout/vw_spinner"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/edtx_Embarque"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtx_Embarque"
+        app:layout_constraintTop_toBottomOf="@+id/view10" />
+
+    <include
+        android:id="@+id/vw_Spinner_Almacen2"
+        layout="@layout/vw_spinner"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/vw_Spinner_Almacen"
+        app:layout_constraintStart_toStartOf="@+id/vw_Spinner_Almacen"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

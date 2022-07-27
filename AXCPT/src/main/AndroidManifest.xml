@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.automatica.AXCPT"
+    android:label="  AXC"
+    android:windowSoftInputMode="stateHidden">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".c_Produccion.Surtido.ValidarOrdenSurtidoProd"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Envio.SurtidoTraspasoPiezas"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Envio.SurtidoTraspasoPalletCompleto"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Envio.SurtidoTraspasoEmpaqueNE"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Envio.SeleccionarOrdenesTraspasoEnvio"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Envio.SurtidoTraspasoEmpaque"
+            android:exported="false" />
+
+        <activity
+            android:name=".c_Traspasos.Envio.SeleccionPartidaTraspasoEnvio"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Almacen.ReabastecerPallet"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_MultipleSKU"
+            android:exported="false" />
+        <activity
+            android:name=".Prueba.Prueba"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Surtido.ReempaqueProd"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Surtido.SurtidoProdPallet"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Surtido.SurtidoProdPiezas"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Surtido.SurtidoProdEmpaque_NE"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Surtido.ValidarOrdenSurtido"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Surtido.SurtidoProdEmpaque"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Surtido.SurtidoProdSeleccionPartida"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Surtido.SurtidoProdSeleccionOrden"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Devolucion.DevolucionPalletNE"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Devolucion.DevolucionEmpaqueUnico"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Devolucion.DevolucionEmpaque"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Devolucion.SeleccionPartidaDevolucion"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Devolucion.SeleccionOrdenDevolucion"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Recibe.SeleccionPartidaTraspasoRecepcion"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.MenuTraspaso"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Recibe.RecepcionTraspasoMenu"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Recibe.RecepcionTraspasoPallet"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Recibe.RecepcionTraspasoPyU"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Recibe.RecepcionTraspasoEmpaque"
+            android:exported="false" />
+        <activity
+            android:name=".c_Traspasos.Recibe.RecepcionTraspasoPalletNE"
+            android:exported="false" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionPegadoEtiqueta"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Produccion.SeleccionarOrdenProd"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Produccion.Almacen_Armado_Pallets_NE"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Produccion.Almacen_Armado_Pallets_PyU"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Produccion.Almacen_Armado_Pallets_Conf"
+            android:exported="false" />
+        <activity
+            android:name=".c_Produccion.Produccion.Almacen_Armado_Pallets"
+            android:exported="false" />
+        <activity
+            android:name=".Validacion.ValidarColocar"
+            android:exported="false" />
+        <activity
+            android:name=".Validacion.ValidacionPalletIngreso"
+            android:exported="false" />
+        <activity
+            android:name=".Validacion.ValidacionIngreso"
+            android:exported="false" />
+        <activity
+            android:name=".Validacion.ValidacionPalletCalidad"
+            android:exported="false" />
+        <activity
+            android:name=".Validacion.ValidacionCalidad"
+            android:exported="false" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionConteo"
+            android:exported="false" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionSeleccionarPartidaHC"
+            android:exported="false" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionSeleccionarHC"
+            android:exported="false" />
+        <activity
+            android:name=".Validacion.ConsultaOrdenes"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Validacion.ConsultaEmpaquesPorPallet"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.CancelacionEmbarque"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.Menus.Inventarios_PorProductoMulti"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Cuarentena.RecuperarEmpaque"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Cuarentena.RecuperarContenedor"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Cuarentena.CuarentenaContenedor"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Cuarentena.CuarentenaEmpaque"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Cuarentena.MenuNuevo"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Reempaque.Reempaque_Ciesa.Reempaque_Reempaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Reempaque.Reempaque_Ciesa.Reempaque_Seleccion_Orden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".c_Almacen.Almacen.ReubicarContenedor" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionPalletNe"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Ajustes_Ciesa.Ajustes_AjustesContenedor"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen.ColocarContenedor"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen.ReubicarEmpaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen.Reubicar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen.Colocar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionContenedor"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionDAP"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionEmpaques"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Devoluciones.DevolucionesCIESA.Devolucion_DAP"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".c_Almacen.Almacen.Reubicar_Menu" />
+
+        <receiver android:name=".Servicios.BroadCastIntent">
+            <intent-filter>
+                <action android:name="com.example.axc.notification.BROADCAST" />
+                <action android:name="com.example.axc.notification.BADGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".Servicios.HiloNotificaciones"
+            android:enabled="true" />
+
+        <activity android:name=".c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_CambioMercado" />
+        <activity
+            android:name=".c_Inventarios.Granel.Inventarios_BajaEmpaqueGranel"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.Granel.Inventarios_ConfirmarEmpaqueGranel"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <receiver
+            android:name=".Servicios.NotificacionesReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".Servicios.BroadCastDownload">
+            <intent-filter>
+                <action android:name="com.example.axc.notification.DOWNLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".Servicios.HiloDescargas"
+            android:enabled="true" />
+
+        <activity
+            android:name=".ReabastecimientoPicking.ReabPK_Seleccion_Material"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Impresion_Etiquetas"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido.Surtido_Surtido_Empaque_NE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido.Surtido_Surtido_Picking_NE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Validacion.Validacion_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Reempaque.Embarques_Reempaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".Recepcion.RecepcionSeleccionar" />
+        <activity android:name=".Recepcion.RecepcionSeleccionarPartidas" />
+        <activity
+            android:name=".c_Inventarios.ValidacionMaterial.Inventarios_BajaEmpaqueNE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.ValidacionMaterial.Inventarios_ConfirmarEmpaqueNE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.CreacionMaterial.Inventarios_RegPalletNuevoNE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.CreacionMaterial.Inventarios_Menu_TipoRegNuevo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorEmpaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Recepcion_Registro_Transferencia_NE" />
+        <activity
+            android:name=".c_Almacen.Almacen_Devoluciones.Devolucion_PYU"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Devoluciones.Devolucion_Empaques"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Devoluciones.Devolucion_NE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Devoluciones.Seleccion_DevolucionPT"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_NuevoEmpaqueSCH"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_BajaEmpaqueSCH"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_AjustePalletSCH"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Base.Recepcion_Registro_PalletSinEtiqueta"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Recibo.Almacen_Transferencia_Recibo" />
+        <activity
+            android:name=".c_Almacen.Almacen_Devoluciones.Devoluciones_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Recibo.Almacen_Transferencia_SeleccionEntrada"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.OLD.Almacen_Transferencia_SurtirEmpaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.OLD.Almacen_Transferencia_Surtir_Pallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.Almacen_Transferencia_Envio"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.Almacen_Transferencia_Menu_Decision"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Cuarentena.Almacen_Cuarentena_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Almacen_Transferencias_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Consolidacion"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_BajaPallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_BajaEmpaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_NuevoEmpaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_AjustePallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_Registro"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Reubicacion.Almacen_Reubicar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Colocar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.Menus.Inventarios_PorProducto"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.ValidacionMaterial.Inventarios_ConfirmarEmpaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.ValidacionMaterial.Inventarios_ValidacionPallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.CreacionMaterial.Inventario_RegPalletNuevo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.Menus.Inventarios_PantallaPrincipal"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.Menus.Inventarios_PorPosicion"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Traspasos.Envio.SurtidoTraspasoPallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Embarques_Embarque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Embarques_ValidacionPallet_AceptarPallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Consultas.consultas_ConsultaReferencia"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Consultas.consultas_BusquedaExistencia"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Consultas.consultas_ConsultaPosicion"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Consultas.consultas_ConsultaPallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Consultas.consultas_ConsultaEmpaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.almacen_RegistraPalletLineaPreimpreso"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Principal.Inicio_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.PrimerayUltima"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionSeleccionar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.RecepcionSeleccionarPartidas"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Principal.Login"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Servicios.preferencias"
+            android:label="preferencias de instalacion" />
+        <activity
+            android:name=".c_Consultas.Consultas_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Embarques_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Inventarios.Menus.Inventarios_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Prueba.Inicio_Menu_Prueba"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Recepcion_Menu_Tipo_Recepcion"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Menu_Dinamico"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Principal.Inicio_Menu_Dinamico"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Consultas.Consultas_Menu_Dinamico"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Registro_Pallets_Produccion.Almacen_Registro_Pallets_Produccion"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Registro_Pallets_Produccion.Almacen_Registro_Pallets_Produccion_v2"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Registro_Pallets_Produccion.Almacen_Registro_Pallets_Registro_Sobrante"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_old"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Produccion.Produccion.Almacen_Armado_Pallets_Empaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_Liquidos"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_Polvos"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Envios_Maquila.Almacen_Seleccion_Envio_Maquila"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Envios_Maquila.Almacen_Envio_Maquila_Envio_Empaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Envios_Maquila.Almacen_Envio_Maquila_Envio_Pallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Envios_Maquila.Almacen_Registro_Seleccion_Tipo_Envio"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.Alm_Registro_Seleccion_Lote"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido.Surtido_Surtido_Empaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido.Surtido_Surtido_Pallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido.Surtido_Seleccion_Partida"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido.Surtido_Menu_Registro"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_Polvos_Primera_Y_Ultima"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_Liquidos_PyU"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Recepcion_Menu_Tipo_Recepcion_Tipo_Registro_Polvos"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.RegistroPT_Menu"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_Liquidos_CantidadModificable"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Rec_Registro_Seleccion_OC"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Rec_Registro_Seleccion_Partida"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Recepcion_Menu_Registro"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Base.Recepcion_Registro_PorEmpaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Base.Recepcion_Registro_PrimerasYUltimas"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_Menu_Etiquetado"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_Menu_NE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Recepcion_Registro_Transferencia_PrimeraYUltima"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Recepcion_Registro_Transferencias_Por_Empaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Recepcion_Menu_Transferencia_Tipo_Recepcion"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Recepcion_Menu_Transferencia_Etiquetas"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Rec_Traspaso_Con_Etiquetas"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Rec_Registro_Seleccion_Lote"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.OLD.Almacen_Transferencia_SurtirPalletNE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_Ne"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Lote_Modificable.Recepcion_Registro_PrimerasYUltimas_LoteModificable"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Lote_Modificable.Recepcion_Registro__PorEmpaque_LoteModificable"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Lote_Modificable.Recepcion_Registro_Pallet_NE_LoteModificable"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Lote_Modificable.Recepcion_Registro_Granel_NE_LoteModificable"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Reubicacion.Reubicar_Menu_Dinamico"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Reubicacion.Almacen_Reubicacion_Por_Cantidad"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Surtido_Empaque_Armado"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Surtido_Empaque_NE_Armado"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Surtido_Picking_NE_Armado"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Creacion_Seleccion_Almacen.Recepcion_Registro_Transferencias_Por_Empaque_SelAlm"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Creacion_Seleccion_Almacen.Recepcion_Registro_Transferencia_NE_SelAlm"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.c_Recepcion_Transferencias.Creacion_Seleccion_Almacen.Recepcion_Registro_Transferencia_PrimeraYUltima_SelAlm"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Surtido_Pallet_MultiplesProd"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.SurtidoTraspaso.Surtido_Traspaso_Empaque"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.SurtidoTraspaso.Surtido_Traspaso_Empaque_NE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.SurtidoTraspaso.Surtido_Traspaso_Picking_NE"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Almacen.Almacen_Transferencia.Transferencia_Envio.SurtidoTraspaso.Surtido_Traspaso_Pallet"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Traspasos.Recibe.SeleccionOrdenTraspasoRecepcion"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido.Surtido_Surtido_Empaque_Pzas"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Surtido_Piezas_Armado"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Seleccion_Orden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Embarques.Surtido_Pedidos.Validacion.Validacion_Seleccion_Orden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Recepcion.Recepcion.Recepcion_Refacciones"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+    </application>
+
+</manifest>

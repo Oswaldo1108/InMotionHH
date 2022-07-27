@@ -1,0 +1,555 @@
+<resources>
+    <string name="app_name">AXC VDE</string>
+    <string name="app_version">1.0.3.10</string>
+
+
+    <string name="toolbar_title">Producto terminado</string>
+    <string name="action_settings">Settings</string>
+    <string name="txtEmpresa">AUTOMATICA TECHNOLOGIES</string>
+    <string name="txtUsuario"> Usuario:</string>
+    <string name="txtContraseña">Contraseña:</string>
+    <string name="txt_titulo_menu_princial">Menu principal</string>
+    <string name="txt_titulo_registro_llegada">registro de mercancía nueva</string>
+    <string name="contraseña_preferencias">1269</string>
+    <!--txt preferencias-->
+    <string name="txt_pref_numero_handheld">Número de estación</string>
+    <string name="txt_pref_licencia">Licencia de AXC</string>
+    <string name="txt_pref_web_service">Web service</string>
+    <string name="txt_pref_titulo">Opciones de AXC</string>
+    <string name="txt_usuario">Usuario (no modificar)</string>
+    <string name="txt_apertura">Apertura(no modificar)</string>
+    <string name="TitIngresarDatos">Estamos casi listos para iniciar.</string>
+    <string name="DescIngresarDatos">Registra la información proporcionada por el personal de AUTOMATICA TECHNOLOGIES.</string>
+    <string name="txt_informacion_disp">Información de este dispositivo</string>
+    <string name="txt_acerca_disp">Acerca de este dispositivo</string>
+    <string name="txt_ip">Dirección IP:</string>
+    <string name="txt_estación">Estación:</string>
+    <string name="txt_version_app">Versión de la aplicación:</string>
+
+    <string name="title_activity_prueba_soap">prueba_soap</string>
+
+    <string name="title_activity_listview">listview</string>
+    <string name="advertencia">Advertencia</string>
+
+    <string name="escanear_Pallet">Capturar pallet</string>
+
+    <string name="volver_escanear_Pallet">Verificar pallet</string>
+    <string name="escanear_empaque">Capturar empaque</string>
+    <string name="escanear_numSerie">Capturar num. serie</string>
+    <string name="escanear_contenedor">Capturar contenedor</string>
+    <string name="primer_empaque">Capturar primer empaque</string>
+    <string name="txt_primer_empaque">Primer empaque</string>
+    <string name="txt_ultimo_empaque">Último empaque</string>
+    <string name="ultimo_empaque">Capturar último empaque</string>
+    <string name="volver_escanear_empaque">Verificar empaque</string>
+    <string name="escanear_posicion">Capturar posición</string>
+    <string name="volver_escanear_posicion">Verificar posición</string>
+    <string name="escanear_linea">Capturar <anden>  </anden></string>
+    <string name="volver_escanear_linea">Verificar línea</string>
+    <string name="escanear_ubicacion">Capturar ubicación</string>
+    <string name="volver_escanear_ubicacion">Verificar ubicación</string>
+
+    <string name="capturar_cantidad_empaque">Capturar empaques</string>
+    <string name="capturar_cantidad_pieza">Capturar cantidad</string>
+    <string name="capturar_cantidad_pallet">Capturar pallets</string>
+    <string name="capturar_posicion">Capturar posición</string>
+    <string name="capturar_cantidad_por_empaque">Capt. Empaques por pallet</string>
+    <string name="txt_empaque_pallet">Empaques por pallet</string>
+
+    <string name="capturar_busqueda">Capturar búsqueda</string>
+    <string name="unidades"></string>
+    <string name="ingresar_factura">Ingresar una factura.</string>
+    <string name="volver_ingresar_factura">Volver a ingresar factura.</string>
+
+
+    <string name="capturar_producto">Capturar artículo</string>
+    <string name="capturar_num_parte">Capturar artículo</string>
+
+    <string name="capturar_orden_salida">Capturar orden de salida</string>
+    <string name="ingresar_dato">Ingresar dato</string>
+
+    <string name="capturar_orden_produccion">Capturar orden de producción</string>
+
+
+    <string name="capturar_lote_producto">Capturar lote</string>
+    <string name="capturar_revision">Capturar revisión</string>
+
+    <string name="estatico_pallet"></string>
+    <string name="estatico_lote">Lote</string>
+    <string name="estatico_empaque"></string>
+    <string name="estatico_cantidad"></string>
+    <string name="estatico_estatus">Estatus</string>
+    <string name="estatico_contenido"></string>
+    <string name="estatico_producto">Producto</string>
+
+    <string name="estatico_referencia"></string>
+    <string name="estatico_orden_compra">Orden de compra</string>
+    <string name="estatico_orden_produccion">Orden de producción</string>
+    <string name="estatico_pedido">Orden de pedido</string>
+    <string name="capturar_orden_surtido">Capturar orden de surtido</string>
+    <string name="verificar_orden_surtido">Verificar la orden de surtido</string>
+    <string name="Surtido_Rechazado1">Pallet rechazado, los productos surtidos para el documento han sido liberados para ser tomados de nuevo.</string>
+    <string name="Surtido_Rechazado2">(NOTA: para volver a surtir el pallet rechazado, deberá colocarlo)</string>
+    <string name="pedido">Pedido:</string>
+    <string name="capturar_orden_compra">Capturar órden de compra</string>
+    <string name="seleccionar_orden_compra">Órden de Compra</string>
+
+    <string name="registrar_sobrante">Registrar sobrante</string>
+    <string name="editar">Editar</string>
+
+
+    <string name="menu_principal">Menú principal</string>
+    <string name="menu_almacen"> Almacén</string>
+    <string name="menu_consultas"> Consultas</string>
+    <string name="menu_embarques"> Surtido</string>
+    <string name="menu_inventarios"> Inventarios</string>
+    <string name="menu_recepcion"> Recepción</string>
+    <string name="menu_pegado_etiquetas"> Pegado de etiquetas</string>
+    <string name="menu_validacion">Validación</string>
+    <string name="menu_validacion_calidad">Validación</string>
+    <string name="menu_validacion_ingreso">Validación</string>
+    <string name="menu_conteo">Conteo</string>
+    <string name="menu_reabastimiento">Reabastecimiento</string>
+    <string name="menu_colocacion">Colocación</string>
+    <string name="menu_reubicacion">Reubicación</string>
+    <string name="menu_ajustes">Ajustes</string>
+    <string name="menu_cuarentena">Cuarentena</string>
+    <string name="menu_reempaque">Reempaque</string>
+    <string name="menu_cancelacion">Cancelación</string>
+    <string name="menu_inventario_posicion">Cíclico por posición</string>
+    <string name="menu_inventario_articulo">Cíclico por artículo</string>
+    <string name="menu_inventario_físico">Físico total</string>
+
+    <string name="recepcion_articulos">Recepción de artículos</string>
+    <string name="surtido_articulos">Surtido de artículos</string>
+    <string name="ejercicio_inventarios">Ejercicios de inventarios</string>
+
+    <string name="seleccione_documento">Seleccione un documento</string>
+
+    <string name="Colocar">Colocar</string>
+    <string name="Reubicar">Reubicar</string>
+    <string name="Ajustes">Ajustes</string>
+    <string name="Ajustes_nuevo_pallet">Nuevo pallet</string>
+    <string name="Ajustes_nuevo_empaque">Nuevo empaque</string>
+    <string name="Ajustes_nuevo_contenedor">Nuevo contenedor</string>
+    <string name="Ajustes_Baja_Empaque">Baja empaque</string>
+    <string name="Ajustes_Baja_Pallet">Baja pallet</string>
+    <string name="Ajustes_etiquetados">Etiquetados</string>
+    <string name="Ajustes_ne">No etiquetados</string>
+    <string name="devolucion_proveedor">Devolución a proveedor</string>
+    <string name="devolucion_linea">Devolución línea</string>
+    <string name="devolucion_proveedor_pallet">Devolución pallet</string>
+    <string name="devolucion_proveedor_empaque">Devolución empaque</string>
+    <string name="devolucion_proveedor_paquete">Devolución empaque/Piezas</string>
+    <string name="registro_pallets_produccion">Registro de pallets</string>
+    <string name="registro_pallets_produccion_sobrante">Registro de sobrante</string>
+    <string name="almacen_armado_tarimas">Armado de tarimas</string>
+    <string name="almacen_armado_tarimas_cant_modificable">Armado de tarimas</string>
+    <string name="almacen_armado_tarimas_PyU">Armado tarimas Pr. y Ult.</string>
+    <string name="almacen_armado_tarimas_NE">Armado tarimas NE.</string>
+
+    <string name="devolucion_empaque">Devolución de Empaques</string>
+    <string name="devolucion_pallets">Devolución de pallets</string>
+    <string name="devolucion_seleccion_documento">Selección de documento</string>
+    <string name="devolucion">Devolución a proveedor</string>
+
+
+    <string name="cuarentena_pallet">Pallet</string>
+    <string name="cuarentena_empaque">Empaque</string>
+    <string name="cuarentena_recuperar">Recuperar</string>
+    <string name="cuarentena_baja">Baja</string>
+
+
+    <string name="recepcion_bascula">Báscula</string>
+    <string name="recepcion_surtido_entrega">Entrega</string>
+    <string name="recepcion_OC">Recepción OC</string>
+    <string name="recepcion_transferenia">Transferencia</string>
+    <string name="recepcion_envio_maquila">Envío de maquila</string>
+
+    <string name="Consolidacion">Consolidación</string>
+    <string name="Consolidado">Consolidado</string>
+    <string name="sku_o_empaque">SKU O Empaque</string>
+
+    <string name="Transferencia">Traspaso</string>
+    <string name="almacen_traspaso_env">Envío traspaso</string>
+    <string name="almacen_traspaso_rec">Recibo traspaso</string>
+    <string name="almacen_traspaso">Traspaso</string>
+
+    <string name="Registro_Pallets_Produccion">Registro producción</string>
+
+    <string name="pregunta_cierre_orden_produccion">No registro un sobrante, ¿desea hacerlo?</string>
+    <string name="pregunta_cierre_orden">"¿Cerrar orden?"</string>
+    <string name="pregunta_cierre_pallet">"¿Cerrar pallet?"</string>
+    <string name="pregunta_rechazo_pallet">"¿Rechazar pallet?"</string>
+
+    <string name="pregunta_validar_pallet">"¿Validar pallet?"</string>
+
+    <string name="Transferencia_Envio">Envío</string>
+    <string name="Transferencia_Envio_Pallet">Envío pallet</string>
+    <string name="Transferencia_Envio_Pallet_NE">Envío pallet Sin Etiquetas</string>
+    <string name="Transferencia_Envio_Empaque">Envío empaque</string>
+
+    <string name="Transferencia_Recibo">Recibo</string>
+    <string name="Transferencia_Recibo_Pallet">Recibo pallet</string>
+    <string name="Transferencia_Recibo_Empaque">Recibo empaque</string>
+
+    <string name="Cuarentena">Cuarentena</string>
+
+
+    <string name="Consultas_Posicion">Posición</string>
+    <string name="Consultas_Pallet">Pallet</string>
+    <string name="Consultas_Empaque">Empaque</string>
+    <string name="Consultas_Referencia">Referencia</string>
+    <string name="Consultas_Existencias">Existencias</string>
+
+    <string name="Embarques_Precarga">Precarga</string>
+    <string name="Embarques_Precarga_Pallet">Precarga pallet</string>
+
+    <string name="Embarques_Surtido">Surtido</string>
+    <string name="Embarques_Surtido_docificacion">Dosificado producción</string>
+    <string name="Embarques_Surtido_Entrega">Entrega surtido</string>
+    <string name="Embarques_Surtido_tipo_surtido">Tipo de surtido</string>
+    <string name="Embarques_Surtido_Orden_Surtido">Órden de surtido</string>
+    <string name="Embarques_Surtido_unidad">Surtido unidad</string>
+    <string name="Embarques_Surtido_empaque">Surtido empaque</string>
+    <string name="Embarques_Surtido_pallet">Surtido pallet</string>
+    <string name="Embarques_Surtido_partida">Surtido partida</string>
+    <string name="Embarques_Valida">Validación</string>
+
+    <string name="Embarques_Embarque">Embarque</string>
+
+    <string name="Inventarios_CiclicoPorProducto">Cíclico por artículo</string>
+    <string name="Inventarios_CiclicoPorLote">Cíclico por </string>
+    <string name="Inventarios_FisicoTotal">Físico total</string>
+
+    <string name="Inventarios_ConfirmaPallet">Confirmar Pallet</string>
+    <string name="Inventarios_ValidaPallet">Validar Pallet</string>
+    <string name="Inventarios_ConfirmaEmpaque">Confirmar empaque</string>
+    <string name="Inventarios_PalletNuevo">Pallet Nuevo</string>
+
+    <string name="recepcion_recepcion_oc">Recepción OC</string>
+    <string name="recepcion_recepcion_por_empaque_proveedor">Proveedor</string>
+    <string name="recepcion_recepcion_por_empaque_maquila">Maquila</string>
+    <string name="recepcion_recepcion_por_empaque_traspasos">Traspasos</string>
+    <string name="recepcion_primera_y_ultima">Primera y última</string>
+    <string name="recepcion_por_empaque">Empaque</string>
+    <string name="recepcion_por_empaque_ne">Empaque NE</string>
+    <string name="recepcion_granel">Granel</string>
+    <string name="recepcion_tipo_recepcion">Tipo de recepción</string>
+    <string name="registro_produccion">Registro de producción</string>
+    <string name="recepcion_envio_maquila_tipo_envio">Tipo de envío</string>
+
+    <string name="empaque">Empaque</string>
+    <string name="pallet">Pallet</string>
+    <string name="Picking">Picking</string>
+    <string name="pieza">Pieza</string>
+    <string name="dosificacion">Dosificación</string>
+
+    <string name="rec_con_etiquetas">Previamente registrado</string>
+    <string name="rec_sin_etiquetas">Registro nuevo</string>
+    <string name="por_empaque">Por empaque</string>
+    <string name="por_docificacion">Dosificado</string>
+    <string name="cerrar_tarima">Cerrar\ntarima</string>
+    <string name="piezas_surtidas_exito">Piezas surtidas con éxito.</string>
+    <string name="pesaje_registrado_exito">Pesaje registrado con éxito.</string>
+    <string name="pallets_surtidos_exito">Pallets surtidos con éxito.</string>
+    <string name="empaques_surtidos_exito">Empaques surtidos con éxito.</string>
+    <string name="empaque_baja">Empaque dado de baja con éxito.</string>
+    <string name="empaque_alta">Empaque registrado con éxito.</string>
+    <string name="pallet_baja">Pallet dado de baja con éxito.</string>
+    <string name="pallet_alta">Pallet registrado con éxito.</string>
+    <string name="pallet_colocado">Pallet colocado con éxito.</string>
+    <string name="empaque_colocado">Empaque colocado con éxito.</string>
+    <string name="devolucion_linea_exito">Devolución registrada con éxito.</string>
+    <string name="pallet_registrado_exito">Pallet registrado con éxito.</string>
+    <string name="pallet_empaque_unico_exito">Pallet con Empaque unico registrado con éxito.</string>
+    <string name="pallet_reubicado_exito">Pallet registrado en la nueva ubicación con éxito.</string>
+    <string name="empaque_reubicado_exito">Empaque registrado en la nueva ubicación con éxito.</string>
+    <string name="contenedor_reubicado_exito">Contenedor registrado en la nueva ubicación con éxito.</string>
+    <string name="pallet_cuarentena_exito">El pallet fue registrado en cuarentena con éxito.</string>
+    <string name="empaque_cuarentena_exito">El empaque fue registrado en cuarentena con éxito.</string>
+    <string name="pallet_baja_cuarentena_exito">El pallet fue dado de baja de cuarentena con éxito.</string>
+    <string name="empaque_baja_cuarentena_exito">El empaque fue dado de baja de cuarentena con éxito.</string>
+    <string name="pallet_recuperado_exito">Pallet recuperado con éxito.</string>
+    <string name="empaque_registrado_exito">El empaque fue registrado con éxito.</string>
+
+
+    <string name="pallets_no_coinciden">Los códigos de pallet no coinciden.</string>
+    <string name="empaques_no_coinciden">Los códigos de empaque no coinciden.</string>
+
+    <string name="ingrese_cantidad">Ingrese una cantidad</string>
+    <string name="ingrese_cantidad_sobrante">Ingrese cantidad sobrante</string>
+    <string name="ingrese_la_linea">Ingrese la línea</string>
+    <string name="ingrese_motivo">Ingrese motivo</string>
+    <string name="capturar_caducidad">Capturar fecha caducidad</string>
+
+    <string name="cancelar_tarima">Tarima cancelada.</string>
+
+    <string name="confirma_orden">Confirma la orden</string>
+    <string name="error_ingrese_lote_desc">Para generar un lote, escríbalo en el campo lote y toque Enter.</string>
+
+
+    <string name="error_ingrese_carrito">Ingrese un código de carrito.</string>
+    <string name="error_ingrese_serial">Ingrese un código serial</string>
+
+    <string name="error_pallet_sin_empaques">No puede cerrar una tarima sin empaques.</string>
+    <string name="error_ingrese_pallet">Ingrese un código de pallet.</string>
+    <string name="error_ingrese_contenedor">Ingrese un código de contenedor.</string>
+    <string name="error_ingrese_pallet_confirmacion">Confirme el código de pallet.</string>
+    <string name="error_ingrese_empaque">Ingrese un código de empaque.</string>
+    <string name="error_ingrese_cantidad_empaques">Ingrese la cantidad de empaques.</string>
+    <string name="error_ingrese_peso">Ingrese un peso válido.</string>
+    <string name="error_ingrese_lote">Ingrese un lote.</string>
+    <string name="error_ingrese_producto">Ingrese un artículo.</string>
+    <string name="error_ingrese_linea">Ingrese una posición.</string>
+    <string name="error_ingrese_cantidad">Ingrese una cantidad.</string>
+    <string name="error_ingrese_posicion_original">Ingrese  posición original.</string>
+    <string name="error_ingrese_nueva_posicion">Ingrese nueva posición.</string>
+    <string name="error_ingrese_pedimento">Ingrese el pedimento.</string>
+    <string name="error_ingrese_clave_pedimento">Ingrese la clave de pedimento.</string>
+    <string name="error_ingrese_factura_pedimento">Ingrese la factura de pedimento.</string>
+    <string name="error_ingrese_fecha_pedimento">Ingrese la fecha de pedimento.</string>
+    <string name="error_ingrese_fecha_rec_pedimento">Ingrese la fecha de recibo del pedimento.</string>
+    <string name="error_peso_ingresado">Peso ingresado no válido, revise la conexión a la básculo</string>
+    <string name="error_ingrese_paquete">Ingrese código del paquete</string>
+
+
+    <string name="error_ingrese_caducidad">Ingrese una fecha de caducidad.</string>
+    <string name="error_cantidad_mayor_999999">Cantidad excede el limite [999,999].</string>
+    <string name="error_cantidad_mayor_9999">Cantidad excede el limite [9999].</string>
+    <string name="error_cantidad_mayor_100">Cantidad excede el limite [100].</string>
+    <string name="error_ingrese_referencia">Ingrese una referencia.</string>
+    <string name="error_cantidad_menor_que">Debes capturar una cantidad menor a 999999</string>
+    <string name="error_cantidad_valida">Ingrese una cantidad válida.</string>
+    <string name="error_cantidad_piezas">No se han registrado piezas surtidas recientes.</string>
+    <string name="error_cantidad_menor_0">La cantidad por empaque no puede ser igual o menor a 0.</string>
+    <string name="error_empxpal_menor_0">La cantidad de empaques por pallet no puede ser igual o menor a 0.</string>
+    <string name="error_ingresada_menor_0">La cantidad ingresada no puede ser menor o igual a cero.</string>
+    <string name="error_emp_menor_0">La cantidad de empaques no puede ser menor o igual a cero.</string>
+
+
+    <string name="error_cerrar_pallet_sin_empaques">No puede cerrar una tarima sin empaques.</string>
+    <string name="error_seleccionar_numero_parte">Debe seleccionar un número de parte.</string>
+    <string name="error_seleccionar_ajuste">Debe seleccionar un ajuste.</string>
+    <string name="error_seleccionar_registro">Debe seleccionar un registro.</string>
+    <string name="error_seleccionar_partida">Debe seleccionar una partida.</string>
+    <string name="error_pallet_no_seleccionado">Pallet no seleccionado.</string>
+    <string name="error_empaque_no_seleccionado">Empaque no seleccionado.</string>
+    <string name="error_usuario_contraseña">Introduzca Usuario y contraseña correctos, por favor.</string>
+    <string name="error_ingrese_ubicacion">Debe ingresar un código de ubicación.</string>
+    <string name="error_ingrese_orden_compra">Ingrese una orden de compra.</string>
+    <string name="error_ingrese_bascula">Ingrese un código de bascula.</string>
+    <string name="error_ingrese_orden_produccion">Ingrese una orden de producción.</string>
+    <string name="error_ingrese_orden_surtido">Ingrese una orden de surtido.</string>
+    <string name="error_ingrese_orden_transferencia">Ingrese una orden de traspaso.</string>
+    <string name="error_ingrese_orden_embarque">Ingrese una orden de embarque.</string>
+    <string name="error_ingrese_pedido">Ingrese un pedido.</string>
+    <string name="error_ingrese_factura">Ingrese una factura.</string>
+    <string name="error_carrito_ingresado">Carrito ingresado no existe.</string>
+
+
+    <string name="codigo_empaque">Código empaque</string>
+    <string name="confirma_empaque">Confirmar empaque</string>
+    <string name="confirmar_empaque">Confirmar empaque</string>
+    <string name="confirma_pallet">Confirmar pallet</string>
+    <string name="title_activity_prueba_bascula">Pesaje</string>
+    <string name="title_activity_bascula_seleccion_orden">Orden de surtido</string>
+    <string name="registro_exito">Registro con éxito</string>
+    <string name="orden_compra_registro_exito">Orden de compra registrada con éxito.</string>
+    <string name="orden_compra_completada">Orden de compra completada.</string>
+    <string name="traspaso_completado">Documento de traspaso completado con éxito.</string>
+    <string name="orden_compra_partida_completa">Partida completa.</string>
+    <string name="orden_compra_pallet_cerrado">Pallet cerrado con éxito.</string>
+    <string name="icono_señal_bascula">Conexión a la bascula</string>
+    <string name="comentario">Comentario</string>
+    <string name="cerrado_con_exito">Cerrado con éxito</string>
+
+    <string name="almacen_armado_tarimas_polvos">Polvos</string>
+    <string name="almacen_armado_tarimas_liquidos">Líquidos</string>
+
+    <string name="menu_recepcion_producto_almacen">Recepción artículo</string>
+
+    <string name="pregunta_cancelar_pallet">"¿Cancelar pallet?"</string>
+
+    <string name="empaque_baja_exito">El empaque fue cancelado con exito.</string>
+    <string name="orden_prod_completada_exito">La orden de producción fue completada con éxito.</string>
+    <string name="orden_prod_cerrar_exito">Orden de producción cerrada con exito.</string>
+    <string name="fecha_cad_reg_exito">Fecha de producción registrada con exito.</string>
+    <string name="fecha_cad_error">Ingrese una fecha de caducidad.</string>
+
+    <string name="envio_pallet_registro_exito">Traspaso de pallet registrado con éxito.</string>
+
+    <string name="error_cancelar_pallet_sin_empaques">No puede cancelar una tarima sin empaques.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--String Menu-->
+    <string name="recepcionOC">Recepción OC</string>
+    <string name="recepcionOCDesc">Recepción de órdenes de compra</string>
+    <string name="consultas">Consultas</string>
+    <string name="consultasDesc">Módulo para consultas</string>
+    <string name="reabDesc">Módulo para reabastecimiento</string>
+    <string name="embalaje">Embalaje</string>
+    <string name="embalajeDesc">Embalajes</string>
+    <string name="surtido">Surtido</string>
+    <string name="surtidoDesc">Surtido de material</string>
+    <string name="registro">Registro Inicial</string>
+    <string name="registroDesc">Registro Inicial de MP</string>
+    <string name="bajas">Bajas</string>
+    <string name="bajasDesc">Bajas de MP</string>
+    <string name="recepcionSE">Recepción SE</string>
+    <string name="recepcionSEDesc">Recepción SE</string>
+    <string name="transfer">Transferencias</string>
+    <string name="transferDesc">Transferencias de MP</string>
+    <string name="inventarios">Inventarios</string>
+    <string name="inventariosDesc">Inventarios de MP</string>
+    <string name="Almacen">Almacén</string>
+    <string name="almacenDesc">Movimientos de almacén</string>
+    <string name="title_activity_devolucion__d_a_p">Devolución_DAP</string>
+    <string name="linea">Línea</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+
+    <string name="seleccionar_orden_surt_prod">Surtido</string>
+    <string name="seleccionar_orden_surt_prod_subt">Producción</string>
+    <string name="reabastecimiento">Reabastecimiento</string>
+
+    <string name="btn_registrar">Registrar</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="pregunta_actualizar">¿Desea actualizar la versión de AXC?</string>
+    <string name="txt_clave">Clave:</string>
+    <string name="nueva_version">Nueva versión</string>
+    <string name="pregunta_nueva_version">\n ¡¡Hay una nueva versión de AXC disponible y lista para actualizar!! \n\n ¿Desea actualizar?\n  </string>
+    <string name="salir_aplicacion">Para salir de la aplicación, vuelva a tocar atras.</string>
+    <string name="descarga_encurso">Ya hay una descarga en curso</string>
+    <string name="txt_documento">Documentos</string>
+    <string name="txt_doc_actual">Documento actual</string>
+
+    <!-- AXC TaskBAR-->
+    <string name="taskbar_axc_registrar">REGISTRAR</string>
+    <string name="taskbar_axc_recibir">RECIBIR</string>
+    <string name="taskbar_axc_seleccionar">SELECCIONAR</string>
+    <string name="taskbar_axc_siguiente">SIGUIENTE</string>
+    <string name="taskbar_axc_cerrar_tarima">CERRAR\nTARIMA</string>
+    <string name="taskbar_axc_cerrar_reempaque">CERRAR\nREEMPAQUE</string>
+    <string name="taskbar_axc_cerrar_carrito">"CERRAR\nCARRITO</string>
+    <string name="taskbar_axc_rebastecimiento">SIN DOCUMENTO</string>
+    <string name="taskbar_axc_tomar">TOMAR INVENTARIO</string>
+    <string name="taskbar_axc_registro">REGISTRO</string>
+    <string name="taskbar_axc_terminar">TERMINAR</string>
+    <string name="taskbar_axc_imprimir">IMPRIMIR</string>
+
+    <!-- consultas por el taskbar-->
+    <string name="taskbar_consulta_pallet">Consultar Pallet</string>
+    <string name="taskbar_consulta_empaque">Consultar empaque</string>
+    <string name="taskbar_consulta_existencias">Consultar existencias</string>
+    <string name="taskbar_consulta_referencia">Consultar referencia</string>
+    <string name="taskbar_consulta_posicion">Consultar posición</string>
+    <string name="taskbar_impresion">Impresión por artículo</string>
+    <string name="taskbar_impresion_empaque">Impresión empaques</string>
+    <string name="taskbar_impresion_contenedor">Impresión contenedor</string>
+
+    <string name="fragmento_consulta">Consulta</string>
+    <string name="consulta_empaque">Empaque</string>
+    <string name="consulta_existencia">Existencia</string>
+    <string name="consulta_ubicacion">Ubicación</string>
+    <string name="consulta_referencia">Referencia</string>
+    <string name="consulta_pallet">Pallet</string>
+
+    <string name="msg_llene_campo">Llene el campo del código</string>
+    <string name="msg_llene_pallet">Llene el campo pallet</string>
+    <string name="msg_presionado">Manten presionado para buscar</string>
+
+    <!-- fragment seleccion producto -->
+    <string name="seleccion_producto">Selección de producto</string>
+    <string name="partida">Partida -</string>
+    <string name="msg_ingresa_producto">Ingrese un producto.</string>
+    <string name="txt_producto">Producto</string>
+    <string name="btn_seleccionar">SELECCIONAR</string>
+
+    <string name="txt_sku">SKU</string>
+    <string name="txt_upc">UPC</string>
+    <string name="txt_descripcion">Descripción</string>
+    <string name="txt_busqueda">Búsqueda</string>
+    <string name="txt_impresora">Impresora:</string>
+    <string name="txt_cant_etiquetas">Cantidad de etiquetas:</string>
+    <string name="txt_imp_etiquetas">Impresión de etiquetas</string>
+    <string name="txt_etiquetas_contenedor">Etiquetas de contenedor</string>
+    <string name="txt_cantidad">Cantidad:</string>
+    <string name="txt_num_documento">No. Documento</string>
+    <string name="msg_aviso">Aviso</string>
+    <string name="msg_sin_empaques">Sin empaques recibidos</string>
+    <string name="title_validacion_empaque">Validación de empaque</string>
+    <string name="btn_cancelar_empaque">Cancelar empaque</string>
+    <string name="txt_pallet_NE">Pallet No Etiquetado</string>
+    <string name="contenedor">Contenedor</string>
+    <string name="txt_cant_total">Cant. Total</string>
+    <string name="txt_cant_registrada">Cant. Registrada</string>
+    <string name="txt_num_serie">Números de serie</string>
+    <string name="txt_empaques_registrados">Empaques registrados</string>
+    <string name="txt_pallets_registrados">Empaques registrados</string>
+    <string name="msg_debe_crear">Se debe crear un pallet para poder continuar</string>
+    <string name="txt_cantidad_empaque">Cantidad por empaque</string>
+    <string name="txt_cant_empaques">Cantidad de empaques</string>
+    <string name="txt_um">UM</string>
+    <string name="txt_codigo_pallet">Código de Pallet</string>
+    <string name="txt_codigo_posicion">Código de Posición</string>
+    <string name="txt_codigo_contenedor">Código de contenedor</string>
+    <string name="txt_nueva_posicion">Nueva posición</string>
+    <string name="txt_multiples_sku">Múltiples SKU</string>
+    <string name="txt_directo_posicion">Directo a posición</string>
+    <string name="txt_piezas">Piezas:</string>
+    <string name="txt_codigo">Código:</string>
+    <string name="txt_ajustes_contenedor">Ajustes contenedor</string>
+    <string name="nuevo_pallet_ne">Nuevo pallet NE</string>
+    <string name="nuevo_empaque_ne">Nuevo empaque NE</string>
+    <string name="txt_positivo">Positivo</string>
+    <string name="txt_negativo">Negativo</string>
+    <string name="msg_mantenga_presionado">Mantenga presionado para elegir SKU</string>
+    <string name="posicion_sugerida">Posición sugerida</string>
+    <string name="txt_paquetes">Paquetes:</string>
+    <string name="txt_codigo_tomar">Código a tomar</string>
+    <string name="sugerencia">Sugerencia</string>
+    <string name="automatico">Automático</string>
+    <string name="manual">Manual</string>
+    <string name="tara">Tara</string>
+    <string name="tara_actual">Tara actual</string>
+    <string name="registrar_pesaje">Registrar pesaje</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="tipo">Tipo</string>
+    <string name="Advertencia">Advertencia</string>
+    <string name="incidencia_registrada">Incidencia registrada correctamente</string>
+    <string name="ingrese_documento">Ingrese un documento de devolución</string>
+    <string name="ingrese_lode">Ingrese un lote</string>
+    <string name="ingrese_sku">Ingrese un SKU</string>
+    <string name="error_interno">Error interno</string>
+    <string name="error_app_fotografia">No hay ninguna aplicación instalada que pueda manejar la acción de toma de fotografias</string>
+    <string name="modificar_ne">Solo puede modificar pallets NO ETIQUETADOS de esta manera.</string>
+    <string name="modificar_ne_producto">Solo puede modificar pallets NO ETIQUETADOS de UN SOLO PRODUCTO de esta manera.</string>
+    <string name="seleccione_campo">Seleccione un campo</string>
+    <string name="pallet_reimpreso">Pallet reimpreso con éxito</string>
+    <string name="empaque_reimpreso">Empaque reimpreso con éxito</string>
+    <string name="partida_completada_exito">Partida completada con éxito</string>
+
+    <string name="error_escanear_contenedor">Debe escanear un código de contenedor</string>
+    <string name="error_escanear_posicion">Debe escanear un código de posicion</string>
+    <string name="error_registrar_pallet">Se debe registrar un pallet para poder continuar</string>
+    <string name="error_sku_partida">No se encontró el SKU dentro del listado de partidas, verifique que sea correcto</string>
+    <string name="error_consulta_empaque">Consulta empaque para continuar</string>
+    <string name="error_cantidad_empaques">Ingrese cantidad de empaques</string>
+    <string name="title_activity_surtido_prod_empaque">SurtidoProdEmpaque</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+</resources>
+

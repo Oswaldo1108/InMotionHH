@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl"
+    android:background="@color/fondoAzul"
+    tools:context=".c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorEmpaque">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contenedor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.714">
+
+        <FrameLayout
+            android:id="@+id/progressBarHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:alpha="0.4"
+            android:animateLayoutChanges="true"
+            android:background="#000000"
+            android:clickable="true"
+            android:elevation="10dp"
+            android:focusable="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="10dp"
+                android:indeterminate="true" />
+        </FrameLayout>
+
+
+        <include
+            android:id="@+id/customtableview_totales"
+            layout="@layout/customtableview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView136"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView135" />
+
+        <include
+            android:id="@+id/customtableview_empaques"
+            layout="@layout/customtableview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView134"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView136" />
+
+        <TextView
+
+            android:id="@+id/textView13"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Documento"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+
+            android:id="@+id/textView134"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Guía"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView130"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+
+            android:id="@+id/textView135"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Empaques Totales"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_Pedido" />
+
+        <TextView
+
+            android:id="@+id/textView136"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Empaques seleccionados"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/customtableview_empaques"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customtableview_totales" />
+
+        <TextView
+
+            android:id="@+id/textView97"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Área:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_Pedido" />
+
+        <EditText
+            android:id="@+id/edtx_Pedido"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Ingrese embarque"
+            android:inputType="textNoSuggestions"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@+id/textView13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+        <EditText
+            android:id="@+id/edtx_Anden"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="Ingrese guía"
+            android:inputType="textNoSuggestions"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@+id/textView134"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView130"
+            app:layout_constraintTop_toTopOf="@+id/textView134" />
+
+        <TextView
+            android:id="@+id/textView130"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="Paquete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/edtx_CodigoEmpaque"
+            style="@style/Estilo_EditText_WhiteBackground"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Ingrese Paquete"
+            android:singleLine="true"
+            app:layout_constraintBottom_toBottomOf="@+id/textView130"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView130"
+            app:layout_constraintTop_toTopOf="@+id/textView130" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

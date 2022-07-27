@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#394264</color>
+    <color name="colorPrimaryDark">#323a59</color>
+    <color name="colorAccent">#B3B3B3</color>
+    <color name="grisAXC">#B3B3B3</color>
+    <color name="grisAXCTrans">#90B3B3B3</color>
+    <color name="blancoLetraStd">#FFFFFF</color>
+    <color name="Transparente">#00000000</color>
+    <color name="negroLetrastd">#000000</color>
+    <color name="grisAXCOscuro">#555555</color>
+    <color name="grisAXCdisabled">#80B3B3B3</color>
+    <color name="doradoLetrastd">#cfac00</color>
+    <color name="RojoStd">#ff0000</color>
+    <color name="RojoClaroStd">#ff4a4a</color>
+    <color name="VerdeStd">#00ff00</color>
+    <color name="AzulStd">#0000ff</color>
+    <color name="MoradoStd">#ff00ff</color>
+
+    <color name="ControlStd">#B6AAAA</color>
+    <color name="RengSelStd">#000064</color>
+    <color name="HeaderColor">#2A42B9</color>
+    <color name="ColorBackgroundMenu">#B3FFFFFF</color>
+
+    <color name="negroTrans">#99000000</color>
+    <color name="negroN">#000000</color>
+
+    <color name="RojoSemaforo">#FF0000</color>
+    <color name="AmarilloSemaforo">#ffff00</color>
+    <color name="VerdeSemaforo">#0FFF00</color>
+
+
+
+    <color name="taskBarAzul">#394264</color>
+    <color name="fondoAzul">#3f4769</color>
+    <color name="camposAzul">#323a59</color>
+
+
+    <!--Colores menu-->
+    <color name="verdeAXCMax">#0C8042</color>
+    <color name="verdeAXCMid">#0C9A4E</color>
+    <color name="verdeAXCLow">#10CD68</color>
+    <color name="verdeAXCxLox">#9CF6C6</color>
+
+    <color name="naranjaAXCMax">#E87D25</color>
+    <color name="naranjaAXCMid">#E99E5D</color>
+    <color name="naranjaAXCLow">#DAA578</color>
+    <color name="naranjaAXCxLow">#FFD7B3</color>
+
+
+    <!--Elementos-->
+    <color name="fondoAzulSemiTransp">#F53f4769</color>
+    <color name="GrisTransparente">#90B3B3B3</color>
+
+
+</resources>

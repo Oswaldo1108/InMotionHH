@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/negroTrans"
+    tools:context=".Fragmentos.FragmentoImpresionesPorArticulo">
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="1000dp"
+        android:visibility="gone"
+        >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+    </FrameLayout>
+        <LinearLayout
+            android:id="@+id/Pantalla_principal"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"
+            android:background="@drawable/orilla_layout_cuadro_fondo_azul"
+            android:layout_marginTop="27dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_marginStart="8dp"
+                android:orientation="horizontal"
+                android:layout_marginEnd="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/radio_SKU"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SKU"/>
+                <RadioButton
+                    android:id="@+id/radio_UPC"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UPC"/>
+                <RadioButton
+                    android:id="@+id/radio_Desc"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descripción"/>
+            </RadioGroup>
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Busqueda: "
+                    style="@style/EstiloTexto_Blanco_Bold"/>
+                <EditText
+                    android:id="@+id/edtx_Busqueda"
+                    android:singleLine="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    style="@style/Estilo_EditText_WhiteBackground"/>
+            </LinearLayout>
+
+            <include layout="@layout/customtableview"
+                android:id="@+id/customtableview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="8dp"/>
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:text="Impresora: "/>
+
+                <include layout="@layout/vw_spinner"
+                    android:id="@+id/vw_spinner"
+                    android:layout_height="30dp"
+                    android:layout_width="match_parent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:text="Cantidad de etiquetas: "/>
+
+                <EditText
+                    android:id="@+id/edtx_cantidad"
+                    android:layout_gravity="center"
+                    style="@style/Estilo_EditText_WhiteBackground"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:layout_height="30dp"
+                    android:layout_width="match_parent"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+</FrameLayout>

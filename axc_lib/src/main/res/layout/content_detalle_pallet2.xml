@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/blancoLetraStd"
+    tools:context="com.automatica.axc_lib.Activities.cIncidencia.Incidencia">
+
+
+    <include
+        android:id="@+id/cl_spinner"
+        layout="@layout/vw_spinner"
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtv_2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_3" />
+
+
+    <TextView
+        android:id="@+id/txtv_2"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Etiquetas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_3" />
+
+    <TextView
+        android:id="@+id/txtv_3"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Impresora"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/txtv_"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="16dp"
+        android:text="Módulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtx_CantidadEmpaques"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="1"
+        app:layout_constraintBottom_toBottomOf="@+id/txtv_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtv_2"
+        app:layout_constraintTop_toTopOf="@+id/txtv_2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_ImprimirEtiquetas"
+        style="@style/Estilo_Boton_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="32dp"
+        android:text="Imprimir\nEtiquetas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_2" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtv_">
+
+
+        <RadioButton
+            android:id="@+id/rdb_MP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="MP" />
+
+        <RadioButton
+            android:id="@+id/rdb_PT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PT" />
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

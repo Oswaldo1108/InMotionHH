@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="11:11"
+        app:layout_constraintBottom_toBottomOf="@+id/icn_Status"
+        app:layout_constraintEnd_toStartOf="@+id/icn_Status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/icn_Status" />
+
+    <ImageView
+        android:id="@+id/icn_Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/circle"
+        android:src="@drawable/ic_cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/view21"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/grisAXC"
+        app:layout_constraintBottom_toBottomOf="@+id/Tarjeta"
+        app:layout_constraintStart_toEndOf="@+id/icn_Status"
+        app:layout_constraintTop_toTopOf="@+id/Tarjeta" />
+
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:background="@color/grisAXC"
+        app:layout_constraintBottom_toBottomOf="@+id/icn_Status"
+        app:layout_constraintEnd_toStartOf="@+id/view21"
+        app:layout_constraintStart_toEndOf="@+id/icn_Status"
+        app:layout_constraintTop_toTopOf="@+id/icn_Status" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+
+        android:layout_marginTop="8dp"
+        android:background="@color/grisAXC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/icn_Status"
+        app:layout_constraintStart_toStartOf="@+id/icn_Status"
+        app:layout_constraintTop_toBottomOf="@+id/icn_Status" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+
+        android:layout_marginBottom="8dp"
+        android:background="@color/grisAXC"
+        app:layout_constraintBottom_toTopOf="@+id/icn_Status"
+        app:layout_constraintEnd_toEndOf="@+id/icn_Status"
+        app:layout_constraintStart_toStartOf="@+id/icn_Status"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <include
+        android:id="@+id/Tarjeta"
+        layout="@layout/cardview_documento_inicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/icn_Status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view21"
+        app:layout_constraintTop_toTopOf="@+id/icn_Status" />
+</androidx.constraintlayout.widget.ConstraintLayout>

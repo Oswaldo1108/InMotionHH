@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/negroTrans"
+    android:id="@+id/Pantalla_principal"
+    android:elevation="1000dp"
+    tools:context=".Fragmentos.FragmentoAumentarVista">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/imagen"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_baseline_image_not_supported_24"
+        />
+
+</FrameLayout>

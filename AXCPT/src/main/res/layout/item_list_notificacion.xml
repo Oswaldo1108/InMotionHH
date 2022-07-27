@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:clickable="true"
+    android:padding="5dp"
+    android:layout_marginStart="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_mensaje"
+    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+    android:orientation="vertical"
+    android:focusable="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txtv_tipo"
+            style="@style/EstiloTexto_Negro_Reg"
+            android:layout_width="0dp"
+            android:paddingStart="3dp"
+            android:layout_height="25dp"
+            android:text="Tipo"
+            android:layout_weight="10"/>
+        <TextView
+            android:id="@+id/txtv_fecha"
+            style="@style/EstiloTexto_Negro_Reg"
+            android:layout_width="72dp"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"
+            android:text="Fecha: "
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="3"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txtv_contenido"
+            style="@style/EstiloTexto_Negro_Reg"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:text="Contenido del mensaje"
+            android:paddingStart="3dp"
+            android:layout_weight="12"/>
+        <ImageView
+            android:id="@+id/img_estatus"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_weight="2"
+            android:src="@drawable/notificacion_status_1"/>
+    </LinearLayout>
+</LinearLayout>

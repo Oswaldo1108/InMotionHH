@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/fondoAzul"
+    android:id="@+id/Pantalla_principal"
+    android:layout_height="match_parent"
+    tools:context=".c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_AjustePalletSCH">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ScrollView
+            android:scrollbarThumbVertical="@drawable/thumb_scrollbar"
+            android:scrollbarTrackVertical="@drawable/track_scrollbar_transp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="90dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:id="@+id/textView57"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Ajuste:"
+                        android:textColor="@color/blancoLetraStd"
+                        android:textSize="@dimen/txtSize"
+                        android:textStyle="bold"
+                       />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout6"
+                        style="@style/Estilo_EditText_Reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:layout_marginEnd="8dp"
+                        >
+
+                        <Spinner
+                            android:id="@+id/spnr_Ajuste"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:backgroundTint="#111111"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/textView60"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Búsqueda:"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/txtv_Producto"
+                    style="@style/Estilo_EditText_Reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="31dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:singleLine="true"
+                    android:hint="@string/capturar_producto"
+                   />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Articulo:"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"
+                    />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout4"
+                    style="@style/Estilo_EditText_Reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="8dp">
+
+                    <Spinner
+                        android:id="@+id/spnr_NumParte"
+                        android:layout_width="0dp"
+                        android:layout_height="31dp"
+                        android:backgroundTint="#111111"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/textView67"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Cantidad:"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/edtx_Empaque"
+                    style="@style/Estilo_EditText_Reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:hint="Cantidad por empaque"
+                    android:inputType="numberDecimal"/>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textView68"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Número de serie:"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/edtxNumSerie"
+                    style="@style/Estilo_EditText_Reg"
+                    android:layout_width="210dp"
+                    android:layout_height="31dp"
+                    android:inputType="text"
+                    android:enabled="false"
+                    />
+
+                <CheckBox
+                    android:id="@+id/checkNumSerie"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+
+                    />
+
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textView62"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Código de empaque"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"
+                   />
+
+                <EditText
+                    android:id="@+id/edtx_CodigoPallet"
+                    style="@style/Estilo_EditText_Reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="31dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:hint="Escanear empaque"
+                    android:inputType="text"
+                   />
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:id="@+id/textView63"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Paquetes registrados:"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/txtv_EmpaquesReg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:text="-"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"/>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/textView64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Pallet:"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/txtv_Pallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/textView97"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Fecha cad."
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/textView99"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="23dp"
+                    android:text="Lote"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold"
+                    />
+
+                <EditText
+                    android:visibility="gone"
+                    android:id="@+id/edtx_Lote"
+                    style="@style/Estilo_EditText_Reg"
+                    android:layout_width="0dp"
+                    android:layout_height="31dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:hint="@string/capturar_lote_producto"
+                    android:inputType="textPersonName"
+                    />
+
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/btn_CerrarTarima"
+                    style="@style/Estilo_Boton_Reg"
+                    android:layout_width="0dp"
+                    android:layout_height="72dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Cerrar Tarima"
+                    />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/textView133"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Mercado:"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </ScrollView>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <include
+                android:visibility="gone"
+                android:id="@+id/vw_spinner"
+                layout="@layout/vw_spinner"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="8dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

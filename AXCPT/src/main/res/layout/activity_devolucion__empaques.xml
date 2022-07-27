@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul"
+    android:id="@+id/Pantalla_principal"
+    tools:context=".c_Almacen.Almacen_Devoluciones.Devolucion_Empaques">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        style="@style/scrollbarStyleVertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vw_spinner">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Devolución:" />
+
+                <TextView
+                    android:id="@+id/tv_devolucion"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Partida:" />
+
+                <TextView
+                    android:id="@+id/tv_Partida"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Producto:" />
+
+                <TextView
+                    android:id="@+id/tv_Producto"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_ProductoDet"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cant. Pend:" />
+
+
+                <TextView
+                    android:id="@+id/tv_cantOrig"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="-" />
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/txtv_margin"
+
+                    android:text="Cant. Reg." />
+
+                <TextView
+                    android:id="@+id/tv_cantReg"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/txtv_margin"
+
+                    android:text="-" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/txtv_margin"
+                    android:text="Cant. Lote:" />
+
+                <TextView
+                    android:id="@+id/tv_cantReg2"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_marginStart="@dimen/txtv_margin"
+                    android:text="-" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView80"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="8dp"
+        android:text="Lote"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
+
+    <EditText
+        android:id="@+id/edtx_LoteNuevo"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="@string/capturar_lote_producto"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView80"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView119"
+        app:layout_constraintTop_toTopOf="@+id/textView80" />
+
+    <include
+    android:id="@+id/toolbar"
+    layout="@layout/toolbar"/>
+
+    <TextView
+        android:id="@+id/textView118"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Lote"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <include
+        android:id="@+id/vw_spinner"
+        layout="@layout/vw_spinner"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView118"
+        app:layout_constraintStart_toEndOf="@+id/textView118"
+        app:layout_constraintTop_toTopOf="@+id/textView118" />
+
+
+    <TextView
+        android:id="@+id/textView119"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Cantidad\nPaquete:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_LoteNuevo" />
+
+    <EditText
+        android:id="@+id/edtx_CantidadPiezas"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:singleLine="true"
+        android:hint="Cantidad de piezas"
+        android:paddingStart="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/textView119"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView119"
+        app:layout_constraintTop_toTopOf="@+id/textView119" />
+
+    <TextView
+        android:id="@+id/textView120"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Paquetes:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView119" />
+
+    <EditText
+        android:id="@+id/edtx_CantidadEmpaques"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:hint="Cantidad de paquetes"
+        android:paddingStart="5dp"
+        android:layout_marginEnd="8dp"
+        android:inputType="number"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/textView120"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView119"
+        app:layout_constraintTop_toTopOf="@+id/textView120" />
+
+    <TextView
+        android:id="@+id/textView121"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Codigo de Paquete:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView120" />
+
+    <EditText
+        android:id="@+id/edtx_CodigoEmpaque"
+        style="@style/Estilo_EditText_WhiteBackground"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:hint="Escanear paquete"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/textView121"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:paddingStart="5dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textView121"
+        app:layout_constraintTop_toTopOf="@+id/textView121" />
+
+    <TextView
+        android:id="@+id/textView123"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Paquetes registrados:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView121" />
+
+    <TextView
+        android:id="@+id/tv_EmpaquesRegistrados"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView123"
+        app:layout_constraintStart_toEndOf="@+id/textView123"
+        app:layout_constraintTop_toTopOf="@+id/textView123" />
+
+    <TextView
+        android:id="@+id/textView124"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Pallet:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView123" />
+
+    <TextView
+        android:id="@+id/tv_pallet"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView124"
+        app:layout_constraintStart_toEndOf="@+id/textView124"
+        app:layout_constraintTop_toTopOf="@+id/textView124" />
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+</androidx.constraintlayout.widget.ConstraintLayout>

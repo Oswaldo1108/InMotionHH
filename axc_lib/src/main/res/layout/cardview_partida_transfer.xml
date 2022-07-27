@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview_documento_inicio"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Transparente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <EditText
+            android:id="@+id/edtx_Cantidad"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:focusedByDefault="false"
+            android:hint="Toque para ingresar "
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintEnd_toStartOf="@+id/edtx_LoteAsignado"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl" />
+
+
+        <EditText
+            android:id="@+id/edtx_LoteAsignado"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:focusedByDefault="false"
+            android:hint="Toque para ingresar "
+            app:layout_constraintBottom_toBottomOf="@+id/edtx_Cantidad"
+            app:layout_constraintEnd_toStartOf="@+id/view2"
+            app:layout_constraintStart_toEndOf="@+id/edtx_Cantidad"
+            app:layout_constraintTop_toTopOf="@+id/edtx_Cantidad" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_Lista"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/view"></LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/EstiloTexto_Negro_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="8dp"
+            android:text="Cantidad:"
+            app:layout_constraintBottom_toTopOf="@+id/edtx_Cantidad"
+            app:layout_constraintEnd_toEndOf="@+id/edtx_Cantidad"
+            app:layout_constraintStart_toStartOf="@+id/edtx_Cantidad" />
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/EstiloTexto_Negro_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="8dp"
+            android:text="Lote:"
+            app:layout_constraintBottom_toTopOf="@+id/edtx_LoteAsignado"
+            app:layout_constraintEnd_toEndOf="@+id/edtx_LoteAsignado"
+            app:layout_constraintStart_toStartOf="@+id/edtx_LoteAsignado" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="3dp"
+            android:layout_height="0dp"
+
+            android:background="@color/colorAXCBASE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="3dp"
+            android:layout_height="0dp"
+
+            android:background="@color/colorAXCBASE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+
+            android:background="@color/colorAXCBASE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorAXCBASE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_MasInfo"
+                android:layout_width="39dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/Transparente"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_cancel" />
+
+            <TextView
+                android:id="@+id/txtv_TipoDocumento"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Partida 5 : 21-748-105"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="16dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@+id/btn_MasInfo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtv_Documento"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:text="Acido Desoxi Ribonucleico"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_MasInfo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_TipoDocumento" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

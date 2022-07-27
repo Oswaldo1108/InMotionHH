@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="32dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right" >
+
+    <!-- Menu Item Image -->
+    <ImageView
+        android:id="@+id/medalla_imagen"
+        android:layout_width="24dp"
+        android:layout_height="32dp"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_baseline_local_post_office_24"/>
+    <!-- Badge Count -->
+    <TextView
+        android:id="@+id/texto_medalla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:padding="2dp"
+        android:textSize="8sp"
+        android:visibility="gone"
+        android:background="@drawable/orilla_layout_rojo_rounded"
+        android:textStyle="bold"
+        android:text="99"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

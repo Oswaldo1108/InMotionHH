@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul"
+    tools:context=".c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.Almacen_Armado_Pallets_Ne">
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false">
+
+
+            <Button
+                android:id="@+id/btn_CancelarTarima"
+                style="@style/Estilo_Boton_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="66dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:clickable="true"
+                android:text="Cancelar\nTarima "
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_CerrarTarima"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/btn_CerrarTarima"
+                style="@style/Estilo_Boton_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="66dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="32dp"
+                android:clickable="true"
+                android:text="Cerrar\nTarima"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_CancelarTarima"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_CancelarTarima"
+                app:layout_constraintTop_toTopOf="@+id/btn_CancelarTarima" />
+
+
+            <include
+                android:id="@+id/spnr_Maquinas"
+                layout="@layout/vw_spinner"
+
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView86"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView55"
+                app:layout_constraintTop_toTopOf="@+id/textView86" />
+
+
+
+
+            <EditText
+                android:id="@+id/edtx_OrdenProduccion"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="15dp"
+                android:ems="10"
+                android:hint="@string/estatico_orden_produccion"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="@+id/textView56"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView55"
+                app:layout_constraintTop_toTopOf="@+id/textView56" />
+
+            <EditText
+                android:id="@+id/edtx_Empaque"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint=" Capt. la cantidad de paquetes"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="@+id/textView55"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView55"
+                app:layout_constraintTop_toTopOf="@+id/textView55" />
+
+            <TextView
+
+                android:id="@+id/textView86"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Máquina"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout5" />
+
+
+            <TextView
+                android:id="@+id/textView85"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Cantidad de paquetes :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView55" />
+
+
+            <TextView
+                android:id="@+id/textView15"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Tarima Abierta:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView85" />
+
+            <TextView
+                android:id="@+id/txtv_CantidadEmpaques"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+
+                android:layout_height="20dp"
+                android:layout_marginStart="32dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/textView85"
+                app:layout_constraintStart_toEndOf="@+id/textView85"
+                app:layout_constraintTop_toTopOf="@+id/textView85" />
+
+            <TextView
+                android:id="@+id/txtv_PalletAbierto"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+
+                android:layout_height="20dp"
+                android:layout_marginStart="32dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                app:layout_constraintStart_toEndOf="@+id/textView85"
+                app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+            <TextView
+
+                android:id="@+id/textView56"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Órden de\nProducción"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+
+                android:id="@+id/textView55"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Cantidad\nPaquetes"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView86" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ConstraintLayout5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/orilla_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtx_OrdenProduccion">
+
+                <TextView
+
+                    android:id="@+id/txtv_Producto"
+                    style="@style/EstiloTexto_Blanco_Reg"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="-"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView19"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView65"
+                    app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+                <TextView
+
+                    android:id="@+id/txtv_Cantidad"
+                    style="@style/EstiloTexto_Blanco_Reg"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="32dp"
+                    android:text="-"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView65"
+                    app:layout_constraintStart_toEndOf="@+id/textView65"
+                    app:layout_constraintTop_toTopOf="@+id/textView65" />
+
+                <TextView
+
+                    android:id="@+id/txtv_CantidadReg"
+                    style="@style/EstiloTexto_Blanco_Reg"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="32dp"
+                    android:text="-"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView88"
+                    app:layout_constraintStart_toEndOf="@+id/textView65"
+                    app:layout_constraintTop_toTopOf="@+id/textView88" />
+
+                <TextView
+
+                    android:id="@+id/txtv_Lote"
+                    style="@style/EstiloTexto_Blanco_Reg"
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="32dp"
+                    android:text="-"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                    app:layout_constraintStart_toEndOf="@+id/textView65"
+                    app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Producto"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView65"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Cantidad total "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtv_Producto" />
+
+                <TextView
+                    android:id="@+id/textView88"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Cantidad reg."
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView65" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    style="@style/EstiloTexto_Blanco_Bold"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Lote"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView88" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

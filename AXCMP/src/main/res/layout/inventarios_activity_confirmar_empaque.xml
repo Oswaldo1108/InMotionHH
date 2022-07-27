@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul"
+    tools:context="com.automatica.AXCMP.c_Inventarios.Inventarios_ConfirmarEmpaque">
+
+
+    <CheckBox
+        android:id="@+id/chkb_ConfirmarEmpaque"
+        android:layout_width="94dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@null"
+        android:buttonTint="@color/blancoLetraStd"
+        android:text="Editar"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Pallet"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="0dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hsv_tabla_embarques">
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:text="Producto"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+        <TextView
+            android:id="@+id/textView100"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="50dp"
+            android:text="Lote"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+        <EditText
+            android:id="@+id/edtx_ConfirmarEmpaque"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/volver_escanear_empaque"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toEndOf="@+id/textView45"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_Unidades" />
+
+        <TextView
+            android:id="@+id/txtv_Producto"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            tools:layout_editor_absoluteX="27dp"
+            tools:layout_editor_absoluteY="37dp" />
+
+        <Button
+            android:id="@+id/btn_Baja"
+            style="@style/Estilo_Boton_Reg"
+            android:layout_width="152dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Baja"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="50dp"
+            android:text="Unidades"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView45" />
+
+        <TextView
+            android:id="@+id/textView48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="10dp"
+            android:text="Confirmar\nPaquete"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+        <EditText
+            android:id="@+id/edtx_Unidades"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="82dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="48dp"
+            android:ems="10"
+            android:hint="@string/unidades"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toEndOf="@+id/textView45"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_Producto" />
+
+        <EditText
+            android:id="@+id/edtx_CodigoPallet"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_marginBottom="184dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="3dp"
+            android:ems="10"
+            android:hint="@string/escanear_empaque"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView45"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Baja" />
+
+        <EditText
+            android:id="@+id/edtx_Producto"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="false"
+
+
+            android:ems="10"
+            android:focusable="true"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView45"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_CodigoPallet" />
+
+        <EditText
+            android:id="@+id/edtx_Lote"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+
+
+            android:clickable="true"
+            android:ems="10"
+            android:focusable="true"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView45"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_Producto" />
+
+        <TextView
+            android:id="@+id/textView43"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="68dp"
+            android:text="Empaque"
+
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_tabla_embarques"
+        android:layout_width="344dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkb_ConfirmarEmpaque">
+
+        <LinearLayout
+            android:id="@+id/LL"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <de.codecrafters.tableview.TableView
+                android:id="@+id/tableView_ConfirmarEmpaque"
+                android:layout_width="1500dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/orilla_layout"
+                android:divider="@color/grisAXC"
+                android:dividerHeight="1dip"
+                android:nestedScrollingEnabled="true"
+                app:tableView_columnCount="6"
+                app:tableView_headerColor="@color/Transparente" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/txtv_Pallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="-"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        app:layout_constraintStart_toEndOf="@+id/textView29"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

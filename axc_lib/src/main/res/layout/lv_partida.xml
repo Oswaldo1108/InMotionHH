@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+    <TextView
+        android:id="@+id/tv_Dato"
+        style="@style/EstiloTexto_Negro_Reg"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/tv_Titulo2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_Producto"
+        style="@style/EstiloTexto_Negro_Reg"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/tv_Titulo"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Dato" />
+
+    <TextView
+        android:id="@+id/tv_CantTot"
+        style="@style/EstiloTexto_Negro_Reg"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Titulo4"
+        app:layout_constraintStart_toStartOf="@+id/tv_Titulo4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Titulo4" />
+
+    <TextView
+        android:id="@+id/tv_CantPend"
+        style="@style/EstiloTexto_Negro_Reg"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Titulo5"
+        app:layout_constraintStart_toStartOf="@+id/tv_Titulo5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Titulo5" />
+
+    <TextView
+        android:id="@+id/tv_UM"
+        style="@style/EstiloTexto_Negro_Reg"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Titulo7"
+        app:layout_constraintStart_toStartOf="@+id/tv_Titulo7"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Titulo7" />
+
+    <TextView
+        android:id="@+id/tv_CantSurt"
+        style="@style/EstiloTexto_Negro_Reg"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="8dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Titulo6"
+        app:layout_constraintStart_toStartOf="@+id/tv_Titulo6"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Titulo6" />
+
+    <TextView
+        android:id="@+id/tv_Estatus"
+        style="@style/EstiloTexto_Negro_Reg"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="2dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="-"
+        app:layout_constraintStart_toEndOf="@+id/tv_Titulo3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_Titulo"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+
+        android:layout_marginTop="8dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Producto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Titulo2" />
+
+    <TextView
+        android:id="@+id/tv_Titulo4"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Cantidad total "
+        app:layout_constraintEnd_toStartOf="@+id/tv_Titulo6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Producto" />
+
+    <TextView
+        android:id="@+id/tv_Titulo5"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Cantidad pendiente"
+        app:layout_constraintEnd_toStartOf="@+id/tv_Titulo7"
+        app:layout_constraintStart_toEndOf="@+id/tv_Titulo6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_Titulo7"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="UM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_Titulo5"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_Titulo6"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Cantidad surtida"
+        app:layout_constraintEnd_toStartOf="@+id/tv_Titulo5"
+        app:layout_constraintStart_toEndOf="@+id/tv_Titulo4"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Estatus" />
+
+    <TextView
+        android:id="@+id/tv_Titulo2"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="2dp"
+
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Partida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_Titulo3"
+        style="@style/EstiloTexto_Negro_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="2dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Estatus"
+        app:layout_constraintStart_toEndOf="@+id/tv_Dato"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

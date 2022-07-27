@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/camposAzul"
+
+    app:logo="@drawable/ic_baseline_menu_24"
+    app:titleMarginStart="15dp"
+    app:contentInsetLeft="10dp"
+    app:contentInsetStart="10dp"
+    app:contentInsetStartWithNavigation="0dp"
+    app:titleTextAppearance="@style/ToolbarTitleTheme"
+    android:visibility="visible"
+    app:title="Titulo toolbar"
+    app:titleTextColor="@color/blancoLetraStd"
+    style="@style/myToolbarTheme">
+<!-- app:navigationIcon="@drawable/arrow_down"-->
+
+</androidx.appcompat.widget.Toolbar>
+

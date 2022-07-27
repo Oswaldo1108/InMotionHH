@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sample="http://schemas.android.com/apk/res-auto">
+
+
+
+    <Preference
+        android:key="registrar"
+        android:title="Haga clic aqui para registrar sus preferencias."
+        android:enabled="true"
+        />
+
+
+
+    <PreferenceCategory android:title="Ordenes de compra">
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="OC_Q1"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="OC_Q2"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="Traspasos">
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="TRAS_Q1"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="TRAS_Q2"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="Ordenes de pedido">
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="Pedido_Q1"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="Pedido_Q2"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="Ordenes de surtido">
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="OSurtido_Q1"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="OSurtido_Q2"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Ordenes de producción">
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="OP_Q1"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="OP_Q2"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Ordenes de embarque">
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="OEMB_Q1"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            android:key="OEMB_Q2"
+            android:title="Ingrese la cantidad de días a consultar"
+            android:enabled="true"
+            android:defaultValue="15"
+            sample:msbp_minValue="0"
+            sample:msbp_maxValue="60"
+            sample:msbp_interval="1"
+            sample:msbp_measurementUnit="Días"
+            sample:msbp_dialogEnabled="false" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="Ligas Web Service">
+
+
+        <EditTextPreference
+            android:defaultValue="http://192.168.1.1/AXCPT/wsAXCMP.asmx"
+            android:key="ligaPT"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Liga Producto Terminado" />
+
+        <EditTextPreference
+            android:defaultValue="http://192.168.1.1/AXCMP/wsAXCMP.asmx"
+            android:key="ligaMP"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Liga Materia Prima" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory android:title="MiAXC"/>
+
+</PreferenceScreen>

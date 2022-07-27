@@ -1,0 +1,228 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorSecondary">@color/blancoLetraStd</item>
+        <item name="itemBackground">@drawable/rounded_image_button_reg</item>
+        <item name="android:popupMenuStyle">@style/popupMenuStyle</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Base application theme. -->
+
+    <style name="popupMenuStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:itemBackground">@color/fondoAzulSemiTransp</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:textColorPrimary">@color/blancoLetraStd</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:background">@color/fondoAzul</item>
+        <item name="android:textAppearanceMedium">@style/MyAlertTextAppearance</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <!-- Style for negative button -->
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+    </style>
+
+    <style name="MyAlertTextAppearance" parent="AlertDialog">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/blancoLetraStd</item>
+    </style>
+ <style name="PositiveButtonStyle" parent="@style/AlertDialog">
+        <!-- text color for the button -->
+        <item name="android:textColor">@color/VerdeSemaforo</item>
+        <!-- Background tint for the button -->
+        <item name="android:background">@drawable/boton_dialog_reg</item>
+        <item name="paddingEnd">2dp</item>
+        <!--<item name="backgroundTint">@color/negroTrans</item>-->
+    </style>
+
+    <style name="NegativeButtonStyle" parent="@style/AlertDialog">
+        <item name="android:textColor">@color/RojoSemaforo</item>
+        <!-- Background tint for the button -->
+        <item name="android:background">@drawable/boton_dialog_reg</item>
+        <item name="paddingEnd">2dp</item>
+        <!--<item name="backgroundTint">@color/negroTrans</item>-->
+    </style>
+
+    <style name="EstiloTexto_Blanco_Bold" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:textColorPrimary">@color/blancoLetraStd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/blancoLetraStd</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:focusable">false</item>
+        <item name="android:inputType">none</item>
+
+    </style>
+
+    <style name="EstiloTexto_Blanco_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:textColorPrimary">@color/blancoLetraStd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/blancoLetraStd</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+        <item name="android:focusable">false</item>
+        <item name="android:inputType">none</item>
+    </style>
+    <style name="EstiloTexto_Blanco_Reg_Consulta" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/blancoLetraStd</item>
+        <item name="android:textColorPrimary">@color/blancoLetraStd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/blancoLetraStd</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:background">@drawable/drawable_etiqueta_consulta</item>
+    </style>
+
+    <style name="EstiloTexto_Negro_Bold" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroLetrastd</item>
+        <item name="android:textColorPrimary">@color/negroLetrastd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:focusable">false</item>
+        <item name="android:inputType">none</item>
+
+    </style>
+
+
+    <style name="EstiloTexto_Negro_Bold_new" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroN</item>
+        <item name="android:textColorPrimary">@color/negroN</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroN</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:focusable">false</item>
+        <item name="android:inputType">none</item>
+    </style>
+
+    <style name="EstiloTexto_Negro_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroLetrastd</item>
+        <item name="android:textColorPrimary">@color/negroLetrastd</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+        <item name="android:focusable">false</item>
+        <item name="android:inputType">none</item>
+    </style>
+
+
+    <style name="Estilo_EditText_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroN</item>
+        <item name="android:background">@drawable/orilla_layout_edtx</item>
+        <item name="android:textColorPrimary">@color/negroN</item>
+        <item name="android:height">28dp</item>
+        <item name="android:width">170dp</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+        <item name="android:paddingLeft">3dp</item>
+    </style>
+
+    <style name="Estilo_Boton_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/negroN</item>
+        <item name="android:background">@drawable/orilla_boton_layout</item>
+        <item name="android:textColorPrimary">@color/negroN</item>
+        <item name="android:height">70dp</item>
+        <item name="android:width">155dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroN</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+    </style>
+
+
+    <style name="Estilo_Boton_Rojo" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/RojoSemaforo</item>
+        <item name="android:background">@drawable/orilla_roja_layout</item>
+        <item name="android:textColorPrimary">@color/RojoSemaforo</item>
+        <item name="android:height">74dp</item>
+        <item name="android:width">155dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
+        <item name="android:textSize">@dimen/txtsize</item>
+    </style>
+
+    <style name="EstiloTexto_Sugerencia_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/VerdeSemaforo</item>
+        <item name="android:textColorPrimary">@color/VerdeSemaforo</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/VerdeSemaforo</item>
+        <item name="android:textSize">@dimen/txtSizeBig</item>
+    </style>
+    <style name="EstiloTexto_Sugerencia_Reg_Consulta" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/VerdeSemaforo</item>
+        <item name="android:textColorPrimary">@color/VerdeSemaforo</item>
+        <item name="android:colorAccent" tools:targetApi="lollipop">@color/VerdeSemaforo</item>
+        <item name="android:textSize">@dimen/txtSizeBig</item>
+        <item name="android:background">@drawable/drawable_etiqueta_consulta</item>
+
+    </style>
+    <style name="myToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">@color/blancoLetraStd</item>
+    </style>
+
+
+
+
+
+
+    <style name="ToolbarTitleTheme" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/negroLetrastd</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="scrollbarStyleVertical" parent="TextAppearance.AppCompat">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarThumbVertical">@drawable/thumb_scrollbar</item>
+        <item name="android:scrollbarTrackVertical">@drawable/track_scrollbar</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+        <item name="android:background">@drawable/orilla_layout_scrollview_vertical</item>
+
+    </style>
+    <style name="scrollbarStyleMenu" parent="TextAppearance.AppCompat">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarThumbVertical">@drawable/thumb_scrollbar</item>
+        <item name="android:scrollbarTrackVertical">@drawable/track_scrollbar_transp</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:paddingStart">10dp</item>
+    </style>
+
+    <style name="scrollbarStyleMenuFrag" parent="TextAppearance.AppCompat">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarThumbVertical">@drawable/thumb_scrollbar</item>
+        <item name="android:scrollbarTrackVertical">@drawable/track_scrollbar_transp</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarStyle">outsideInset</item>
+    </style>
+    <style name="scrollbarStyleConsulta">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarThumbVertical">@drawable/thumb_scrollbar</item>
+        <item name="android:scrollbarTrackVertical">@drawable/track_scrollbar_transp</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+    <style name="scrollbarStyleHorizontal" parent="TextAppearance.AppCompat">
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/thumb_scrollbar_horizontal</item>
+        <item name="android:scrollbarTrackHorizontal">@drawable/track_scrollbar_horizontal</item>
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+
+    </style>
+</resources>

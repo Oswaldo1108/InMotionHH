@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_blanco"
+    tools:context="com.automatica.axc_lib.Activities.cIncidencia.Incidencia">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="567dp"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Reimprimir TODAS las etiquetas de Empaque"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/button4" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Reimprimir Etiqueta de pallet"
+                app:layout_constraintBottom_toBottomOf="@+id/button3"
+                app:layout_constraintEnd_toStartOf="@+id/button3"
+                app:layout_constraintHorizontal_bias="0.592"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/button3" />
+
+            <EditText
+                android:id="@+id/edtx_Codigo"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Deje presionado para escanear"
+                android:inputType="textNoSuggestions"
+
+                app:layout_constraintBottom_toBottomOf="@+id/txtv_Seleccionado7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado7"
+                app:layout_constraintTop_toTopOf="@+id/txtv_Seleccionado7" />
+
+            <ListView
+                android:id="@+id/lv_EmpaquesPallet"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:nestedScrollingEnabled="true"
+                app:layout_constraintBottom_toTopOf="@+id/cl_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view4">
+
+            </ListView>
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Cantidad Actual"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Lote" />
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado2"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Cantidad total"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Lote" />
+
+            <TextView
+                android:id="@+id/txtv_Estatus"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="-"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="@+id/txtv_Fecha2"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Fecha2" />
+
+            <TextView
+                android:id="@+id/txtv_Fecha2"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Estatus"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado4"
+                app:layout_constraintTop_toTopOf="@+id/txtv_Seleccionado4" />
+
+            <TextView
+                android:id="@+id/txtv_CantTot"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado" />
+
+            <TextView
+                android:id="@+id/txtv_CantAct"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado2" />
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado6"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Producto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado9" />
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado9"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Pallet"
+                app:layout_constraintStart_toStartOf="@+id/edtx_Codigo"
+                app:layout_constraintTop_toBottomOf="@+id/edtx_Codigo" />
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado7"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text=" Empaque\no Pallet"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado8"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Lote"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Producto2" />
+
+            <TextView
+                android:id="@+id/txtv_Producto"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/txtv_Seleccionado6"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado6"
+                app:layout_constraintTop_toTopOf="@+id/txtv_Seleccionado6" />
+
+            <TextView
+                android:id="@+id/txtv_Pallet"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/txtv_Seleccionado9"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado9"
+                app:layout_constraintTop_toTopOf="@+id/txtv_Seleccionado9"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txtv_Producto2"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado6" />
+
+            <TextView
+                android:id="@+id/txtv_Lote"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="-"
+                app:layout_constraintBottom_toBottomOf="@+id/txtv_Seleccionado8"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado8"
+                app:layout_constraintTop_toTopOf="@+id/txtv_Seleccionado8" />
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado5"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="UM"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_CantAct" />
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado4"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:text="Ubicación"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado5"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_CantAct" />
+
+            <TextView
+                android:id="@+id/txtv_Seleccionado10"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Impresora"
+                app:layout_constraintBottom_toBottomOf="@+id/cl_spinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cl_spinner" />
+
+            <TextView
+                android:id="@+id/txtv_TipoDetalle"
+                style="@style/EstiloTexto_Negro_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Empaques"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Estatus" />
+
+            <TextView
+                android:id="@+id/txtv_UM"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado5" />
+
+            <TextView
+                android:id="@+id/txtv_UM2"
+                style="@style/EstiloTexto_Negro_Reg"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="8dp"
+                android:text="-"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado5"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Seleccionado5" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtv_TipoDetalle">
+
+            </View>
+
+            <include
+                android:id="@+id/cl_spinner"
+                layout="@layout/vw_spinner"
+                android:layout_width="0dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/button3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtv_Seleccionado10" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/cl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></include>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

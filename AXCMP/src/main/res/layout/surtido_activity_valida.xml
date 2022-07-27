@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul"
+   >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_TablaRegistro"
+        android:layout_width="0dp"
+        android:layout_height="451dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_OrdenProd">
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_tbl"
+            android:layout_width="0dp"
+            android:layout_height="429dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/LL3"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <de.codecrafters.tableview.SortableTableView
+                    android:id="@+id/tableView_OrdenProd"
+                    android:layout_width="1000dp"
+
+                    android:layout_height="match_parent"
+                    android:background="@drawable/orilla_layout"
+                    android:baselineAligned="false"
+                    android:divider="@color/grisAXC"
+                    android:dividerHeight="1dp"
+                    android:nestedScrollingEnabled="true"
+                    app:tableView_columnCount="4"
+
+                    app:tableView_headerColor="@color/Transparente"
+                    tools:layout_editor_absoluteX="181dp"
+                    tools:layout_editor_absoluteY="8dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="73dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Orden"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/textView101"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Orden trab."
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+    <EditText
+        android:id="@+id/edtx_OrdenProd"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="@string/capturar_orden_produccion"
+        android:inputType="numberSigned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView35"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_ValidacionEmpaques"
+        android:layout_width="0dp"
+        android:layout_height="616dp"
+        android:layout_marginTop="8dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_OrdenProd">
+
+
+        <TextView
+            android:id="@+id/textView104"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Cant. Paquetes:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_CodigoEmpaque" />
+
+        <TextView
+            android:id="@+id/txtv_CantEmpReg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toEndOf="@+id/textView104"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_CodigoEmpaque" />
+
+        <TextView
+            android:id="@+id/textView109"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Empaque"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView103" />
+
+        <TextView
+            android:id="@+id/textView103"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Máquina"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="@dimen/txtSize"
+            style="@style/EstiloTexto_Blanco_Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hsv_tabla_embarques" />
+
+        <EditText
+            android:id="@+id/edtx_CodigoMaquina"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="263dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            android:hint="@string/escanear_maquina"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hsv_tabla_embarques" />
+
+        <EditText
+            android:id="@+id/edtx_CodigoEmpaque"
+            style="@style/Estilo_EditText_Reg"
+            android:layout_width="263dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:ems="10"
+            android:hint="@string/escanear_empaque"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtx_CodigoMaquina" />
+
+        <Button
+            android:id="@+id/btn_CerrarOrden"
+            style="@style/Estilo_Boton_Reg"
+            android:layout_width="0dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Cerrar\nOrden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_CerrarTarima"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_CantEmpReg" />
+
+        <Button
+            android:id="@+id/btn_CerrarTarima"
+            style="@style/Estilo_Boton_Reg"
+            android:layout_width="0dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/validar_tarima"
+            app:layout_constraintEnd_toStartOf="@+id/btn_CerrarOrden"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView104" />
+
+        <HorizontalScrollView
+            android:id="@+id/hsv_tabla_embarques"
+            android:layout_width="0dp"
+            android:layout_height="279dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:id="@+id/LL2"
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <de.codecrafters.tableview.SortableTableView
+                    android:id="@+id/tableView_Salida"
+                    android:layout_width="800dp"
+
+                    android:layout_height="match_parent"
+                    android:background="@drawable/orilla_layout"
+                    android:baselineAligned="false"
+                    android:divider="@color/grisAXC"
+                    android:dividerHeight="1dp"
+                    android:nestedScrollingEnabled="true"
+                    app:tableView_columnCount="4"
+
+                    app:tableView_headerColor="@color/Transparente" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

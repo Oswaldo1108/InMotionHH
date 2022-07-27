@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoAzul"
+    android:orientation="vertical"
+
+    tools:context="com.automatica.AXCMP.c_Almacen.Almacen_Colocar_v1"
+    android:windowSoftInputMode="adjustPan">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
+        android:text="Paquete:"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="18dp"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <EditText
+        android:id="@+id/edtx_CodigoPallet"
+        android:layout_width="253dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/blancoLetraStd"
+        android:ems="10"
+        android:hint="Etiqueta de Paquete"
+        android:inputType="text"
+        android:textAllCaps="true"
+        android:nextFocusDown="@+id/edtx_Paquete_ver"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="77dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="Posición:"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLinea" />
+
+    <EditText
+        android:id="@+id/edtx_Paquete_ver"
+        android:layout_width="259dp"
+        android:layout_height="27dp"
+
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/blancoLetraStd"
+        android:ems="10"
+        android:focusable="true"
+        android:hint="Etiqueta de pallet"
+        android:inputType="text"
+        android:nextFocusUp="@+id/edtx_Paquete_ver"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DatosListView" />
+
+    <EditText
+        android:id="@+id/edtx_Anden"
+        android:layout_width="260dp"
+        android:layout_height="28dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/blancoLetraStd"
+        android:ems="10"
+        android:hint="Etiqueta de posición"
+        android:inputType="text"
+        android:nextFocusUp="@+id/edtx_Paquete_ver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_Paquete_ver" />
+
+    <TextView
+        android:id="@+id/textViewLinea"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="Pallet:"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        style="@style/EstiloTexto_Blanco_Bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DatosListView" />
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+    </FrameLayout>
+
+    <ListView
+        android:inputType="textNoSuggestions"
+        android:id="@+id/DatosListView"
+        android:layout_width="334dp"
+        android:layout_height="334dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/blancoLetraStd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtx_CodigoPallet" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
