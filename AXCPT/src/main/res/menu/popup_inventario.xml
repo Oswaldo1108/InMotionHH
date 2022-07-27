@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/pallet"
+        android:title="Pallet"
+        android:icon="@drawable/ic_pallet_etiquetado"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/picking"
+        android:title="Picking"
+        android:icon="@drawable/ic_picking_inventario"
+        app:showAsAction="always"/>
+
+
+
+</menu>
