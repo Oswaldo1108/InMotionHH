@@ -10,9 +10,9 @@
           android:title="Primera y Última"
           android:icon="@drawable/ic_primera_ultima"
           app:showAsAction="always"/>-->
-    <item android:id="@+id/nuevo"
+    <!--<item android:id="@+id/nuevo"
         android:title="Registro nuevo"
         android:icon="@drawable/ic_register"
-        app:showAsAction="always"/>
+        app:showAsAction="always"/>-->
 
 </menu>

@@ -44,11 +44,20 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
         return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
 
+    public DataAccessObject c_ListaOrdenesTraspaso(String prmDocumento) {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ListarOrdenesTraspasoRecibo";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmDocumento", prmDocumento);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
 
-    public DataAccessObject cad_ListarPartidasRecepcionTraspaso(String prmDocumento)
+    public DataAccessObject c_ListarPartidasRecepcionTraspaso(String prmDocumento)
     {
         conexionWS c = new conexionWS();
-        String METHOD_NAME = "WM_ListarPartidasRecepcionTraspaso";
+        String METHOD_NAME = "WM_ListarPartidasRecepcionTras";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmDocumento",prmDocumento);
         request.addProperty("prmEstacion",Estacion);
@@ -260,8 +269,28 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
         return  IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
 
+    public DataAccessObject cad_ListarPartidasTrasSpinner(String prmPedido)
+    {
+        String METHOD_NAME = "WM_ConsultaPartidasTrasSpinner";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmPedido",prmPedido);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
+    }
 
-
+    public DataAccessObject c_ConsultarPalletPT(String prmPedido, String prmPartida, String prmPallet)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultarPalletRecepcion";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmPedido",prmPedido);
+        request.addProperty("prmPartida",prmPartida);
+        request.addProperty("prmEmbalaje",prmPallet);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
 
     public DataAccessObject cad_ConsultaRechazoPalletTrasp(String prmDocumento,String prmPallet)
     {
@@ -334,7 +363,7 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
     }
 
 
-        public DataAccessObject cad_OCCierraPalletTraspaso(String prmPallet)
+    public DataAccessObject cad_OCCierraPalletTraspaso(String prmPallet)
     {
         String METHOD_NAME = "WM_OCCierraPalletTraspaso";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
@@ -385,7 +414,7 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
 
 
     public DataAccessObject cad_RegistraEmpaqueTraspaso(String prmDocumento,String prmPartida,String prmCodigoEmpaque,
-                                            String prmCantidad,String prmEmpaques, String prmNumSerie)
+                                                        String prmCantidad,String prmEmpaques, String prmNumSerie)
     {
         String METHOD_NAME = "WM_RegistraEmpaqueTraspaso";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
@@ -470,10 +499,10 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
         return IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
     public DataAccessObject ad_CreaEmpaqueTraspasoNESelAlm_SA(String prmDocumento,
-                                                           String prmPartida,
-                                                           String prmCantidad,
-                                                           String prmEmpaques,
-                                                           String prmAlmacen)
+                                                              String prmPartida,
+                                                              String prmCantidad,
+                                                              String prmEmpaques,
+                                                              String prmAlmacen)
     {
 
         String METHOD_NAME = "WM_CreaEmpaqueTraspasoNESelAlm_SA";
@@ -513,13 +542,13 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
 
     }
     public DataAccessObject cad_PrimeraUltimaTraspasoSelAlm_SA(String prmDocumento,
-                                                            String prmPartida,
-                                                            String prmCantidad,
-                                                            String prmEmpaques,
-                                                            String prmPrimerEmpaque,
-                                                            String prmUltimoEmpaque,
-                                                            String prmCantidadEmpaques,
-                                                            String prmAlmacen)
+                                                               String prmPartida,
+                                                               String prmCantidad,
+                                                               String prmEmpaques,
+                                                               String prmPrimerEmpaque,
+                                                               String prmUltimoEmpaque,
+                                                               String prmCantidadEmpaques,
+                                                               String prmAlmacen)
     {
 
         String METHOD_NAME = "WM_PrimeraUltimaTraspasoSelAlm_SA";
@@ -553,7 +582,7 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
         return IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
     public DataAccessObject cad_RegistraEmpaqueTraspasoSelAlm_SA(String prmDocumento,String prmPartida,String prmCodigoEmpaque,
-                                                              String prmCantidad,String prmEmpaques,String prmAlmacen)
+                                                                 String prmCantidad,String prmEmpaques,String prmAlmacen)
     {
         String METHOD_NAME = "WM_RegistraEmpaqueTraspasoSelAlm_SA";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
