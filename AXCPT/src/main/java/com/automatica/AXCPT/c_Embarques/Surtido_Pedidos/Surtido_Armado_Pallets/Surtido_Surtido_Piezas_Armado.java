@@ -659,13 +659,9 @@ public class Surtido_Surtido_Piezas_Armado extends AppCompatActivity  implements
 
                     case "ConsultaPalletAbierto":
 
-                        if(strTipo.equals("BIK"))
-                        {
-                            dao = cadEmb.cad_ConsultaTarimaConsolidada(Pedido, txtv_PalletAbierto.getText().toString());
-                        }else
-                        {
-                            dao = cadEmb.cad_ConsultaTarimaConsolidada(Pedido, txtv_PalletAbierto.getText().toString());
-                        }
+
+                            dao = cadEmb.cad_ConsultaTarimaConsolidada(txtv_Pedido.getText().toString(), txtv_PalletAbierto.getText().toString());
+
                         break;
 
                     case "CerrarTarima":

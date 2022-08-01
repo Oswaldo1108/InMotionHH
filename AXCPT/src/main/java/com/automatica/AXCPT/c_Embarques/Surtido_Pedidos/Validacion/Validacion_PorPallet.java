@@ -211,11 +211,6 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
                     new popUpGenerico(contexto,edtx_OrdenCompra, "Ingrese un documento.",false, true, true);
                     return false;
                 }
-                if (TextUtils.isEmpty(edtx_Guia.getText()))
-                {
-                    new popUpGenerico(contexto,edtx_Guia, "Ingrese una guia.",false, true, true);
-                    return false;
-                }
 
                 if (TextUtils.isEmpty(edtx_CodigoPallet.getText())){
                     new popUpGenerico(contexto,edtx_CodigoPallet, "Ingrese un código.",false, true, true);

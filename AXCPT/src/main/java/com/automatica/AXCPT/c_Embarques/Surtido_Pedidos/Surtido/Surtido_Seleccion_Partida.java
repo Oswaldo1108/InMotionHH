@@ -97,7 +97,12 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
         {
           new SegundoPlano("Tabla").execute();
         }
+        if(!edtx_Carrito.getText().toString().equals("")){
+            new SegundoPlano("ConsultaCarrito").execute();
+        }
         super.onResume();
+
+
     }
 
     private void declaraVariables()
@@ -310,10 +315,10 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                 b.putString("Pedido", edtx_Documento.getText().toString());
                 b.putString("Partida", clickedData[0]);
                 b.putString("NumParte", clickedData[1]);
-                b.putString("UM", clickedData[2]);
-                b.putString("CantidadTotal", clickedData[3]);
-                b.putString("CantidadPendiente", clickedData[4]);
-                b.putString("CantidadSurtida", clickedData[5]);
+                b.putString("UM", clickedData[5]);
+                b.putString("CantidadTotal", clickedData[2]);
+                b.putString("CantidadPendiente", clickedData[3]);
+                b.putString("CantidadSurtida", clickedData[4]);
                 b.putString("Linea", clickedData[6]);
 //            }
     }
@@ -361,21 +366,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
 
                 String strCarritoSel = edtx_Carrito.getText().toString();
 
-                if(Constructor_Dato.getValue(ConfigTabla.getRenglonSeleccionado(), "Tipo").getDato().equals("BIK"))
-                {
-                    strCarritoSel = "";
-                    edtx_Carrito.setText("");
-                    txtv_CantPaq.setText("");
-                    txtv_EstatusCarr.setText("");
-                    txtv_DocAct.setText("");
-                }else
-                {
-                    if(!strCarritoActual.equals(edtx_Carrito.getText().toString()))
-                    {
-                        new popUpGenerico(contexto,edtx_Carrito ,"Consulte el carrito de nuevo." , false, true,true );
-                        return;
-                    }
-                }
+
 
                 if (edtx_Carrito.getText().toString().equals("")){
                     new popUpGenerico(contexto,edtx_Carrito ,"Para surtir debe de ingresar un código de carrito." , false, true,true );

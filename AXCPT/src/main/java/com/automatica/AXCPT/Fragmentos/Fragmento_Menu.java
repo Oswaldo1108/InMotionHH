@@ -293,7 +293,7 @@ public class Fragmento_Menu extends Fragment{
                     datos.add(new objetoMenu(getString(R.string.menu_embarques),new Intent(getContext(), Surtido_Seleccion_Orden.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_reempaque),new Intent(getContext(), Reempaque_Seleccion_Orden.class)));
                  //   datos.add(new objetoMenu(getString(R.string.menu_validacion),new Intent(getContext(), Validacion_Seleccion_Orden.class)));
-                    datos.add(new objetoMenu("Validación",new Intent(getContext(), ValidarOrdenSurtido.class)));
+                    datos.add(new objetoMenu("Validación",new Intent(getContext(), Validacion_Seleccion_Orden.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_cancelacion),new Intent(getContext(), CancelacionEmbarque.class)));    //AQUI SE METE CANCELACIÓN
                     llenarRecycler(recyclerView, datos);
                     recyclerView.setVisibility(View.VISIBLE);
