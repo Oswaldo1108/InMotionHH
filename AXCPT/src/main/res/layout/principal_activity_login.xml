@@ -91,11 +91,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="350dp"
-        android:text="@string/txtEmpresa"
+        android:text="@string/automatico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgv_AXC" />
+
+
 
 
     <FrameLayout
