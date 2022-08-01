@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -25,7 +26,9 @@ import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionOrdenDevolucion;
+import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Seleccion_Orden;
 import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionSeleccionar;
+import com.automatica.AXCPT.c_Traspasos.MenuTraspaso;
 import com.automatica.AXCPT.databinding.ActivitySeleccionarOrdenesTraspasoEnvioBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
@@ -43,6 +46,7 @@ public class SeleccionarOrdenesTraspasoEnvio extends AppCompatActivity implement
     View vista;
     Context contexto = this;
     Bundle b = new Bundle();
+    private Handler h = new Handler();
     popUpGenerico pop = new popUpGenerico(SeleccionarOrdenesTraspasoEnvio.this);
     ActivitySeleccionarOrdenesTraspasoEnvioBinding binding;
     frgmnt_taskbar_AXC taskbar_axc;
@@ -142,15 +146,23 @@ public class SeleccionarOrdenesTraspasoEnvio extends AppCompatActivity implement
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    new esconderTeclado(SeleccionarOrdenesTraspasoEnvio.this);
-                    if(binding.edtxDocumento.getText().toString().equals("")){
-                        new popUpGenerico(contexto, binding.edtxDocumento, "Debes Igresar una Orden", false, true, true);
-                        documento = "@";
+                    if (binding.edtxDocumento.getText().toString().equals("")) {
+                        new popUpGenerico(contexto, binding.edtxDocumento, getString(R.string.error_ingrese_pedido), "false", true, true);
+                        h.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                binding.edtxDocumento.requestFocus();
+                                binding.edtxDocumento.setText("");
+                            }
+                        });
+
+                        return false;
                     }
-                    else
-                        documento = binding.edtxDocumento.getText().toString();
+
 
                     new SeleccionarOrdenesTraspasoEnvio.SegundoPlano("LlenarTabla").execute();
+
+                    new com.automatica.AXCPT.Servicios.esconderTeclado(SeleccionarOrdenesTraspasoEnvio.this);
 
                 }
                 return false;
@@ -161,7 +173,7 @@ public class SeleccionarOrdenesTraspasoEnvio extends AppCompatActivity implement
     private void configurarToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Órdenes de traspaso");
+        getSupportActionBar().setTitle("Órdenes de Traspaso E");
         View logoView = getToolbarLogoIcon(toolbar);
         logoView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,7 +220,7 @@ public class SeleccionarOrdenesTraspasoEnvio extends AppCompatActivity implement
             getSupportFragmentManager().popBackStack();
             return;
         }
-        Intent intent = new Intent(SeleccionarOrdenesTraspasoEnvio.this, Inicio_Menu_Dinamico.class);
+        Intent intent = new Intent(SeleccionarOrdenesTraspasoEnvio.this, MenuTraspaso.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);

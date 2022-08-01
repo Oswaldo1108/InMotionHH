@@ -88,7 +88,6 @@ public class SurtidoTraspasoEmpaque  extends AppCompatActivity implements TableV
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     @Override

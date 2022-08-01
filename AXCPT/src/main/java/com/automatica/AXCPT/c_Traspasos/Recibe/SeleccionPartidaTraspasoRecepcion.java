@@ -26,6 +26,7 @@ import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.Servicios.esconderTeclado;
+import com.automatica.AXCPT.c_Traspasos.Envio.SeleccionPartidaTraspasoEnvio;
 import com.automatica.AXCPT.c_Traspasos.MenuTraspaso;
 import com.automatica.AXCPT.databinding.ActivitySeleccionOrdenTraspasoRecibeBinding;
 import com.automatica.AXCPT.databinding.ActivitySeleccionPartidaTraspasoRecepcionBinding;
@@ -51,7 +52,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
     ActivitySeleccionPartidaTraspasoRecepcionBinding binding;
     frgmnt_taskbar_AXC taskbar_axc;
     Intent intent;
-    String documento;
+    String documento, Partida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,6 +164,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
             }
 
             b.putString("Orden", binding.edtxDocumento.getText().toString());
+            b.putString("Partida", binding.edtxDocumento.getText().toString());
             b.putString("FechaCaducidad", "-");
 
 
@@ -177,12 +179,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
                                 break;
-                            case R.id.nuevo:
-                                intent= new Intent(contexto, RecepcionTraspasoMenu.class);
-                                intent.putExtras(b);
-                                startActivity(intent);
-                                overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
-                                break;
+
 
                             default:
                                 pop.popUpGenericoDefault(vista,"Seleccione una opción",false);
@@ -254,11 +251,15 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
 
     @Override
     public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
-        b.putString("Documento",binding.edtxDocumento.getText().toString());
-        b.putString("Partida", clickedData[0]);
-        b.putString("Producto", clickedData[1]);
-        b.putString("Descripcion", clickedData[2]);
         DocumentoSeleccionado = true;
+        b.putString("Pedido", binding.edtxDocumento.getText().toString());
+        b.putString("Partida", clickedData[0]);
+        b.putString("NumParte", clickedData[1]);
+        b.putString("UM", clickedData[2]);
+        b.putString("CantidadTotal", clickedData[3]);
+        b.putString("CantidadPendiente", clickedData[4]);
+        b.putString("CantidadSurtida", clickedData[5]);
+        b.putString("Linea", clickedData[6]);
     }
 
     private void ReiniciarDatos() {
@@ -289,7 +290,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
 
                     case "LlenarTabla":
 
-                        dao = ca.cad_ListarPartidasRecepcionTraspaso(binding.edtxDocumento.getText().toString());
+                        dao = ca.c_ListarPartidasRecepcionTraspaso(binding.edtxDocumento.getText().toString());
 
                         break;
 
@@ -304,21 +305,19 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
 
         @Override
         protected void onPostExecute(Void aVoid) {
-
             try {
-
                 if (dao.iscEstado()) {
-
                     switch (Tarea) {
-
                         case "LlenarTabla":
-
                             if (ConfigTabla_Totales == null) {
-
-                                ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,SeleccionPartidaTraspasoRecepcion.this);
+                                ConfigTabla_Totales =  new TableViewDataConfigurator( 9, "SURTIDA","LIBERADA TOTAL","10",tabla, dao,SeleccionPartidaTraspasoRecepcion.this);
+                                Log.e("Tablas",dao.getSoapObject().toString());
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
+
+                            new esconderTeclado(SeleccionPartidaTraspasoRecepcion.this);
+
 
                             break;
                     }
@@ -330,7 +329,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
 
             } catch (Exception e) {
                 e.printStackTrace();
-                //pop.popUpGenericoDefault(vista, e.getMessage(), false);
+                pop.popUpGenericoDefault(vista, e.getMessage(), false);
 
             }
             p.DesactivarProgressBar(Tarea);
