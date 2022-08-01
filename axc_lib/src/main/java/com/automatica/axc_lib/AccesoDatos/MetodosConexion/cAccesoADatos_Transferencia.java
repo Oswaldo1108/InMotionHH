@@ -65,6 +65,17 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
         return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
 
+    public DataAccessObject cad_ListarPartidasRecepcionTraspaso(String prmDocumento)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ListarPartidasRecepcionTraspaso";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmDocumento",prmDocumento);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
+    }
+
     public DataAccessObject cad_DetallePartidaTraspaso(String prmDocumento,String prmPartida)
     {
         String METHOD_NAME = "WM_DetallePartidaTraspaso";

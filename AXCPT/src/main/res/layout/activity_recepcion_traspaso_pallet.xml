@@ -23,8 +23,10 @@
         android:scrollbarTrackVertical="@drawable/track_scrollbar_transp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/ConstraintDeLosEdit"
@@ -39,22 +41,55 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_gravity="center"
+                    android:id="@+id/textView147"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Partida: "
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <include
+                    android:id="@+id/vw_spinner_partidas"
+                    layout="@layout/vw_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
                     android:id="@+id/textView2"
                     android:layout_width="55dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Pallet:"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:layout_gravity="center"
                     android:id="@+id/edtx_Pallet"
                     style="@style/Estilo_EditText_Reg"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
                     android:ems="10"
                     android:inputType="numberDecimal"
@@ -72,8 +107,7 @@
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/orilla_layout"
                 android:orientation="vertical"
-                android:padding="20dp"
-                >
+                android:padding="20dp">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
@@ -85,116 +119,108 @@
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Producto:"
-                        />
+                        android:text="Producto:" />
 
                     <TextView
                         android:id="@+id/tvProducto"
-                        android:layout_marginStart="8dp"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="-"
-                        />
+                        android:layout_marginStart="8dp"
+                        android:text="-" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
 
                     <TextView
                         android:id="@+id/textView41"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Paquetes:"
-                        />
+                        android:text="Paquetes:" />
 
                     <TextView
                         android:id="@+id/tvPaquetes"
-                        android:layout_marginStart="8dp"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="-"
-                        />
+                        android:layout_marginStart="8dp"
+                        android:text="-" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/textView42"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cantidad:"
-                        />
+                        android:text="Cantidad:" />
 
                     <TextView
                         android:id="@+id/tvCantidad"
-                        android:layout_marginStart="8dp"
                         style="@style/EstiloTexto_Blanco_Reg"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="-"
-                        />
+                        android:layout_marginStart="8dp"
+                        android:text="-" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/textView43"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lote:"
-                        />
+                        android:text="Lote:" />
 
                     <TextView
                         android:id="@+id/tvLote"
-                        android:layout_marginStart="8dp"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="-"
-                        />
+                        android:layout_marginStart="8dp"
+                        android:text="-" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/textView44"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Estatus:"
-                        />
+                        android:text="Estatus:" />
 
                     <TextView
                         android:id="@+id/tvEstatus"
-                        android:layout_marginStart="8dp"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="-"
-                        />
+                        android:layout_marginStart="8dp"
+                        android:text="-" />
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -204,8 +230,8 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -221,18 +247,16 @@
                     style="@style/Estilo_EditText_Reg"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
+                    android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:ems="10"
-                    android:singleLine="true"
-                    android:layout_gravity="center"
                     android:nextFocusUp="@id/edtx_EmpxPallet"
                     android:nextFocusDown="@id/edtx_EmpxPallet"
-                    android:nextFocusForward="@id/edtx_EmpxPallet" />
+                    android:nextFocusForward="@id/edtx_EmpxPallet"
+                    android:singleLine="true" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
-
-
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
