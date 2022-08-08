@@ -53,6 +53,7 @@ import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets;
 import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets_NE;
 import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets_PyU;
 import com.automatica.AXCPT.c_Produccion.Produccion.SeleccionarOrdenProd;
+import com.automatica.AXCPT.c_Produccion.Surtido.RechazarSurtido;
 import com.automatica.AXCPT.c_Produccion.Surtido.ReempaqueProd;
 import com.automatica.AXCPT.c_Produccion.Surtido.SurtidoProdSeleccionOrden;
 import com.automatica.AXCPT.c_Produccion.Surtido.ValidarOrdenSurtido;
@@ -233,7 +234,7 @@ public class Fragmento_Menu extends Fragment{
                     datos.add(new objetoMenu(getString(R.string.almacen_armado_tarimas), new Intent(getContext(), SeleccionarOrdenProd.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_embarques),new Intent(getContext(), SurtidoProdSeleccionOrden.class)));
                     datos.add(new objetoMenu("Validación",new Intent(getContext(), ValidarOrdenSurtido.class)));
-                    //datos.add(new objetoMenu("Reempaque",new Intent(getContext(), ReempaqueProd.class)));
+                    datos.add(new objetoMenu("Rechazar surtido",new Intent(getContext(), RechazarSurtido.class)));
                    // datos.add(new objetoMenu(getString(R.string.almacen_armado_tarimas), new Intent(getContext(), Almacen_Armado_Pallets_Liquidos.class)));
                     llenarRecycler(recyclerView, datos);
                     recyclerView.setVisibility(View.VISIBLE);
@@ -291,9 +292,10 @@ public class Fragmento_Menu extends Fragment{
                 if (recyclerView.getVisibility() == View.GONE) {
                     ArrayList<objetoMenu> datos = new ArrayList<>();
                     datos.add(new objetoMenu(getString(R.string.menu_embarques),new Intent(getContext(), Surtido_Seleccion_Orden.class)));
+                    datos.add(new objetoMenu("Validación",new Intent(getContext(), Validacion_Seleccion_Orden.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_reempaque),new Intent(getContext(), Reempaque_Seleccion_Orden.class)));
                  //   datos.add(new objetoMenu(getString(R.string.menu_validacion),new Intent(getContext(), Validacion_Seleccion_Orden.class)));
-                    datos.add(new objetoMenu("Validación",new Intent(getContext(), Validacion_Seleccion_Orden.class)));
+
                     datos.add(new objetoMenu(getString(R.string.menu_cancelacion),new Intent(getContext(), CancelacionEmbarque.class)));    //AQUI SE METE CANCELACIÓN
                     llenarRecycler(recyclerView, datos);
                     recyclerView.setVisibility(View.VISIBLE);

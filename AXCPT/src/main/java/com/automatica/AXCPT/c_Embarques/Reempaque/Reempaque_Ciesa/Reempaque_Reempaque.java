@@ -33,6 +33,7 @@ import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.frgmnt_Selecci
 import com.automatica.AXCPT.c_Embarques.Reempaque.Embarques_Reempaque;
 import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Surtido.Surtido_Surtido_Empaque_Pzas;
 import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Seleccion_Orden;
+import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet;
 import com.automatica.AXCPT.databinding.ActivityReempaqueReempaqueBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Embarques;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
@@ -52,6 +53,7 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
     private Context contexto = Reempaque_Reempaque.this;
     private Bundle b;
     private String orden;
+    private CreaDialogos creaDialogos;
     private Spinner spinnerDocumentos;
     private TableViewDataConfigurator tblcnf_Partidas;
     private TableViewDataConfigurator tblcnf_Carrito;
@@ -92,7 +94,7 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
             orden = b.getString("Orden");
             binding.txtvConsolidado.setText(orden);
             spinnerDocumentos = binding.vwSpinner.findViewById(R.id.spinner);
-
+            creaDialogos = new CreaDialogos(contexto);
 
             tblcnf_Partidas = TableViewDataConfigurator.newInstance(binding.customtableview.tableViewOC, null, Reempaque_Reempaque.this, new TableViewDataConfigurator.TableClickInterface()
             {
@@ -383,7 +385,7 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        getMenuInflater().inflate(R.menu.change_view_toolbar, menu);
+        getMenuInflater().inflate(R.menu.reempaque_toolbar, menu);
         return true;
     }
 
@@ -428,6 +430,18 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                     if (!TextUtils.isEmpty(binding.edtxCarrito.getText())){
                         new SegundoPlano("ConsultaCarrito").execute();
                     }
+                    break;
+                case R.id.CerrarPicking:
+                    creaDialogos.dialogoDefault("Cerrar Embarque","Validación del embarque completa. ¿Registrar la salida?",
+                            new DialogInterface.OnClickListener()
+                            {
+                                public void onClick(DialogInterface dialog, int id)
+                                {
+                                    new Reempaque_Reempaque.SegundoPlano("Embarca").execute();
+                                    new com.automatica.axc_lib.Servicios.esconderTeclado(Reempaque_Reempaque.this);
+                                }
+                            }
+                            ,null);
                     break;
                 case R.id.borrar_datos:
                     binding.edtxCarrito.setText("");
@@ -575,6 +589,9 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                     case "Cerrar":
                         dao = ca.cCerrarReempaque(binding.txtvConsolidado.getText().toString(), binding.txtvPallet.getText().toString());
                         break;
+                    case "Embarca":
+                        dao = ca.c_RegistrarEmbMaterial(binding.txtvConsolidado.getText().toString(),"","2");
+                        break;
                     case "ConsultaEmpaqueoSKU":
                         dao = ca.cConsultaEmpaqueoSKU(binding.edtxSKU.getText().toString());
                         break;
@@ -617,6 +634,9 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                             }
                             //binding.edtxCarrito.requestFocus();
 
+                            break;
+                        case "Embarca":
+                            new popUpGenerico(contexto, getCurrentFocus(), "Documento cerrado con éxito", true, true, true);
                             break;
                         case "ConsultaCarrito":
 
@@ -695,6 +715,9 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                             break;
                         case "ConsultaPalletAbierto":
                             tblcnf_ReempaqueAbierto.CargarDatosTabla(null);
+                            break;
+                        case "Embarca":
+                            new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(), true, true, true);
                             break;
 
                         case "RegistraEmpaqueConsSKU":

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/CerrarPicking"
+        android:icon="@drawable/cerrar_doc"
+        android:title="Cerrar documento"
+        app:showAsAction="always"
+        />
+    <item android:id="@+id/CambiarVista"
+        android:icon="@drawable/ic_change_view"
+        android:title="Cambiar vista"
+        app:showAsAction="always"
+        />
+    <item android:id="@+id/recargar"
+        android:icon="@drawable/ic_recargar"
+        android:title="Recargar página"
+        app:showAsAction="ifRoom"
+        />
+    <item android:id="@+id/borrar_datos"
+        android:icon="@drawable/ic_borrar"
+        android:title="vaciar campos"
+        app:showAsAction="ifRoom"
+        />
+    <item android:id="@+id/InformacionDispositivo"
+        android:icon="@drawable/ic_borrar"
+        android:title="Información de este dispositivo"
+        app:showAsAction="never"
+        />
+
+
+</menu>

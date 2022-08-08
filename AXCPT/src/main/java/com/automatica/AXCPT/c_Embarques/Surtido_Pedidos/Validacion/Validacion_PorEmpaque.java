@@ -310,7 +310,7 @@ public class Validacion_PorEmpaque extends AppCompatActivity implements TableVie
                         dao= ca.c_ConsultaEmbarqueValidarEmpaques(edtx_OrdenCompra.getText().toString(),params[0]);
                         break;
                     case "Valida":
-                        dao = ca.c_ValidaEmbEmpaque(edtx_OrdenCompra.getText().toString(),edtx_CodigoEmpaque.getText().toString(),edtx_Anden.getText().toString());
+                       // dao = ca.c_ValidaEmbEmpaque(edtx_OrdenCompra.getText().toString(),edtx_CodigoEmpaque.getText().toString(),edtx_Anden.getText().toString());
                         break;
                     case "Embarca":
 
