@@ -140,7 +140,7 @@ public class Reempaque_Seleccion_Orden extends AppCompatActivity implements frgm
                 switch (Tarea)
                 {
                     case "ConsultaOrdenes":
-                        dao = ca.c_ConsultaOrdenSurtido("@","SURTIDA");
+                        dao = ca.c_ConsultaOrdenSurtido("@","VALIDADA");
                         break;
                     default:
                         dao = new DataAccessObject();

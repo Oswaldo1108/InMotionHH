@@ -54,7 +54,7 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
         return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
     }
 
-    public DataAccessObject c_ListarPartidasRecepcionTraspaso(String prmDocumento)
+    public DataAccessObject cad_ListarPartidasRecepcionTraspaso(String prmDocumento)
     {
         conexionWS c = new conexionWS();
         String METHOD_NAME = "WM_ListarPartidasRecepcionTras";

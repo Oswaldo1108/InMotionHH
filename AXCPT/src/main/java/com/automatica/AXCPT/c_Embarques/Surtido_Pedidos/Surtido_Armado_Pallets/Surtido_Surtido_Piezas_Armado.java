@@ -81,7 +81,7 @@ public class Surtido_Surtido_Piezas_Armado extends AppCompatActivity  implements
     @Override
     protected void onPostCreate(Bundle savedInstanceState)
     {
-        activityHelpers.getTaskbar_axc().cambiarResources(frgmnt_taskbar_AXC.CERRAR_CARRITO);
+        activityHelpers.getTaskbar_axc().cambiarResources(frgmnt_taskbar_AXC.DEFAULT);
         super.onPostCreate(savedInstanceState);
     }
     @Override

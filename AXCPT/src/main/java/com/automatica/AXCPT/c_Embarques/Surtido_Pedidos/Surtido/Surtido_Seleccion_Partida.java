@@ -50,15 +50,18 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
     private EditText edtx_Documento,edtx_Carrito;
     private TextView txtv_EstatusCarr,txtv_DocAct,txtv_CantPaq;
     private SortableTableView tabla;
+    private SortableTableView tabla2;
     private ProgressBarHelper p;
     private Context contexto = this;
     private Bundle b = new Bundle();
     private Handler h = new Handler();
     private TableViewDataConfigurator ConfigTabla = null;
+    private TableViewDataConfigurator ConfigTabla2 = null;
     private ActivityHelpers activityHelpers;
     private SurtidoSeleccionPartidaBinding binding;
     private String strCarritoActual = "";
     private String tipoSurtido;
+    private int vista = 1;
 
     //endregion
 
@@ -121,7 +124,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                 txtv_CantPaq = (TextView) findViewById(R.id.txtv_CantPaq);
 
                 tabla = (SortableTableView) findViewById(R.id.tableView_OC);
-
+                tabla2 = (SortableTableView) findViewById(R.id.tableView_OC);
                 p = new ProgressBarHelper(this);
                 edtx_Documento.setText("");
 
@@ -248,7 +251,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
     public boolean onCreateOptionsMenu(Menu menu)
     {
         try {
-            getMenuInflater().inflate(R.menu.ciclicos_recarga_toolbar, menu);
+            getMenuInflater().inflate(R.menu.change_view_toolbar, menu);
             return true;
         }
         catch (Exception ex)
@@ -266,6 +269,16 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
             {
                 case  R.id.InformacionDispositivo:
                     new sobreDispositivo(contexto, null);
+                    break;
+
+                case R.id.CambiarVista:
+                    if (vista==1){
+                        vista=2;
+                        new SegundoPlano("Tabla2").execute();
+                    }else{
+                        vista =1;
+                        new SegundoPlano("Tabla").execute();
+                    }
                     break;
 
                 case  R.id.CerrarOC:
@@ -456,6 +469,10 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                         dao = adEmb.cad_ConsultaPedidoSurtido(edtx_Documento.getText().toString());
                         break;
 
+                    case"Tabla2":
+                        dao = adEmb.cad_ConsultaPedidoSurtidoAgrupado(edtx_Documento.getText().toString());
+                        break;
+
                     case"ConsultaCarrito":
                         dao = adEmb.cad_ConsultaCarritoSurtido(edtx_Documento.getText().toString(),edtx_Carrito.getText().toString());
                         break;
@@ -481,6 +498,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                     switch (Tarea)
                     {
                         case "Tabla":
+                            tabla.getDataAdapter().clear();
                             if(ConfigTabla == null)
                             {
                                 ConfigTabla =  new TableViewDataConfigurator( 7, "SURTIDA","LIBERADA TOTAL","10",tabla, dao,Surtido_Seleccion_Partida.this);
@@ -495,6 +513,23 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                             tipoSurtido = dao.getcMensaje();
                             Log.e("tipo", dao.getcMensaje());
                         break;
+
+                        case "Tabla2":
+                            tabla.getDataAdapter().clear();
+                            if(ConfigTabla == null)
+                            {
+                                ConfigTabla =  new TableViewDataConfigurator( 5, "SURTIDA","LIBERADA TOTAL","10",tabla, dao,Surtido_Seleccion_Partida.this);
+
+                            }else
+                            {
+                                ConfigTabla.CargarDatosTabla(dao);
+                            }
+
+
+                            edtx_Carrito.requestFocus();
+                            tipoSurtido = dao.getcMensaje();
+                            Log.e("tipo", dao.getcMensaje());
+                            break;
 
                         case"ConsultaCarrito":
                             strCarritoActual = dao.getcMensaje();

@@ -31,6 +31,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".c_Produccion.Surtido.RechazarSurtido"
+            android:exported="false" />
+        <activity
             android:name=".c_Produccion.Surtido.ValidarOrdenSurtidoProd"
             android:exported="false" />
         <activity
@@ -48,7 +51,6 @@
         <activity
             android:name=".c_Traspasos.Envio.SurtidoTraspasoEmpaque"
             android:exported="false" />
-
         <activity
             android:name=".c_Traspasos.Envio.SeleccionPartidaTraspasoEnvio"
             android:exported="false" />
