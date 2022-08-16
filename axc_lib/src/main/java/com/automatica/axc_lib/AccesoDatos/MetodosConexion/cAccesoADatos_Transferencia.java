@@ -65,16 +65,19 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
         return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
 
-    public DataAccessObject cad_ListarPartidasRecepcionTraspaso(String prmDocumento)
+
+    public DataAccessObject c_ListarPalletsRecepcionTraspaso(String prmDocumento)
     {
         conexionWS c = new conexionWS();
-        String METHOD_NAME = "WM_ListarPartidasRecepcionTraspaso";
+        String METHOD_NAME = "WM_ListaPalletSurtRecTra";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmDocumento",prmDocumento);
         request.addProperty("prmEstacion",Estacion);
         request.addProperty("prmUsuario",Usuario);
         return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
+
+
 
     public DataAccessObject cad_DetallePartidaTraspaso(String prmDocumento,String prmPartida)
     {
@@ -283,6 +286,16 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
     public DataAccessObject cad_ListarPartidasTrasSpinner(String prmPedido)
     {
         String METHOD_NAME = "WM_ConsultaPartidasTrasSpinner";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmPedido",prmPedido);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
+    }
+
+    public DataAccessObject cad_ListarPartidasTrasSpinnerRec(String prmPedido)
+    {
+        String METHOD_NAME = "WM_ConsultaPartidasTrasSpinnerRec";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmPedido",prmPedido);
         request.addProperty("prmEstacion",Estacion);

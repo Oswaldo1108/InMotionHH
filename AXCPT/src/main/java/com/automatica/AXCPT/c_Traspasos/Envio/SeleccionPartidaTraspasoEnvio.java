@@ -443,7 +443,7 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
-                            //binding.edtxCarrito.requestFocus();
+                            binding.edtxCarrito.requestFocus();
                             new esconderTeclado(SeleccionPartidaTraspasoEnvio.this);
                             tipoSurtido = dao.getcMensaje();
                             tipoSurtido = "TODO";

@@ -2,10 +2,6 @@ package com.automatica.AXCPT.c_Traspasos.Recibe;
 
 import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -19,6 +15,10 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
 import com.automatica.AXCPT.Fragmentos.PopUpMenuAXC;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
@@ -26,9 +26,7 @@ import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.Servicios.esconderTeclado;
-import com.automatica.AXCPT.c_Traspasos.Envio.SeleccionPartidaTraspasoEnvio;
-import com.automatica.AXCPT.c_Traspasos.MenuTraspaso;
-import com.automatica.AXCPT.databinding.ActivitySeleccionOrdenTraspasoRecibeBinding;
+import com.automatica.AXCPT.databinding.ActivitySeleccionPalletTraspasoRecepcionBinding;
 import com.automatica.AXCPT.databinding.ActivitySeleccionPartidaTraspasoRecepcionBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Transferencia;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
@@ -37,7 +35,7 @@ import com.automatica.axc_lib.Servicios.sobreDispositivo;
 
 import de.codecrafters.tableview.SortableTableView;
 
-public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity implements TableViewDataConfigurator.TableClickInterface, frgmnt_taskbar_AXC.interfazTaskbar{
+public class SeleccionPalletTraspasoRecepcion extends AppCompatActivity implements TableViewDataConfigurator.TableClickInterface, frgmnt_taskbar_AXC.interfazTaskbar{
 
     private ProgressBarHelper p;
     TableViewDataConfigurator ConfigTabla_Totales = null;
@@ -47,9 +45,9 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
     Context contexto = this;
     Bundle b = new Bundle();
     Handler handler = new Handler();
-    popUpGenerico pop = new popUpGenerico(SeleccionPartidaTraspasoRecepcion.this);
+    popUpGenerico pop = new popUpGenerico(SeleccionPalletTraspasoRecepcion.this);
     boolean DocumentoSeleccionado, Recarga = true;
-    ActivitySeleccionPartidaTraspasoRecepcionBinding binding;
+    ActivitySeleccionPalletTraspasoRecepcionBinding binding;
     frgmnt_taskbar_AXC taskbar_axc;
     Intent intent;
     String documento, Partida;
@@ -57,7 +55,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySeleccionPartidaTraspasoRecepcionBinding.inflate(getLayoutInflater());
+        binding = ActivitySeleccionPalletTraspasoRecepcionBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
@@ -68,7 +66,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
         getSupportActionBar().setTitle(getString(R.string.menu_recepcion));
         AgregarListener();
         sacarDatosIntent();
-        binding.edtxDocumento.requestFocus();
+        binding.edtxConfirmar.requestFocus();
 
 
         View logoView = getToolbarLogoIcon(toolbar);
@@ -114,7 +112,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
                 {
                     if(!binding.edtxDocumento.getText().toString().equals(""))
                     {
-                        new SeleccionPartidaTraspasoRecepcion.SegundoPlano("LlenarTabla").execute();
+                        new SeleccionPalletTraspasoRecepcion.SegundoPlano("LlenarTabla").execute();
                     }else
                     {
                         handler.post(new Runnable()
@@ -128,7 +126,40 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
                         });
                         new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,getCurrentFocus() ,getString(R.string.error_ingrese_orden_produccion) ,false ,true , true);
                     }
-                    new esconderTeclado(SeleccionPartidaTraspasoRecepcion.this);
+                    new esconderTeclado(SeleccionPalletTraspasoRecepcion.this);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        binding.edtxConfirmar.setOnKeyListener(new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
+                {
+                    if(!binding.edtxConfirmar.getText().toString().equals(""))
+                    {
+
+                        new SeleccionPalletTraspasoRecepcion.SegundoPlano("ConfirmaPallet").execute();
+
+                    }else
+                    {
+                        handler.post(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                binding.edtxConfirmar.setText("");
+                                binding.edtxConfirmar.requestFocus();
+                            }
+                        });
+                        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,getCurrentFocus() ,getString(R.string.error_ingrese_empaque) ,"false" ,true , true);
+                    }
+                    new esconderTeclado(SeleccionPalletTraspasoRecepcion.this);
+                    new SeleccionPalletTraspasoRecepcion.SegundoPlano("LlenarTabla").execute();
                     return true;
                 }
                 return false;
@@ -139,7 +170,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
     @Override
     protected void onResume() {
         if(!binding.edtxDocumento.getText().toString().isEmpty()){
-            new SeleccionPartidaTraspasoRecepcion.SegundoPlano("LlenarTabla").execute();
+            new SeleccionPalletTraspasoRecepcion.SegundoPlano("LlenarTabla").execute();
         }
         super.onResume();
     }
@@ -166,7 +197,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
             b.putString("Orden", binding.edtxDocumento.getText().toString());
 
 
-            new PopUpMenuAXC().newInstance(taskbar_axc.getView().findViewById(R.id.BotonDer), SeleccionPartidaTraspasoRecepcion.this, R.menu.popup_traslado_vde, new PopUpMenuAXC.ContextMenuListener() {
+            /*new PopUpMenuAXC().newInstance(taskbar_axc.getView().findViewById(R.id.BotonDer), SeleccionPalletTraspasoRecepcion.this, R.menu.popup_traslado_vde, new PopUpMenuAXC.ContextMenuListener() {
                 @Override
                 public void listenerItem(MenuItem item) {
                     try{
@@ -187,7 +218,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
                         pop.popUpGenericoDefault(vista,e.getMessage(),false);
                     }
                 }
-            });
+            });*/
             //new PopUpMenuAXC(taskbar_axc.getView().findViewById(R.id.BotonDer),RecepcionSeleccionarPartidas.this,R.menu.popup_etiquetados);
 
         }catch (Exception e){
@@ -224,7 +255,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
             }
             if (id == R.id.recargar) {
 
-                new SeleccionPartidaTraspasoRecepcion.SegundoPlano("LlenarTabla").execute();
+                new SeleccionPalletTraspasoRecepcion.SegundoPlano("LlenarTabla").execute();
             }
         }
         return super.onOptionsItemSelected(item);
@@ -251,13 +282,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
     public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
         DocumentoSeleccionado = true;
         b.putString("Pedido", binding.edtxDocumento.getText().toString());
-        b.putString("Partida", clickedData[0]);
-        b.putString("NumParte", clickedData[1]);
-        b.putString("UM", clickedData[2]);
-        b.putString("CantidadTotal", clickedData[3]);
-        b.putString("CantidadPendiente", clickedData[4]);
-        b.putString("CantidadSurtida", clickedData[5]);
-        b.putString("Linea", clickedData[6]);
+
     }
 
     private void ReiniciarDatos() {
@@ -266,7 +291,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
 
     private class SegundoPlano extends AsyncTask<Void, Void, Void> {
 
-        cAccesoADatos_Transferencia ca = new cAccesoADatos_Transferencia(SeleccionPartidaTraspasoRecepcion.this);
+        cAccesoADatos_Transferencia ca = new cAccesoADatos_Transferencia(SeleccionPalletTraspasoRecepcion.this);
         String Tarea;
         DataAccessObject dao;
 
@@ -287,10 +312,14 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
                 switch (Tarea) {
 
                     case "LlenarTabla":
-
-                        dao = ca.cad_ListarPartidasRecepcionTraspaso(binding.edtxDocumento.getText().toString());
-
+                        dao = ca.c_ListarPalletsRecepcionTraspaso(binding.edtxDocumento.getText().toString());
                         break;
+
+                    case "ConfirmaPallet" :
+                        dao = ca.cad_RegistroTraspasoPalletConEtiquetas(documento,"0",binding.edtxConfirmar.getText().toString());
+                        break;
+                    default:
+                        dao = new DataAccessObject();
 
                 }
             } catch (Exception e) {
@@ -308,15 +337,17 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
                     switch (Tarea) {
                         case "LlenarTabla":
                             if (ConfigTabla_Totales == null) {
-                                ConfigTabla_Totales =  new TableViewDataConfigurator( 9, "SIN COLOCAR","EN TRANSITO","10",tabla, dao,SeleccionPartidaTraspasoRecepcion.this);
+                                ConfigTabla_Totales =  new TableViewDataConfigurator( 4, "SIN COLOCAR","EN TRANSITO","CANCELADO",tabla, dao, SeleccionPalletTraspasoRecepcion.this);
                                 Log.e("Tablas",dao.getSoapObject().toString());
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
 
-                            new esconderTeclado(SeleccionPartidaTraspasoRecepcion.this);
-
-
+                            new esconderTeclado(SeleccionPalletTraspasoRecepcion.this);
+                            break;
+                            case "ConfirmaPallet":
+                                binding.edtxConfirmar.setText("");
+                                binding.edtxConfirmar.requestFocus();
                             break;
                     }
                 } else {
@@ -351,7 +382,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
             return;
         }
 
-        Intent intent = new Intent(SeleccionPartidaTraspasoRecepcion.this, SeleccionOrdenTraspasoRecepcion.class);
+        Intent intent = new Intent(SeleccionPalletTraspasoRecepcion.this, SeleccionOrdenTraspasoRecepcion.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);

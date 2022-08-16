@@ -72,7 +72,7 @@
                 android:layout_height="29dp"
                 android:layout_marginLeft="10dp"
                 android:ems="10"
-                android:maxLines="1"/>
+                android:singleLine="true"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

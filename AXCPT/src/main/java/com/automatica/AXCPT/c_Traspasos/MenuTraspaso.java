@@ -17,9 +17,13 @@ import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ActivityHelpers;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
+import com.automatica.AXCPT.c_Almacen.Cuarentena.CuarentenaEmpaque;
+import com.automatica.AXCPT.c_Almacen.Cuarentena.RecuperarEmpaque;
 import com.automatica.AXCPT.c_Traspasos.Envio.SeleccionarOrdenesTraspasoEnvio;
+import com.automatica.AXCPT.c_Traspasos.Envio.Validacion.Validacion_Seleccion_Orden_Tras;
 import com.automatica.AXCPT.c_Traspasos.Recibe.SeleccionOrdenTraspasoRecepcion;
 import com.automatica.AXCPT.databinding.ActivityMenuTraspasoBinding;
+import com.automatica.AXCPT.objetos.objetoMenu;
 import com.automatica.AXCPT.objetos.objetoMenuContext;
 
 import java.util.ArrayList;
@@ -44,9 +48,14 @@ public class MenuTraspaso extends AppCompatActivity implements frgmnt_taskbar_AX
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setTitle(getString(R.string.recepcion_recepcion_por_empaque_traspasos));
 
+        ArrayList<objetoMenu> envio= new ArrayList<>();
+        envio.add(new objetoMenu("Surtido",new Intent(contexto, SeleccionarOrdenesTraspasoEnvio.class)));
+        envio.add(new objetoMenu("Validación",new Intent(contexto, Validacion_Seleccion_Orden_Tras.class)));
+        envio.add(new objetoMenu("Reempaque",new Intent(contexto, RecuperarEmpaque.class)));
+
         ArrayList<objetoMenuContext> objetos= new ArrayList<>();
         objetos.add(new objetoMenuContext("Recibo", R.drawable.ic_recepcion_se, new Intent(contexto, SeleccionOrdenTraspasoRecepcion.class)));
-        objetos.add(new objetoMenuContext("Envio", R.drawable.ic_recepcion, new Intent(contexto, SeleccionarOrdenesTraspasoEnvio.class)));
+        objetos.add(new objetoMenuContext("Envio", R.drawable.ic_recepcion, envio));
 
         llenarRecycler(binding.recycler,objetos);
 

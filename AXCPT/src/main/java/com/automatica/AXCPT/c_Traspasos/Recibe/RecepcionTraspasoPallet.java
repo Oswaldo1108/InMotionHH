@@ -135,7 +135,7 @@ public class RecepcionTraspasoPallet extends AppCompatActivity implements  frgmn
                             return false;
                         }
 
-                        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,getCurrentFocus() ,"Registrado con exito" ,"true" ,true , true);
+                        new RecepcionTraspasoPallet.SegundoPlano("ConfirmaPallet").execute();
 
                     }else
                     {
@@ -331,16 +331,15 @@ public class RecepcionTraspasoPallet extends AppCompatActivity implements  frgmn
                 switch (tarea) {
 
                     case"ConsultaPedidoSurtido":
-                        dao = cad.cad_ListarPartidasTrasSpinner(partida);
+                        dao = cad.cad_ListarPartidasTrasSpinnerRec(orden);
                         break;
 
                     case "ConsultaPallet":
-                        dao = cad.c_ConsultarPalletPT(partida,"1",binding.edtxPallet.getText().toString());
+                        dao = cad.c_ConsultarPalletPT(orden,partida,binding.edtxPallet.getText().toString());
                         break;
 
                     case "ConfirmaPallet" :
-                        dao = cad.cad_RegistroTraspasoPalletConEtiquetas(transferencia,partida,binding.edtxConfirmar.getText().toString());
-
+                        dao = cad.cad_RegistroTraspasoPalletConEtiquetas(orden,partida,binding.edtxConfirmar.getText().toString());
                         break;
                     default:
                         dao = new DataAccessObject();
@@ -387,13 +386,21 @@ public class RecepcionTraspasoPallet extends AppCompatActivity implements  frgmn
                             break;
 
                         case "ConfirmaPallet":
-                            new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, getCurrentFocus(), getString(R.string.envio_pallet_registro_exito),dao.iscEstado(), true, true);
+                            binding.edtxPallet.setText("");
+                            binding.edtxConfirmar.setText("");
+                            binding.edtxPallet.requestFocus();
+                            binding.tvProducto.setText("");
+                            binding.tvPaquetes.setText("");
+                            binding.tvCantidad.setText("");
+                            binding.tvLote.setText("");
+                            binding.tvEstatus.setText("");
                             break;
 
 
                     }
                 } else {
                     binding.edtxPallet.setText("");
+                    binding.edtxConfirmar.setText("");
                     binding.edtxPallet.requestFocus();
                     new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,null, dao.getcMensaje(), false, true, true);
 
