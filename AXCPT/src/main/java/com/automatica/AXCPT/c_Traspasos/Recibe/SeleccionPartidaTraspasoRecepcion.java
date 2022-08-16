@@ -290,7 +290,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
 
                     case "LlenarTabla":
 
-                        dao = ca.c_ListarPartidasRecepcionTraspaso(binding.edtxDocumento.getText().toString());
+                        dao = ca.cad_ListarPartidasRecepcionTraspaso(binding.edtxDocumento.getText().toString());
 
                         break;
 

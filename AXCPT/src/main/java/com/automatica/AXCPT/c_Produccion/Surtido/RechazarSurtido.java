@@ -1,6 +1,7 @@
 package com.automatica.AXCPT.c_Produccion.Surtido;
 
 import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;
+import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.newInstance;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -22,69 +24,72 @@ import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.Principal.Inicio_Menu_Dinamico;
 import com.automatica.AXCPT.R;
-import com.automatica.AXCPT.Servicios.CreaDialogos;
+import com.automatica.AXCPT.Servicios.ActivityHelpers;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.Servicios.esconderTeclado;
-import com.automatica.AXCPT.Validacion.ValidacionPalletCalidad;
+import com.automatica.AXCPT.c_Almacen.Almacen.ColocarContenedor;
+import com.automatica.AXCPT.c_Almacen.Almacen_Transferencia.Fragmento_Cancelar_Tarima;
+import com.automatica.AXCPT.c_Almacen.Devolucion.DevolucionPalletNE;
+import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionOrdenDevolucion;
 import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionPartidaDevolucion;
-import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets_Empaque;
-import com.automatica.AXCPT.databinding.ActivitySurtidoProdEmpaqueBinding;
-import com.automatica.AXCPT.databinding.ActivityValidarOrdenSurtidoBinding;
+import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet;
+import com.automatica.AXCPT.databinding.ActivityRechazarSurtidoBinding;
+import com.automatica.AXCPT.databinding.ActivitySeleccionOrdenDevolucionBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Embarques;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
+import com.automatica.axc_lib.Servicios.CreaDialogos;
 import com.automatica.axc_lib.Servicios.popUpGenerico;
 import com.automatica.axc_lib.Servicios.sobreDispositivo;
 
 import de.codecrafters.tableview.SortableTableView;
 
-public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewDataConfigurator.TableClickInterface, frgmnt_taskbar_AXC.interfazTaskbar {
+public class RechazarSurtido extends AppCompatActivity implements TableViewDataConfigurator.TableClickInterface, frgmnt_taskbar_AXC.interfazTaskbar  {
 
+    ActivityRechazarSurtidoBinding binding;
     private ProgressBarHelper p;
     TableViewDataConfigurator ConfigTabla_Totales = null;
     SortableTableView tabla;
     View vista;
-    String str_Maquina = "@";
     Context contexto = this;
     Bundle b = new Bundle();
-    popUpGenerico pop = new popUpGenerico(ValidarOrdenSurtido.this);
-    ActivityValidarOrdenSurtidoBinding binding;
+    popUpGenerico pop = new popUpGenerico(RechazarSurtido.this);
     frgmnt_taskbar_AXC taskbar_axc;
-    Intent intent;
-    String mensaje, documento, empaques, estatus;
+    private static String strIdTabla = "strIdTablaTotales";
+    String material, bandera;
 
-    // ****************************************************** CICLO DE VIDA *********************************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityValidarOrdenSurtidoBinding.inflate(getLayoutInflater());
+        binding = ActivityRechazarSurtidoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        agregarListener();
         sacarDatosIntent();
         declararVariables();
         configurarToolbar();
         configurarTaskbar();
+        agregarListener();
     }
 
     @Override
     protected void onResume() {
-       if (!binding.edtxCarrito.equals(""))
-           Log.e("SegundoPlano", "BuscarContenidoCarrito");
+        if (!binding.edtxDocumento.getText().toString().equals(""))
+            new SegundoPlano("ConsultarOrden").execute();
+
         super.onResume();
     }
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.VALIDAR);
+        taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.DEFAULT);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         try {
-            getMenuInflater().inflate(R.menu.cerrar_op_toolbar_cancelar, menu);
+            getMenuInflater().inflate(R.menu.ciclicos_recarga_toolbar, menu);
             return true;
         } catch (Exception e) {
             Toast.makeText(contexto, "error al llenar toolbar", Toast.LENGTH_SHORT).show();
@@ -101,18 +106,13 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
             }
             if (id == R.id.recargar) {
                 // Botón de recargar
-                Log.e("SegundoPlano", "BuscarContenidoCarrito");
-            }
-
-            if ((id == R.id.cancelar_pallets))
-            {
-                rechazarPallet();
             }
         }
         return super.onOptionsItemSelected(item);
     }
 
     // ************************************************ MÉTODOS IMPLEMENTADOS **********************************************
+
     @Override
     public void BotonDerecha() {validacionFinal(); }
 
@@ -131,24 +131,34 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
 
     @Override
     public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
-
+        material = clickedData[1];
+        binding.edtxSKU.setText(material);
     }
 
 
     // ******************************************************** MÉTODOS CREADOS *********************************************************
-    private void sacarDatosIntent() {
+    private void sacarDatosIntent(){
+        try
+        {
+            b  = getIntent().getExtras();
 
+        }
+        catch (Exception e)
+        {
+            Log.e("Error", "SacaDatosIntent: Hubo un error sacando datos de el Bundle -" + e.getStackTrace() );
+        }
     }
 
     private void declararVariables() {
-        tabla = findViewById(R.id.tableView_OC);
         p = new ProgressBarHelper(this);
+        tabla = findViewById(R.id.tableView_OC);
     }
 
     private void configurarToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Validar surtido");
+        getSupportActionBar().setTitle("Rechazar");
+        getSupportActionBar().setSubtitle("Empaques surtidos");
         View logoView = getToolbarLogoIcon(toolbar);
         logoView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,43 +178,104 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
         getSupportFragmentManager().beginTransaction().add(R.id.Pantalla_principal, taskbar_axc, "FragmentoTaskBar").commit();
     }
 
-    private void validacionFinal(){
-        new CreaDialogos("¿Desea validar el surtido?", new DialogInterface.OnClickListener()
-        {
-            public void onClick(DialogInterface dialog, int id) {
-
-                new ValidarOrdenSurtido.SegundoPlano("Validar").execute();
-                new esconderTeclado(ValidarOrdenSurtido.this);
-            }
-        },null,contexto);
-    }
-
-    private void rechazarPallet(){
-        new CreaDialogos("¿Desea rechazar el surtido?", new DialogInterface.OnClickListener()
-        {
-            public void onClick(DialogInterface dialog, int id) {
-                new ValidarOrdenSurtido.SegundoPlano("Rechazar").execute();
-                new esconderTeclado(ValidarOrdenSurtido.this);
-            }
-        },null,contexto);
-    }
-
     private void agregarListener(){
-        binding.edtxCarrito.setOnKeyListener(new View.OnKeyListener() {
+
+        binding.edtxDocumento.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
-                {
-                    if (binding.edtxCarrito.getText().toString().equals("")){
-                        new popUpGenerico(contexto,getCurrentFocus() ,"Ingrese un código de carrito" ,"false" ,true , true);
-                        return false;
-                    }else
-                        new ValidarOrdenSurtido.SegundoPlano("ConsultarCarrito").execute();
+                if (keyCode==KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
+                    try{
+                        if (binding.edtxDocumento.getText().toString().equals("")){
+                            new popUpGenerico(contexto, getCurrentFocus(), "Ingrese orden de producción", false, true, true);
+                            return false;
+                        }
+                        else{
+                            new esconderTeclado(RechazarSurtido.this);
+                            new SegundoPlano("ConsultarOrden").execute();}
+                    }catch (Exception e){
+
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), false, true, true);
+
+
+                    }
+                }
+                return false;
+            }
+        });
+
+        binding.edtxCantidad.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode==KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
+                    try{
+
+                        if (binding.edtxCantidad.getText().toString().equals("")){
+                            new popUpGenerico(contexto,vista,"Ingrese una cantidad válida","false",true,true);
+                        }
+                        else
+                        new esconderTeclado(RechazarSurtido.this);
+
+                    }catch (Exception e){
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), false, true, true);
+                    }
+                }
+                return false;
+            }
+        });
+
+        binding.edtxNuevoEmpaque.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode==KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
+                    try {
+                        if (binding.edtxDocumento.getText().toString().equals("")){
+                            new popUpGenerico(contexto,vista,"Ingrese orden de producción","false",true,true);
+                        }
+                        if(binding.edtxSKU.getText().toString().equals(""))
+                            new popUpGenerico(contexto,vista,"Debe de seleccionar el material a rechazar","false",true,true);
+
+                        if(binding.edtxNuevoEmpaque.getText().toString().equals("")){
+                            new popUpGenerico(contexto,vista,"Ingrese una nueva etiqueta de empaque","false",true,true);
+                        }
+                        else{
+                            new CreaDialogos("¿Desea que se vuelva a surtir el material?",
+                                    new DialogInterface.OnClickListener()
+                                    {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which)
+                                        {
+                                            bandera = "0";
+                                        }
+                                    },
+                                    new DialogInterface.OnClickListener()
+                                    {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which)
+                                        {
+                                           bandera = "1";
+                                        }
+                                    },
+
+                                    RechazarSurtido.this);
+
+                        }
+                            new SegundoPlano("RechazarMaterial");
+
+
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
                 return false;
             }
         });
     }
+
+    private void validacionFinal(){
+
+
+    }
+
 
     // ********************************************************* OnBackPressed *********************************************************
     public void onBackPressed() {
@@ -223,18 +294,21 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
             getSupportFragmentManager().popBackStack();
             return;
         }
-        Intent intent = new Intent(ValidarOrdenSurtido.this, Inicio_Menu_Dinamico.class);
+        Intent intent = new Intent(RechazarSurtido.this, Inicio_Menu_Dinamico.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);
     }
 
-    // ********************************************************* SegundoPlano *********************************************************
+
+
+    // ********************************************************* SEGUNDO PLANO **********************************************************
+
     private class SegundoPlano extends AsyncTask<Void, Void, Void> {
 
         String Tarea;
         DataAccessObject dao;
-        cAccesoADatos_Embarques adEmb = new cAccesoADatos_Embarques(ValidarOrdenSurtido.this);
+        cAccesoADatos_Embarques ca= new cAccesoADatos_Embarques(contexto);
 
         private SegundoPlano(String Tarea) {
             this.Tarea = Tarea;
@@ -250,20 +324,17 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
             try {
 
                 switch (Tarea) {
-                    case "ConsultarCarrito":
-                        dao = adEmb.cad_ConsultaCarrito(binding.edtxCarrito.getText().toString());
-                        break;
-                    case "ConsultaMaquinas":
-                        dao = adEmb.c_ConsultaMaquinas(str_Maquina);
+
+                    case "ConsultarOrden":
+                        dao = ca.c_ConsultaEmpaquesOP(binding.edtxDocumento.getText().toString());
                         break;
 
-                    case "Validar":
-                        dao = adEmb.cad_ValidarCarrito(binding.edtxCarrito.getText().toString());
+                    case "RechazarMaterial":
+                        dao = ca.c_RechazarMaterialProd(binding.edtxDocumento.getText().toString(), binding.edtxSKU.getText().toString(), Double.parseDouble(binding.edtxCantidad.getText().toString()), binding.edtxNuevoEmpaque.getText().toString(), bandera);
                         break;
 
-                    case "Rechazar":
-                        dao = adEmb.cad_RechazarCarrito(binding.edtxCarrito.getText().toString());
-                        break;
+
+
 
                 }
             } catch (Exception e) {
@@ -277,40 +348,25 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
         protected void onPostExecute(Void aVoid) {
             try {
                 if (dao.iscEstado()) {
-                    switch (Tarea) {
-                        case "ConsultarCarrito":
-                            mensaje = dao.getcMensaje();
-                            binding.tvDocActual.setText(mensaje.split("\\|")[0]);
-                            binding.tvEmpaques.setText(mensaje.split("\\|")[1]);
-                            binding.tvEstatus.setText(mensaje.split("\\|")[2]);
-                            if (ConfigTabla_Totales == null) {
-
-                                ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,ValidarOrdenSurtido.this);
-                            } else{
+                    switch (Tarea){
+                        case "ConsultarOrden":
+                            if(ConfigTabla_Totales == null)
+                            {
+                                ConfigTabla_Totales = new TableViewDataConfigurator(strIdTabla,0, "VALIDADO", "SURTIDA", "4", tabla, dao, RechazarSurtido.this);
+                            }else
+                            {
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
-                            Log.e("mensaje", mensaje);
                             break;
-
-                        case "Validar":
-                            pop.popUpGenericoDefault(vista, "Carrito validado", true);
-                            tabla.getDataAdapter().clear();
-                            binding.edtxCarrito.setText("");
-                            break;
-
                     }
                 } else {
                     pop.popUpGenericoDefault(vista, dao.getcMensaje(), false);
                 }
-
-
             } catch (Exception e) {
                 e.printStackTrace();
                 pop.popUpGenericoDefault(vista, e.getMessage(), false);
             }
-            new esconderTeclado(ValidarOrdenSurtido.this);
             p.DesactivarProgressBar(Tarea);
         }
     }
-
 }

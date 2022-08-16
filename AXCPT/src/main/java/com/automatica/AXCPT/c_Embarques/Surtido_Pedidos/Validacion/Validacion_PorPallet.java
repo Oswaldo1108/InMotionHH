@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
+import com.automatica.AXCPT.Fragmentos.frgmnt_SKU_Conteo;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ActivityHelpers;
@@ -27,6 +29,8 @@ import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Surtido.Surtido_Seleccion_Partida;
+import com.automatica.AXCPT.c_Produccion.Surtido.SurtidoProdPiezas;
+import com.automatica.AXCPT.databinding.ActivityValidacionPorPalletBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Embarques;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
@@ -38,7 +42,7 @@ import de.codecrafters.tableview.SortableTableView;
 
 import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;
 
-public class Validacion_PorPallet extends AppCompatActivity implements Fragmento_Validacion.OnFragmentInteractionListener, TableViewDataConfigurator.TableClickInterface,frgmnt_taskbar_AXC.interfazTaskbar
+public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SKU_Conteo.OnFragmentInteractionListener, TableViewDataConfigurator.TableClickInterface,frgmnt_taskbar_AXC.interfazTaskbar
 {
     private EditText edtx_OrdenCompra,edtx_CodigoPallet, edtx_Guia;
     private SortableTableView tabla;
@@ -49,13 +53,15 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
     private static String strIdTabla = "strIdTablaTotales";
     private CreaDialogos creaDialogos;
     private ActivityHelpers activityHelpers;
+    private ActivityValidacionPorPalletBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_validacion__por_pallet);
+        binding = ActivityValidacionPorPalletBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         new cambiaColorStatusBar(contexto, R.color.MoradoStd, Validacion_PorPallet.this);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         declaraVariables();
@@ -73,11 +79,11 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
 
         if(!Documento.equals(""))
         {
-            edtx_OrdenCompra.setText(Documento);
+            binding.tvPedido.setText(Documento);
             new SegundoPlano("Tabla").execute();
         }else
         {
-            edtx_OrdenCompra.requestFocus();
+            binding.edtxCodigoPallet.requestFocus();
         }
 
         Thread.setDefaultUncaughtExceptionHandler(new CustomExceptionHandler(this));
@@ -111,12 +117,6 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
         int id = item.getItemId();
            switch (id){
                case R.id.recargar:
-
-                   if (TextUtils.isEmpty(edtx_OrdenCompra.getText()))
-                   {
-                       new popUpGenerico(contexto, getCurrentFocus(), "Ingrese un documento.",false, true, true);
-                        return false;
-                   }
                    new SegundoPlano("Tabla").execute();
                    break;
                case R.id.borrar_datos:
@@ -136,13 +136,13 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
             getSupportActionBar().setTitle("Validación");
             getSupportActionBar().setSubtitle("Por pallet");
 
-            edtx_OrdenCompra = (EditText) findViewById(R.id.edtx_Pedido);
-            edtx_CodigoPallet = findViewById(R.id.edtx_CodigoPallet);
+           // edtx_OrdenCompra = (EditText) findViewById(R.id.edtx_Pedido);
+        /*    edtx_CodigoPallet = findViewById(R.id.edtx_CodigoPallet);
             edtx_Guia = findViewById(R.id.edtx_Anden);
 
             edtx_OrdenCompra.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
             edtx_CodigoPallet.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
-            edtx_Guia.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            edtx_Guia.setFilters(new InputFilter[]{new InputFilter.AllCaps()});*/
 
 
             tabla = (SortableTableView) findViewById(R.id.tableView_OC);
@@ -151,7 +151,7 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
         }catch (Exception e)
         {
             e.printStackTrace();
-            new popUpGenerico(contexto,edtx_OrdenCompra ,e.getMessage() ,false , true, true);
+            new popUpGenerico(contexto,binding.edtxCodigoPallet ,e.getMessage() ,false , true, true);
 
         }
     }
@@ -159,114 +159,81 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
     {
         try
         {
-
-        edtx_Guia.setOnFocusChangeListener(new View.OnFocusChangeListener()
-        {
-            @Override
-            public void onFocusChange(View view, boolean b)
-            {
-                if(b)
-                {
-                    edtx_Guia.setText("");
-                }
-            }
-        });
-
-        edtx_OrdenCompra.setOnKeyListener(new View.OnKeyListener()
-        {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event)
-            {
-                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
-                {
-                    if(edtx_OrdenCompra.getText().toString().equals(""))
-                    {
-                        new popUpGenerico(contexto,edtx_OrdenCompra ,getString(R.string.error_ingrese_pedido) ,"false" , true, true);
-                        h.post(new Runnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                edtx_OrdenCompra.requestFocus();
-                                edtx_OrdenCompra.setText("");
-                            }
-                        });
-                        return false;
-                    }
-
-                    new SegundoPlano("Tabla").execute();
-
-                    new esconderTeclado(Validacion_PorPallet.this);
-
-                }
-                return false;
-            }
-        });
-        edtx_CodigoPallet.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
-                if (TextUtils.isEmpty(edtx_OrdenCompra.getText()))
-                {
-                    new popUpGenerico(contexto,edtx_OrdenCompra, "Ingrese un documento.",false, true, true);
-                    return false;
-                }
-
-                if (TextUtils.isEmpty(edtx_CodigoPallet.getText())){
-                    new popUpGenerico(contexto,edtx_CodigoPallet, "Ingrese un código.",false, true, true);
-                    return false;
-                }
-                new esconderTeclado(Validacion_PorPallet.this);
-
-                new SegundoPlano("Valida").execute(edtx_CodigoPallet.getText().toString());
-                return false;
-            }
-        });
-
-            edtx_Guia.setOnKeyListener(new View.OnKeyListener()
-            {
+            binding.edtxCodigoPallet.setOnKeyListener(new View.OnKeyListener() {
                 @Override
-                public boolean onKey(View v, int keyCode, KeyEvent event)
-                {
-                    if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
-                    {
-                        if(edtx_OrdenCompra.getText().toString().equals(""))
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER)){
+                        if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
                         {
-                            new popUpGenerico(contexto,null ,getString(R.string.error_ingrese_pedido) ,false , true, true);
-                            h.post(new Runnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    edtx_OrdenCompra.requestFocus();
-                                    edtx_OrdenCompra.setText("");
-                                }
-                            });
-                        }
-
-                        if (TextUtils.isEmpty(edtx_Guia.getText()))
-                        {
-                            new popUpGenerico(contexto, getCurrentFocus(), "Ingrese una guía.",false, true, true);
-                            return false;
-                        }
-
-                        h.postDelayed(new Runnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                edtx_CodigoPallet.requestFocus();
+                            if (binding.edtxCodigoPallet.getText().toString().equals("")){
+                                new popUpGenerico(contexto, binding.edtxEmpaque, "Ingrese un carrito o pallet", false, true, true);
+                                return false;
                             }
-                        },100);
-
-                        new esconderTeclado(Validacion_PorPallet.this);
-
+                            else{
+                                new SegundoPlano("ConsultaCarrito").execute();
+                            }
+                        }
+                        new com.automatica.AXCPT.Servicios.esconderTeclado(Validacion_PorPallet.this);
+                        return  true;
                     }
                     return false;
                 }
             });
 
-        edtx_OrdenCompra.requestFocus();
+            binding.edtxEmpaque.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event)
+                {
+                    if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
+                    {
+                        if (binding.edtxEmpaque.getText().toString().equals("")){
+                            new popUpGenerico(contexto, binding.edtxEmpaque, "Ingrese un código de empaque o SKU", false, true, true);
+                            return false;
+                        }
+
+                        if (binding.edtxCodigoPallet.getText().toString().equals("")){
+                            new popUpGenerico(contexto, binding.edtxEmpaque, "Ingrese un carrito o pallet", false, true, true);
+                            return false;
+                        }
+
+                        new SegundoPlano("ConsultaTipo").execute();
+                        new com.automatica.AXCPT.Servicios.esconderTeclado(Validacion_PorPallet.this);
+                        return  true;
+                    }
+
+                    return false;
+                }
+            });
+
+            binding.edtxConfirmarEmpaque.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event)
+                {
+                    if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
+                    {
+                        if (binding.edtxEmpaque.getText().toString().equals("")){
+                            new popUpGenerico(contexto, binding.edtxEmpaque, "Ingrese un código de empaque o SKU", false, true, true);
+                            return false;
+                        }
+
+                        if (binding.edtxCodigoPallet.getText().toString().equals("")){
+                            new popUpGenerico(contexto, binding.edtxEmpaque, "Ingrese un carrito o pallet", false, true, true);
+                            return false;
+                        }
+                        if (binding.edtxConfirmarEmpaque.getText().toString().equals("")){
+                            new popUpGenerico(contexto, binding.edtxConfirmarEmpaque, "Ingrese la cantidad a validar", false, true, true);
+                            return false;
+                        }
+
+                        new SegundoPlano("ValidaPzas").execute();
+                        new com.automatica.AXCPT.Servicios.esconderTeclado(Validacion_PorPallet.this);
+                        return  true;
+                    }
+
+                    return false;
+                }
+            });
+
         }catch (Exception e)
         {
             e.printStackTrace();
@@ -277,8 +244,8 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
 
     private void reiniciarDatos()
     {
-        edtx_CodigoPallet.setText("");
-        edtx_CodigoPallet.requestFocus();
+
+        binding.edtxCodigoPallet.requestFocus();
 //        tabla.getDataAdapter().clear();
 
     }
@@ -292,41 +259,8 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
     @Override
     public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla)
     {
-        if(edtx_OrdenCompra.getText().toString().equals(""))
-        {
-            new popUpGenerico(contexto,edtx_OrdenCompra, "Ingrese un documento.",false, true, true);
-            return;
-        }
 
-        Constructor_Dato cd = Constructor_Dato.getValue(ConfigTabla_Totales.getRenglonSeleccionado(), "Estatus");
 
-        String tmpDSts="";
-        if(cd!=null)
-        {
-            tmpDSts = cd.getDato();
-
-            if(tmpDSts == null)
-            {
-                tmpDSts = "";
-            }
-
-        }
-
-        if(tmpDSts.equals("VALIDADO"))
-        {
-            getSupportFragmentManager().beginTransaction()
-                    .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                    .replace(R.id.contenedor,Fragmento_Validacion
-                            .newInstance(edtx_OrdenCompra.getText().toString(),clickedData[0],"")).addToBackStack("").commit();
-            return;
-        }
-
-        if(edtx_Guia.getText().toString().equals(""))
-        {
-            new popUpGenerico(contexto,edtx_Guia, "Ingrese una guía.",false, true, true);
-            return;
-        }
-        new SegundoPlano("Valida").execute(clickedData[0]);
 
     }
 
@@ -335,7 +269,7 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
     {
 
     }
-    @Override
+/*    @Override
     public boolean AceptarOrden()
     {
         new SegundoPlano("Tabla").execute();
@@ -352,7 +286,18 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
         {
             progressBarHelper.DesactivarProgressBar();
         }
+    }*/
+
+    @Override
+    public boolean ActivaProgressBar(Boolean estado) {
+        return false;
     }
+
+    @Override
+    public void RegistrarCantidad(String Producto, String strCantidadEscaneada) {
+
+    }
+
     class SegundoPlano extends AsyncTask<String,Void,Void>
     {
         String Tarea;
@@ -379,13 +324,29 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
                 switch (Tarea)
                 {
                     case"Tabla":
-                        dao = ca.c_ConsultaEmbarqueValidarPallets(edtx_OrdenCompra.getText().toString());
+                        dao = ca.c_ConsultaEmbarqueValidarPallets(binding.tvPedido.getText().toString());
                         break;
-                    case "Valida":
-                        PalletSeleccionado = params[0];
 
-                        dao = ca.c_ValidaEmbPallet(edtx_OrdenCompra.getText().toString(),PalletSeleccionado,edtx_Guia.getText().toString(),"1");
+                    case "ConsultaCarrito":
+                        dao = ca.c_ConsultaCarritoValida(binding.edtxCodigoPallet.getText().toString(),binding.tvPedido.getText().toString());
                         break;
+
+                    case "ConsultaTipo":
+                        dao = ca.c_ConsultaTipoRegValida(binding.edtxEmpaque.getText().toString(), binding.tvPedido.getText().toString(), binding.edtxCodigoPallet.getText().toString());
+                        break;
+
+                    case "ValidaEmpaque":
+                        dao = ca.c_ValidaEmbEmpaque(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString());
+                        break;
+
+                    case "ValidaSKU":
+                        dao = ca.c_ValidaEmbSKUPzas(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), "1");
+                        break;
+
+                    case "ValidaPzas":
+                        dao = ca.c_ValidaEmbSKUCantidad(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString());
+                        break;
+
                     case "Embarca":
 
                         dao = ca.c_RegistrarEmbMaterial(edtx_OrdenCompra.getText().toString(),edtx_Guia.getText().toString(),"1");
@@ -414,51 +375,44 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
                         case "Tabla":
                             if(ConfigTabla_Totales == null)
                             {
-                                ConfigTabla_Totales = new TableViewDataConfigurator(strIdTabla,6, "VALIDADO", "SURTIDO", "4", tabla, dao, Validacion_PorPallet.this);
+                                ConfigTabla_Totales = new TableViewDataConfigurator(strIdTabla,3, "VALIDADA", "SURTIDA", "4", tabla, dao, Validacion_PorPallet.this);
                             }else
                             {
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
 
-                            if(dao.getcMensaje().equals("2"))
-                            {
-                                creaDialogos.dialogoDefault("Cerrar Embarque","Validación del embarque completa. ¿Registrar la salida?",
-                                    new DialogInterface.OnClickListener()
-                                    {
-                                        public void onClick(DialogInterface dialog, int id)
-                                        {
-                                            new SegundoPlano("Embarca").execute();
-                                            new esconderTeclado(Validacion_PorPallet.this);
-                                        }
-                                    }
-                                ,null);
-                            }
-
-                            h.postDelayed(new Runnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    edtx_Guia.requestFocus();
-                                }
-                            },100);
-
                             break;
-                        case "Valida":
-                            edtx_CodigoPallet.setText("");
-                            edtx_CodigoPallet.requestFocus();
+
+                        case "ConsultaTipo":
+                            Log.e("Tipo", dao.getcMensaje());
+                            if (dao.getcMensaje().equals("E")){
+                                new SegundoPlano("ValidaEmpaque").execute();
+                            }
+                            else{
+                                binding.edtxConfirmarEmpaque.setEnabled(true);
+                                binding.switchSku.setEnabled(true);
+                            }
+                            break;
+                        case "ValidaEmpaque":
+                            binding.edtxEmpaque.setText("");
+                            binding.edtxEmpaque.requestFocus();
 
                             new esconderTeclado(Validacion_PorPallet.this);
-
-                            getSupportFragmentManager().beginTransaction()
-                                    .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                                        .replace(R.id.contenedor,Fragmento_Validacion
-                                                .newInstance(edtx_OrdenCompra.getText().toString(),PalletSeleccionado,edtx_Guia.getText().toString())).addToBackStack("").commit();
+                           new SegundoPlano("Tabla").execute();
                             break;
+
+                        case "ValidaPzas":
+                            binding.edtxEmpaque.setText("");
+                            binding.edtxEmpaque.requestFocus();
+                            binding.edtxConfirmarEmpaque.setText("");
+                            binding.edtxConfirmarEmpaque.setEnabled(false);
+                            new esconderTeclado(Validacion_PorPallet.this);
+                            new SegundoPlano("Tabla").execute();
+                            break;
+
                         case "Embarca":
 
                             new popUpGenerico(contexto, getCurrentFocus(), "Documento embarcado con éxito." ,dao.iscEstado(), true, true);
-
                             break;
                     }
                 }
@@ -468,12 +422,19 @@ public class Validacion_PorPallet extends AppCompatActivity implements Fragmento
                     switch (Tarea)
                     {
 
-                        case "Valida":
+                        case "ValidaEmpaque":
                             new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),dao.iscEstado(), true, true);
-                            edtx_Guia.setText("");
-                            edtx_CodigoPallet.setText("");
-                            edtx_Guia.requestFocus();
+
+                            binding.edtxCodigoPallet.setText("");
                             break;
+
+                        case "ValidaPzas":
+                            new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),dao.iscEstado(), true, true);
+                            binding.edtxConfirmarEmpaque.setText("");
+                            binding.edtxConfirmarEmpaque.setEnabled(false);
+                            binding.edtxCodigoPallet.setText("");
+                            break;
+
 
 
                         default:

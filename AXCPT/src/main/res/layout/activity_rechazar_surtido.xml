@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondoAzul"
-    android:id="@+id/cl"
-    tools:context=".c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet">
+    android:id="@+id/Pantalla_principal"
+    tools:context=".c_Produccion.Surtido.RechazarSurtido">
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
@@ -50,63 +51,34 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-         app:layout_constraintVertical_bias="1.0"
-         android:orientation="vertical">
+        app:layout_constraintVertical_bias="1.0"
+        android:orientation="vertical">
 
-         <androidx.appcompat.widget.LinearLayoutCompat
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal">
-
-             <TextView
-                 android:id="@+id/textView13"
-                 style="@style/EstiloTexto_Blanco_Bold"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="Documento:"
-                 android:textColor="@color/blancoLetraStd"
-                 android:textSize="18dp"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toTopOf="parent" />
-
-
-             <TextView
-                 android:id="@+id/tvPedido"
-                 style="@style/EstiloTexto_Blanco_Reg"
-                 android:layout_width="match_parent"
-                 android:layout_height="30dp"
-                 android:layout_marginStart="8dp"
-                 android:ems="10"
-                 android:focusable="true"
-                 android:focusableInTouchMode="true"
-                 android:singleLine="true"
-                />
-
-         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/textView130"
                 style="@style/EstiloTexto_Blanco_Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Código:"
+                android:text="Documento:"
                 />
 
             <EditText
-                android:id="@+id/edtx_CodigoPallet"
+                android:id="@+id/edtxDocumento"
                 style="@style/Estilo_EditText_WhiteBackground"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-
                 android:layout_marginStart="8dp"
-                android:hint="Capturar carrito o pallet"
+                android:hint="Capturar documento"
                 android:singleLine="true"
+                android:maxLines="1"
                 />
 
 
@@ -116,67 +88,33 @@
             android:id="@+id/customtableview"
             layout="@layout/customtableview"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="60"
             />
-
-         <androidx.appcompat.widget.LinearLayoutCompat
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal">
-
-             <TextView
-                 android:visibility="gone"
-                 android:id="@+id/textView137"
-                 style="@style/EstiloTexto_Blanco_Bold"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginStart="8dp"
-                 android:layout_marginBottom="16dp"
-                 android:text="Guía: "
-                 android:textColor="@color/blancoLetraStd"
-                 android:textSize="18dp"
-                />
-
-             <EditText
-                 android:visibility="gone"
-                 android:id="@+id/edtx_Anden"
-                 style="@style/Estilo_EditText_Reg"
-                 android:layout_width="0dp"
-                 android:layout_height="30dp"
-                 android:layout_marginStart="8dp"
-                 android:layout_marginEnd="8dp"
-                 android:ems="10"
-                 android:focusable="true"
-                 android:focusableInTouchMode="true"
-                 android:hint="Ingrese guía"
-                 android:inputType="textNoSuggestions"
-                 android:singleLine="true"
-                />
-
-         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="5dp"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/textView3"
                 style="@style/EstiloTexto_Blanco_Bold"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Empaque o SKU:"
+                android:text="Material:"
                 />
 
             <EditText
-                android:id="@+id/edtxEmpaque"
+                android:id="@+id/edtxSKU"
                 style="@style/Estilo_EditText_WhiteBackground"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginStart="8dp"
-                android:hint="Capturar empaque o sku"
+                android:enabled="false"
                 android:singleLine="true"
                 />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -185,51 +123,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/textView4"
             style="@style/EstiloTexto_Blanco_Bold"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Cantidad:"
             />
 
         <EditText
-            android:layout_weight="2"
-            android:id="@+id/edtx_ConfirmarEmpaque"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="0dp"
+            android:id="@+id/edtxCantidad"
+            style="@style/Estilo_EditText_WhiteBackground"
+            android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
             android:hint="Capturar cantidad"
-            android:enabled="false"
             android:inputType="numberDecimal"
-           />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switch_sku"
-            android:visibility="gone"
-            style="@style/EstiloTexto_Blanco_Bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:text="SKU "
-            android:enabled="false"
-            android:thumb="@drawable/thumb_switch"
+            android:singleLine="true"
             />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Nuevo empaque:"
+                />
+
+            <EditText
+                android:id="@+id/edtxNuevoEmpaque"
+                style="@style/Estilo_EditText_WhiteBackground"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_gravity="center"
+                android:hint="Capturar nuevo empaque"
+                android:singleLine="true"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-
-
-
-     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
