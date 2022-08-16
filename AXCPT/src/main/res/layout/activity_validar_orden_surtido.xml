@@ -70,7 +70,7 @@
                 android:id="@+id/edtxCarrito"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="match_parent"
-                android:layout_height="29dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
                 android:singleLine="true"/>
 
@@ -167,11 +167,39 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tvArea"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Área:"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                />
+
+            <include
+                android:layout_gravity="center"
+                android:id="@+id/spnr_Maquinas"
+                layout="@layout/vw_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+               android:layout_marginLeft="10dp"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
         <include
             android:id="@+id/customtableview"
             layout="@layout/customtableview"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
             android:layout_marginTop="8dp"
             />
 

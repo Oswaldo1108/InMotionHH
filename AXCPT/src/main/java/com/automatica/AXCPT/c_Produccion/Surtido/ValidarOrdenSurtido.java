@@ -45,6 +45,7 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
     TableViewDataConfigurator ConfigTabla_Totales = null;
     SortableTableView tabla;
     View vista;
+    String str_Maquina = "@";
     Context contexto = this;
     Bundle b = new Bundle();
     popUpGenerico pop = new popUpGenerico(ValidarOrdenSurtido.this);
@@ -251,6 +252,9 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
                 switch (Tarea) {
                     case "ConsultarCarrito":
                         dao = adEmb.cad_ConsultaCarrito(binding.edtxCarrito.getText().toString());
+                        break;
+                    case "ConsultaMaquinas":
+                        dao = adEmb.c_ConsultaMaquinas(str_Maquina);
                         break;
 
                     case "Validar":

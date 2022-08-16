@@ -59,7 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/textView130"
@@ -87,22 +88,24 @@
             android:id="@+id/customtableview"
             layout="@layout/customtableview"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="0dp"
             android:layout_marginTop="5dp"
+            android:layout_weight="60"
             />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/textView3"
                 style="@style/EstiloTexto_Blanco_Bold"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Empaque:"
+                android:text="Material:"
                 />
 
             <EditText
@@ -120,7 +123,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/textView4"
@@ -137,6 +141,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:hint="Capturar cantidad"
+            android:inputType="numberDecimal"
             android:singleLine="true"
             />
 
@@ -146,7 +151,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            >
 
             <TextView
                 android:id="@+id/textView5"
