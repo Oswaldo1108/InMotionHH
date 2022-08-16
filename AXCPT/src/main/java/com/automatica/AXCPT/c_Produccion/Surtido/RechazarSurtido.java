@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,6 +27,9 @@ import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ActivityHelpers;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
+import com.automatica.AXCPT.Servicios.esconderTeclado;
+import com.automatica.AXCPT.c_Almacen.Almacen.ColocarContenedor;
+import com.automatica.AXCPT.c_Almacen.Almacen_Transferencia.Fragmento_Cancelar_Tarima;
 import com.automatica.AXCPT.c_Almacen.Devolucion.DevolucionPalletNE;
 import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionOrdenDevolucion;
 import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionPartidaDevolucion;
@@ -48,12 +52,12 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
     TableViewDataConfigurator ConfigTabla_Totales = null;
     SortableTableView tabla;
     View vista;
-    Handler h = new Handler();
     Context contexto = this;
     Bundle b = new Bundle();
     popUpGenerico pop = new popUpGenerico(RechazarSurtido.this);
     frgmnt_taskbar_AXC taskbar_axc;
     private static String strIdTabla = "strIdTablaTotales";
+    String material, bandera;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,7 +131,8 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
 
     @Override
     public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
-
+        material = clickedData[1];
+        binding.edtxSKU.setText(material);
     }
 
 
@@ -178,19 +183,87 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
         binding.edtxDocumento.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode==KeyEvent.KEYCODE_ENTER || keyCode == KeyEvent.ACTION_DOWN){
+                if (keyCode==KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
                     try{
                         if (binding.edtxDocumento.getText().toString().equals("")){
                             new popUpGenerico(contexto, getCurrentFocus(), "Ingrese orden de producción", false, true, true);
                             return false;
                         }
-                        else
-                            new SegundoPlano("ConsultarOrden").execute();
+                        else{
+                            new esconderTeclado(RechazarSurtido.this);
+                            new SegundoPlano("ConsultarOrden").execute();}
                     }catch (Exception e){
 
                         new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), false, true, true);
 
 
+                    }
+                }
+                return false;
+            }
+        });
+
+        binding.edtxCantidad.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode==KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
+                    try{
+
+                        if (binding.edtxCantidad.getText().toString().equals("")){
+                            new popUpGenerico(contexto,vista,"Ingrese una cantidad válida","false",true,true);
+                        }
+                        else
+                        new esconderTeclado(RechazarSurtido.this);
+
+                    }catch (Exception e){
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), false, true, true);
+                    }
+                }
+                return false;
+            }
+        });
+
+        binding.edtxNuevoEmpaque.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode==KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
+                    try {
+                        if (binding.edtxDocumento.getText().toString().equals("")){
+                            new popUpGenerico(contexto,vista,"Ingrese orden de producción","false",true,true);
+                        }
+                        if(binding.edtxSKU.getText().toString().equals(""))
+                            new popUpGenerico(contexto,vista,"Debe de seleccionar el material a rechazar","false",true,true);
+
+                        if(binding.edtxNuevoEmpaque.getText().toString().equals("")){
+                            new popUpGenerico(contexto,vista,"Ingrese una nueva etiqueta de empaque","false",true,true);
+                        }
+                        else{
+                            new CreaDialogos("¿Desea que se vuelva a surtir el material?",
+                                    new DialogInterface.OnClickListener()
+                                    {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which)
+                                        {
+                                            bandera = "0";
+                                        }
+                                    },
+                                    new DialogInterface.OnClickListener()
+                                    {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which)
+                                        {
+                                           bandera = "1";
+                                        }
+                                    },
+
+                                    RechazarSurtido.this);
+
+                        }
+                            new SegundoPlano("RechazarMaterial");
+
+
+                    }catch (Exception e){
+                        e.printStackTrace();
                     }
                 }
                 return false;
@@ -254,6 +327,10 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
 
                     case "ConsultarOrden":
                         dao = ca.c_ConsultaEmpaquesOP(binding.edtxDocumento.getText().toString());
+                        break;
+
+                    case "RechazarMaterial":
+                        dao = ca.c_RechazarMaterialProd(binding.edtxDocumento.getText().toString(), binding.edtxSKU.getText().toString(), Double.parseDouble(binding.edtxCantidad.getText().toString()), binding.edtxNuevoEmpaque.getText().toString(), bandera);
                         break;
 
 

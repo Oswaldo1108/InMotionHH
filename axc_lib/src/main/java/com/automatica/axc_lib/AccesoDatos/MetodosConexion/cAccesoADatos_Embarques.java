@@ -697,4 +697,28 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         request.addProperty("prmUsuario",Usuario);
         return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
     }
+
+    public DataAccessObject c_RechazarMaterialProd(String prmOrdenProd, String prmNumParte, double prmCantidad, String prmNuevoEmpaque, String prmBandera)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_RechazharMaterialOP";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmOrdenProd",prmOrdenProd);
+        request.addProperty("prmNumParte",prmNumParte);
+        request.addProperty("prmCantidad",prmCantidad);
+        request.addProperty("prmNuevoEmpaque",prmNuevoEmpaque);
+        request.addProperty("prmBandera", prmBandera);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
+    public DataAccessObject c_ConsultaMaquinas(String prmMaquina)
+    {
+        String METHOD_NAME = "WM_ConsultaMaquinas";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmMaquina",prmMaquina);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
 }
