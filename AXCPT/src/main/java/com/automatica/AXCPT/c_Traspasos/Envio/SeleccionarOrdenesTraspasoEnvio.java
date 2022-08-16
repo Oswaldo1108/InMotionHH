@@ -29,6 +29,7 @@ import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionOrdenDevolucion;
 import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Seleccion_Orden;
 import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionSeleccionar;
 import com.automatica.AXCPT.c_Traspasos.MenuTraspaso;
+import com.automatica.AXCPT.c_Traspasos.Recibe.SeleccionOrdenTraspasoRecepcion;
 import com.automatica.AXCPT.databinding.ActivitySeleccionarOrdenesTraspasoEnvioBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
@@ -266,11 +267,17 @@ public class SeleccionarOrdenesTraspasoEnvio extends AppCompatActivity implement
                     switch (Tarea) {
                         case "LlenarTabla":
                             new esconderTeclado(SeleccionarOrdenesTraspasoEnvio.this);
-                            if (ConfigTabla_Totales == null) {
+                            try
+                            {
+                                if (ConfigTabla_Totales == null) {
 
-                                ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,SeleccionarOrdenesTraspasoEnvio.this);
-                            } else{
-                                ConfigTabla_Totales.CargarDatosTabla(dao);
+                                    ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao, SeleccionarOrdenesTraspasoEnvio.this);
+                                } else{
+                                    ConfigTabla_Totales.CargarDatosTabla(dao);
+                                }
+                            } catch (Exception e) {
+                                new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,getCurrentFocus(), "No existen traspasos asignados" ,"false", true, true);
+                                e.printStackTrace();
                             }
                             documento = "@";
                             break;
@@ -280,7 +287,8 @@ public class SeleccionarOrdenesTraspasoEnvio extends AppCompatActivity implement
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                pop.popUpGenericoDefault(vista, e.getMessage(), false);
+                new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,getCurrentFocus(), dao.getcMensaje(),"false", true, true);
+
             }
             p.DesactivarProgressBar(Tarea);
         }

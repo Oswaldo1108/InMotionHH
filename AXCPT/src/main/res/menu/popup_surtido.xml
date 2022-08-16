@@ -3,16 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/Empaque"
+        android:visible="true"
         android:title="Empaque"
         android:icon="@drawable/ic_empaque"
         app:showAsAction="always"/>
 
     <item android:id="@+id/EmpaqueNE"
+        android:visible="true"
         android:title="Empaques N.E."
         android:icon="@drawable/ic_directo_posici_n"
         app:showAsAction="always"/>
 
     <item android:id="@+id/Piezas"
+        android:visible="true"
         android:title="Piezas"
         android:icon="@drawable/ic_contenedor"
         app:showAsAction="always"/>

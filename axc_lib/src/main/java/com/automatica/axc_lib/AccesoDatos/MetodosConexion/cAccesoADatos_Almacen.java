@@ -470,6 +470,8 @@ public class cAccesoADatos_Almacen extends conexionWS2 {
         return IniciaAccionSOAP(request,METHOD_NAME,context,null);
     }
 
+
+
     public DataAccessObject cad_ConsultaSurtidoTrasDetPartida(String prmPedido,String prmPartida)
     {
         String METHOD_NAME = "WM_ConsultaSurtidoTrasDetPartida";

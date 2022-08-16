@@ -105,6 +105,11 @@
         <activity
             android:name=".c_Traspasos.Recibe.SeleccionPartidaTraspasoRecepcion"
             android:exported="false" />
+
+        <activity
+            android:name=".c_Traspasos.Recibe.SeleccionPalletTraspasoRecepcion"
+            android:exported="false" />
+
         <activity
             android:name=".c_Traspasos.MenuTraspaso"
             android:exported="false" />
@@ -819,6 +824,10 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".c_Recepcion.Recepcion.Recepcion_Refacciones"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".c_Traspasos.Envio.Validacion.Validacion_Seleccion_Orden_Tras"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
     </application>

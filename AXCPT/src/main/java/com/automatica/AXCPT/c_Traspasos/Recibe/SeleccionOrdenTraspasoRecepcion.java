@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
+import com.automatica.AXCPT.Fragmentos.PopUpMenuAXC;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.Principal.Inicio_Menu_Dinamico;
 import com.automatica.AXCPT.R;
@@ -186,14 +187,51 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
     }
 
     private void validacionFinal(){
+        try{
+        if(binding.edtxDocumento.getText().toString().equals(""))
+        {
+            new popUpGenerico(contexto,vista,getString(R.string.error_seleccionar_registro),"Advertencia",true,false);
 
-        intent = new Intent(contexto, SeleccionPartidaTraspasoRecepcion.class);
-        if(DocumentoSeleccionado)
-            intent.putExtras(b);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
-        Log.d("Mensaje1", "Hola");
+            return;
+        }
+        if(!ConfigTabla_Totales.renglonEstaSelec())
+        {
+            new popUpGenerico(contexto,vista ,getString(R.string.error_seleccionar_registro) , false, true,true );
+            return;
+        }
+
+        b.putString("Orden", binding.edtxDocumento.getText().toString());
+
+        new PopUpMenuAXC().newInstance(taskbar_axc.getView().findViewById(R.id.BotonDer), SeleccionOrdenTraspasoRecepcion.this, R.menu.popup_traslado_vde, new PopUpMenuAXC.ContextMenuListener() {
+            @Override
+            public void listenerItem(MenuItem item) {
+                try{
+                    switch (item.getItemId()){
+                        case R.id.registrado:
+                            intent = new Intent(contexto, SeleccionPalletTraspasoRecepcion.class);
+                            if(DocumentoSeleccionado)
+                                intent.putExtras(b);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
+                            break;
+
+
+                        default:
+                            pop.popUpGenericoDefault(vista,"Seleccione una opción",false);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    pop.popUpGenericoDefault(vista,e.getMessage(),false);
+                }
+            }
+        });
+    }catch (Exception e){
+        e.printStackTrace();
+        pop.popUpGenericoDefault(vista,e.getMessage(),false);
     }
+
+
+}
 
     // ********************************************************* OnBackPressed *********************************************************
     public void onBackPressed() {
@@ -258,11 +296,17 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
                     switch (Tarea) {
                         case "LlenarTabla":
                             new esconderTeclado(SeleccionOrdenTraspasoRecepcion.this);
+                            try
+                            {
                             if (ConfigTabla_Totales == null) {
 
                                 ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,SeleccionOrdenTraspasoRecepcion.this);
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
+                            }
+                            } catch (Exception e) {
+                                new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,getCurrentFocus(), "No existen traspasos asignados" ,"false", true, true);
+                                e.printStackTrace();
                             }
                             documento = "@";
                             break;
@@ -272,7 +316,7 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                pop.popUpGenericoDefault(vista, e.getMessage(), false);
+                new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,getCurrentFocus(), dao.getcMensaje(),"false", true, true);
             }
             p.DesactivarProgressBar(Tarea);
         }
