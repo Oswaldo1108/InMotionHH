@@ -1,4 +1,4 @@
-package com.automatica.AXCPT.c_Traspasos.Envio.Validacion;
+package com.automatica.AXCPT.c_Traspasos.Envio.Reempaque;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,28 +17,28 @@ import com.automatica.AXCPT.Servicios.ActivityHelpers;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.Servicios.popUpGenerico;
-import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet;
-import com.automatica.AXCPT.c_Traspasos.Envio.SeleccionarOrdenesTraspasoEnvio;
+import com.automatica.AXCPT.c_Embarques.Reempaque.Reempaque_Ciesa.Reempaque_Reempaque;
+import com.automatica.AXCPT.c_Traspasos.Envio.Validacion.Validacion_Seleccion_Orden_Tras;
 import com.automatica.AXCPT.c_Traspasos.MenuTraspaso;
 import com.automatica.AXCPT.databinding.ActivityEmbarquesSeleccionOrdenBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Embarques;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Transferencia;
-import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.sobreDispositivo;
 
 import de.codecrafters.tableview.SortableTableView;
 
-public class Validacion_Seleccion_Orden_Tras extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar{
+public class Reempaque_Seleccion_Orden_Tras extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar{
 
-    private Toolbar toolbar;
+    Toolbar toolbar;
     private ActivityHelpers activityHelpers;
     private ProgressBarHelper p;
-    private ActivityEmbarquesSeleccionOrdenBinding binding;
-    private Context contexto = Validacion_Seleccion_Orden_Tras.this;
-    private SortableTableView tabla;
-    private TableViewDataConfigurator tableViewDataConfigurator;
-    frgmnt_taskbar_AXC taskbar_axc;
+    ActivityEmbarquesSeleccionOrdenBinding binding;
+    Context contexto = Reempaque_Seleccion_Orden_Tras.this;
+    SortableTableView tabla;
+    String orden;
+    boolean seleccionado;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,29 +58,12 @@ public class Validacion_Seleccion_Orden_Tras extends AppCompatActivity implement
     private void InicializarVariables(){
         p = new ProgressBarHelper(this);
         activityHelpers = new ActivityHelpers();
-        activityHelpers.AgregarMenus(Validacion_Seleccion_Orden_Tras.this,R.id.Pantalla_principal,true);
+        activityHelpers.AgregarMenus(Reempaque_Seleccion_Orden_Tras.this,R.id.Pantalla_principal,true);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Validación");
+        getSupportActionBar().setTitle("Reempaque");
         getSupportActionBar().setSubtitle("Selección Documento");
         tabla = binding.customtableview.tableViewOC;
-
-
-        tableViewDataConfigurator =  TableViewDataConfigurator.newInstance(tabla, null, Validacion_Seleccion_Orden_Tras.this, new TableViewDataConfigurator.TableClickInterface() {
-            @Override
-            public void onTableHeaderClick(int columnIndex, String Header, String IdentificadorTabla) {
-
-            }
-
-            @Override
-            public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla) {
-
-            }
-
-            @Override
-            public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
-            }
-        });
     }
 
     @Override
@@ -113,44 +96,22 @@ public class Validacion_Seleccion_Orden_Tras extends AppCompatActivity implement
     }
     @Override
     public void onBackPressed() {
-
-        Intent intent = new Intent(Validacion_Seleccion_Orden_Tras.this, MenuTraspaso.class);
+        Intent intent = new Intent(Reempaque_Seleccion_Orden_Tras.this, MenuTraspaso.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);
     }
 
     @Override
-    public void BotonDerecha()
-    {
-//        if (!tableViewDataConfigurator.renglonEstaSelec())
-//        {
-//            new popUpGenerico(contexto,getCurrentFocus(),"Seleccione una orden para continuar.",false,true,true);
-//            return;
-//        }
-
-        Bundle b = new Bundle();
-
-      if(tableViewDataConfigurator.renglonEstaSelec())
-      {
-          Constructor_Dato cd = Constructor_Dato.getValue(tableViewDataConfigurator.getRenglonSeleccionado(), "Orden");
-
-          if(cd!=null)
-          {
-              String tmpDocumento = cd.getDato();
-
-              if(tmpDocumento == null)
-              {
-                  tmpDocumento = "";
-              }
-              b.putString("Documento",tmpDocumento);
-          }
-      }else{
-          b.putString("Documento","");
-      }
-
-        startActivity(new Intent(contexto, Validacion_PorPallet_Tras.class).putExtras(b));
-        overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
+    public void BotonDerecha() {
+        if (seleccionado){
+            Bundle b = new Bundle();
+            b.putString("Orden",orden);
+            startActivity(new Intent(contexto, Reempaque_Reempaque_Tras.class).putExtras(b));
+            overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
+        }else {
+            new popUpGenerico(contexto,getCurrentFocus(),"Seleccione una orden para continuar.",false,true,true);
+        }
     }
 
     @Override
@@ -158,8 +119,7 @@ public class Validacion_Seleccion_Orden_Tras extends AppCompatActivity implement
         onBackPressed();
     }
 
-    private class SegundoPlano extends AsyncTask<String, Void, Void>
-    {
+    private class SegundoPlano extends AsyncTask<String, Void, Void> {
         String Tarea;
         DataAccessObject dao;
         cAccesoADatos_Transferencia ca = new cAccesoADatos_Transferencia(contexto);
@@ -174,47 +134,49 @@ public class Validacion_Seleccion_Orden_Tras extends AppCompatActivity implement
         }
 
         @Override
-        protected Void doInBackground(String... strings)
-        {
-            try
-            {
+        protected Void doInBackground(String... strings) {
+            try {
                 switch (Tarea)
                 {
                     case "ConsultaOrdenes":
-                            dao = ca.c_ConsultaOrdenSurtidoTras("@","SURTIDA");
+                        dao = ca.c_ConsultaOrdenSurtidoTras("@","VALIDADA");
                         break;
-
                     default:
                         dao = new DataAccessObject();
                 }
 
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 dao = new DataAccessObject(e);
-                e.printStackTrace();
             }
             return null;
         }
 
         @Override
-        protected void onPostExecute(Void aVoid)
-        {
+        protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             try {
-                if (dao.iscEstado())
-                {
-                    switch (Tarea)
-                    {
+                if (dao.iscEstado()) {
+                    switch (Tarea) {
                         case "ConsultaOrdenes":
-                            try
-                            {
-                                if(tableViewDataConfigurator!=null)
-                                {
-                                    tableViewDataConfigurator.CargarDatosTabla(dao);
-                                }
+                            try {
+                                TableViewDataConfigurator.newInstance(tabla, dao, Reempaque_Seleccion_Orden_Tras.this, new TableViewDataConfigurator.TableClickInterface() {
+                                    @Override
+                                    public void onTableHeaderClick(int columnIndex, String Header, String IdentificadorTabla) {
 
-                            } catch (Exception e)
-                            {
+                                    }
+
+                                    @Override
+                                    public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla) {
+
+                                    }
+
+                                    @Override
+                                    public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
+                                        orden = clickedData[0];
+                                        seleccionado = Seleccionado;
+                                    }
+                                });
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                             break;

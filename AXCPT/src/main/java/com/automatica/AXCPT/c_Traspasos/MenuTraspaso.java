@@ -19,6 +19,7 @@ import com.automatica.AXCPT.Servicios.ActivityHelpers;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Almacen.Cuarentena.CuarentenaEmpaque;
 import com.automatica.AXCPT.c_Almacen.Cuarentena.RecuperarEmpaque;
+import com.automatica.AXCPT.c_Traspasos.Envio.Reempaque.Reempaque_Seleccion_Orden_Tras;
 import com.automatica.AXCPT.c_Traspasos.Envio.SeleccionarOrdenesTraspasoEnvio;
 import com.automatica.AXCPT.c_Traspasos.Envio.Validacion.Validacion_Seleccion_Orden_Tras;
 import com.automatica.AXCPT.c_Traspasos.Recibe.SeleccionOrdenTraspasoRecepcion;
@@ -51,7 +52,7 @@ public class MenuTraspaso extends AppCompatActivity implements frgmnt_taskbar_AX
         ArrayList<objetoMenu> envio= new ArrayList<>();
         envio.add(new objetoMenu("Surtido",new Intent(contexto, SeleccionarOrdenesTraspasoEnvio.class)));
         envio.add(new objetoMenu("Validación",new Intent(contexto, Validacion_Seleccion_Orden_Tras.class)));
-        envio.add(new objetoMenu("Reempaque",new Intent(contexto, RecuperarEmpaque.class)));
+        envio.add(new objetoMenu("Reempaque",new Intent(contexto, Reempaque_Seleccion_Orden_Tras.class)));
 
         ArrayList<objetoMenuContext> objetos= new ArrayList<>();
         objetos.add(new objetoMenuContext("Recibo", R.drawable.ic_recepcion_se, new Intent(contexto, SeleccionOrdenTraspasoRecepcion.class)));

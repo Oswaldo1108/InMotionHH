@@ -646,8 +646,209 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
 
         return IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
+////// VALIDACION TRASPASOS
+    public DataAccessObject c_ConsultaOrdenSurtidoTras(String prmOrdenEmbarque, String prmStatus) {
+        conexionWS c = new conexionWS();
+            String METHOD_NAME = "WM_ConsultaOrdenSurtidoTras";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmOrdenEmbarque", prmOrdenEmbarque);
+        request.addProperty("prmStatus", prmStatus);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
+
+    public DataAccessObject c_ConsultaEmbarqueValidarPalletsTras(String prmOrdenEmbarque)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultaEmbarqueValidarPalletsTras";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmOrdenEmbarque",prmOrdenEmbarque);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
+
+    public DataAccessObject c_ConsultaCarritoValidaTras(String prmCarrito,String prmOrdenEmbarque)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultaCarritoValidaTras";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmCarrito",prmCarrito);
+        request.addProperty("prmEmbarque",prmOrdenEmbarque);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
+    public DataAccessObject c_ConsultaTipoRegValidaTras(String prmEmpaque,String prmDocumento, String prmCarrito)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultaTipoRegValidaTras";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmEmpaque",prmEmpaque);
+        request.addProperty("prmDocumento",prmDocumento);
+        request.addProperty("prmCarrito",prmCarrito);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
+
+    public DataAccessObject c_ValidaEmbEmpaqueTras(String prmDocumento,String prmCodigoEmpaque)
+    {
+        String METHOD_NAME = "WM_ValidaEmbEmpaque";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmDocumento",prmDocumento);
+        request.addProperty("prmCodigoEmpaque",prmCodigoEmpaque);
+        request.addProperty("prmGuia", "");
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
 
 
+    /*public DataAccessObject c_ValidaEmbSKUPzasTras(String prmDocumento,String prmNumParte, String prmCantidad)
+    {
+        String METHOD_NAME = "WM_ValidaEmbSkuCantidad";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmDocumento",prmDocumento);
+        request.addProperty("prmCodigoEmpaque",prmNumParte);
+        request.addProperty("prmCantidad",prmCantidad);
+        request.addProperty("prmGuia", "");
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }*/
+
+    public DataAccessObject c_ValidaEmbSKUCantidadTras(String prmDocumento,String prmNumParte, String prmCantidad)
+    {
+        String METHOD_NAME = "WM_ValidaEmbSkuCantidadTras";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmDocumento",prmDocumento);
+        request.addProperty("prmCodigoEmpaque",prmNumParte);
+        request.addProperty("prmCantidad",prmCantidad);
+        request.addProperty("prmGuia", "");
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
+
+
+    //Reempaque
+
+    public DataAccessObject c_RegistrarEmbMaterialTras(String prmDocumento,String prmLinea,String prmValida)
+    {
+        String METHOD_NAME = "WM_RegistrarEmbMaterialTras";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmDocumento",prmDocumento);
+        request.addProperty("prmLinea",prmLinea);
+        request.addProperty("prmValida",prmValida);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
+
+    /*public DataAccessObject cConsultaListaConsolidadosReempaqueTras(String prmDocumento) {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultaListaConsolidadosReempaqueTras";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmDocumento", prmDocumento);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
+*/
+    public DataAccessObject cad_ConsultaPedidoSurtidoReempaqueTras(String prmPedido)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultaPedidoSurtidoReempaqueTras";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmPedido",prmPedido);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
+    }
+
+
+    public DataAccessObject cad_ConsultaCarritoEmpaquesTras(String prmDocumento,String prmCarrito)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultaEmpaquesCarritoTras";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmDocumento",prmDocumento);
+        request.addProperty("prmCarrito",prmCarrito);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
+    }
+
+    public DataAccessObject cCreaPalletReempaqueTras(String prmEmbarque) {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_CreaPalletReempaqueTras";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmEmbarque", prmEmbarque);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
+
+    public DataAccessObject cConsultaPalletConsTras(String prmPallet) {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultaPalletConsTras";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmPallet", prmPallet);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
+    public DataAccessObject cRegistraReempaqueConsSKUTras(String prmDocumento, String prmPallet,String prmPalletAConsolidar, String prmProducto, String prmCantidadEmpaques) {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_RegistraReempaqueSKUTras";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmDocumento", prmDocumento);
+        request.addProperty("prmPallet", prmPallet);
+        request.addProperty("prmPalletAConsolidar", prmPalletAConsolidar);
+        request.addProperty("prmProducto", prmProducto);
+        request.addProperty("prmSKU", prmCantidadEmpaques);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
+
+
+    public DataAccessObject cRegistraReempaqueConsTras(String prmDocumento, String prmPallet,String prmPalletAConsolidar, String prmProducto, String prmCantidadEmpaques) {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_RegistraReempaque";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmDocumento", prmDocumento);
+        request.addProperty("prmPallet", prmPallet);
+        request.addProperty("prmPalletAConsolidar", prmPalletAConsolidar);
+        request.addProperty("prmProducto", prmProducto);
+        request.addProperty("prmCantidadEmpaques", prmCantidadEmpaques);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
+    public DataAccessObject cCerrarReempaqueTras (String prmEmbarque, String prmPallet) {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_CerrarReempaqueTras";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmTraspaso", prmEmbarque);
+        request.addProperty("prmPallet", prmPallet);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
+
+
+    public DataAccessObject cConsultaEmpaqueoSKUTras (String prmEmpaqueOSKU) {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ConsultaEmpaqueOSKUTras";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmEmpaqueOSKU", prmEmpaqueOSKU);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
+    }
 
     //endregion
 }
