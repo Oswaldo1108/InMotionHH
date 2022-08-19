@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/Pantalla_principal"
+    android:background="@color/fondoAzul"
+    tools:context=".c_Traspasos.Envio.Reempaque.Reempaque_Seleccion_Orden_Tras">
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
+
+    <include layout="@layout/progressbar_layout"
+        android:id="@+id/progressBarHolder"/>
+
+    <TextView
+        android:id="@+id/textView165"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Documento:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/txtv_Documento"
+        style="@style/EstiloTexto_Blanco_Reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/textView165"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView165"
+        app:layout_constraintTop_toTopOf="@+id/textView165"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!--<include
+        android:id="@+id/vw_spinner"
+        layout="@layout/vw_spinner"
+        android:layout_width="0dp"
+        android:layout_margin="8dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView167"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView167"
+        app:layout_constraintTop_toTopOf="@+id/textView167" />
+
+    <TextView
+        android:id="@+id/textView167"
+        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Documento:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView165" />-->
+
+    <include
+        android:id="@+id/customtableview"
+        layout="@layout/customtableview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cl"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView165" />
+
+
+    <RelativeLayout
+        android:id="@+id/cl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="visible"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_EmpaqueRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/textView168"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="SKU o Empaque"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView169"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Carrito:"
+                app:layout_constraintBottom_toTopOf="@+id/customtableview2"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/edtx_Carrito"
+                style="@style/Estilo_EditText_WhiteBackground"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_margin="8dp"
+                android:singleLine="true"
+                app:layout_constraintBottom_toBottomOf="@+id/textView169"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView169"
+                app:layout_constraintTop_toTopOf="@+id/textView169" />
+
+            <include
+                android:id="@+id/customtableview2"
+                layout="@layout/customtableview"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_margin="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView168"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/edtx_SKU"
+                style="@style/Estilo_EditText_WhiteBackground"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_margin="8dp"
+                android:singleLine="true"
+                app:layout_constraintBottom_toBottomOf="@+id/textView168"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView168"
+                app:layout_constraintTop_toTopOf="@+id/textView168" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_TablaRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/textView170"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Reempaque:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtv_pallet"
+                style="@style/EstiloTexto_Blanco_Reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView170"
+                app:layout_constraintStart_toEndOf="@+id/textView170"
+                app:layout_constraintTop_toTopOf="@+id/textView170" />
+
+            <include
+                android:id="@+id/customtableview3"
+                layout="@layout/customtableview"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_margin="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView170" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

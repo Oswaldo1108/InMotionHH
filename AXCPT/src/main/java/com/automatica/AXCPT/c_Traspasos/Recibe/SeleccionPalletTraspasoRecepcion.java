@@ -337,7 +337,7 @@ public class SeleccionPalletTraspasoRecepcion extends AppCompatActivity implemen
                     switch (Tarea) {
                         case "LlenarTabla":
                             if (ConfigTabla_Totales == null) {
-                                ConfigTabla_Totales =  new TableViewDataConfigurator( 4, "SIN COLOCAR","EN TRANSITO","CANCELADO",tabla, dao, SeleccionPalletTraspasoRecepcion.this);
+                                ConfigTabla_Totales =  new TableViewDataConfigurator( 3, "SIN COLOCAR","EN TRANSITO","CANCELADO",tabla, dao, SeleccionPalletTraspasoRecepcion.this);
                                 Log.e("Tablas",dao.getSoapObject().toString());
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
