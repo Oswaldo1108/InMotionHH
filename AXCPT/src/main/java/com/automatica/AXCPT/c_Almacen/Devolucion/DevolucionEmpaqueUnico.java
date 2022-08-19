@@ -100,7 +100,13 @@ public class DevolucionEmpaqueUnico extends AppCompatActivity  implements frgmnt
             }
 
             if (id == R.id.numserie){
-
+                if (binding.linearReg.getVisibility() == View.VISIBLE){
+                    binding.linearReg.setVisibility(View.GONE);
+                    binding.linearTabla.setVisibility(View.VISIBLE);
+                }else{
+                    binding.linearReg.setVisibility(View.VISIBLE);
+                    binding.linearTabla.setVisibility(View.GONE);
+                }
             }
         }
         return super.onOptionsItemSelected(item);
@@ -186,13 +192,8 @@ public class DevolucionEmpaqueUnico extends AppCompatActivity  implements frgmnt
 
                             new popUpGenerico(contexto, getCurrentFocus(), "Ingrese el código del empaque", "false", true, true);
                             return false;
-                        }
-
-                        //    new SegundoPlano("ConsultaEmpaque").execute();
-                      //  binding.edtxConfirmar.setEnabled(true);
-                       // binding.edtxNumSerie.setEnabled(true);
-                        Log.e("FocusEmpaque", "Entro");
-                        binding.edtxNumSerie.requestFocus();
+                        }else
+                            ejecutarTarea("ConsultaEmpaque");
 
                     }
                     catch (Exception e){
@@ -222,7 +223,6 @@ public class DevolucionEmpaqueUnico extends AppCompatActivity  implements frgmnt
                         }
 
                         //    new SegundoPlano("ConsultaEmpaque").execute();
-                        binding.edtxConfirmar.requestFocus();
 
                     }
                     catch (Exception e){
@@ -327,6 +327,11 @@ public class DevolucionEmpaqueUnico extends AppCompatActivity  implements frgmnt
                         case "ConsultarPartida":
                             dao[0]= ca.c_ConsultaPartidaDevolucion(documento,partida);
                             break;
+
+                          case "ConsultaEmpaque":
+                              dao[0] = ca.c_ConsultaEmpaqueDev(binding.edtxEmpaque.getText().toString());
+                              break;
+
                         case "RegistrarEmpaque":
                             dao[0] = ca.c_OCRegistrarEmpaqueUnicoDevolucion(documento, partida, binding.edtxEmpaque.getText().toString(), "", binding.edtxNumSerie.getText().toString());
                             break;
@@ -352,6 +357,12 @@ public class DevolucionEmpaqueUnico extends AppCompatActivity  implements frgmnt
                                         binding.tvUM.setText(dao[0].getSoapObject_parced().getPrimitivePropertyAsString("UM"));
                                         break;
 
+                                    case "ConsultaEmpaque":
+                                        binding.edtxNumSerie.setText(dao[0].getSoapObject_parced().getPrimitivePropertyAsString("NumSerie"));
+                                        binding.edtxSKU.setText(dao[0].getSoapObject_parced().getPrimitivePropertyAsString("SKU"));
+                                        binding.edtxCantidad.requestFocus();
+                                        break;
+
                                     case "RegistrarEmpaque" :
                                         //new popUpGenerico(contexto, getCurrentFocus(), "Empaque registrado con éxito", "Aviso", true, true);
                                         binding.edtxEmpaque.requestFocus();
@@ -363,13 +374,20 @@ public class DevolucionEmpaqueUnico extends AppCompatActivity  implements frgmnt
                                             pop.popUpGenericoDefault(vista, "Orden cerrada con éxito", true);
                                             documento = "";
                                         }else{
-                                            //new DevolucionEmpaqueUnico.SegundoPlano("ConsultarPartida").execute();
                                             ejecutarTarea("ConsultarPartida");
                                         }
 
                                         break;
                                 }
-                            } else {
+
+                            }  else if(dao[0].getcMensaje().contains("NO")){
+                                Toast.makeText(DevolucionEmpaqueUnico.this, "No existe",Toast.LENGTH_SHORT).show();
+                                binding.edtxSKU.setEnabled(true);
+                                binding.edtxNumSerie.setEnabled(true);
+                                binding.edtxNumSerie.requestFocus();
+                            }
+
+                            else {
                                 pop.popUpGenericoDefault(vista, dao[0].getcMensaje(), false);
                             }
                         } catch (Exception e) {
@@ -382,85 +400,5 @@ public class DevolucionEmpaqueUnico extends AppCompatActivity  implements frgmnt
             }
         });
     }
-
-    // ********************************************************* SEGUNDO PLANO **********************************************************
-
-    private class SegundoPlano extends AsyncTask<Void, Void, Void> {
-
-        String Tarea;
-        DataAccessObject dao;
-        cAccesoADatos_Almacen ca = new cAccesoADatos_Almacen(DevolucionEmpaqueUnico.this);
-
-        private SegundoPlano(String Tarea) {
-            this.Tarea = Tarea;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            p.ActivarProgressBar(Tarea);
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-
-                switch (Tarea) {
-                    case "ConsultarPartida":
-                        dao= ca.c_ConsultaPartidaDevolucion(documento,partida);
-                        break;
-                    case "RegistrarEmpaque":
-                       dao = ca.c_OCRegistrarEmpaqueUnicoDevolucion(documento, partida, binding.edtxEmpaque.getText().toString(), "", binding.edtxNumSerie.getText().toString());
-                        break;
-                }
-            } catch (Exception e) {
-                dao = new DataAccessObject(e);
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            try {
-                if (dao.iscEstado()) {
-                    switch (Tarea) {
-                        case "ConsultarPartida":
-                            binding.tvArticulo.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("DNumParte1"));
-                            binding.tvCantTotal.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadPendienteTotal"));
-                            binding.tvCantReg.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadRecibida"));
-                            binding.tvUM.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("UM"));
-                            break;
-
-                        case "RegistrarEmpaque" :
-                            //new popUpGenerico(contexto, getCurrentFocus(), "Empaque registrado con éxito", "Aviso", true, true);
-                            binding.edtxEmpaque.requestFocus();
-                            binding.edtxEmpaque.setText("");
-                            binding.edtxNumSerie.setText("");
-                            binding.edtxConfirmar.setText("");
-
-                            if (dao.getSoapObject_parced().getPrimitivePropertyAsString("OrdenCerrada").equals("1")) {
-                                pop.popUpGenericoDefault(vista, "Orden cerrada con éxito", true);
-                                documento = "";
-                            }else{
-                                new DevolucionEmpaqueUnico.SegundoPlano("ConsultarPartida").execute();
-
-
-                            }
-
-                            break;
-
-
-                    }
-                } else {
-                    pop.popUpGenericoDefault(vista, dao.getcMensaje(), false);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                pop.popUpGenericoDefault(vista, e.getMessage(), false);
-            }
-            p.DesactivarProgressBar(Tarea);
-        }
-    }
-
 
 }

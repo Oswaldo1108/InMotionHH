@@ -511,12 +511,6 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                             }
                         },100);
                         return false;
-                    }else
-                    {
-                        if(edtx_SKU.getText().toString().startsWith("P"))
-                        {
-                            edtx_SKU.setText(edtx_SKU.getText().toString().replaceFirst("P",""));
-                        }
                     }
 
                     if(!edtx_CodigoEmpaque.getText().toString().contains("WTU")&&!edtx_CodigoEmpaque.getText().toString().startsWith("P"))
@@ -540,14 +534,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                             }
                         },100);
                         return false;
-                    }else
-                    {
-                        if(edtx_CodigoEmpaque.getText().toString().startsWith("S"))
-                        {
-                            edtx_CodigoEmpaque.setText(edtx_CodigoEmpaque.getText().toString().replaceFirst("S",""));
-                        }
                     }
-
                     if(edtx_CodigoEmpaque.getText().toString().length()<12&&!(edtx_CodigoEmpaque.getText().toString().startsWith("P")&&edtx_CodigoEmpaque.getText().toString().length()==10))
                     {
                         new popUpGenerico(contexto,edtx_SKU,"Valide que haya escaneado un código serial ó de empaque. ["  + edtx_CodigoEmpaque.getText().toString()+ "]",false,true,true);

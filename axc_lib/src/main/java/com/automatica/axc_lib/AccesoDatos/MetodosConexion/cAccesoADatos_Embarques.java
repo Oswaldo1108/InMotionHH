@@ -89,12 +89,13 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
     }
 
-    public DataAccessObject cad_ValidarCarrito(String prmCarrito)
+    public DataAccessObject cad_ValidarCarrito(String prmCarrito, String prmArea)
     {
         conexionWS c = new conexionWS();
         String METHOD_NAME = "WM_ValidarCarritoSurtido";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmCarrito",prmCarrito);
+        request.addProperty("prmArea", prmArea);
         request.addProperty("prmEstacion",Estacion);
         request.addProperty("prmUsuario",Usuario);
         return c.IniciaAccionSOAP(request,METHOD_NAME,contexto,null);
@@ -698,7 +699,7 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
     }
 
-    public DataAccessObject c_RechazarMaterialProd(String prmOrdenProd, String prmNumParte, double prmCantidad, String prmNuevoEmpaque, String prmBandera)
+    public DataAccessObject c_RechazarMaterialProd(String prmOrdenProd, String prmNumParte, String prmCantidad, String prmPartida, String prmNuevoEmpaque, String prmBandera)
     {
         conexionWS c = new conexionWS();
         String METHOD_NAME = "WM_RechazharMaterialOP";
@@ -706,6 +707,7 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         request.addProperty("prmOrdenProd",prmOrdenProd);
         request.addProperty("prmNumParte",prmNumParte);
         request.addProperty("prmCantidad",prmCantidad);
+        request.addProperty("prmPartida", prmPartida);
         request.addProperty("prmNuevoEmpaque",prmNuevoEmpaque);
         request.addProperty("prmBandera", prmBandera);
         request.addProperty("prmEstacion",Estacion);
@@ -717,6 +719,17 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         String METHOD_NAME = "WM_ConsultaMaquinas";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmMaquina",prmMaquina);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
+
+    public DataAccessObject c_RechazaSurtidoProduccion(String prmOrdenProd,String prmPallet)
+    {
+        String METHOD_NAME = "WM_RegistrarRechazoSurtidoOP";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmOrdenProd",prmOrdenProd);
+        request.addProperty("prmPallet",prmPallet);
         request.addProperty("prmEstacion",Estacion);
         request.addProperty("prmUsuario",Usuario);
         return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
