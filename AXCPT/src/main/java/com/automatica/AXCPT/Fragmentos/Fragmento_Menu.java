@@ -234,7 +234,7 @@ public class Fragmento_Menu extends Fragment{
                     datos.add(new objetoMenu(getString(R.string.almacen_armado_tarimas), new Intent(getContext(), SeleccionarOrdenProd.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_embarques),new Intent(getContext(), SurtidoProdSeleccionOrden.class)));
                     datos.add(new objetoMenu("Validación",new Intent(getContext(), ValidarOrdenSurtido.class)));
-                    datos.add(new objetoMenu("Rechazar surtido",new Intent(getContext(), RechazarSurtido.class)));
+                    datos.add(new objetoMenu("Devolución",new Intent(getContext(), RechazarSurtido.class)));
                    // datos.add(new objetoMenu(getString(R.string.almacen_armado_tarimas), new Intent(getContext(), Almacen_Armado_Pallets_Liquidos.class)));
                     llenarRecycler(recyclerView, datos);
                     recyclerView.setVisibility(View.VISIBLE);

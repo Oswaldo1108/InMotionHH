@@ -79,6 +79,10 @@ public class SurtidoProdSeleccionPartida extends AppCompatActivity implements Ta
     protected void onResume() {
         if (!binding.edtxDocumento.getText().toString().equals(""))
             new SurtidoProdSeleccionPartida.SegundoPlano("LlenarTabla").execute();
+
+        if(!binding.edtxCarrito.getText().toString().equals(""))
+            new SurtidoProdSeleccionPartida.SegundoPlano("ConsultaCarrito").execute();
+
         super.onResume();
     }
 

@@ -57,7 +57,7 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
     popUpGenerico pop = new popUpGenerico(RechazarSurtido.this);
     frgmnt_taskbar_AXC taskbar_axc;
     private static String strIdTabla = "strIdTablaTotales";
-    String material, bandera;
+    String material, bandera, partida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +132,7 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
     @Override
     public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
         material = clickedData[1];
+        partida = clickedData[0];
         binding.edtxSKU.setText(material);
     }
 
@@ -157,8 +158,8 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
     private void configurarToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Rechazar");
-        getSupportActionBar().setSubtitle("Empaques surtidos");
+        getSupportActionBar().setTitle("Devolver");
+        getSupportActionBar().setSubtitle("Material surtido");
         View logoView = getToolbarLogoIcon(toolbar);
         logoView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -244,7 +245,8 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
                                         @Override
                                         public void onClick(DialogInterface dialog, int which)
                                         {
-                                            bandera = "0";
+                                            bandera = "1";
+                                            new SegundoPlano("RechazarMaterial").execute();
                                         }
                                     },
                                     new DialogInterface.OnClickListener()
@@ -252,14 +254,15 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
                                         @Override
                                         public void onClick(DialogInterface dialog, int which)
                                         {
-                                           bandera = "1";
+                                           bandera = "0";
+                                            new SegundoPlano("RechazarMaterial").execute();
                                         }
                                     },
 
                                     RechazarSurtido.this);
 
                         }
-                            new SegundoPlano("RechazarMaterial");
+
 
 
                     }catch (Exception e){
@@ -330,7 +333,7 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
                         break;
 
                     case "RechazarMaterial":
-                        dao = ca.c_RechazarMaterialProd(binding.edtxDocumento.getText().toString(), binding.edtxSKU.getText().toString(), Double.parseDouble(binding.edtxCantidad.getText().toString()), binding.edtxNuevoEmpaque.getText().toString(), bandera);
+                        dao = ca.c_RechazarMaterialProd(binding.edtxDocumento.getText().toString(), binding.edtxSKU.getText().toString(), binding.edtxCantidad.getText().toString(), partida, binding.edtxNuevoEmpaque.getText().toString(), bandera);
                         break;
 
 
@@ -352,11 +355,20 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
                         case "ConsultarOrden":
                             if(ConfigTabla_Totales == null)
                             {
-                                ConfigTabla_Totales = new TableViewDataConfigurator(strIdTabla,0, "VALIDADO", "SURTIDA", "4", tabla, dao, RechazarSurtido.this);
+                                ConfigTabla_Totales = new TableViewDataConfigurator(strIdTabla,0, "VALIDADO", "SURTIDA", "", tabla, dao, RechazarSurtido.this);
                             }else
                             {
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
+                            break;
+
+                        case "RechazarMaterial":
+                            Log.e("Bandera", dao.getcMensaje());
+                            new RechazarSurtido.SegundoPlano("ConsultarOrden").execute();
+                            binding.edtxSKU.setText("");
+                            binding.edtxCantidad.setText("");
+                            binding.edtxNuevoEmpaque.setText("");
+                            pop.popUpGenericoDefault(vista, "Material listo para colocar en el almacén", false);
                             break;
                     }
                 } else {

@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
@@ -28,14 +29,18 @@ import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.Servicios.esconderTeclado;
 import com.automatica.AXCPT.Validacion.ValidacionPalletCalidad;
 import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionPartidaDevolucion;
+import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet;
+import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets;
 import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets_Empaque;
 import com.automatica.AXCPT.databinding.ActivitySurtidoProdEmpaqueBinding;
 import com.automatica.AXCPT.databinding.ActivityValidarOrdenSurtidoBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Embarques;
+import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.popUpGenerico;
 import com.automatica.axc_lib.Servicios.sobreDispositivo;
+import com.automatica.axc_lib.views.CustomArrayAdapter;
 
 import de.codecrafters.tableview.SortableTableView;
 
@@ -46,6 +51,7 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
     SortableTableView tabla;
     View vista;
     String str_Maquina = "@";
+    Spinner spnr_Maquinas;
     Context contexto = this;
     Bundle b = new Bundle();
     popUpGenerico pop = new popUpGenerico(ValidarOrdenSurtido.this);
@@ -70,6 +76,8 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
 
     @Override
     protected void onResume() {
+
+        new ValidarOrdenSurtido.SegundoPlano("ConsultaMaquinas").execute();
        if (!binding.edtxCarrito.equals(""))
            Log.e("SegundoPlano", "BuscarContenidoCarrito");
         super.onResume();
@@ -99,10 +107,7 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
             if ((id == R.id.InformacionDispositivo)) {
                 new sobreDispositivo(contexto, vista);
             }
-            if (id == R.id.recargar) {
-                // Botón de recargar
-                Log.e("SegundoPlano", "BuscarContenidoCarrito");
-            }
+
 
             if ((id == R.id.cancelar_pallets))
             {
@@ -143,6 +148,7 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
     private void declararVariables() {
         tabla = findViewById(R.id.tableView_OC);
         p = new ProgressBarHelper(this);
+        spnr_Maquinas = (Spinner) findViewById(R.id.spnr_Maquinas).findViewById(R.id.spinner);
     }
 
     private void configurarToolbar() {
@@ -258,11 +264,11 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
                         break;
 
                     case "Validar":
-                        dao = adEmb.cad_ValidarCarrito(binding.edtxCarrito.getText().toString());
+                        dao = adEmb.cad_ValidarCarrito(binding.edtxCarrito.getText().toString(),((Constructor_Dato)spnr_Maquinas.getSelectedItem()).getDato());
                         break;
 
                     case "Rechazar":
-                        dao = adEmb.cad_RechazarCarrito(binding.edtxCarrito.getText().toString());
+                        dao = adEmb.c_RechazaSurtidoProduccion(binding.tvDocActual.getText().toString(),binding.edtxCarrito.getText().toString());
                         break;
 
                 }
@@ -285,17 +291,34 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
                             binding.tvEstatus.setText(mensaje.split("\\|")[2]);
                             if (ConfigTabla_Totales == null) {
 
-                                ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,ValidarOrdenSurtido.this);
+                                ConfigTabla_Totales = new TableViewDataConfigurator("strIdTablaTotales",4, "VALIDADA", "PENDIENTE", "4", tabla, dao, ValidarOrdenSurtido.this);
+                              //  ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,ValidarOrdenSurtido.this);
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
                             Log.e("mensaje", mensaje);
                             break;
 
+                        case "ConsultaMaquinas":
+                           spnr_Maquinas.setAdapter(new CustomArrayAdapter(ValidarOrdenSurtido.this,android.R.layout.simple_spinner_item, dao.getcTablasSorteadas("DLinea","Linea")));
+                            break;
+
                         case "Validar":
                             pop.popUpGenericoDefault(vista, "Carrito validado", true);
                             tabla.getDataAdapter().clear();
                             binding.edtxCarrito.setText("");
+                            binding.tvDocActual.setText("-");
+                            binding.tvEmpaques.setText("-");
+                            binding.tvEstatus.setText("-");
+                            break;
+
+                        case "Rechazar":
+                            pop.popUpGenericoDefault(vista, "Carrito rechazado", true);
+                            binding.edtxCarrito.setText("");
+                            binding.tvDocActual.setText("-");
+                            binding.tvEmpaques.setText("-");
+                            binding.tvEstatus.setText("-");
+                            tabla.getDataAdapter().clear();
                             break;
 
                     }
