@@ -145,7 +145,7 @@ public class RecepcionSeleccionarPartidaHC extends AppCompatActivity implements 
 
     @Override
     public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla) {
-
+        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, null, MensajeCompleto, "Información", true, false);
     }
 
     @Override

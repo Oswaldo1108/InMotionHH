@@ -259,9 +259,7 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
     @Override
     public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla)
     {
-
-
-
+        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, null, MensajeCompleto, "Información", true, false);
     }
 
     @Override
@@ -344,7 +342,7 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                         break;
 
                     case "ValidaPzas":
-                        dao = ca.c_ValidaEmbSKUCantidad(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString());
+                        dao = ca.c_ValidaEmbSKUCantidad(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
                         break;
 
                     case "Embarca":
@@ -424,15 +422,13 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
 
                         case "ValidaEmpaque":
                             new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),dao.iscEstado(), true, true);
-
-                            binding.edtxCodigoPallet.setText("");
                             break;
 
                         case "ValidaPzas":
                             new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),dao.iscEstado(), true, true);
                             binding.edtxConfirmarEmpaque.setText("");
                             binding.edtxConfirmarEmpaque.setEnabled(false);
-                            binding.edtxCodigoPallet.setText("");
+
                             break;
 
 

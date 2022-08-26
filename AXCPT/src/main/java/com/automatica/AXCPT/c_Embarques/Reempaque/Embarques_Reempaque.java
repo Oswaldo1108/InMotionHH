@@ -475,7 +475,7 @@ public class Embarques_Reempaque extends AppCompatActivity implements frgmnt_tas
 
                                     @Override
                                     public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla) {
-
+                                        new popUpGenerico(contexto, null, MensajeCompleto, "Información", true, false);
                                     }
 
                                     @Override

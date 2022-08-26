@@ -79,7 +79,7 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
 
         new ValidarOrdenSurtido.SegundoPlano("ConsultaMaquinas").execute();
        if (!binding.edtxCarrito.equals(""))
-           Log.e("SegundoPlano", "BuscarContenidoCarrito");
+           Log.e("SegundoPlano", "ConsultarCarrito");
         super.onResume();
     }
 
@@ -108,6 +108,17 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
                 new sobreDispositivo(contexto, vista);
             }
 
+            if((id == R.id.CambiarVista)){
+                if (binding.LinearPrincipal.getVisibility()==View.VISIBLE){
+                    binding.LinearPrincipal.setVisibility(View.GONE);
+                    binding.linearOrden.setVisibility(View.VISIBLE);
+                }
+                else{
+                    binding.LinearPrincipal.setVisibility(View.VISIBLE);
+                    binding.linearOrden.setVisibility(View.GONE);
+                }
+            }
+
 
             if ((id == R.id.cancelar_pallets))
             {
@@ -131,7 +142,7 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
 
     @Override
     public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla) {
-
+        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, null, MensajeCompleto, "Información", true, false);
     }
 
     @Override
@@ -263,6 +274,9 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
                         dao = adEmb.c_ConsultaMaquinas(str_Maquina);
                         break;
 
+                /*    case "ConsultaDocumento":
+                        dao = adEmb.c_ConsultaValidadosOP(binding.edtxOP.getText().toString());
+                        break;*/
                     case "Validar":
                         dao = adEmb.cad_ValidarCarrito(binding.edtxCarrito.getText().toString(),((Constructor_Dato)spnr_Maquinas.getSelectedItem()).getDato());
                         break;
@@ -286,16 +300,18 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
                     switch (Tarea) {
                         case "ConsultarCarrito":
                             mensaje = dao.getcMensaje();
+                           // binding.edtxOP.setText(mensaje.split("\\|")[0]);
                             binding.tvDocActual.setText(mensaje.split("\\|")[0]);
                             binding.tvEmpaques.setText(mensaje.split("\\|")[1]);
                             binding.tvEstatus.setText(mensaje.split("\\|")[2]);
                             if (ConfigTabla_Totales == null) {
 
-                                ConfigTabla_Totales = new TableViewDataConfigurator("strIdTablaTotales",4, "VALIDADA", "PENDIENTE", "4", tabla, dao, ValidarOrdenSurtido.this);
-                              //  ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,ValidarOrdenSurtido.this);
+                                //ConfigTabla_Totales = new TableViewDataConfigurator("strIdTablaTotales",4, "VALIDADA", "PENDIENTE", "4", tabla, dao, ValidarOrdenSurtido.this);
+                                ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,ValidarOrdenSurtido.this);
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
+                           // new SegundoPlano("ConsultaDocumento").execute();
                             Log.e("mensaje", mensaje);
                             break;
 

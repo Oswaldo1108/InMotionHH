@@ -47,7 +47,7 @@ public class SurtidoProdPallet extends AppCompatActivity implements TableViewDat
     private TextView txtv_Pedido, txtv_Producto, txtv_CantPend, txtv_CantReg, txtv_SugPallet, txtv_SugLote, txtv_SugPosicion,txtv_TipoPallet,txtv_SugEmpaque;
     private ProgressBarHelper progressBarHelper;
     private Context contexto = this;
-    private String Pedido, Partida, NumParte, CantidadPendiente, CantidadSurtida;
+    private String Pedido, Partida, NumParte, CantidadPendiente, CantidadSurtida, Carrito;
     private SortableTableView tabla;
     private TableViewDataConfigurator ConfigTabla = null;
     private Handler handler = new Handler();
@@ -152,6 +152,7 @@ public class SurtidoProdPallet extends AppCompatActivity implements TableViewDat
             Pedido= b.getString("Pedido");
             Partida= b.getString("Partida");
             NumParte= b.getString("NumParte");
+            Carrito = b.getString("Carrito");
             CantidadPendiente= b.getString("CantidadPendiente");
             CantidadSurtida= b.getString("CantidadSurtida");
 
@@ -467,7 +468,7 @@ public class SurtidoProdPallet extends AppCompatActivity implements TableViewDat
                         break;
 
                     case "RegistrarPallet":
-                        dao = cadEmb.cad_RegistroPalletSurtidoProd(Pedido,Partida,edtx_ConfirmarPallet.getText().toString());
+                        dao = cadEmb.cad_RegistroPalletSurtidoProd(Pedido,Partida,edtx_ConfirmarPallet.getText().toString(), Carrito);
                         break;
                     case "RegistrarPalletMultPart":
                         dao = cadEmb.cad_RegistroPalletSurtidoProdMultPart(Pedido,edtx_ConfirmarPallet.getText().toString());

@@ -465,14 +465,14 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
     }
 
-    public DataAccessObject c_ValidaEmbSKUCantidad(String prmDocumento,String prmNumParte, String prmCantidad)
+    public DataAccessObject c_ValidaEmbSKUCantidad(String prmDocumento,String prmNumParte, String prmCantidad, String prmPallet)
     {
         String METHOD_NAME = "WM_ValidaEmbSkuCantidad";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmDocumento",prmDocumento);
         request.addProperty("prmCodigoEmpaque",prmNumParte);
         request.addProperty("prmCantidad",prmCantidad);
-        request.addProperty("prmGuia", "");
+        request.addProperty("prmGuia", prmPallet);
         request.addProperty("prmEstacion",Estacion);
         request.addProperty("prmUsuario",Usuario);
         return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
@@ -734,4 +734,6 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         request.addProperty("prmUsuario",Usuario);
         return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
     }
+
+
 }
