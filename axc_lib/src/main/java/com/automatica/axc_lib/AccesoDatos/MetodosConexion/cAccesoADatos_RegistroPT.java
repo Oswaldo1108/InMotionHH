@@ -466,13 +466,14 @@ public class cAccesoADatos_RegistroPT extends conexionWS2{
         return c.IniciaAccionSOAP(request,METHOD_NAME,context,null);
     }
 
-    public DataAccessObject cad_RegistroPalletSurtidoProd(String prmPedido,String prmPartida,String prmPallet)
+    public DataAccessObject cad_RegistroPalletSurtidoProd(String prmPedido,String prmPartida,String prmPallet, String prmArmadoPallet)
     {
         String METHOD_NAME = "WM_RegistroPalletSurtidoProd";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmPedido",prmPedido);
         request.addProperty("prmPartida",prmPartida);
         request.addProperty("prmPallet",prmPallet);
+        request.addProperty("prmArmadoPallet", prmArmadoPallet);
         request.addProperty("prmEstacion",Estacion);
         request.addProperty("prmUsuario",Usuario);
         return IniciaAccionSOAP(request,METHOD_NAME,context,null);

@@ -115,7 +115,7 @@ public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmn
                 @Override
                 public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla)
                 {
-
+                    new popUpGenerico(contexto, null, MensajeCompleto, "Información", true, false);
                 }
 
                 @Override

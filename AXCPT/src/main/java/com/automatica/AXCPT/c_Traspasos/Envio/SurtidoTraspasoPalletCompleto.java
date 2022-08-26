@@ -262,7 +262,7 @@ public class SurtidoTraspasoPalletCompleto extends AppCompatActivity implements 
                         break;
 
                     case "RegistrarPallet":
-                        dao = cadEmb.cad_RegistroPalletSurtidoProd(Pedido,Partida,binding.edtxCantidad.getText().toString());
+                      //  dao = cadEmb.cad_RegistroPalletSurtidoProd(Pedido,Partida,binding.edtxCantidad.getText().toString());
                         break;
                     case "RegistrarPalletMultPart":
                         dao = cadEmb.cad_RegistroPalletSurtidoProdMultPart(Pedido,binding.edtxCantidad.getText().toString());

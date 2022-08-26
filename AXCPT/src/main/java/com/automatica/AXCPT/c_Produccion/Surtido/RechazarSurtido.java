@@ -368,7 +368,7 @@ public class RechazarSurtido extends AppCompatActivity implements TableViewDataC
                             binding.edtxSKU.setText("");
                             binding.edtxCantidad.setText("");
                             binding.edtxNuevoEmpaque.setText("");
-                            pop.popUpGenericoDefault(vista, "Material listo para colocar en el almacén", false);
+                            pop.popUpGenericoDefault(vista, "Material listo para colocar en el almacén", true);
                             break;
                     }
                 } else {
