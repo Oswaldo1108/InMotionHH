@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -56,7 +57,7 @@ public class Colocar extends AppCompatActivity implements frgmnt_taskbar_AXC.int
     View vista;
     Context contexto = this;
     String posicion = "";
-
+    Bundle b = new Bundle();
     boolean recargar;
 
 
@@ -94,6 +95,7 @@ public class Colocar extends AppCompatActivity implements frgmnt_taskbar_AXC.int
 
             new cambiaColorStatusBar(contexto, R.color.doradoLetrastd, Colocar.this);
             declararVariables();
+            sacarDatosIntent();
             agregaListeners();
         }catch (Exception e){
             e.printStackTrace();
@@ -101,11 +103,14 @@ public class Colocar extends AppCompatActivity implements frgmnt_taskbar_AXC.int
         }
     }
 
+
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.DEFAULT);
     }
+
+
 
     private void declararVariables()
     {
@@ -125,6 +130,17 @@ public class Colocar extends AppCompatActivity implements frgmnt_taskbar_AXC.int
         edtx_CodigoPallet.requestFocus();
     }
 
+    private void sacarDatosIntent() {
+        try {
+            b = getIntent().getExtras();
+            if (!b.getString("Documento").equals("")){
+                edtx_CodigoPallet.setText(b.getString("Documento"));
+                new Colocar.SegundoPlano("ConsultaPallet").execute();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     private void agregaListeners()
     {
         edtx_CodigoPallet.setCustomSelectionActionModeCallback(new ActionMode.Callback2() {

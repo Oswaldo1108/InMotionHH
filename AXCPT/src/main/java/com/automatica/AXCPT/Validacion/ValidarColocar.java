@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -145,7 +146,8 @@ public class ValidarColocar extends AppCompatActivity implements TableViewDataCo
 
     @Override
     public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
-
+        b.putString("Documento", clickedData[0]);
+        Log.d("Mensaje1", clickedData[0]);
         OrdenCompraSeleccionada = true;
     }
 
