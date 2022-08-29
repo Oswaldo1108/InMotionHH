@@ -695,7 +695,7 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
 
     public DataAccessObject c_ValidaEmbEmpaqueTras(String prmDocumento,String prmCodigoEmpaque)
     {
-        String METHOD_NAME = "WM_ValidaEmbEmpaque";
+        String METHOD_NAME = "WM_ValidaEmbEmpaqueTras";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmDocumento",prmDocumento);
         request.addProperty("prmCodigoEmpaque",prmCodigoEmpaque);
@@ -817,7 +817,7 @@ public class cAccesoADatos_Transferencia extends conexionWS2{
 
     public DataAccessObject cRegistraReempaqueConsTras(String prmDocumento, String prmPallet,String prmPalletAConsolidar, String prmProducto, String prmCantidadEmpaques) {
         conexionWS c = new conexionWS();
-        String METHOD_NAME = "WM_RegistraReempaque";
+        String METHOD_NAME = "WM_RegistraReempaqueTras";
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
         request.addProperty("prmDocumento", prmDocumento);
         request.addProperty("prmPallet", prmPallet);
