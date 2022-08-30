@@ -336,15 +336,15 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                         break;
 
                     case "ValidaEmpaque":
-                        dao = ca.c_ValidaEmbEmpaque(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString());
+                        dao = ca.c_ValidaEmbEmpaque(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
                         break;
 
                     case "ValidaSKU":
-                        dao = ca.c_ValidaEmbSKUPzas(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), "1");
+                        dao = ca.c_ValidaEmbSKUPzas(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
                         break;
 
                     case "ValidaPzas":
-                        dao = ca.c_ValidaEmbSKUCantidad(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString());
+                        dao = ca.c_ValidaEmbSKUCantidad(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
                         break;
 
                     case "Embarca":
