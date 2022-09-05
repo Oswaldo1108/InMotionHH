@@ -12,6 +12,7 @@
         android:id="@+id/imgb_undo"
         android:layout_width="60dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/boton_axc_normal"
@@ -19,10 +20,8 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_ElegirLote"
-        app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_ElegirLote"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_baseline_undo_negro" />
 
     <EditText
@@ -34,7 +33,7 @@
 
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="numberDecimal"
+        android:inputType="textNoSuggestions"
         app:layout_constraintBottom_toBottomOf="@+id/txtv_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -48,9 +47,8 @@
         android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Cantidad:"
+        android:text="Producto:"
         android:textColor="@color/camposAzul"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,7 +59,7 @@
         android:layout_height="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Capturada:"
+        android:text="Conteo:"
         android:textColor="@color/camposAzul"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtv_2" />
@@ -80,17 +78,17 @@
         app:layout_constraintTop_toBottomOf="@+id/txtv_2" />
 
     <Button
-        android:enabled="false"
         android:id="@+id/btn_ElegirLote"
         style="@style/Estilo_Boton_Reg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="registrar cantidad"
+        android:text="registrar piezas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgb_AtrasRep2"
         app:layout_constraintTop_toBottomOf="@+id/txtv_4"
         app:layout_constraintVertical_bias="0.0" />
 

@@ -43,7 +43,6 @@ import com.automatica.axc_lib.Servicios.sobreDispositivo;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
 
 import de.codecrafters.tableview.SortableTableView;
-import de.codecrafters.tableview.model.TableColumnDpWidthModel;
 
 public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewDataConfigurator.TableClickInterface, frgmnt_taskbar_AXC.interfazTaskbar {
 
@@ -59,7 +58,6 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
     ActivityValidarOrdenSurtidoBinding binding;
     frgmnt_taskbar_AXC taskbar_axc;
     Intent intent;
-    TableColumnDpWidthModel columnModel;
     String mensaje, documento, empaques, estatus;
 
     // ****************************************************** CICLO DE VIDA *********************************************
@@ -309,19 +307,9 @@ public class ValidarOrdenSurtido extends AppCompatActivity implements TableViewD
                             if (ConfigTabla_Totales == null) {
 
                                 //ConfigTabla_Totales = new TableViewDataConfigurator("strIdTablaTotales",4, "VALIDADA", "PENDIENTE", "4", tabla, dao, ValidarOrdenSurtido.this);
-                           /*     columnModel = new TableColumnDpWidthModel(contexto,4,150);
-                                columnModel.setColumnWidth(0,400);
-                                columnModel.setColumnWidth(1,400);
-                                columnModel.setColumnWidth(2,400);
-                                columnModel.setColumnWidth(3,400);
-                                tabla.setColumnModel(columnModel);*/
                                 ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,ValidarOrdenSurtido.this);
-
-
                             } else{
-
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
-
                             }
                            // new SegundoPlano("ConsultaDocumento").execute();
                             Log.e("mensaje", mensaje);

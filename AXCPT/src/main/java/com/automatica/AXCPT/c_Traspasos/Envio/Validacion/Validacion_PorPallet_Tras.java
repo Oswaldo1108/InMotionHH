@@ -1,6 +1,7 @@
 package com.automatica.AXCPT.c_Traspasos.Envio.Validacion;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,6 +26,7 @@ import com.automatica.AXCPT.Servicios.CustomExceptionHandler;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
+import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet;
 import com.automatica.AXCPT.databinding.ActivityValidacionPorPalletBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Embarques;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Transferencia;
@@ -164,7 +166,28 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
                                 return false;
                             }
                             else{
-                                new SegundoPlano("ConsultaCarrito").execute();
+
+                                if (binding.edtxCodigoPallet.getText().toString().substring(0,2).matches("99"))
+                                    new Validacion_PorPallet_Tras.SegundoPlano("ConsultaCarrito").execute();
+
+                                else{
+                                    new CreaDialogos(contexto).dialogoDefault("Validar Pallet", "El Código: [" + binding.edtxCodigoPallet.getText().toString() +"] es un pallet ¿Desea Validarlo?", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            new  Validacion_PorPallet_Tras.SegundoPlano("ValidaPallet").execute();
+                                        }
+                                    }, new DialogInterface.OnClickListener()
+                                    {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which)
+                                        {
+
+                                        }
+                                    });
+
+                                }
+
+
                             }
                         }
                         new com.automatica.AXCPT.Servicios.esconderTeclado(Validacion_PorPallet_Tras.this);
@@ -173,7 +196,6 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
                     return false;
                 }
             });
-
             binding.edtxEmpaque.setOnKeyListener(new View.OnKeyListener() {
                 @Override
                 public boolean onKey(View v, int keyCode, KeyEvent event)

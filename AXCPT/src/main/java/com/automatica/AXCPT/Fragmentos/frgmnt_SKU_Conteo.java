@@ -110,9 +110,9 @@ public class frgmnt_SKU_Conteo extends Fragment
         txtv_conteo  = view.findViewById(R.id.txtv_conteo);
 
 
-       // txtv_Detalle.setText("Conteo de producto");
+        txtv_Detalle.setText("Conteo de producto");
 
-        txtv_Detalle.setText("SKU: " + str_CodigoEsperado);
+        txtv_Titulo.setText("Código: " + str_CodigoEsperado);
 
         btn_Back = view.findViewById(R.id.imgb_AtrasRep);
         btn_Back.setVisibility(View.VISIBLE);
@@ -150,7 +150,6 @@ public class frgmnt_SKU_Conteo extends Fragment
                 edtx_Producto.setText("");
 
                 edtx_Producto.requestFocus();
-                btn_RegistrarCantidad.setEnabled(false);
 
                 h.postDelayed(new Runnable()
                 {
@@ -163,33 +162,12 @@ public class frgmnt_SKU_Conteo extends Fragment
             }
         });
 
-        edtx_Producto.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
-                {
-                    if (edtx_Producto.getText().toString().equals("")){
-                        new popUpGenerico(getActivity(),edtx_Producto, "Ingrese la cantidad a reempacar", false, true, false);
-                        edtx_Producto.requestFocus();
-                        return false;
-                    }
-                    new esconderTeclado(getActivity());
-                        txtv_conteo.setText(edtx_Producto.getText().toString());
-                        edtx_Producto.setText("");
-                        txtv_conteo.setEnabled(false);
-                        btn_RegistrarCantidad.setEnabled(true);
-
-                }
-                return false;
-            }
-        });
-
-     /*   edtx_Producto.setOnEditorActionListener(new TextView.OnEditorActionListener()
+        edtx_Producto.setOnEditorActionListener(new TextView.OnEditorActionListener()
         {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
             {
-*//*
+
                 if(edtx_Producto.getText().toString().equals(""))
                 {
                     new popUpGenerico(getActivity(),edtx_Producto, "Escaneé un código.", false, true, false);
@@ -202,7 +180,7 @@ public class frgmnt_SKU_Conteo extends Fragment
                     return false;
                 }
 
-                conteoSku++;*//*
+                conteoSku++;
 
                 txtv_conteo.setText(String.valueOf(conteoSku));
 
@@ -226,7 +204,7 @@ public class frgmnt_SKU_Conteo extends Fragment
         });
 
 
-*/
+
         btn_RegistrarCantidad.setOnClickListener(new View.OnClickListener()
             {
                 @Override
@@ -244,6 +222,7 @@ public class frgmnt_SKU_Conteo extends Fragment
             });
 
 
+        Log.i("HOLA", "OnATach");
     }
 
     @Override

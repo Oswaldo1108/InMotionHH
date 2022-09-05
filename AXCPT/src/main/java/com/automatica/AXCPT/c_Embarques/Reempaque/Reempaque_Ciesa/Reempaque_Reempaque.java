@@ -22,7 +22,6 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.automatica.AXCPT.Fragmentos.frgmnt_SKU_Conteo;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ActivityHelpers;
@@ -45,7 +44,7 @@ import com.automatica.axc_lib.views.CustomArrayAdapter;
 
 import java.util.HashMap;
 
-public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar, frgmnt_Seleccion_Producto.OnFragmentInteractionListener, frgmnt_SKU_Conteo.OnFragmentInteractionListener{
+public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar, frgmnt_Seleccion_Producto.OnFragmentInteractionListener {
 
     private Toolbar toolbar;
     private ActivityHelpers activityHelpers;
@@ -109,7 +108,6 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                 public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla)
                 {
 
-
                 }
 
                 @Override
@@ -130,9 +128,7 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                 @Override
                 public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla)
                 {
-                    getSupportFragmentManager().beginTransaction()
-                            .setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left, android.R.anim.slide_in_left, R.anim.slide_out_left)
-                            .add(R.id.Pantalla_principal, frgmnt_SKU_Conteo.newInstance(null, clickedData[4]), "Fragmentosku").addToBackStack("Fragmentosku").commit();
+
                 }
 
                 @Override
@@ -517,13 +513,6 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
     }
 
     @Override
-    public void RegistrarCantidad(String Producto, String strCantidadEscaneada) {
-        Log.e("Producto", Producto);
-        Log.e("Cantidad", strCantidadEscaneada);
-        new SegundoPlano("RegistraEmpaqueCant").execute(Producto,strCantidadEscaneada);
-    }
-
-    @Override
     public void ProductoElegido(String Partida, String prmProductoITEM, String prmProducto) {
         try
         {
@@ -588,11 +577,6 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                     case "RegistraEmpaqueNEOC":
                         dao = ca.cRegistraReempaqueConsSKU(binding.txtvConsolidado.getText().toString(),binding.txtvPallet.getText().toString(),
                                 binding.edtxCarrito.getText().toString(),strings[0],strings[0]);
-                        break;
-
-                    case "RegistraEmpaqueCant":
-                        dao = ca.cRegistraReempaqueConsCantidad(binding.txtvConsolidado.getText().toString(),binding.txtvPallet.getText().toString(),
-                                binding.edtxCarrito.getText().toString(),strings[0], strings[1]);
                         break;
                     case "RegistraEmpaqueConsSKU":
                         dao = ca.cRegistraReempaqueConsSKU(binding.txtvConsolidado.getText().toString(),binding.txtvPallet.getText().toString(),
@@ -715,10 +699,6 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                             }
 
 
-                            break;
-
-                        case "RegistraEmpaqueCant":
-                            new SegundoPlano("ConsultaTabla").execute();
                             break;
                     }
                 } else

@@ -440,7 +440,7 @@ public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmn
                     }
                     break;
                 case R.id.CerrarPicking:
-                    creaDialogos.dialogoDefault("Cerrar Embarque","Validación del embarque completa. ¿Registrar la salida?",
+                    creaDialogos.dialogoDefault("Cerrar Traspaso","Validación del traspaso completa. ¿Registrar la salida?",
                             new DialogInterface.OnClickListener()
                             {
                                 public void onClick(DialogInterface dialog, int id)

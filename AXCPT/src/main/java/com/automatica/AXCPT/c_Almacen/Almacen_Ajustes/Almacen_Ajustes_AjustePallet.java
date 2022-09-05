@@ -44,6 +44,7 @@ import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_AjustePalletSCH;
 import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet;
+import com.automatica.AXCPT.objetos.ObjetoEtiquetaSKU;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
@@ -252,6 +253,11 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
                         {
 
 
+                            ObjetoEtiquetaSKU obj1 = new ObjetoEtiquetaSKU(edtx_Producto.getText().toString());
+                            /*ObjetoEtiquetaSKU obj2;
+                            obj2 = obj1.incrByTen();*/
+                            edtx_Producto.setText(String.valueOf(obj1.sku));
+                            edtxNumSerie.setText(String.valueOf(obj1.numeroSerie));
                             SegundoPlano sp = new SegundoPlano("BusquedaNumeroParte");
                             sp.execute();
 
@@ -679,6 +685,7 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
                     switch(tarea)
                     {
                         case "BusquedaNumeroParte":
+                            edtxNumSerie.setText("");
                             edtx_Producto.setText("");
                             edtx_Producto.requestFocus();
                             break;
@@ -709,6 +716,7 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
         txtv_Pallet.setText("");*/
             edtx_CodigoEmpaque.setText("");
             edtx_Cantidad.setText("");
+            edtxNumSerie.setText("");
             handler.post(new Runnable() {
                 @Override
                 public void run() {

@@ -30,27 +30,6 @@ public class cAccesoADatos_Almacen extends conexionWS2 {
         request.addProperty("prmUsuario", Usuario);
         return IniciaAccionSOAP(request, METHOD_NAME, context, null);
     }
-    public DataAccessObject cMoverPalletACuarentena (String prmPallet,String prmUbicacionDisponible){
-
-        String METHOD_NAME = "WM_MoverPalletACuarentena";
-        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-        request.addProperty("prmPallet",prmPallet);
-        request.addProperty("prmUbicacionDisponible",prmUbicacionDisponible);
-        request.addProperty("prmEstacion",Estacion);
-        request.addProperty("prmUsuario",Usuario);
-        return IniciaAccionSOAP(request,METHOD_NAME, context,null);
-    }
-    public DataAccessObject cMoverPalletADisponible(String prmPallet, String prmUbicacionDisponible){
-
-        String METHOD_NAME = "WM_MoverPalletADisponible";
-        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-        request.addProperty("prmPallet",prmPallet);
-        request.addProperty("prmUbicacionDisponible",prmUbicacionDisponible);
-        request.addProperty("prmEstacion",Estacion);
-        request.addProperty("prmUsuario",Usuario);
-        return IniciaAccionSOAP(request,METHOD_NAME, context,null);
-    }
-
 
     public DataAccessObject c_SugierePosicion(String prmCodigoPallet) {
         String METHOD_NAME = "WM_SugierePosicion";

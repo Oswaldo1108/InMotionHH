@@ -622,7 +622,6 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         request.addProperty("prmUsuario", Usuario);
         return c.IniciaAccionSOAP(request, METHOD_NAME, contexto, null);
     }
-
     public DataAccessObject cRegistraReempaqueConsCantidad (String prmDocumento, String prmPallet,String prmPalletAConsolidar, String prmProducto, String prmCantidad) {
         conexionWS c = new conexionWS();
         String METHOD_NAME = "WM_RegistraReempaqueCantidad";
@@ -762,3 +761,4 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
     }
 }
+

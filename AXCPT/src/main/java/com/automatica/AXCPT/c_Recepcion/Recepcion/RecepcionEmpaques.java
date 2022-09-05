@@ -40,6 +40,7 @@ import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.esconderTeclado;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.databinding.ActivityRecepcionEmpaquesBinding;
+import com.automatica.AXCPT.objetos.ObjetoEtiquetaSKU;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Recepcion;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
@@ -61,7 +62,7 @@ public class RecepcionEmpaques extends AppCompatActivity implements frgmnt_taskb
     frgmnt_taskbar_AXC taskbar_axc;
     private ProgressBarHelper p;
     String TAG = "SoapResponse";
-    EditText edtx_EmpxPallet, edtx_Cantidad, edtx_CodigoEmpaque,edtx_SKU;
+    EditText edtx_EmpxPallet, edtx_Cantidad, edtx_CodigoEmpaque,edtx_SKU, edtx_numSerie;
     String Cantidad;
     TextView txtv_EmpaquesRegistrados, txtv_Partida, txtv_UM, txtv_CantidadOriginal, txtv_CantidadRegistrada, txtv_Producto, txtv_Pallet;
     Bundle b;
@@ -194,6 +195,8 @@ public class RecepcionEmpaques extends AppCompatActivity implements frgmnt_taskb
             edtx_Cantidad.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
             edtx_CodigoEmpaque = (EditText) findViewById(R.id.edtx_PrimerEmpaque);
             edtx_CodigoEmpaque.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            /*edtx_numSerie = (EditText) findViewById(R.id.edtxNumSerie);
+            edtx_numSerie.setFilters(new InputFilter[]{new InputFilter.AllCaps()});*/
 
             txtv_Partida = (TextView) findViewById(R.id.txtv_Partida);
             txtv_UM = (TextView) findViewById(R.id.txtv_Caducidad);
@@ -316,6 +319,11 @@ public class RecepcionEmpaques extends AppCompatActivity implements frgmnt_taskb
                             return false;
                         }
 
+                        ObjetoEtiquetaSKU obj1 = new ObjetoEtiquetaSKU(edtx_SKU.getText().toString());
+                        edtx_SKU.setText(String.valueOf(obj1.sku));
+                        binding.edtxnumSerie.setText(String.valueOf(obj1.numeroSerie));
+                        new esconderTeclado(RecepcionEmpaques.this);
+
                         edtx_SKU.setText(edtx_SKU.getText().toString().replace(" "," ").replace("\t","").replace("\n",""));
 
                         int SKUSel = -2;
@@ -380,13 +388,14 @@ public class RecepcionEmpaques extends AppCompatActivity implements frgmnt_taskb
 //                            sku = binding.edtxSKU.getText().toString().split("\\|")[0];
 //                           // NumSerie = binding.edtxSKU.get
 //                        }
-                        new esconderTeclado(RecepcionEmpaques.this);
 
                     }catch (Exception e)
                     {
                         e.printStackTrace();
                         new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), false, true, true);
                     }
+
+
                 }
                 return false;
             }
