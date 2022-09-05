@@ -45,6 +45,7 @@ import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.frgmnt_Seleccion_Producto;
 import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionSeleccionar;
+import com.automatica.AXCPT.objetos.ObjetoEtiquetaSKU;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
@@ -412,7 +413,9 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                         edtx_SKU.requestFocus();
                         return false;
                     }
-
+                    ObjetoEtiquetaSKU obj1 = new ObjetoEtiquetaSKU(edtx_SKU.getText().toString());
+                    edtx_SKU.setText(String.valueOf(obj1.sku));
+                    edtxNumSerie.setText(String.valueOf(obj1.numeroSerie));
                     h.postDelayed(new Runnable()
                     {
                         @Override

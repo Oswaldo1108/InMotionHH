@@ -170,7 +170,28 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                                 return false;
                             }
                             else{
-                                new SegundoPlano("ConsultaCarrito").execute();
+
+                                if (binding.edtxCodigoPallet.getText().toString().substring(0,2).matches("99"))
+                                    new SegundoPlano("ConsultaCarrito").execute();
+
+                                else{
+                                    new CreaDialogos(contexto).dialogoDefault("Validar Pallet", "El Código: [" + binding.edtxCodigoPallet.getText().toString() +"] es un pallet ¿Desea Validarlo?", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            new  Validacion_PorPallet.SegundoPlano("ValidaPallet").execute();
+                                        }
+                                    }, new DialogInterface.OnClickListener()
+                                    {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which)
+                                        {
+
+                                        }
+                                    });
+
+                                }
+
+
                             }
                         }
                         new com.automatica.AXCPT.Servicios.esconderTeclado(Validacion_PorPallet.this);
@@ -345,6 +366,10 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
 
                     case "ValidaPzas":
                         dao = ca.c_ValidaEmbSKUCantidad(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString());
+                        break;
+
+                    case "ValidaPallet":
+                        dao = ca.c_ValidaEmbPallets(binding.edtxCodigoPallet.getText().toString(),binding.tvPedido.getText().toString());
                         break;
 
                     case "Embarca":

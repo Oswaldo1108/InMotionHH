@@ -31,6 +31,7 @@ import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionSeleccionar;
 import com.automatica.AXCPT.c_Traspasos.MenuTraspaso;
 import com.automatica.AXCPT.c_Traspasos.Recibe.SeleccionOrdenTraspasoRecepcion;
 import com.automatica.AXCPT.databinding.ActivitySeleccionarOrdenesTraspasoEnvioBinding;
+import com.automatica.AXCPT.objetos.ObjetoEtiquetaSKU;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.esconderTeclado;
@@ -68,6 +69,7 @@ public class SeleccionarOrdenesTraspasoEnvio extends AppCompatActivity implement
         configurarToolbar();
         configurarTaskbar();
         agregarListener();
+
 
     }
 
@@ -133,6 +135,7 @@ public class SeleccionarOrdenesTraspasoEnvio extends AppCompatActivity implement
         binding.edtxDocumento.setText(clickedData[0]);
         b.putString("Documento", clickedData[0]);
         Log.d("Mensaje1", clickedData[0]);
+
 
     }
 

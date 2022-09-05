@@ -38,6 +38,7 @@ import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.S
 import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Surtido_Armado_Pallets.Surtido_Surtido_Piezas_Armado;
 import com.automatica.AXCPT.c_Inventarios.Menus.Inventarios_PantallaPrincipal;
 import com.automatica.AXCPT.databinding.SurtidoSeleccionPartidaBinding;
+import com.automatica.AXCPT.objetos.ObjetoEtiquetaSKU;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Embarques;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;

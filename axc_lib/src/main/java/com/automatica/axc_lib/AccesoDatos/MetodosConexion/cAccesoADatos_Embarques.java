@@ -734,4 +734,16 @@ public class cAccesoADatos_Embarques extends conexionWS2{
         request.addProperty("prmUsuario",Usuario);
         return IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
     }
+
+    public DataAccessObject c_ValidaEmbPallets(String prmCarrito,String prmOrdenEmbarque)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ValidaEmbPallets";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmCarrito",prmCarrito);
+        request.addProperty("prmEmbarque",prmOrdenEmbarque);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME, contexto,null);
+    }
 }
