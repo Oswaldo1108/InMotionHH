@@ -54,7 +54,7 @@ public class ReabastecerPallet extends AppCompatActivity implements frgmnt_taskb
 
     @Override
     public void BotonIzquierda() {
-
+        onBackPressed();
     }
 
     private void configurarToolbar() {

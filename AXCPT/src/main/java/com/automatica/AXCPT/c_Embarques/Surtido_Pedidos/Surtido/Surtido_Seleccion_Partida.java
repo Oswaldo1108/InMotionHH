@@ -62,7 +62,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
     private String strCarritoActual = "";
     private String tipoSurtido;
     private int vista = 1;
-
+    private boolean usarCarrito = false;
     //endregion
 
     @Override
@@ -381,10 +381,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
 
 
 
-                if (edtx_Carrito.getText().toString().equals("")){
-                    new popUpGenerico(contexto,edtx_Carrito ,"Para surtir debe de ingresar un código de carrito." , false, true,true );
-                    return;
-                }
+
 
 
                 Intent intent;
@@ -392,34 +389,38 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                 switch (item.getItemId())
                 {
                     case R.id.Empaque:
-                       if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO"))
-                            intent = new Intent(contexto, Surtido_Surtido_Empaque_Armado.class);
-                       else{
+                       if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO")) {
+                           usarCarrito = true;
+                           intent = new Intent(contexto, Surtido_Surtido_Empaque_Armado.class);
+                       } else{
                            new popUpGenerico(contexto,edtx_Carrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                            return;
                        }
 
                         break;
                     case R.id.EmpaqueNE:
-                        if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO"))
+                        if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO")) {
                             intent = new Intent(contexto, Surtido_Surtido_Empaque_NE_Armado.class);
-                        else{
+                            usarCarrito = true;
+                        }else{
                             new popUpGenerico(contexto,edtx_Carrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                             return;
                         }
                         break;
                     case R.id.Piezas:
-                        if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO"))
+                        if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO")) {
                             intent = new Intent(contexto, Surtido_Surtido_Piezas_Armado.class);
-                        else{
+                            usarCarrito = true;
+                        }else{
                             new popUpGenerico(contexto,edtx_Carrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                             return;
                         }
                         break;
                     case R.id.PalletCompleto:
-                        if (tipoSurtido.equals("PALLET") || tipoSurtido.equals("TODO"))
+                        if (tipoSurtido.equals("PALLET") || tipoSurtido.equals("TODO")) {
                             intent = new Intent(contexto, Surtido_Surtido_Pallet_MultiplesProd.class);
-                        else{
+                            usarCarrito = false;
+                        }else{
                             new popUpGenerico(contexto,edtx_Carrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                             return;
                         }
@@ -427,6 +428,14 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                     default:
                         intent = new Intent();
                 }
+                if (usarCarrito)
+                {
+                    if (edtx_Carrito.getText().toString().equals("")){
+                        new popUpGenerico(contexto,edtx_Carrito ,"Para surtir empaques/piezas debe de ingresar un código de carrito." , false, true,true );
+                        return;
+                    }
+                }
+
                 b.putString("Carrito", strCarritoSel);
                 intent.putExtras(b);
                 overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);

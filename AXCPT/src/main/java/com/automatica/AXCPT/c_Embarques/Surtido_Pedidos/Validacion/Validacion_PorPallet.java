@@ -28,6 +28,7 @@ import com.automatica.AXCPT.Servicios.CustomExceptionHandler;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
+import com.automatica.AXCPT.c_Embarques.Reempaque.Reempaque_Ciesa.Reempaque_Reempaque;
 import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Surtido.Surtido_Seleccion_Partida;
 import com.automatica.AXCPT.c_Produccion.Surtido.SurtidoProdPiezas;
 import com.automatica.AXCPT.databinding.ActivityValidacionPorPalletBinding;
@@ -159,6 +160,7 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
     {
         try
         {
+
             binding.edtxCodigoPallet.setOnKeyListener(new View.OnKeyListener() {
                 @Override
                 public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -170,7 +172,26 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                                 return false;
                             }
                             else{
-                                new SegundoPlano("ConsultaCarrito").execute();
+
+                                if (binding.edtxCodigoPallet.getText().toString().substring(0,2).matches("99"))
+                                    new SegundoPlano("ConsultaCarrito").execute();
+
+                                else{
+
+                                    creaDialogos.dialogoDefault("Validar Pallet","El Código: [" + binding.edtxCodigoPallet.getText().toString() +"] es un pallet ¿Desea Validarlo?",
+                                            new DialogInterface.OnClickListener()
+                                            {
+                                                public void onClick(DialogInterface dialog, int id)
+                                                {
+                                                    new Validacion_PorPallet.SegundoPlano("ValidaPallet").execute();
+                                                    new com.automatica.axc_lib.Servicios.esconderTeclado(Validacion_PorPallet.this);
+                                                }
+                                            }
+                                            ,null);
+
+                                }
+
+
                             }
                         }
                         new com.automatica.AXCPT.Servicios.esconderTeclado(Validacion_PorPallet.this);
@@ -346,6 +367,9 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                     case "ValidaPzas":
                         dao = ca.c_ValidaEmbSKUCantidad(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
                         break;
+                    case "ValidaPallet":
+                        dao = ca.c_ValidaEmbPallets(binding.edtxCodigoPallet.getText().toString(),binding.tvPedido.getText().toString());
+                        break;
 
                     case "Embarca":
 
@@ -402,6 +426,8 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                             break;
 
                         case "ValidaPzas":
+
+                        case "ValidaPallet":
                             binding.edtxEmpaque.setText("");
                             binding.edtxEmpaque.requestFocus();
                             binding.edtxConfirmarEmpaque.setText("");
@@ -411,8 +437,8 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                             break;
 
                         case "Embarca":
-
                             new popUpGenerico(contexto, getCurrentFocus(), "Documento embarcado con éxito." ,dao.iscEstado(), true, true);
+                            onBackPressed();
                             break;
                     }
                 }
