@@ -166,7 +166,8 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
     private void configurarToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Órdenes de Traspaso R");
+        getSupportActionBar().setTitle("Órdenes de Traspaso");
+        getSupportActionBar().setSubtitle("Recepción");
         View logoView = getToolbarLogoIcon(toolbar);
         logoView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,6 +212,13 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
                             intent = new Intent(contexto, SeleccionPalletTraspasoRecepcion.class);
                             if(DocumentoSeleccionado)
                                 intent.putExtras(b);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
+                            break;
+
+                        case R.id.nuevo:
+                            intent= new Intent(contexto, SeleccionPartidaTraspasoRecepcion.class);
+                            intent.putExtras(b);
                             startActivity(intent);
                             overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
                             break;

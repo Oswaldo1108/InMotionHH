@@ -177,7 +177,7 @@ public class SeleccionPalletTraspasoRecepcion extends AppCompatActivity implemen
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.SELECCIONAR);
+        taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.DEFAULT);
     }
 
     private void ValidacionFinal() {
@@ -263,7 +263,9 @@ public class SeleccionPalletTraspasoRecepcion extends AppCompatActivity implemen
 
 
     @Override
-    public void BotonDerecha() {ValidacionFinal(); }
+    public void BotonDerecha() {
+
+    }
 
     @Override
     public void BotonIzquierda() {  onBackPressed(); }
