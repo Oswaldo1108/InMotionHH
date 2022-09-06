@@ -63,10 +63,15 @@ public class MenuNuevo extends AppCompatActivity  implements frgmnt_taskbar_AXC.
         contenedor.add(new objetoMenu("Cuarentena",new Intent(contexto, CuarentenaContenedor.class)));
         contenedor.add(new objetoMenu("Recuperar",new Intent(contexto, RecuperarContenedor.class)));
 
+        ArrayList<objetoMenu> pallet = new ArrayList<>();
+        pallet.add(new objetoMenu("Cuarentena",new Intent(contexto, CuarentenaPallet.class)));
+        pallet.add(new objetoMenu("Recuperar",new Intent(contexto, RecuperarPallet.class)));
+
 
         ArrayList<objetoMenuContext> objetos= new ArrayList<>();
         objetos.add(new objetoMenuContext("Empaque",R.drawable.ic_cuarentenaempaque, empaque));
         objetos.add(new objetoMenuContext("Contenedor",R.drawable.ic_cuarentenacontenedor, contenedor));
+        objetos.add(new objetoMenuContext("Pallet",R.drawable.ic_cuarentenacontenedor, pallet));
 
         llenarRecycler(binding.recycler,objetos);
     }

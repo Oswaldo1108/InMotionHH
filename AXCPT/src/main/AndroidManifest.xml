@@ -31,6 +31,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".c_Almacen.Cuarentena.RecuperarPallet"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Cuarentena.CuarentenaPallet"
+            android:exported="false" />
+        <activity
             android:name=".c_Produccion.Surtido.RechazarSurtido"
             android:exported="false" />
         <activity
@@ -105,11 +111,9 @@
         <activity
             android:name=".c_Traspasos.Recibe.SeleccionPartidaTraspasoRecepcion"
             android:exported="false" />
-
         <activity
             android:name=".c_Traspasos.Recibe.SeleccionPalletTraspasoRecepcion"
             android:exported="false" />
-
         <activity
             android:name=".c_Traspasos.MenuTraspaso"
             android:exported="false" />
@@ -834,7 +838,7 @@
             android:name=".c_Traspasos.Envio.Validacion.Validacion_PorPallet_Tras"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
-       <activity
+        <activity
             android:name=".c_Traspasos.Envio.Reempaque.Reempaque_Seleccion_Orden_Tras"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
