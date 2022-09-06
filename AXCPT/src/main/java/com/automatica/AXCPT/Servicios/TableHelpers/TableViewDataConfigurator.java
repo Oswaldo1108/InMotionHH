@@ -487,7 +487,7 @@ public class TableViewDataConfigurator
         {
             int CantReng =  (int) (Sizes[k] *  Actividad.getResources().getDimension(R.dimen.txtvr)+100);
 
-
+            Log.e("Cant", CantReng+"");
             if (sizes != null)
             {
                 if(sizes.containsKey(k))
@@ -496,30 +496,39 @@ public class TableViewDataConfigurator
                 }
                 else
                 {
-//                    if (CantReng < 100)
-//                    {
-//                        CantReng = 120;
-//                    }
-//                    if (CantReng > 500)
-//                    {
-//                        CantReng = 350;
-//                    }
-                      Log.i("Tamaños CantidadRenglon",CantReng+ "");
+                    if (CantReng < 100)
+                    {
+                        CantReng = 120;
+                    }
+                    if (CantReng < 500 || CantReng > 100)
+                    {
+                        CantReng = 300;
+                    }
+
+                    if (CantReng > 500)
+                    {
+                        CantReng = 350;
+                    }
+                      Log.i("Tamaños CantidadRenglon1",CantReng+ "");
                     CantTot = CantTot + CantReng;
                     columnModel.setColumnWidth(k,CantReng);
                 }
             }
             else
             {
-//                if (CantReng < 100)
-//                {
-//                    CantReng = 120;
-//                }
-//                if (CantReng > 500)
-//                {
-//                    CantReng = 350;
-//                }
-                  Log.i("Tamaños CantidadRenglon",CantReng+ "");
+                if (CantReng < 100)
+                {
+                    CantReng = 120;
+                }
+                if (CantReng < 500 || CantReng > 100)
+                {
+                    CantReng = 400;
+                }
+                if (CantReng > 500)
+                {
+                    CantReng = 350;
+                }
+                  Log.i("Tamaños CantidadRenglon2",CantReng+ "");
                 CantTot = CantTot + CantReng;
                 columnModel.setColumnWidth(k,CantReng);
             }
