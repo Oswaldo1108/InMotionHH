@@ -360,10 +360,6 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                         dao = ca.c_ValidaEmbEmpaque(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
                         break;
 
-                    case "ValidaSKU":
-                        dao = ca.c_ValidaEmbSKUPzas(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
-                        break;
-
                     case "ValidaPzas":
                         dao = ca.c_ValidaEmbSKUCantidad(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
                         break;
@@ -371,10 +367,7 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                         dao = ca.c_ValidaEmbPallets(binding.edtxCodigoPallet.getText().toString(),binding.tvPedido.getText().toString());
                         break;
 
-                    case "Embarca":
 
-                        dao = ca.c_RegistrarEmbMaterial(edtx_OrdenCompra.getText().toString(),edtx_Guia.getText().toString(),"1");
-                        break;
 
                     default:
                         dao = new DataAccessObject();
@@ -426,10 +419,17 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                             break;
 
                         case "ValidaPzas":
+                            binding.edtxEmpaque.setText("");
+                            binding.edtxConfirmarEmpaque.setText("");
+                            binding.edtxConfirmarEmpaque.setEnabled(false);
+                            new esconderTeclado(Validacion_PorPallet.this);
+                            new SegundoPlano("Tabla").execute();
+                            break;
 
                         case "ValidaPallet":
+                            binding.edtxCodigoPallet.setText("");
+                            binding.edtxCodigoPallet.requestFocus();
                             binding.edtxEmpaque.setText("");
-                            binding.edtxEmpaque.requestFocus();
                             binding.edtxConfirmarEmpaque.setText("");
                             binding.edtxConfirmarEmpaque.setEnabled(false);
                             new esconderTeclado(Validacion_PorPallet.this);
@@ -451,15 +451,25 @@ public class Validacion_PorPallet extends AppCompatActivity implements frgmnt_SK
                         case "ValidaEmpaque":
                             new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),dao.iscEstado(), true, true);
 
-                            binding.edtxCodigoPallet.setText("");
+                            //binding.edtxCodigoPallet.setText("");
                             break;
 
                         case "ValidaPzas":
                             new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),dao.iscEstado(), true, true);
                             binding.edtxConfirmarEmpaque.setText("");
                             binding.edtxConfirmarEmpaque.setEnabled(false);
-                            binding.edtxCodigoPallet.setText("");
+                            //binding.edtxCodigoPallet.setText("");
                             break;
+
+                        case "ValidaPallet":
+                            binding.edtxCodigoPallet.setText("");
+                            binding.edtxCodigoPallet.requestFocus();
+                            binding.edtxEmpaque.setText("");
+                            binding.edtxConfirmarEmpaque.setText("");
+                            binding.edtxConfirmarEmpaque.setEnabled(false);
+                            new esconderTeclado(Validacion_PorPallet.this);
+                            break;
+
 
 
 

@@ -340,7 +340,7 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
                 switch (Tarea)
                 {
                     case"Tabla":
-                        dao = ca.c_ConsultaEmbarqueValidarPalletsTras(binding.tvPedido.getText().toString());
+                        dao = ca.c_ConsultaValidarPalletsTras(binding.tvPedido.getText().toString());
                         break;
 
                     case "ConsultaCarrito":
@@ -352,7 +352,7 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
                         break;
 
                     case "ValidaEmpaque":
-                        dao = ca.c_ValidaEmbEmpaqueTras(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString());
+                        dao = ca.c_ValidaEmbEmpaqueTras(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString() );
                         break;
 
                     /*case "ValidaSKU":
@@ -360,13 +360,12 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
                         break;*/
 
                     case "ValidaPzas":
-                        dao = ca.c_ValidaEmbSKUCantidadTras(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString());
+                        dao = ca.c_ValidaEmbSKUCantidadTras(binding.tvPedido.getText().toString(),binding.edtxEmpaque.getText().toString(), binding.edtxConfirmarEmpaque.getText().toString(), binding.edtxCodigoPallet.getText().toString());
                         break;
 
-                    /*case "Embarca":
-
-                        dao = ca.c_RegistrarEmbMaterialTras(edtx_OrdenCompra.getText().toString(),edtx_Guia.getText().toString(),"1");
-                        break;*/
+                    case "ValidaPallet":
+                        dao = ca.c_ValidaTrasPallets(binding.edtxCodigoPallet.getText().toString(),binding.tvPedido.getText().toString());
+                        break;
 
                     default:
                         dao = new DataAccessObject();
@@ -418,8 +417,11 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
                             break;
 
                         case "ValidaPzas":
+
+                        case "ValidaPallet":
+                            binding.edtxCodigoPallet.setText("");
+                            binding.edtxCodigoPallet.requestFocus();
                             binding.edtxEmpaque.setText("");
-                            binding.edtxEmpaque.requestFocus();
                             binding.edtxConfirmarEmpaque.setText("");
                             binding.edtxConfirmarEmpaque.setEnabled(false);
                             new esconderTeclado(Validacion_PorPallet_Tras.this);
@@ -440,8 +442,8 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
 
                         case "ValidaEmpaque":
                             new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),dao.iscEstado(), true, true);
-
-                            binding.edtxCodigoPallet.setText("");
+                            binding.edtxEmpaque.setText("");
+                            binding.edtxEmpaque.requestFocus();
                             break;
 
                         case "ValidaPzas":
@@ -451,6 +453,14 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
                             binding.edtxCodigoPallet.setText("");
                             break;
 
+                        case "ValidaPallet":
+                            binding.edtxCodigoPallet.setText("");
+                            binding.edtxCodigoPallet.requestFocus();
+                            binding.edtxEmpaque.setText("");
+                            binding.edtxConfirmarEmpaque.setText("");
+                            binding.edtxConfirmarEmpaque.setEnabled(false);
+
+                            break;
 
 
                         default:
@@ -458,7 +468,7 @@ public class Validacion_PorPallet_Tras extends AppCompatActivity implements frgm
                             reiniciarDatos();
                             break;
                     }
-
+                    new esconderTeclado(Validacion_PorPallet_Tras.this);
 
                 }
             }catch (Exception e)
