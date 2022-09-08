@@ -736,9 +736,7 @@ public class Reempaque_Reempaque extends AppCompatActivity implements frgmnt_tas
                         case "ConsultaPalletAbierto":
                             tblcnf_ReempaqueAbierto.CargarDatosTabla(null);
                             break;
-                        case "Embarca":
-                            new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(), true, true, true);
-                            break;
+
 
                         case "RegistraEmpaqueConsSKU":
                         case "RegistraEmpaqueNEOC":

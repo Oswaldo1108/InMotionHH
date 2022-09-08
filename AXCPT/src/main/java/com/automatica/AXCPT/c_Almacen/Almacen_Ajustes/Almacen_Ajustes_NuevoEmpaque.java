@@ -295,7 +295,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                         return false;
                     }
 
-                    edtx_SKU.requestFocus();
+                    //edtx_SKU.requestFocus();
 
                     new esconderTeclado(Almacen_Ajustes_NuevoEmpaque.this);
 
@@ -410,7 +410,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                         new popUpGenerico(contexto,vista,"Ingrese un SKU o UPC.","false",true,true);
                         edtx_SKU.setText("");
                         edtx_CodigoEmpaque.setText("");
-                        edtx_SKU.requestFocus();
+                        //edtx_SKU.requestFocus();
                         return false;
                     }
                     ObjetoEtiquetaSKU obj1 = new ObjetoEtiquetaSKU(edtx_SKU.getText().toString());
@@ -455,7 +455,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                         new popUpGenerico(contexto,vista,"Ingrese un código serial." ,false,true,true);
                         edtx_SKU.setText("");
                         edtx_CodigoEmpaque.setText("");
-                        edtx_SKU.requestFocus();
+                        //edtx_SKU.requestFocus();
                         return false;
                     }
 
@@ -510,7 +510,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                             {
                                 edtx_SKU.setText("");
                                 edtx_CodigoEmpaque.setText("");
-                                edtx_SKU.requestFocus();
+                               // edtx_SKU.requestFocus();
                             }
                         },100);
                         return false;
@@ -533,7 +533,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                             {
                                 edtx_SKU.setText("");
                                 edtx_CodigoEmpaque.setText("");
-                                edtx_SKU.requestFocus();
+                                //edtx_SKU.requestFocus();
                             }
                         },100);
                         return false;

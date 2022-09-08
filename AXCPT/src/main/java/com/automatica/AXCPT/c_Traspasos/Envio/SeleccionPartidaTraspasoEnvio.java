@@ -57,7 +57,7 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
     private String strCarritoActual = "";
     boolean DocumentoSeleccionado;
     private String tipoSurtido;
-
+    private boolean usarCarrito = false;
     // ****************************************************** CICLO DE VIDA *********************************************
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +76,13 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
     protected void onResume() {
         if (!binding.edtxDocumento.getText().toString().equals(""))
             new SeleccionPartidaTraspasoEnvio.SegundoPlano("LlenarTabla").execute();
+
+        if (!binding.edtxCarrito.getText().toString().equals(""))
+            new SeleccionPartidaTraspasoEnvio.SegundoPlano("ConsultaCarrito").execute();
+
         super.onResume();
+
+
     }
 
     @Override
@@ -328,34 +334,38 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
                         switch (item.getItemId())
                         {
                             case R.id.Empaque:
-                                if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO"))
+                                if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO")) {
                                     intent = new Intent(contexto, SurtidoTraspasoEmpaque.class);
-                                else{
+                                    usarCarrito = true;
+                                }else{
                                     new popUpGenerico(contexto,binding.edtxCarrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                                     return;
                                 }
 
                                 break;
                             case R.id.EmpaqueNE:
-                                if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO"))
+                                if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO")) {
                                     intent = new Intent(contexto, SurtidoTraspasoEmpaqueNE.class);
-                                else{
+                                    usarCarrito = true;
+                                }else{
                                     new popUpGenerico(contexto,binding.edtxCarrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                                     return;
                                 }
                                 break;
                             case R.id.Piezas:
-                                if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO"))
+                                if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO")) {
                                     intent = new Intent(contexto, SurtidoTraspasoPiezas.class);
-                                else{
+                                    usarCarrito = true;
+                                }else{
                                     new popUpGenerico(contexto,binding.edtxCarrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                                     return;
                                 }
                                 break;
                             case R.id.PalletCompleto:
-                                if (tipoSurtido.equals("PALLET") || tipoSurtido.equals("TODO"))
+                                if (tipoSurtido.equals("PALLET") || tipoSurtido.equals("TODO")) {
                                     intent = new Intent(contexto, SurtidoTraspasoPallet.class);
-                                else{
+                                    usarCarrito = false;
+                                }else{
                                     new popUpGenerico(contexto,binding.edtxCarrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                                     return;
                                 }
@@ -363,6 +373,14 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
                             default:
                                 intent = new Intent();
                         }
+                        if (usarCarrito) {
+                            if (binding.edtxCarrito.getText().toString().equals("")) {
+                                new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, binding.edtxCarrito, "Para surtir empaques/piezas debe de ingresar un código de carrito.", false, true, true);
+                                return;
+                            }
+                        }
+
+
                         b.putString("Carrito", strCarritoSel);
                         intent.putExtras(b);
                         overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);

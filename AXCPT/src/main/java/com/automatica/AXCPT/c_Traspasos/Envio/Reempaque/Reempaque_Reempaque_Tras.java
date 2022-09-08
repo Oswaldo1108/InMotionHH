@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -20,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.automatica.AXCPT.Fragmentos.frgmnt_SKU_Conteo;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ActivityHelpers;
@@ -30,6 +32,7 @@ import com.automatica.AXCPT.Servicios.esconderTeclado;
 import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.frgmnt_Seleccion_Producto;
 
+import com.automatica.AXCPT.c_Embarques.Reempaque.Reempaque_Ciesa.Reempaque_Reempaque;
 import com.automatica.AXCPT.c_Traspasos.Envio.Validacion.Validacion_PorPallet_Tras;
 import com.automatica.AXCPT.databinding.ActivityReempaqueReempaqueTrasBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Embarques;
@@ -39,7 +42,7 @@ import com.automatica.axc_lib.Servicios.CreaDialogos;
 import com.automatica.axc_lib.Servicios.sobreDispositivo;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
 
-public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar, frgmnt_Seleccion_Producto.OnFragmentInteractionListener {
+public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar, frgmnt_Seleccion_Producto.OnFragmentInteractionListener, frgmnt_SKU_Conteo.OnFragmentInteractionListener {
 
     private Toolbar toolbar;
     private ActivityHelpers activityHelpers;
@@ -115,7 +118,7 @@ public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmn
                 @Override
                 public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla)
                 {
-                    new popUpGenerico(contexto, null, MensajeCompleto, "Información", true, false);
+
                 }
 
                 @Override
@@ -136,7 +139,9 @@ public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmn
                 @Override
                 public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla)
                 {
-
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left, android.R.anim.slide_in_left, R.anim.slide_out_left)
+                            .add(R.id.Pantalla_principal, frgmnt_SKU_Conteo.newInstance(null, clickedData[4]), "Fragmentosku").addToBackStack("Fragmentosku").commit();
                 }
 
                 @Override
@@ -516,6 +521,14 @@ public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmn
     }
 
     @Override
+    public void RegistrarCantidad(String Producto, String strCantidadEscaneada) {
+        Log.e("Producto", Producto);
+        Log.e("Cantidad", strCantidadEscaneada);
+        new Reempaque_Reempaque_Tras.SegundoPlano("RegistraEmpaqueCant").execute(Producto,strCantidadEscaneada);
+    }
+
+
+    @Override
     public boolean ActivaProgressBar(Boolean estado) {
         return false;
     }
@@ -586,6 +599,12 @@ public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmn
                         dao = ca.cRegistraReempaqueConsSKUTras(binding.txtvDocumento.getText().toString(),binding.txtvPallet.getText().toString(),
                                 binding.edtxCarrito.getText().toString(),strings[0],strings[0]);
                         break;
+
+                    case "RegistraEmpaqueCant":
+                        dao = ca.cRegistraReempaqueConsCantidadTras(binding.txtvDocumento.getText().toString(),binding.txtvPallet.getText().toString(),
+                                binding.edtxCarrito.getText().toString(),strings[0], strings[1]);
+                        break;
+
                     case "RegistraEmpaqueConsSKU":
                         dao = ca.cRegistraReempaqueConsSKUTras(binding.txtvDocumento.getText().toString(),binding.txtvPallet.getText().toString(),
                                                             binding.edtxCarrito.getText().toString(),binding.edtxSKU.getText().toString(),binding.edtxSKU.getText().toString());
@@ -673,7 +692,7 @@ public class Reempaque_Reempaque_Tras extends AppCompatActivity implements frgmn
                         case "RegistraEmpaqueConsSKU":
                         case "RegistraEmpaqueNEOC":
                         case "RegistraEmpaqueCons":
-
+                        case "RegistraEmpaqueCant":
 
                             new SegundoPlano("ConsultaTabla").execute();
 
