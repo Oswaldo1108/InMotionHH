@@ -12,25 +12,20 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-
     <TextView
         android:id="@+id/textView163"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:visibility="gone"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:text="SKUs"
         android:textColor="@color/blancoLetraStd"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <include
-        android:visibility="gone"
         android:id="@+id/vw_spinner"
         layout="@layout/vw_spinner"
         android:layout_width="0dp"
@@ -40,19 +35,22 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView163"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView163"
-        app:layout_constraintTop_toTopOf="@+id/textView163"/>
+        app:layout_constraintTop_toTopOf="@+id/textView163" />
+
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConstraintLayout6"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/orilla_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView163">
+        app:layout_constraintTop_toBottomOf="@+id/textView163"
+        >
 
         <TextView
             android:id="@+id/textView39"
@@ -90,12 +88,11 @@
             android:layout_marginEnd="2dp"
             android:text="Cant. Reg."
             app:layout_constraintBottom_toBottomOf="@+id/textView5"
-            app:layout_constraintEnd_toStartOf="@+id/tvCantReg"
+            app:layout_constraintEnd_toStartOf="@+id/txtv_Lote"
             app:layout_constraintStart_toEndOf="@+id/txtv_CantidadTotal"
             app:layout_constraintTop_toTopOf="@+id/textView5" />
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/textView40"
             style="@style/EstiloTexto_Blanco_Bold"
             android:layout_width="wrap_content"
@@ -126,10 +123,9 @@
 
         <TextView
 
-            android:id="@+id/tvCantReg"
+            android:id="@+id/txtv_Lote"
             style="@style/EstiloTexto_Blanco_Reg"
             android:layout_width="0dp"
-
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="1dp"
@@ -162,7 +158,7 @@
             style="@style/EstiloTexto_Blanco_Reg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+
             android:layout_marginStart="8dp"
             android:text="-"
             app:layout_constraintBottom_toBottomOf="@+id/textView40"
@@ -176,21 +172,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+
             android:text="-"
             app:layout_constraintBottom_toBottomOf="@+id/textView37"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView37"
             app:layout_constraintTop_toTopOf="@+id/textView37" />
 
         <TextView
 
-            android:id="@+id/tvDocumento"
+            android:id="@+id/txtv_OC"
             style="@style/EstiloTexto_Blanco_Reg"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
             android:text="-"
             app:layout_constraintBottom_toBottomOf="@+id/textView14"
+            app:layout_constraintEnd_toStartOf="@+id/textView37"
             app:layout_constraintStart_toEndOf="@+id/textView14"
             app:layout_constraintTop_toTopOf="@+id/textView14" />
 
@@ -199,11 +197,15 @@
             style="@style/EstiloTexto_Blanco_Bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_marginStart="3dp"
-            android:text="Partida"
-            app:layout_constraintBottom_toBottomOf="@+id/tvDocumento"
-            app:layout_constraintStart_toEndOf="@+id/tvDocumento"
-            app:layout_constraintTop_toTopOf="@+id/tvDocumento" />
+
+            android:layout_marginEnd="3dp"
+            android:text="Part."
+            app:layout_constraintBottom_toBottomOf="@+id/txtv_OC"
+            app:layout_constraintEnd_toStartOf="@+id/txtv_Partida"
+            app:layout_constraintStart_toEndOf="@+id/txtv_OC"
+            app:layout_constraintTop_toTopOf="@+id/txtv_OC" />
 
         <TextView
             android:id="@+id/textView14"
@@ -213,9 +215,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-
+            android:layout_marginEnd="8dp"
             android:text="Doc."
-
+            app:layout_constraintEnd_toStartOf="@+id/txtv_OC"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -227,13 +229,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="67dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ConstraintLayout6">
 
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ConstraintDeLosEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -245,25 +247,82 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView1"
-                    android:layout_width="100dp"
+                    android:id="@+id/textView164"
+                    android:layout_width="105dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:text="SKU"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
                     android:textStyle="bold"
-                    />
+                    android:layout_gravity="center" />
 
                 <EditText
                     android:id="@+id/edtx_SKU"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="180dp"
-                    android:layout_height="29dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="5dp"
                     android:ems="10"
                     android:hint="Capturar SKU"
                     android:inputType="textPersonName"
-                    tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView80"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:text="Números de serie"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"
+                    />
+
+                <include
+                    android:id="@+id/vw_spinner2"
+                    layout="@layout/vw_spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:visibility="visible"
+                    android:layout_gravity="center"
+                    />
+
+                <EditText
+                    android:ems="10"
+                    android:layout_marginStart="10dp"
+                    style="@style/Estilo_EditText_Reg"
+                    android:id="@+id/edtx_numSerie"
+                    android:layout_width="180dp"
+                    android:layout_height="30dp"
+                    android:visibility="gone"/>
+
+                <ToggleButton
+                    android:id="@+id/toggleNumSerie"
+                    android:layout_gravity="center"
+                    android:textOff=""
+                    android:textOn=""
+                    android:layout_marginStart="5dp"
+                    android:checked="false"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/toggle_num_serie"/>
+
+
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -276,6 +335,7 @@
                     android:id="@+id/textView41"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="2dp"
                     android:text="Cantidad por Empaque"
                     android:textColor="@color/blancoLetraStd"
@@ -286,16 +346,20 @@
                 <EditText
                     android:id="@+id/edtx_Empaque"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:ems="10"
                     android:hint="@string/unidades"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="8dp"
                     android:inputType="number"
                     android:nextFocusUp="@id/edtx_EmpxPallet"
                     android:nextFocusDown="@id/edtx_EmpxPallet"
                     android:nextFocusForward="@id/edtx_EmpxPallet"
                     />
+
+
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -309,7 +373,7 @@
                     android:id="@+id/textView44"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginStart="8dp"
                     android:text="Empaques  por Pallet"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
@@ -319,12 +383,11 @@
                 <EditText
                     android:id="@+id/edtx_EmpxPallet"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:ems="10"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:hint="@string/unidades"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="5dp"
                     android:inputType="number"
                     android:layout_gravity="center"
                     />
@@ -342,7 +405,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginStart="8dp"
                     android:text="Primer Empaque"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
@@ -353,9 +416,11 @@
                 <EditText
                     android:id="@+id/edtx_PrimerEmpaque"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="200dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
                     android:ems="10"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="8dp"
                     android:hint="@string/escanear_empaque"
                     android:inputType="textPersonName"
                     android:layout_gravity="center"
@@ -373,7 +438,7 @@
                     android:id="@+id/textView8"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="8dp"
                     android:text="Último Empaque"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
@@ -383,9 +448,11 @@
                 <EditText
                     android:id="@+id/edtx_UltimoEmpaque"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="200dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
                     android:ems="10"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="5dp"
                     android:hint="@string/escanear_empaque"
                     android:inputType="textPersonName"
                     android:layout_gravity="center"
@@ -403,7 +470,7 @@
                     android:id="@+id/textView9"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"
                     android:text="Cantidad de Empaques"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
@@ -413,9 +480,10 @@
                 <EditText
                     android:id="@+id/edtx_CantidadEmpaques"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="200dp"
-                    android:layout_height="28dp"
-                    android:layout_marginEnd="32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="5dp"
                     android:ems="10"
                     android:hint="Capturar Cant."
                     android:inputType="number"
@@ -426,20 +494,18 @@
 
 
 
-
-
-
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                >
 
                 <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="120dp"
+                    android:id="@+id/textView126"
+                    android:layout_width="105dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:text="Empaques Registrados"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
@@ -448,25 +514,27 @@
 
                 <TextView
                     android:id="@+id/txtv_EmpReg"
-                    android:layout_width="40dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:text="-"
-                    android:layout_marginStart="10dp"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
-                    />
+                    android:layout_gravity="center"/>
+
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                >
                 <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="120dp"
+                    android:id="@+id/textView128"
+                    android:layout_width="105dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:text="Pallet"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
@@ -476,50 +544,59 @@
 
                 <TextView
                     android:id="@+id/txtv_Pallet"
-                    android:layout_width="200dp"
-                    style="@style/EstiloTexto_Blanco_Reg_Consulta"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:text="-"
+                    style="@style/EstiloTexto_Sugerencia_Reg_Consulta"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
+                    android:layout_gravity="center"
                     />
+
+
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <FrameLayout
+                android:id="@+id/progressBarHolder"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:alpha="0.4"
+                android:animateLayoutChanges="true"
+                android:background="#000000"
+                android:clickable="true"
+                android:elevation="10dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+
+                android:visibility="gone"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true" />
+            </FrameLayout>
+
+
+
+
+
+
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </ScrollView>
 
 
-
-
-
-
-
-
-    <FrameLayout
-        android:id="@+id/progressBarHolder"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:alpha="0.4"
-        android:animateLayoutChanges="true"
-        android:background="#000000"
-        android:clickable="true"
-        android:elevation="10dp"
-        android:focusable="true"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true" />
-    </FrameLayout>
-
+    <!---->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

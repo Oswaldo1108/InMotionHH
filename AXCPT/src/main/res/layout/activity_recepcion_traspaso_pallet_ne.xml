@@ -255,7 +255,7 @@
                 <EditText
                     android:id="@+id/edtx_SKU"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="180dp"
+                    android:layout_width="match_parent"
                     android:layout_height="29dp"
                     android:layout_marginStart="10dp"
                     android:ems="10"
@@ -271,7 +271,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
                 <TextView
                     android:id="@+id/textView80"
                     android:layout_width="100dp"
@@ -341,7 +342,7 @@
                 <EditText
                     android:id="@+id/edtx_Empaque"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="180dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginStart="10dp"
 
@@ -371,10 +372,11 @@
                 <EditText
                     android:id="@+id/edtx_PrimerEmpaque"
                     style="@style/Estilo_EditText_Reg"
-                    android:layout_width="180dp"
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginStart="10dp"
                     android:ems="10"
+                    android:layout_gravity="center"
                     android:hint="Capturar No. Emp"
                     android:inputType="number"
                     tools:ignore="TouchTargetSizeCheck" />
@@ -405,6 +407,7 @@
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:text="-"
+                    android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"

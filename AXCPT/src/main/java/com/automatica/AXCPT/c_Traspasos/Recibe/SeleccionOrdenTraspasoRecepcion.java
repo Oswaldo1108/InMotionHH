@@ -54,6 +54,7 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
     Intent intent;
     boolean DocumentoSeleccionado = false;
     String documento = "@";
+    String bandera = "";
 
     // ****************************************************** CICLO DE VIDA *********************************************
 
@@ -132,8 +133,8 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
         DocumentoSeleccionado = true;
         binding.edtxDocumento.setText(clickedData[0]);
         b.putString("Documento", clickedData[0]);
-        Log.d("Mensaje1", clickedData[0]);
-
+        Log.e("Mensaje1", clickedData[4]);
+        bandera=clickedData[4];
     }
 
     // ******************************************************** MÉTODOS CREADOS *********************************************************
@@ -209,19 +210,30 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
                 try{
                     switch (item.getItemId()){
                         case R.id.registrado:
+                                if (bandera.equals("EN TRANSITO")) {
                             intent = new Intent(contexto, SeleccionPalletTraspasoRecepcion.class);
                             if(DocumentoSeleccionado)
                                 intent.putExtras(b);
-                            startActivity(intent);
-                            overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
+
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.slide_right_in_enter, R.anim.slide_right_out_enter);
+                            }
+                            else
+                                new popUpGenerico(contexto, binding.edtxDocumento, "Esta Orden no esta registrada", false, true, true);
+
                             break;
 
                         case R.id.nuevo:
-                            intent= new Intent(contexto, SeleccionPartidaTraspasoRecepcion.class);
-                            intent.putExtras(b);
-                            startActivity(intent);
-                            overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
+                                if (bandera.equals("LIBERADA TOTAL")) {
+                                    intent = new Intent(contexto, SeleccionPartidaTraspasoRecepcion.class);
+                                    intent.putExtras(b);
+                                    startActivity(intent);
+                                    overridePendingTransition(R.anim.slide_right_in_enter, R.anim.slide_right_out_enter);
+                                }
+                                else
+                                    new popUpGenerico(contexto, binding.edtxDocumento, "Esta Orden ya esta registrada", false, true, true);
                             break;
+
 
 
                         default:
@@ -307,8 +319,7 @@ public class SeleccionOrdenTraspasoRecepcion  extends AppCompatActivity implemen
                             try
                             {
                             if (ConfigTabla_Totales == null) {
-
-                                ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,SeleccionOrdenTraspasoRecepcion.this);
+                                ConfigTabla_Totales =  new TableViewDataConfigurator( 4, "10","10","10",tabla, dao,SeleccionOrdenTraspasoRecepcion.this);
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }

@@ -163,16 +163,29 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
                 return;
             }
 
-            b.putString("Orden", binding.edtxDocumento.getText().toString());
 
 
-            new PopUpMenuAXC().newInstance(taskbar_axc.getView().findViewById(R.id.BotonDer), SeleccionPartidaTraspasoRecepcion.this, R.menu.popup_traslado_vde, new PopUpMenuAXC.ContextMenuListener() {
+            new PopUpMenuAXC().newInstance(taskbar_axc.getView().findViewById(R.id.BotonDer), SeleccionPartidaTraspasoRecepcion.this, R.menu.popup_recepcion_nuevo, new PopUpMenuAXC.ContextMenuListener() {
                 @Override
                 public void listenerItem(MenuItem item) {
                     try{
                         switch (item.getItemId()){
-                            case R.id.registrado:
-                                intent= new Intent(contexto, RecepcionTraspasoPallet.class);
+                            case R.id.empaque:
+                                intent= new Intent(contexto, RecepcionTraspasoEmpaque.class);
+                                intent.putExtras(b);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
+                                break;
+
+                            case R.id.PyU:
+                                intent= new Intent(contexto, RecepcionTraspasoPyU.class);
+                                intent.putExtras(b);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
+                                break;
+
+                            case R.id.NE:
+                                intent= new Intent(contexto, RecepcionTraspasoPalletNE.class);
                                 intent.putExtras(b);
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
@@ -253,10 +266,11 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
         b.putString("Pedido", binding.edtxDocumento.getText().toString());
         b.putString("Partida", clickedData[0]);
         b.putString("NumParte", clickedData[1]);
-        b.putString("UM", clickedData[2]);
-        b.putString("CantidadTotal", clickedData[3]);
-        b.putString("CantidadPendiente", clickedData[4]);
-        b.putString("CantidadSurtida", clickedData[5]);
+        b.putString("UM", clickedData[7]);
+        b.putString("SKU", clickedData[10]);
+        b.putString("CantidadTotal", clickedData[4]);
+        b.putString("CantidadPendiente", clickedData[5]);
+        b.putString("CantidadRecibida", clickedData[6]);
         b.putString("Linea", clickedData[6]);
     }
 
@@ -308,7 +322,7 @@ public class SeleccionPartidaTraspasoRecepcion extends AppCompatActivity impleme
                     switch (Tarea) {
                         case "LlenarTabla":
                             if (ConfigTabla_Totales == null) {
-                                ConfigTabla_Totales =  new TableViewDataConfigurator( 9, "SIN COLOCAR","EN TRANSITO","10",tabla, dao,SeleccionPartidaTraspasoRecepcion.this);
+                                ConfigTabla_Totales =  new TableViewDataConfigurator( 9, "RECIBIDO","LIBERADA TOTAL","10",tabla, dao,SeleccionPartidaTraspasoRecepcion.this);
                                 Log.e("Tablas",dao.getSoapObject().toString());
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);

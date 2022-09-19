@@ -12,18 +12,25 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
+import android.text.InputFilter;
 import android.util.Log;
+import android.view.ActionMode;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.automatica.AXCPT.Fragmentos.FragmentoConsulta;
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
+import com.automatica.AXCPT.Fragmentos.frgmnt_SKU_Conteo;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
@@ -31,20 +38,24 @@ import com.automatica.AXCPT.Servicios.esconderTeclado;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionPalletNe;
 import com.automatica.AXCPT.databinding.ActivityRecepcionPalletNeBinding;
+import com.automatica.AXCPT.databinding.ActivityRecepcionTraspasoEmpaqueBinding;
+import com.automatica.AXCPT.databinding.ActivityRecepcionTraspasoPalletNeBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Recepcion;
+import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Transferencia;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.CreaDialogos;
 import com.automatica.axc_lib.Servicios.popUpGenerico;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
 
-public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frgmnt_taskbar_AXC.interfazTaskbar{
-
+public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frgmnt_taskbar_AXC.interfazTaskbar, frgmnt_SKU_Conteo.OnFragmentInteractionListener{
     frgmnt_taskbar_AXC taskbar_axc;
     popUpGenerico pop = new popUpGenerico(RecepcionTraspasoPalletNE.this);
-    ActivityRecepcionPalletNeBinding binding;
+    ActivityRecepcionTraspasoPalletNeBinding binding;
+    EditText edtx_Cantidad,edtx_EmpxPallet,edtx_SKU, edtx_numSerie;
     CheckBox checkNumSerie;
-    String  Cantidad,CodigoEmpaque, CantidadRecibida;
+    String  Cantidad,CodigoEmpaque;
+    String mercado;
     private ProgressBarHelper p;
     AlphaAnimation inAnimation;
     AlphaAnimation outAnimation;
@@ -52,94 +63,591 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
     String NumSerie;
     private Spinner sp_NumSerie;
     Handler handler = new Handler();
+    TextView txtv_EmpaquesRegistrados,txtv_Partida,txtv_UM,txtv_CantidadOriginal,txtv_CantidadRegistrada,txtv_Producto,txtv_Pallet ,txtv_CantRegLote;
     Bundle b;
+
     View vista;
     Context contexto = this;
+    String OrdenCompra, FechaCaducidad,ModificaCant,PartidaERP,NumParte,UM,CantidadTotal,CantidadRecibida,CantidadEmpaques,EmpaquesPallet,SKU;
+    TextView txtv_OrdenCompra;
     boolean recargar;
     Handler h = new Handler();
+    int registroAnteriorSpinner=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        try {
+
+        try{
             super.onCreate(savedInstanceState);
-            binding = ActivityRecepcionPalletNeBinding.inflate(getLayoutInflater());
-            setContentView(binding.getRoot());
-            configuracionToolbar();
-            configuracionTaskbar();
-            h.postDelayed(new Runnable()
-            {
+            binding = ActivityRecepcionTraspasoPalletNeBinding.inflate(getLayoutInflater());
+            View view = binding.getRoot();
+            setContentView(view);
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setTitle("Recepción Traspaso");
+            getSupportActionBar().setSubtitle("Pallet No Etiquetado");
+            View logoView = getToolbarLogoIcon(toolbar);
+            logoView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void run()
-                {
-
+                public void onClick(View v) {
+                    if (getSupportFragmentManager().findFragmentByTag("FragmentoMenu") == null) {
+                        getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left, android.R.anim.slide_in_left, R.anim.slide_out_left)
+                                .add(R.id.Pantalla_principal, Fragmento_Menu.newInstance("", ""), "FragmentoMenu").addToBackStack("").commit();
+                    } else {
+                        getSupportFragmentManager().popBackStack();
+                    }
                 }
-            },150);
+            });
 
-        } catch (Exception e) {
+            taskbar_axc= (frgmnt_taskbar_AXC) frgmnt_taskbar_AXC.newInstance("","");
+            getSupportFragmentManager().beginTransaction().add(R.id.Pantalla_principal,taskbar_axc,"FragmentoTaskBar").commit();
+
+
+            SacaExtrasIntent();
+            declararVariables();
+            AgregaListeners();
+            new RecepcionTraspasoPalletNE.SegundoPlano("ConsultaPallet").execute();
+            new RecepcionTraspasoPalletNE.SegundoPlano("Tabla").execute();
+            edtx_SKU.requestFocus();
+
+        }catch (Exception e){
             e.printStackTrace();
-            pop.popUpGenericoDefault(vista, e.getMessage(), false);
+            new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,vista,e.getMessage()+" "+e.getCause() ,"false" ,true,true);
         }
-    }
 
+    }
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.CERRAR_TARIMA);
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         try {
             getMenuInflater().inflate(R.menu.toolbar_borrar_datos, menu);
             return true;
-        } catch (Exception ex) {
-            Toast.makeText(this, "error al llenar toolbar", Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText( this, "error al llenar toolbar", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
-
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
 
-        if (p.ispBarActiva()) {
-            if ((id == R.id.InformacionDispositivo)) {
+        if (p.ispBarActiva())
+        {
+            if ((id == R.id.InformacionDispositivo))
+            {
                 new sobreDispositivo(contexto, vista);
             }
-            if ((id == R.id.borrar_datos)) {
-
+            if ((id == R.id.borrar_datos))
+            {
+                reiniciaVariables();
             }
         }
         return super.onOptionsItemSelected(item);
     }
-    private void configuracionToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Recepción traspaso");
-        getSupportActionBar().setSubtitle("Pallet NE");
-        View logoView = getToolbarLogoIcon(toolbar);
-        logoView.setOnClickListener(new View.OnClickListener() {
+    private void declararVariables()
+    {
+        try {
+            p = new ProgressBarHelper(this);
+            edtx_numSerie = (EditText) findViewById(R.id.edtx_numSerie);
+            //  edtx_OrdenCompra = (EditText) findViewById(R.id.edtx_Factura);
+            edtx_Cantidad = (EditText) findViewById(R.id.edtx_Empaque);
+            edtx_Cantidad.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+            edtx_EmpxPallet = (EditText) findViewById(R.id.edtx_PrimerEmpaque);
+            edtx_EmpxPallet.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
+
+            txtv_Partida = (TextView) findViewById(R.id.txtv_Partida);
+            txtv_UM = (TextView) findViewById(R.id.txtv_Caducidad);
+            txtv_Producto = (TextView) findViewById(R.id.txtv_Prod);
+            txtv_CantidadOriginal = (TextView) findViewById(R.id.txtv_CantidadTotal);
+            txtv_CantidadRegistrada = (TextView) findViewById(R.id.txtv_Lote);
+            txtv_Pallet = (TextView) findViewById(R.id.txtv_Pallet);
+            txtv_EmpaquesRegistrados = (TextView) findViewById(R.id.txtv_EmpReg);
+            txtv_OrdenCompra = (TextView) findViewById(R.id.txtv_OC);
+            txtv_CantRegLote = (TextView) findViewById(R.id.txtv_RegLote);
+
+            txtv_Partida.setText(PartidaERP);
+            txtv_UM.setText(UM);
+
+            txtv_Producto.setText(NumParte);
+            txtv_CantidadOriginal.setText(CantidadTotal);
+            txtv_CantidadRegistrada.setText(CantidadRecibida);
+            txtv_OrdenCompra.setText(OrdenCompra);
+
+            checkNumSerie = binding.checkNumSerie.findViewById(R.id.checkNumSerie);
+
+            edtx_SKU = findViewById(R.id.edtx_SKU);
+            sp_Partidas = binding.vwSpinner.findViewById(R.id.spinner);
+            sp_NumSerie = binding.vwSpinner2.findViewById(R.id.spinner);
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+
+        }
+    }
+
+    private void AgregaListeners()
+    {
+
+        binding.toggleNumSerie.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (getSupportFragmentManager().findFragmentByTag("FragmentoMenu") == null) {
-                    getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left, android.R.anim.slide_in_left, R.anim.slide_out_left)
-                            .add(R.id.Pantalla_principal, Fragmento_Menu.newInstance("", ""), "FragmentoMenu").addToBackStack("").commit();
-                } else {
-                    getSupportFragmentManager().popBackStack();
+            public void onClick(View view) {
+                if (!binding.toggleNumSerie.isChecked()){
+                    binding.edtxNumSerie.setVisibility(View.VISIBLE);
+                    binding.vwSpinner2.setVisibility(View.GONE);
+                }else{
+                    binding.edtxNumSerie.setVisibility(View.GONE);
+                    binding.vwSpinner2.setVisibility(View.VISIBLE);
                 }
             }
         });
+
+        edtx_SKU.setOnKeyListener(new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
+                {
+                    try
+                    {
+                        if(edtx_SKU.getText().toString().equals(""))
+                        {
+
+                            edtx_SKU.setText("");
+                            edtx_SKU.requestFocus();
+
+                            new popUpGenerico(contexto,edtx_SKU,"Ingrese un SKU." , false, true, true);
+                            return false;
+                        }
+
+                        edtx_SKU.setText(edtx_SKU.getText().toString().replace(" "," ").replace("\t","").replace("\n",""));
+
+                        int SKUSel = -2;
+                        SKUSel  = CustomArrayAdapter.getIndex(sp_Partidas,edtx_SKU.getText().toString());
+
+                        switch(SKUSel)
+                        {
+                            case -2:
+                                new popUpGenerico(contexto,edtx_SKU,"Error interno." , false, true, true);
+                                new esconderTeclado(RecepcionTraspasoPalletNE.this);
+
+                                h.postDelayed(new Runnable()
+                                {
+                                    @Override
+                                    public void run()
+                                    {
+                                        edtx_SKU.setText("");
+                                        edtx_SKU.requestFocus();
+                                    }
+                                },100);
+                                return false;
+                            case -1:
+                                int UPCsel= -2;
+                                UPCsel = CustomArrayAdapter.getIndex(sp_Partidas,edtx_SKU.getText().toString(),CustomArrayAdapter.TAG2);
+                                switch (UPCsel){
+                                    case -2:
+                                        new popUpGenerico(contexto,edtx_SKU,"Error interno." , false, true, true);
+                                        new esconderTeclado(RecepcionTraspasoPalletNE.this);
+                                        h.postDelayed(new Runnable()
+                                        {
+                                            @Override
+                                            public void run()
+                                            {
+                                                edtx_SKU.setText("");
+                                                edtx_SKU.requestFocus();
+                                            }
+                                        },100);
+                                        break;
+                                    case -1:
+                                        new popUpGenerico(contexto,edtx_SKU,"No se encontro el SKU dentro del listado de partidas, verifique que sea correcto. [" + edtx_SKU.getText().toString() +"]" , false, true, true);
+                                        new esconderTeclado(RecepcionTraspasoPalletNE.this);
+                                        h.postDelayed(new Runnable()
+                                        {
+                                            @Override
+                                            public void run()
+                                            {
+                                                edtx_SKU.setText("");
+                                                edtx_SKU.requestFocus();
+                                            }
+                                        },100);
+                                        break;
+                                    default:
+                                        sp_Partidas.setSelection(UPCsel);
+                                        break;
+                                }
+                                break;
+                            default:
+                                sp_Partidas.setSelection(SKUSel);
+                        }
+
+                        new esconderTeclado(RecepcionTraspasoPalletNE.this);
+
+
+                    }catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), false, true, true);
+                    }
+                }
+                return false;
+            }
+        });
+
+        sp_Partidas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+
+                txtv_Partida.setText(((Constructor_Dato) sp_Partidas.getSelectedItem()).getTag1());
+                //txtv_Producto.setText(((Constructor_Dato) sp_Partidas.getSelectedItem()).getTag2());
+                txtv_CantidadOriginal.setText(((Constructor_Dato) sp_Partidas.getSelectedItem()).getTag3());
+
+
+                Log.i("Tag1",((Constructor_Dato) sp_Partidas.getSelectedItem()).getTag1());
+//                if(!edtx_SKU.getText().toString().equals(((Constructor_Dato) sp_Partidas.getSelectedItem()).getDato()))
+//                {
+                new RecepcionTraspasoPalletNE.SegundoPlano("DetallePartida").execute();
+//                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView)
+            {
+
+            }
+        });
+
+        sp_NumSerie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+
+//                txtv_Partida.setText(((Constructor_Dato) sp_NumSerie.getSelectedItem()).getTag1());
+//                //txtv_Producto.setText(((Constructor_Dato) sp_NumSerie.getSelectedItem()).getTag2());
+//                txtv_CantidadOriginal.setText(((Constructor_Dato) sp_NumSerie.getSelectedItem()).getTag3());
+//
+//
+//                Log.i("Tag1",((Constructor_Dato) sp_NumSerie.getSelectedItem()).getTag1());
+////                if(!edtx_SKU.getText().toString().equals(((Constructor_Dato) sp_Partidas.getSelectedItem()).getDato()))
+////                {
+//                new SegundoPlano("DetallePartida").execute();
+////                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView)
+            {
+
+            }
+        });
+
+
+        edtx_Cantidad.setOnFocusChangeListener(new View.OnFocusChangeListener()
+        {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus)
+            {
+
+
+                if(hasFocus&&edtx_Cantidad.getText().toString().equals("0"))
+                {
+                    try
+                    {
+                        edtx_Cantidad.setText("");
+                    }catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), "false", true, true);
+                    }
+                }
+
+            }
+        });
+        edtx_EmpxPallet.setOnFocusChangeListener(new View.OnFocusChangeListener()
+        {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus)
+            {
+                if(hasFocus&&edtx_EmpxPallet.getText().toString().equals("0"))
+                {
+                    try
+                    {
+                        edtx_EmpxPallet.setText("");
+                    }catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), "false", true, true);
+                    }
+                }
+            }
+        });
+
+
+        edtx_Cantidad.setOnKeyListener(new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
+                {
+                    try
+                    {
+                        if (edtx_Cantidad.getText().toString().equals(""))
+                        {
+
+                            h.post(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {  edtx_Cantidad.setText("");
+                                    edtx_Cantidad.requestFocus();
+
+                                }
+                            });
+                            new popUpGenerico(contexto, getCurrentFocus(),getString(R.string.error_ingrese_cantidad),"Advertencia", true, true);
+
+                        }
+                        try {
+                            if (!(Float.parseFloat(edtx_Cantidad.getText().toString()) > 999999)) {
+
+                                edtx_EmpxPallet.requestFocus();
+
+                            } else {
+                                h.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        h.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                edtx_Cantidad.requestFocus();
+                                                edtx_Cantidad.setText("");
+                                            }
+                                        });
+                                    }
+                                });
+                                new popUpGenerico(contexto, getCurrentFocus(), getString(R.string.error_cantidad_mayor_999999), "false", true, true);
+
+                            }
+                        }catch (NumberFormatException ex)
+                        {
+                            h.post(new Runnable()
+                            {
+                                @Override
+                                public void run()
+                                {  edtx_Cantidad.setText("");
+                                    edtx_Cantidad.requestFocus();
+
+                                }
+                            });
+                            new popUpGenerico(contexto,getCurrentFocus(),getString(R.string.error_cantidad_valida),"false",true,true);
+                        }
+                    }catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), "false", true, true);
+                    }
+
+                }
+                return false;
+            }
+        });
+
+        edtx_EmpxPallet.setOnKeyListener(new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
+                {
+                    try
+                    {
+                        if(edtx_EmpxPallet.getText().toString().equals(""))
+                        {
+                            h.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    edtx_EmpxPallet.setText("");
+                                    edtx_EmpxPallet.requestFocus();
+                                }
+                            });
+                            new popUpGenerico(contexto,getCurrentFocus(),"Ingrese candidad de empaques" , "false", true, true);
+                            return false;
+                        }
+
+
+
+
+                        if(Integer.parseInt(edtx_EmpxPallet.getText().toString()) <=0)
+                        {
+                            new popUpGenerico(contexto,getCurrentFocus(),"La cantidad ingresada no puede ser menor o igual a cero." , false, true, true);
+                            return false;
+                        }
+                        if(Float.parseFloat(edtx_Cantidad.getText().toString()) <=0)
+                        {
+                            new popUpGenerico(contexto,getCurrentFocus(),"La cantidad de empaques no puede ser menor o igual a cero." , false, true, true);
+                            return false;
+                        }
+
+
+                        if(edtx_Cantidad.getText().toString().equals(""))
+                        {
+                            h.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    edtx_EmpxPallet.setText("");
+                                    edtx_EmpxPallet.requestFocus();
+                                }
+                            });
+                            new popUpGenerico(contexto,getCurrentFocus(),getString(R.string.error_ingrese_cantidad)  , "false", true, true);
+                            return false;
+                        }
+                        if (edtx_EmpxPallet.getText().toString().equals(""))
+                        {
+                            h.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    edtx_EmpxPallet.setText("");
+                                    edtx_EmpxPallet.requestFocus();
+                                }
+                            });
+
+                            new popUpGenerico(contexto,getCurrentFocus(),getString(R.string.error_ingrese_cantidad) , false, true, true);
+                            return false;
+                        }
+                        new RecepcionTraspasoPalletNE.SegundoPlano("RegistrarEmpaqueNuevo").execute();
+
+
+                    }catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), "false", true, true);
+                    }
+                }
+                return false;
+            }
+        });
+
+
+        edtx_Cantidad.setOnLongClickListener(new View.OnLongClickListener()
+        {
+            @Override
+            public boolean onLongClick(View view)
+            {
+
+              /*  if(edtx_SKU.getText().toString().equals(""))
+                {
+                    new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,edtx_SKU,"Antes de hacer el conteo, ingrese el SKU o UPC.",false,true,true);
+                    return false;
+                }
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left, android.R.anim.slide_in_left, R.anim.slide_out_left)
+                        .add(R.id.Pantalla_principal, frgmnt_SKU_Conteo.newInstance(null, edtx_SKU.getText().toString()), "Fragmentosku").addToBackStack("Fragmentosku").commit();*/
+
+
+                return true;
+            }
+        });
+
+        edtx_Cantidad.setCustomSelectionActionModeCallback(new ActionMode.Callback2()
+        {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+
+            }
+        });
+
+
+        txtv_Pallet.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                if(txtv_Pallet.getText().toString().trim().equals("")||txtv_Pallet.getText().toString().trim().equals("-")){
+
+                    new popUpGenerico(contexto,getCurrentFocus(),"Se debe crear un pallet para poder continuar",false,true,true);
+                }else{
+                    String[] datos={txtv_Pallet.getText().toString()};
+                    taskbar_axc.abrirFragmentoDesdeActividad(FragmentoConsulta.newInstance(datos, FragmentoConsulta.TIPO_PALLET),FragmentoConsulta.TAG);
+                }
+                return false;
+            }
+        });
+
+    }
+    private void SacaExtrasIntent()
+    {
+        try
+        {
+            b = getIntent().getExtras();
+            OrdenCompra= b.getString("Pedido");
+            PartidaERP= b.getString("Partida");
+            NumParte= b.getString("NumParte");
+            UM= b.getString("UM");
+            SKU= b.getString("SKU");
+            CantidadTotal= b.getString("CantidadTotal");
+            CantidadRecibida= b.getString("CantidadRecibida");
+            /*CantidadEmpaques= b.getString("CantidadEmpaques");
+            EmpaquesPallet= b.getString("EmpaquesPallet");*/
+
+        }catch (Exception e)
+        {
+            Log.i("PorEmpaque", "SacaExtrasIntent: Error sacando del Intent Extras " + e.getMessage());
+        }
+
+    }
+    private void reiniciaVariables()
+    {
+        //txtv_EmpaquesRegistrados.setText("");
+        try
+        {
+            edtx_Cantidad.setText("");
+            edtx_EmpxPallet .setText("");
+            edtx_Cantidad.requestFocus();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), "false", true, true);
+        }
     }
 
-    private void configuracionTaskbar() {
-        taskbar_axc= (frgmnt_taskbar_AXC) frgmnt_taskbar_AXC.newInstance("","");
-        getSupportFragmentManager().beginTransaction().add(R.id.Pantalla_principal,taskbar_axc,"FragmentoTaskBar").commit();
-    }
 
-    private void validacionFinal(){
+    @Override
+    public void BotonDerecha() {
         try {
-            if (!binding.txtvEmpReg.getText().toString().equals("")) {
-                if (Integer.parseInt(binding.txtvEmpReg.getText().toString()) > 0) {
+            if (!txtv_EmpaquesRegistrados.getText().toString().equals("")) {
+                if (Integer.parseInt(txtv_EmpaquesRegistrados.getText().toString()) > 0) {
 
 
                     new CreaDialogos("¿Cerrar tarima?",
@@ -161,24 +669,41 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
             e.printStackTrace();
             new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), "false", true, true);
         }
-    }
-
-    @Override
-    public void BotonDerecha() {
 
     }
 
     @Override
     public void BotonIzquierda() {
+        onBackPressed();
+    }
+
+    @Override
+    public boolean ActivaProgressBar(Boolean estado) {
+        return false;
+    }
+
+    @Override
+    public void RegistrarCantidad(String Producto, String strCantidadEscaneada) {
+
+        edtx_Cantidad.setText(strCantidadEscaneada);
+        handler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                edtx_EmpxPallet.requestFocus();
+            }
+        },100);
 
     }
+
 
     private class SegundoPlano extends AsyncTask<Void,Void,Void>
     {
         String tarea;
         DataAccessObject dao;
+        cAccesoADatos_Transferencia cad = new cAccesoADatos_Transferencia(RecepcionTraspasoPalletNE.this);
 
-        cAccesoADatos_Recepcion ca = new cAccesoADatos_Recepcion(RecepcionTraspasoPalletNE.this);
         public SegundoPlano(String tarea)
         {
             this.tarea = tarea;
@@ -199,18 +724,18 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                 {
 
                     case"Tabla":
-                        dao = ca.c_ListarPartidasOCEnProceso("OrdenCompra");
+                        dao = cad.c_ListarPartidasTransEnProceso(OrdenCompra);
                         break;
 
                     case"DetallePartida":
-                        dao = ca.c_detalleReciboPartida("OrdenCompra",binding.txtvPartida.getText().toString());
+                        dao = cad.cad_DetallePartidaTraspaso(OrdenCompra,txtv_Partida.getText().toString());
                         break;
 
                     case "ConsultaPallet":
-
-                        dao= ca.c_ConsultaPalletAbiertoOC("OrdenCompra", "PartidaERP");
+                        dao = cad.cad_ConsultaPalletAbiertoTraspaso(OrdenCompra, PartidaERP);
                         break;
-                    case "RegistrarEmpaqueNuevo":
+
+                   case "RegistrarEmpaqueNuevo":
                         if(!binding.toggleNumSerie.isChecked()){
                             NumSerie = binding.edtxNumSerie.getText().toString();
                         }
@@ -219,25 +744,26 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                         }
 
 
-                        CodigoEmpaque = binding.edtxPrimerEmpaque.getText().toString();
-                        Cantidad = binding.edtxEmpaque.getText().toString();
+                        CodigoEmpaque = edtx_EmpxPallet.getText().toString();
+                        Cantidad = edtx_Cantidad.getText().toString();
 
 
-                        dao = ca.c_RegistrarPalletCompra_NE("OrdenCompra",
-                                binding.txtvPartida.getText().toString(),
-                                "",
-                                binding.txtvCantidadTotal.getText().toString(),
-                                binding.edtxPrimerEmpaque.getText().toString(), NumSerie);
+                        dao = cad.ad_CreaEmpaqueTraspasoNE(OrdenCompra,
+                                txtv_Partida.getText().toString(),
+                                edtx_Cantidad.getText().toString(),
+                                edtx_EmpxPallet.getText().toString()
+                                );
 
                         break;
                     case "RegistraPalletNuevo":
 
-                        dao = ca.c_CierraPalletCompra(binding.txtvPallet.getText().toString());
+                        dao=cad.cad_OCCierraPalletTraspaso(txtv_Pallet.getText().toString());
                         break;
+
 
                     case "CerrarRecepcion":
 
-                      //  dao = ca.c_CerrarRecepcion(OrdenCompra);
+                        dao=cad.cad_OCCierraPalletTraspaso(OrdenCompra);
 
                         break;
                     default:
@@ -275,11 +801,11 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                                 CustomArrayAdapter c;
                                 sp_Partidas.setAdapter(c = new CustomArrayAdapter(RecepcionTraspasoPalletNE.this,
                                         android.R.layout.simple_spinner_item,
-                                        dao.getcTablasSorteadas("SKU","Partida","Artículo","Cant. Total")));
+                                        dao.getcTablasSorteadas("SKU","Partida","Artículo","Cant. Pendiente")));
 
                                 sp_NumSerie.setAdapter(c = new CustomArrayAdapter(RecepcionTraspasoPalletNE.this,
                                         android.R.layout.simple_spinner_item,
-                                        dao.getcTablasSorteadas("SKU","Partida","Artículo","Cant. Total")));
+                                        dao.getcTablasSorteadas("SKU","Partida","Artículo","Cant. Pendiente")));
                             }else
                             {
                                 sp_Partidas.setAdapter(null);
@@ -287,20 +813,20 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
 
 
                             int SKUSel = -2;
-                            //  SKUSel  = CustomArrayAdapter.getIndex(sp_Partidas,SKU);
+                            SKUSel  = CustomArrayAdapter.getIndex(sp_Partidas,SKU);
 
                             switch(SKUSel)
                             {
                                 case -2:
-                             //       new popUpGenerico(contexto,edtx_SKU,"Error interno." , false, true, true);
+                                    new popUpGenerico(contexto,edtx_SKU,"Error interno." , false, true, true);
                                     new esconderTeclado(RecepcionTraspasoPalletNE.this);
-                                 //   edtx_SKU.setText("");
-                                 //   edtx_SKU.requestFocus();
+                                    edtx_SKU.setText("");
+                                    edtx_SKU.requestFocus();
                                     return;
                                 case -1:
                                     int UPCSel=-2;
 
-                                    //new popUpGenerico(contexto,"edtx_SKU","No se encontro el SKU dentro del listado de partidas, verifique que sea correcto. [" + SKU +"]" , false, true, true);
+                                    new popUpGenerico(contexto,edtx_SKU,"No se encontro el SKU dentro del listado de partidas, verifique que sea correcto. [" + SKU +"]" , false, true, true);
                                     new esconderTeclado(RecepcionTraspasoPalletNE.this);
                                     return;
                                 case -3:
@@ -311,12 +837,13 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                             }
 
                             new esconderTeclado(RecepcionTraspasoPalletNE.this);
-                           // SKU = "DEFAULT";
+
+                            SKU = "DEFAULT";
                             break;
 
                         case"DetallePartida":
-                            binding.txtvCantidadTotal.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadRecibida"));
-                            binding.txtvProd.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("DescProducto"));
+                            txtv_CantidadRegistrada.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadRecibida"));
+                            txtv_Producto.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Descripcion"));
 
                             new esconderTeclado(RecepcionTraspasoPalletNE.this);
 
@@ -324,10 +851,10 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                             break;
 
                         case "RegistrarEmpaqueNuevo":
-                            binding.txtvCantidadTotal.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantEmpaques"));
-                            binding.txtvCantidadTotal.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantRecibida"));
+                            txtv_EmpaquesRegistrados.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantEmpaques"));
+                            txtv_CantidadRegistrada.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantRecibida"));
                             CantidadRecibida = dao.getSoapObject_parced().getPrimitivePropertyAsString("CantRecibida");
-                            binding.txtvPallet.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CodigoPallet"));
+                            txtv_Pallet.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CodigoPallet"));
 
                             new esconderTeclado(RecepcionTraspasoPalletNE.this);
                             if (dao.getSoapObject_parced().getPrimitivePropertyAsString("OrdenCerrada").equals("1"))
@@ -354,16 +881,16 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
 
                             }
 
-                            binding.edtxEmpaque.setText("");
-                            binding.edtxPrimerEmpaque.setText("");
-                            binding.edtxEmpaque.requestFocus();
+                            edtx_Cantidad.setText("");
+                            edtx_EmpxPallet.setText("");
+                            edtx_Cantidad.requestFocus();
 
                             break;
                         case "ConsultaPallet":
 
                             Log.i("DAO", dao.getSoapObject_parced().toString());
-                            binding.txtvPallet.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CodigoPallet"));
-                            binding.txtvEmpReg.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("EmpaquesActuales"));
+                            txtv_Pallet.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Pallet"));
+                            txtv_EmpaquesRegistrados.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Empaques"));
                             break;
                         case "RegistraPalletNuevo":
                             new popUpGenerico(contexto, LastView,"Pallet "+"["+dao.getcMensaje()+"] Cerrado con éxito",dao.iscEstado(), true, true);
@@ -380,6 +907,7 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                 }
                 else
                 {
+                    reiniciaVariables();
                     new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),dao.iscEstado(), true, true);
                 }
 
@@ -409,10 +937,32 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                         }
 
                     default:
+                        reiniciaVariables();
                         new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(),String.valueOf(dao.iscEstado()), true, true);
                 }
             }
             recargar = false;
         }
+    }
+
+
+    public void onBackPressed() {
+        if (!taskbar_axc.toggle()){
+            return;
+        }else {
+            taskbar_axc.toggle();
+        }
+        if (getSupportFragmentManager().findFragmentByTag("fragmentoConsulta")!=null){
+            if (getSupportFragmentManager().findFragmentByTag("fragmentoConsulta")!= null){
+                taskbar_axc.cerrarFragmento();
+                return;
+            }
+        }
+        if (getSupportFragmentManager().getBackStackEntryCount()>0){
+            getSupportFragmentManager().popBackStack();
+            return;
+        }
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);
     }
 }
