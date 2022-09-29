@@ -379,7 +379,7 @@ public class Devolucion_Empaques extends AppCompatActivity implements frgmnt_tas
                                     dao = ca.c_OCRegistrarEmpaqueDevolucion(OrdenDevolucion,
                                                                             Partida,
                                                                             edtx_CodigoEmpaque.getText().toString(),
-                                                                            "",
+                                                                            "", "",
                                                                             edtx_CantidadPiezas.getText().toString(),
                                                                             edtx_CantidadEmpaques.getText().toString());
                             }else
@@ -387,7 +387,7 @@ public class Devolucion_Empaques extends AppCompatActivity implements frgmnt_tas
                                     dao = ca.c_OCRegistrarEmpaqueDevolucion(OrdenDevolucion,
                                                                             Partida,
                                                                             edtx_CodigoEmpaque.getText().toString(),
-                                                                            ((Constructor_Dato)spnr_lote.getSelectedItem()).getDato(),
+                                                                            ((Constructor_Dato)spnr_lote.getSelectedItem()).getDato(),"",
                                                                             edtx_CantidadPiezas.getText().toString(),
                                                                             edtx_CantidadEmpaques.getText().toString());
                                 }

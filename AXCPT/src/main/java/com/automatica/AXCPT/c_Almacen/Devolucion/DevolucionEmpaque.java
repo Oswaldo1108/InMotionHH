@@ -78,6 +78,7 @@ import de.codecrafters.tableview.SortableTableView;
     @Override
     protected void onResume() {
         new DevolucionEmpaque.SegundoPlano("ConsultarPartida").execute();
+        new DevolucionEmpaque.SegundoPlano("ConsultarPallet").execute();
         super.onResume();
     }
 
@@ -203,13 +204,47 @@ import de.codecrafters.tableview.SortableTableView;
                 return false;
             }
         });
+
+        binding.edtxConfirmar.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)){
+                    try{
+                        if (!binding.edtxEmpaque.getText().toString().equals(binding.edtxConfirmar.getText().toString())){
+                            new popUpGenerico(contexto, getCurrentFocus(), "Los códigos de empaque no coinciden", "false", true, true);
+                        }
+
+                        new DevolucionEmpaque.SegundoPlano("RegistrarEmpaque").execute();
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                        new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), "false", true, true);
+                    }
+                }
+                return false;
+            }
+        });
+
+
     }
+
+
 
     private void validacionFinal(){
 
 
     }
 
+    private void reiniciarDatos(){
+        binding.edtxEmpaque.setText("");
+        binding.edtxNumSerie.setText("");
+        binding.edtxNumSerie.setEnabled(false);
+        binding.edtxSKU.setText("");
+        binding.edtxSKU.setEnabled(false);
+        binding.edtxCantidad.setText("");
+        binding.edtxConfirmar.setText("");
+
+    }
 
     // ********************************************************* OnBackPressed *********************************************************
     public void onBackPressed() {
@@ -266,6 +301,27 @@ import de.codecrafters.tableview.SortableTableView;
                         dao= ca.c_ConsultaPartidaDevolucion(documento,partida);
                         break;
 
+                    case "ConsultarPallet":
+                        dao= ca.c_ConsultaPalletAbiertoDev(documento,partida);
+                        break;
+
+                    case "RegistrarEmpaque":
+                        dao = ca.c_OCRegistrarEmpaqueDevolucion(documento,
+                                                                partida,
+                                                                binding.edtxConfirmar.getText().toString(),
+                                                                "LOTE", binding.edtxNumSerie.getText().toString(),
+                                                                binding.edtxCantidad.getText().toString(),
+                                                                binding.tvCantTotal.getText().toString());
+                        break;
+
+                    case "CerrarTarima":
+                        dao = ca.c_CierraPalletDevolucion(binding.tvPallet.getText().toString());
+                        break;
+
+                    default:
+                        dao = new DataAccessObject();
+
+
                 }
             } catch (Exception e) {
                 dao = new DataAccessObject(e);
@@ -279,6 +335,21 @@ import de.codecrafters.tableview.SortableTableView;
             try {
                 if (dao.iscEstado()) {
                     switch (Tarea) {
+
+                        case "ConsultarPallet":
+                            String CodigoPallet, Empaques;
+                            String[] mensaje= dao.getcMensaje().split("#");
+                            CodigoPallet = mensaje[0];
+                            Empaques = mensaje[1];
+                            if(!CodigoPallet.equals(""))
+                            {
+                                binding.tvPallet.setText(CodigoPallet);
+                                binding.tvEmpReg.setText(Empaques);
+                            }else {
+                                binding.tvPallet.setText("-");
+                                binding.tvEmpReg.setText("-");
+                            }
+                            break;
 
                         case "ConsultarPartida":
                             binding.tvArticulo.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("DNumParte1"));
@@ -298,14 +369,55 @@ import de.codecrafters.tableview.SortableTableView;
                                 Log.e("Spinner","No data");
                                 sp_Partidas.setAdapter(null);
                             }
+
+                            new DevolucionEmpaque.SegundoPlano("ConsultarPallet").execute();
                             break;
+
+
 
                         case "ConsultaEmpaque":
                             binding.edtxNumSerie.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("NumSerie"));
                             binding.edtxSKU.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("SKU"));
-                            binding.edtxCantidad.requestFocus();
+                            break;
+
+                        case "RegistrarEmpaque":
+
+                            binding.tvPallet.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CodigoPallet"));
+                            binding.edtxEmpaque.setText("");
+
+                            if (dao.getSoapObject_parced().getPrimitivePropertyAsString("OrdenCerrada").equals("1"))
+                            {
+                                new popUpGenerico(DevolucionEmpaque.this, getCurrentFocus(), getString(R.string.orden_compra_completada),dao.iscEstado(), true, true);
+                                new DevolucionEmpaque.SegundoPlano("CerrarTarima").execute();
+                                return;
+                            }
+                            else if (dao.getSoapObject_parced().getPrimitivePropertyAsString("PartidaCerrada").equals("1"))
+                            {
+                                new popUpGenerico(DevolucionEmpaque.this, getCurrentFocus(), getString(R.string.orden_compra_partida_completa), dao.iscEstado(), true, true);
+
+                                new DevolucionEmpaque.SegundoPlano("CerrarTarima").execute();
+                                return;
+                            }
+                            else if (dao.getSoapObject_parced().getPrimitivePropertyAsString("PalletCerrado").equals("1") )
+                            {
+                                new DevolucionEmpaque.SegundoPlano("CerrarTarima").execute();
+                            }
+                            new DevolucionEmpaque.SegundoPlano("ConsultarPartida").execute();
+                            new DevolucionEmpaque.SegundoPlano("ConsultarPallet").execute();
+                            reiniciarDatos();
+                            binding.edtxEmpaque.requestFocus();
+
+                            break;
+
+                        case "CerrarTarima":
+                            new popUpGenerico(DevolucionEmpaque.this,getCurrentFocus(),getString(R.string.orden_compra_pallet_cerrado) + " [" +dao.getcMensaje() + "]"  ,true,true,true);
+                            new DevolucionEmpaque.SegundoPlano("ConsultarPallet").execute();
+                            new DevolucionEmpaque.SegundoPlano("ConsultarPartida").execute();
+                            reiniciarDatos();
                             break;
                     }
+
+
                 }
                 else if(dao.getcMensaje().contains("NO")){
                     Toast.makeText(DevolucionEmpaque.this, "No existe",Toast.LENGTH_SHORT).show();

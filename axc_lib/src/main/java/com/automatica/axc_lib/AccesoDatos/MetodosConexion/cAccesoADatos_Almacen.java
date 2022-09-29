@@ -864,7 +864,8 @@ public class cAccesoADatos_Almacen extends conexionWS2 {
     }
 
     public DataAccessObject c_OCRegistrarEmpaqueDevolucion(String prmOrdenDevolucion, String prmPartida,
-                                                           String prmCodigoEmpaque, String prmLoteProveedor, String prmCantidad,
+                                                           String prmCodigoEmpaque, String prmLoteProveedor,
+                                                           String prmNumSerie, String prmCantidad,
                                                            String prmEmpaques) {
         String METHOD_NAME = "WM_OCRegistrarEmpaqueDevolucion";
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
@@ -872,6 +873,7 @@ public class cAccesoADatos_Almacen extends conexionWS2 {
         request.addProperty("prmPartida", prmPartida);
         request.addProperty("prmCodigoEmpaque", prmCodigoEmpaque);
         request.addProperty("prmLoteProveedor", prmLoteProveedor);
+        request.addProperty("prmNumSerie", prmNumSerie);
         request.addProperty("prmCantidad", prmCantidad);
         request.addProperty("prmEmpaques", prmEmpaques);
         request.addProperty("prmEstacion", Estacion);

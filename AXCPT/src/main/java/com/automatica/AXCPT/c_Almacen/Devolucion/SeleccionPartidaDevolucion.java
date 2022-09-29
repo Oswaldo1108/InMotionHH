@@ -23,6 +23,7 @@ import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
+import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionSeleccionarPartidaHC;
 import com.automatica.AXCPT.c_Traspasos.Recibe.RecepcionTraspasoEmpaque;
 import com.automatica.AXCPT.c_Traspasos.Recibe.RecepcionTraspasoMenu;
 import com.automatica.AXCPT.c_Traspasos.Recibe.RecepcionTraspasoPallet;
@@ -305,7 +306,7 @@ public class SeleccionPartidaDevolucion extends AppCompatActivity implements Tab
                         case "LlenarTabla":
                             if (ConfigTabla_Totales == null) {
 
-                                ConfigTabla_Totales = new TableViewDataConfigurator(tabla, dao,SeleccionPartidaDevolucion.this);
+                                ConfigTabla_Totales = new TableViewDataConfigurator(7,"RECIBIDA","LIBERADA","Incorrecto",tabla, dao, SeleccionPartidaDevolucion.this);
                             } else{
                                 ConfigTabla_Totales.CargarDatosTabla(dao);
                             }
