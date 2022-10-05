@@ -788,6 +788,17 @@ public class cAccesoADatos_Almacen extends conexionWS2 {
         return c.IniciaAccionSOAP(request, METHOD_NAME, context, null);
     }
 
+    public DataAccessObject c_ListarPartidasDevEnProceso(String prmDocumento)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ListarPartidasDevEnProceso";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmDocumento",prmDocumento );
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prsmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME, context,null);
+    }
+
     public DataAccessObject c_ConsultaPartidaDevolucion(String prmDevolucion, String prmPartida) {
         String METHOD_NAME = "WM_DevolucionDet";
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);

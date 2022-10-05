@@ -327,11 +327,12 @@ public class cAccesoADatos_Recepcion  extends conexionWS2{
         request.addProperty("prmPartida",prmPartida);
         request.addProperty("prmCodigoEmpaque",prmCodigoEmpaque);
         request.addProperty("prmLoteProveedor",prmLoteProveedor);
+        request.addProperty("prmNumSerie",prmNumSerie);
         request.addProperty("prmCantidad",prmCantidad);
         request.addProperty("prmEmpaques",prmEmpaques);
         request.addProperty("prmEstacion",Estacion);
         request.addProperty("prmUsuario",Usuario);
-        request.addProperty("prmNumSerie",prmNumSerie);
+
         return IniciaAccionSOAP(request,METHOD_NAME, context,null);
     }
 

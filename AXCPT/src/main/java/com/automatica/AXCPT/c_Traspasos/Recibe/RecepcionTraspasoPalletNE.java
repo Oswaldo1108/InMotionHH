@@ -752,6 +752,7 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                                 txtv_Partida.getText().toString(),
                                 edtx_Cantidad.getText().toString(),
                                 edtx_EmpxPallet.getText().toString()
+
                                 );
 
                         break;
