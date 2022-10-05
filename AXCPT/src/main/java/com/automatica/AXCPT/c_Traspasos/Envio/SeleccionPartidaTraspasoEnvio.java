@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
@@ -64,6 +65,8 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
         super.onCreate(savedInstanceState);
         binding = ActivitySeleccionPartidaTraspasoEnvioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         new esconderTeclado(this);
         sacarDatosIntent();
         declararVariables();
@@ -75,10 +78,10 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
     @Override
     protected void onResume() {
         if (!binding.edtxDocumento.getText().toString().equals(""))
-            new SeleccionPartidaTraspasoEnvio.SegundoPlano("LlenarTabla").execute();
+            new SegundoPlano("LlenarTabla").execute();
 
         if (!binding.edtxCarrito.getText().toString().equals(""))
-            new SeleccionPartidaTraspasoEnvio.SegundoPlano("ConsultaCarrito").execute();
+            new SegundoPlano("ConsultaCarrito").execute();
 
         super.onResume();
 
@@ -111,7 +114,7 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
             }
             if (id == R.id.recargar) {
                 // Botón de recargar
-                new SeleccionPartidaTraspasoEnvio.SegundoPlano("LlenarTabla").execute();
+                new SegundoPlano("LlenarTabla").execute();
             }
         }
         return super.onOptionsItemSelected(item);
@@ -189,7 +192,7 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
 
     private void configurarTaskbar() {
         taskbar_axc = (frgmnt_taskbar_AXC) frgmnt_taskbar_AXC.newInstance("", "");
-        getSupportFragmentManager().beginTransaction().add(R.id.Pantalla_principal, taskbar_axc, "FragmentoTaskBar").commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.FrameSelecPartidaTrEnv, taskbar_axc, "FragmentoTaskBar").commit();
     }
 
     private void agregarListener(){
@@ -212,7 +215,7 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
                         }
 
 
-                        new SeleccionPartidaTraspasoEnvio.SegundoPlano("LlenarTabla").execute();
+                        new SegundoPlano("LlenarTabla").execute();
 
                         new esconderTeclado(SeleccionPartidaTraspasoEnvio.this);
 
@@ -258,7 +261,7 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
                         }
 
 
-                        new SeleccionPartidaTraspasoEnvio.SegundoPlano("ConsultaCarrito").execute();
+                        new SegundoPlano("ConsultaCarrito").execute();
 
                         new esconderTeclado(SeleccionPartidaTraspasoEnvio.this);
 
