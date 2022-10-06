@@ -128,15 +128,17 @@ public class SeleccionPartidaDevolucion extends AppCompatActivity implements Tab
     @Override
     public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
         registroSeleccionado = true;
+
         b.putString("Documento", binding.edtxDocumento.getText().toString());
         b.putString("Partida", clickedData[0]);
         b.putString("NumParte", clickedData[1]);
-        b.putString("CantidadTotal", clickedData[3]);
-        b.putString("CantidadRecibida", clickedData[4]);
-        b.putString("UM", clickedData[6]);
-        b.putString("CantidadEmpaques", clickedData[7]);
+        b.putString("UM", clickedData[3]);
+        b.putString("CantidadTotal", clickedData[4]);
+        b.putString("CantidadRecibida", clickedData[6]);
+        /*b.putString("CantidadEmpaques", clickedData[7]);
         b.putString("EmpaquesPallet", clickedData[8]);
-        b.putString("SKU", clickedData[10]);
+        b.putString("SKU", clickedData[10]);*/
+
     }
 
     // ******************************************************** MÉTODOS CREADOS *********************************************************

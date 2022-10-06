@@ -108,8 +108,8 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
             SacaExtrasIntent();
             declararVariables();
             AgregaListeners();
-            new RecepcionTraspasoPalletNE.SegundoPlano("ConsultaPallet").execute();
-            new RecepcionTraspasoPalletNE.SegundoPlano("Tabla").execute();
+            new SegundoPlano("ConsultaPallet").execute();
+            new SegundoPlano("Tabla").execute();
             edtx_SKU.requestFocus();
 
         }catch (Exception e){
@@ -320,7 +320,7 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                 Log.i("Tag1",((Constructor_Dato) sp_Partidas.getSelectedItem()).getTag1());
 //                if(!edtx_SKU.getText().toString().equals(((Constructor_Dato) sp_Partidas.getSelectedItem()).getDato()))
 //                {
-                new RecepcionTraspasoPalletNE.SegundoPlano("DetallePartida").execute();
+                new SegundoPlano("DetallePartida").execute();
 //                }
 
             }
@@ -532,7 +532,7 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                             new popUpGenerico(contexto,getCurrentFocus(),getString(R.string.error_ingrese_cantidad) , false, true, true);
                             return false;
                         }
-                        new RecepcionTraspasoPalletNE.SegundoPlano("RegistrarEmpaqueNuevo").execute();
+                        new SegundoPlano("RegistrarEmpaqueNuevo").execute();
 
 
                     }catch (Exception e)
@@ -654,7 +654,7 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    new RecepcionTraspasoPalletNE.SegundoPlano("RegistraPalletNuevo").execute();
+                                    new SegundoPlano("RegistraPalletNuevo").execute();
                                 }
                             }, null, contexto);
 
@@ -752,6 +752,7 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                                 txtv_Partida.getText().toString(),
                                 edtx_Cantidad.getText().toString(),
                                 edtx_EmpxPallet.getText().toString()
+
                                 );
 
                         break;
@@ -861,23 +862,23 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                             {
                                 new popUpGenerico(contexto, LastView,dao.getcMensaje(),dao.iscEstado(), true, true);
 //                                                new SegundoPlano("CerrarRecepcion").execute();
-                                new RecepcionTraspasoPalletNE.SegundoPlano("RegistraPalletNuevo").execute();
+                                new SegundoPlano("RegistraPalletNuevo").execute();
                                 //  reiniciaVariables();
                                 break;
                             }
                             else if (dao.getSoapObject_parced().getPrimitivePropertyAsString("PartidaCerrada").equals("1"))
                             {
                                 new popUpGenerico(contexto, LastView, getString(R.string.orden_compra_partida_completa), dao.iscEstado(), true, true);
-                                new RecepcionTraspasoPalletNE.SegundoPlano("Tabla").execute();
+                                new SegundoPlano("Tabla").execute();
 
-                                new RecepcionTraspasoPalletNE.SegundoPlano("RegistraPalletNuevo").execute();
+                                new SegundoPlano("RegistraPalletNuevo").execute();
 
                                 break;
                             }
                             else if ((dao.getSoapObject_parced().getPrimitivePropertyAsString("PalletCerrado").equals("1")))
                             {
 
-                                new RecepcionTraspasoPalletNE.SegundoPlano("RegistraPalletNuevo").execute();
+                                new SegundoPlano("RegistraPalletNuevo").execute();
 
                             }
 
@@ -894,7 +895,7 @@ public class RecepcionTraspasoPalletNE extends AppCompatActivity implements  frg
                             break;
                         case "RegistraPalletNuevo":
                             new popUpGenerico(contexto, LastView,"Pallet "+"["+dao.getcMensaje()+"] Cerrado con éxito",dao.iscEstado(), true, true);
-                            new RecepcionTraspasoPalletNE.SegundoPlano("ConsultaPallet").execute();
+                            new SegundoPlano("ConsultaPallet").execute();
                             break;
 
 

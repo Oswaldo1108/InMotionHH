@@ -169,6 +169,49 @@ Context contexto;
         }
     }
 
+
+    public void CerrarDia(String Titulo, DialogInterface.OnClickListener listenerSi, DialogInterface.OnClickListener listenerNo, Context contexto)
+    {
+        try {
+            Vibrator v = (Vibrator) contexto.getSystemService(VIBRATOR_SERVICE);
+            new AlertDialog.Builder(contexto,R.style.AlertDialog).setIcon(R.drawable.ic_warning_black_24dp)
+
+                    .setTitle(Titulo).setCancelable(false)
+                    .setPositiveButton("OK", listenerSi)
+                    //.setNegativeButton("No", listenerNo)
+                    .show();
+            v.vibrate(150);
+            MediaPlayer mp = MediaPlayer.create(contexto, R.raw.beep);
+            mp.start();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+
+        }
+    }
+
+    public void Dialogo(String Titulo, DialogInterface.OnClickListener listenerSi, Context contexto, Context context)
+    {
+        try {
+            Vibrator v = (Vibrator) contexto.getSystemService(VIBRATOR_SERVICE);
+            new AlertDialog.Builder(contexto,R.style.AlertDialog).setIcon(R.drawable.ic_warning_black_24dp)
+
+                    .setTitle(Titulo).setCancelable(false)
+                    .setPositiveButton("OK", listenerSi)
+
+                    .show();
+            v.vibrate(150);
+            MediaPlayer mp = MediaPlayer.create(contexto, R.raw.beep);
+            mp.start();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+
+        }
+    }
+
     public CreaDialogos(String Titulo,String Positivo ,String Negativo,DialogInterface.OnClickListener listenerSi, DialogInterface.OnClickListener listenerNo, Context contexto)
     {
         try {
