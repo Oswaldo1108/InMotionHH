@@ -46,7 +46,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:248736778523:android:3336200d379a1d1e32ebbe",
         "android_client_info": {
-          "package_name": "com.automatica.AXCVDE"
+          "package_name": "com.automatica.INMOTION"
         }
       },
       "oauth_client": [
@@ -54,7 +54,7 @@
           "client_id": "248736778523-jahb7mmmck2lojt28jupidt1iv8kuvvm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.automatica.AXCVDE",
+            "package_name": "com.automatica.INMOTION",
             "certificate_hash": "cd9eaddb4f667d681b545b5b8c63da0d8f109e28"
           }
         },

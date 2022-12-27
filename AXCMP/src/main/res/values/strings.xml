@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">  AXC VDE</string>
+    <string name="app_name">  INMOTION</string>
 
-    <string name="toolbar_title">AXC VDE</string>
+    <string name="toolbar_title">INMOTION</string>
     <string name="action_settings">Settings</string>
     <string name="txtEmpresa">AUTOMATICA TECHNOLOGIES</string>
     <string name="txtUsuario"> Usuario:</string>
