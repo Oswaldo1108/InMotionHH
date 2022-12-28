@@ -174,7 +174,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setLogo(null);
-        getSupportActionBar().setTitle("VDE");
+        getSupportActionBar().setTitle(getString(R.string.app_name_titles));
 
         progressBarHolder = (FrameLayout) findViewById(R.id.progressBarHolder);
         et_contraseña = (EditText) findViewById(R.id.pass);

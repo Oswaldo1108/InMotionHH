@@ -355,6 +355,7 @@
                             android:id="@+id/CardProduccion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             app:cardBackgroundColor="@color/Transparente">
 
                             <androidx.constraintlayout.widget.ConstraintLayout

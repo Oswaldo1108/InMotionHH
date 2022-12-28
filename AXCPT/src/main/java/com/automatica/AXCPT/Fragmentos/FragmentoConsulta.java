@@ -129,6 +129,14 @@ public class FragmentoConsulta extends Fragment{
         }
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        binding= FragmentFragmentoConsultaBinding.inflate(inflater,null,false);
+        return binding.getRoot();
+    }
+
 
     public void cerrarGesto(View view){
         view.setOnTouchListener(new View.OnTouchListener() {
@@ -329,15 +337,6 @@ public class FragmentoConsulta extends Fragment{
 
         binding.edtxCodigo.requestFocus();
     }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        binding= FragmentFragmentoConsultaBinding.inflate(inflater,null,false);
-        return binding.getRoot();
-    }
-
 
     private class SegundoPlano extends AsyncTask<String, Void, Void> {
         int Tarea;

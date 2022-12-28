@@ -13,8 +13,9 @@
         android:title="Primera y Última"
         android:icon="@drawable/ic_primera_ultima"
         app:showAsAction="always"/>
-    <item android:id="@+id/registrorefacciones"
-        android:title="Multiples SKU"
+    <!--<item
+        android:id="@+id/registrorefacciones"
         android:icon="@drawable/ic_contenedor"
-        app:showAsAction="always"/>
+        android:title="Multiples SKU"
+        app:showAsAction="never" />-->
 </menu>

@@ -2,7 +2,7 @@
     <string name="app_name">InMotion</string>
     <string name="app_version">1.0.4.7</string>
 
-
+    <string name="app_name_titles">INMOTION</string>
     <string name="toolbar_title">Producto terminado</string>
     <string name="action_settings">Settings</string>
     <string name="txtEmpresa">AUTOMATICA TECHNOLOGIES</string>
@@ -13,9 +13,9 @@
     <string name="contraseña_preferencias">1269</string>
     <!--txt preferencias-->
     <string name="txt_pref_numero_handheld">Número de estación</string>
-    <string name="txt_pref_licencia">Licencia de AXC</string>
+    <string name="txt_pref_licencia">Licencia de InMotion</string>
     <string name="txt_pref_web_service">Web service</string>
-    <string name="txt_pref_titulo">Opciones de AXC</string>
+    <string name="txt_pref_titulo">Opciones de InMotion</string>
     <string name="txt_usuario">Usuario (no modificar)</string>
     <string name="txt_apertura">Apertura(no modificar)</string>
     <string name="TitIngresarDatos">Estamos casi listos para iniciar.</string>
@@ -112,12 +112,12 @@
     <string name="menu_reabastimiento">Reabastecimiento</string>
     <string name="menu_colocacion">Colocación</string>
     <string name="menu_reubicacion">Reubicación</string>
-    <string name="menu_ajustes">Ajustes</string>
+    <string name="menu_mov_misc">Movimientos misceláneos</string>
     <string name="menu_cuarentena">Cuarentena</string>
     <string name="menu_reempaque">Reempaque</string>
     <string name="menu_cancelacion">Cancelación</string>
-    <string name="menu_inventario_posicion">Cíclico por posición</string>
-    <string name="menu_inventario_articulo">Cíclico por artículo</string>
+    <string name="menu_inventario_posicion">Inventario por posición</string>
+    <string name="menu_inventario_articulo">Inventario por artículo</string>
     <string name="menu_inventario_físico">Físico total</string>
 
     <string name="recepcion_articulos">Recepción de artículos</string>
@@ -420,16 +420,16 @@
 
     <string name="btn_registrar">Registrar</string>
     <string name="actualizar">Actualizar</string>
-    <string name="pregunta_actualizar">¿Desea actualizar la versión de AXC?</string>
+    <string name="pregunta_actualizar">¿Desea actualizar la versión de InMotion?</string>
     <string name="txt_clave">Clave:</string>
     <string name="nueva_version">Nueva versión</string>
-    <string name="pregunta_nueva_version">\n ¡¡Hay una nueva versión de AXC disponible y lista para actualizar!! \n\n ¿Desea actualizar?\n  </string>
+    <string name="pregunta_nueva_version">\n ¡¡Hay una nueva versión de InMotion disponible y lista para actualizar!! \n\n ¿Desea actualizar?\n  </string>
     <string name="salir_aplicacion">Para salir de la aplicación, vuelva a tocar atras.</string>
     <string name="descarga_encurso">Ya hay una descarga en curso</string>
     <string name="txt_documento">Documentos</string>
     <string name="txt_doc_actual">Documento actual</string>
 
-    <!-- AXC TaskBAR-->
+    <!-- InMotion TaskBAR-->
     <string name="taskbar_axc_registrar">REGISTRAR</string>
     <string name="taskbar_axc_recibir">RECIBIR</string>
     <string name="taskbar_axc_seleccionar">SELECCIONAR</string>
