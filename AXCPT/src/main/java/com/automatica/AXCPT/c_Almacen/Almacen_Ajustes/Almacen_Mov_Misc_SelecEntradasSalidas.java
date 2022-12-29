@@ -55,6 +55,7 @@ public class Almacen_Mov_Misc_SelecEntradasSalidas extends AppCompatActivity imp
         this.getSupportActionBar().setTitle(getString(R.string.menu_mov_misc));
         new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Almacen_Mov_Misc_SelecEntradasSalidas.this);
 
+        addListeners();
         View logoView = getToolbarLogoIcon((Toolbar) findViewById(R.id.toolbar));
         logoView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,9 +70,9 @@ public class Almacen_Mov_Misc_SelecEntradasSalidas extends AppCompatActivity imp
         });
 
         taskbar_axc= (frgmnt_taskbar_AXC) frgmnt_taskbar_AXC.newInstance("","");
-        getSupportFragmentManager().beginTransaction().add(findViewById(R.id.Pantalla_principal).getId(),taskbar_axc,"FragmentoTaskBar").commit();
+        getSupportFragmentManager().beginTransaction().add(findViewById(R.id.FrameLayout).getId(),taskbar_axc,"FragmentoTaskBar").commit();
 
-        addListeners();
+
     }
 
     @Override

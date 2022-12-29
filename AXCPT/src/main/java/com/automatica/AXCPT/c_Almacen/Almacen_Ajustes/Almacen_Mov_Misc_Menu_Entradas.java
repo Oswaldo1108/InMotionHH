@@ -68,7 +68,7 @@ public class Almacen_Mov_Misc_Menu_Entradas extends AppCompatActivity implements
         //objetos.add(new objetoMenuContext("No Etiquetados",R.drawable.ic_ajuste_noetiqueado, intentNE));
         objetos.add(new objetoMenuContext("Nuevo empaque",R.drawable.ic_baja_pallet,new Intent(contexto,Almacen_Ajustes_NuevoEmpaque.class)));
         objetos.add(new objetoMenuContext("Nuevo pallet NE",R.drawable.ic_ajuste_contenedor,new Intent(contexto,Almacen_Ajustes_AjustePalletSCH.class)));
-        objetos.add(new objetoMenuContext("Unidades a empaque",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Almacen_Ajustes_MultipleSKU.class)));
+        objetos.add(new objetoMenuContext("Unidades a empaque",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Ajustes_AjustesContenedor.class)));
         objetos.add(new objetoMenuContext("Empaque NE a pallet",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Almacen_Ajustes_NuevoEmpaqueSCH.class)));
 
         llenarRecycler(binding.recycler,objetos);

@@ -14,8 +14,8 @@
     <color name="grisClaro">#C2C1C1</color>
     <!--Fin de Colores principales para InMotion-->
 
-    <color name="colorPrimary">#394264</color>
-    <color name="colorPrimaryDark">#323a59</color>
+    <color name="colorPrimary">#0C8042</color><!--#394264-->
+    <color name="colorPrimaryDark">#004225</color><!--#323a59-->
     <color name="colorAccent">#B3B3B3</color>
     <color name="grisAXC">#B3B3B3</color>
     <color name="grisAXCTrans">#90B3B3B3</color>
