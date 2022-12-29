@@ -14,7 +14,7 @@
 
     <item android:state_enabled="true">
         <shape android:shape="oval">
-            <solid android:color="@color/fondoAzul"/>
+            <solid android:color="@color/verdeLogoInMotion"/>
             <size android:width="40dp"
                 android:height="80dp"/>
             <padding android:bottom="4dp" android:top="4dp"/>

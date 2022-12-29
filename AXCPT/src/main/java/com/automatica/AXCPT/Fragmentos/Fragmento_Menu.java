@@ -35,6 +35,7 @@ import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenuInventarios;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.c_Almacen.Almacen.Reubicar_Menu;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Ajustes_Menu;
+import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_SelecEntradasSalidas;
 import com.automatica.AXCPT.c_Almacen.Cuarentena.MenuNuevo;
 import com.automatica.AXCPT.c_Almacen.Devolucion.DevolucionEmpaque;
 import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionOrdenDevolucion;
@@ -232,7 +233,7 @@ public class Fragmento_Menu extends Fragment{
                     ArrayList<objetoMenu> datos = new ArrayList<>();
                     datos.add(new objetoMenu(getString(R.string.menu_colocacion),new Intent(getContext(), ValidarColocar.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_reubicacion),new Intent(getContext(), Reubicar_Menu.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_mov_misc),new Intent(getContext(), Almacen_Ajustes_Menu.class)));
+                    datos.add(new objetoMenu(getString(R.string.menu_mov_misc),new Intent(getContext(), Almacen_Mov_Misc_SelecEntradasSalidas.class)));
                     //datos.add(new objetoMenu("Devolución",new Intent(getContext(), Seleccion_DevolucionPT.class)));
                     //datos.add(new objetoMenu("Validación",new Intent(getContext(), ValidacionIngreso.class)));
                     //datos.add(new objetoMenu( getString(R.string.menu_reabastimiento),new Intent(getContext(), ReabPK_Seleccion_Material.class)));

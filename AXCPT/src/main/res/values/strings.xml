@@ -129,6 +129,8 @@
     <string name="Colocar">Colocar</string>
     <string name="Reubicar">Reubicar</string>
     <string name="Ajustes">Ajustes</string>
+    <string name="misc_entradas">Entradas</string>
+    <string name="misc_salidas">Salidas</string>
     <string name="Ajustes_nuevo_pallet">Nuevo pallet</string>
     <string name="Ajustes_nuevo_empaque">Nuevo empaque</string>
     <string name="Ajustes_nuevo_contenedor">Nuevo contenedor</string>

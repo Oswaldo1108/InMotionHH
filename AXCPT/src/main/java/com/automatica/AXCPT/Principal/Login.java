@@ -237,7 +237,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
         });
 
 
-        ImageView iv = (ImageView) findViewById(R.id.imgv_AXC);
+        ImageView iv = (ImageView) findViewById(R.id.imgv_INMOTION);
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
