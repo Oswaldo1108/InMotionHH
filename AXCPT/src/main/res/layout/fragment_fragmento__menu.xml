@@ -33,14 +33,14 @@
 
             <include
                 android:id="@+id/toolbar"
-                layout="@layout/toolbar_inicio"
+                layout="@layout/toolbar_frgm_menu_inmotion"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="300dp"
                 android:layout_height="0dp"
-                android:background="@color/fondoAzul"
+                android:background="@color/verdeAXCMid"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -107,15 +107,14 @@
                             android:id="@+id/recyclerRecepcion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
                             android:textColor="@color/blancoLetraStd"
-                            />
+                            android:visibility="gone" />
 
                         <androidx.cardview.widget.CardView
-                            android:visibility="gone"
                             android:id="@+id/CardConsultas"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             app:cardBackgroundColor="@color/Transparente">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -218,9 +217,8 @@
                             android:id="@+id/recyclerAlmacen"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
                             android:textColor="@color/blancoLetraStd"
-                            />
+                            android:visibility="gone" />
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/CardSurtido"
@@ -273,28 +271,24 @@
                             android:id="@+id/recyclerSurtido"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
                             android:textColor="@color/blancoLetraStd"
-                            />
+                            android:visibility="gone" />
 
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerRecepcionSE"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
                             android:textColor="@color/blancoLetraStd"
-                            />
-
+                            android:visibility="gone" />
 
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerTransfer"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
                             android:textColor="@color/blancoLetraStd"
-                            />
+                            android:visibility="gone" />
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/CardInventarios"
@@ -347,14 +341,14 @@
                             android:id="@+id/recyclerInventarios"
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:visibility="gone"
                             android:textColor="@color/blancoLetraStd"
-                            />
+                            android:visibility="gone" />
 
                         <androidx.cardview.widget.CardView
                             android:id="@+id/CardProduccion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             app:cardBackgroundColor="@color/Transparente">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -402,8 +396,8 @@
                             android:id="@+id/recyclerProduccion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone"
-                            android:textColor="@color/blancoLetraStd"/>
+                            android:textColor="@color/blancoLetraStd"
+                            android:visibility="gone" />
 
                     </LinearLayout>
                 </ScrollView>

@@ -67,6 +67,12 @@
             android:name=".c_Almacen.Almacen_Ajustes.Almacen_Ajustes_MultipleSKU"
             android:exported="false" />
         <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_SelecEntradasSalidas"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_Menu_Entradas"
+            android:exported="false" />
+        <activity
             android:name=".Prueba.Prueba"
             android:exported="false" />
         <activity

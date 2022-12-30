@@ -35,6 +35,7 @@ import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenuInventarios;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.c_Almacen.Almacen.Reubicar_Menu;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Ajustes_Menu;
+import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_SelecEntradasSalidas;
 import com.automatica.AXCPT.c_Almacen.Cuarentena.MenuNuevo;
 import com.automatica.AXCPT.c_Almacen.Devolucion.DevolucionEmpaque;
 import com.automatica.AXCPT.c_Almacen.Devolucion.SeleccionOrdenDevolucion;
@@ -203,28 +204,88 @@ public class Fragmento_Menu extends Fragment{
             }
         });
 
+
+        //--------------------------------------------MENÚS EN USO INMOTION--------------------------------------------------------------------
         CardRecepcion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 recyclerRecepcion = view.findViewById(R.id.recyclerRecepcion);
                 if (recyclerRecepcion.getVisibility() == View.GONE){
                     ArrayList<objetoMenu> datos = new ArrayList<>();
-                    datos.add(new objetoMenu(getString(R.string.menu_conteo), new Intent(getContext(), RecepcionSeleccionarHC.class)));
+                    //datos.add(new objetoMenu(getString(R.string.menu_conteo), new Intent(getContext(), RecepcionSeleccionarHC.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_recepcion), new Intent(getContext(), RecepcionSeleccionar.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_pegado_etiquetas), new Intent(getContext(), RecepcionPegadoEtiqueta.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_validacion_calidad), new Intent(getContext(), ValidacionCalidad.class)));
+                    //datos.add(new objetoMenu(getString(R.string.menu_validacion_calidad), new Intent(getContext(), ValidacionCalidad.class)));
                  //   datos.add(new objetoMenu(getString(R.string.almacen_armado_tarimas_PyU), new Intent(getContext(), ValidacionCalidad.class)));
                     llenarRecycler(recyclerRecepcion, datos);
                     recyclerRecepcion.setVisibility(View.VISIBLE);
                 }else{
                     recyclerRecepcion.setVisibility(View.GONE);
                 }
-               /* Intent intent = new Intent(getContext(),RecepcionSeleccionar.class);
-                startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);*/
             }
         });
 
+        CardAlmacen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecyclerView recyclerView = view.findViewById(R.id.recyclerAlmacen);
+                if (recyclerView.getVisibility() == View.GONE) {
+                    ArrayList<objetoMenu> datos = new ArrayList<>();
+                    datos.add(new objetoMenu(getString(R.string.menu_colocacion),new Intent(getContext(), ValidarColocar.class)));
+                    datos.add(new objetoMenu(getString(R.string.menu_reubicacion),new Intent(getContext(), Reubicar_Menu.class)));
+                    datos.add(new objetoMenu(getString(R.string.menu_mov_misc),new Intent(getContext(), Almacen_Mov_Misc_SelecEntradasSalidas.class)));
+                    //datos.add(new objetoMenu("Devolución",new Intent(getContext(), Seleccion_DevolucionPT.class)));
+                    //datos.add(new objetoMenu("Validación",new Intent(getContext(), ValidacionIngreso.class)));
+                    //datos.add(new objetoMenu( getString(R.string.menu_reabastimiento),new Intent(getContext(), ReabPK_Seleccion_Material.class)));
+                    //datos.add(new objetoMenu(getString(R.string.menu_cuarentena),new Intent(getContext(), MenuNuevo.class)));
+                    //datos.add(new objetoMenu(getString(R.string.recepcion_recepcion_por_empaque_traspasos), new Intent(getContext(), MenuTraspaso.class)));
+                    //datos.add(new objetoMenu("Devolución", new Intent(getContext(), SeleccionOrdenDevolucion.class)));
+                    llenarRecycler(recyclerView, datos);
+                    recyclerView.setVisibility(View.VISIBLE);
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        CardSurtido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecyclerView recyclerView = view.findViewById(R.id.recyclerSurtido);
+                if (recyclerView.getVisibility() == View.GONE) {
+                    ArrayList<objetoMenu> datos = new ArrayList<>();
+                    datos.add(new objetoMenu(getString(R.string.menu_embarques),new Intent(getContext(), Surtido_Seleccion_Orden.class)));
+                    datos.add(new objetoMenu("Validación",new Intent(getContext(), Validacion_Seleccion_Orden.class)));
+                    datos.add(new objetoMenu(getString(R.string.menu_reempaque),new Intent(getContext(), Reempaque_Seleccion_Orden.class)));
+                    //   datos.add(new objetoMenu(getString(R.string.menu_validacion),new Intent(getContext(), Validacion_Seleccion_Orden.class)));
+                    // datos.add(new objetoMenu(getString(R.string.menu_cancelacion),new Intent(getContext(), CancelacionEmbarque.class)));    //AQUI SE METE CANCELACIÓN
+                    llenarRecycler(recyclerView, datos);
+                    recyclerView.setVisibility(View.VISIBLE);
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                }
+            }
+        });
+        CardInventarios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecyclerView recyclerView = view.findViewById(R.id.recyclerInventarios);
+                if (recyclerView.getVisibility() == View.GONE) {
+                    ArrayList<objetoMenu> datos = new ArrayList<>();
+                    datos.add(new objetoMenu(getString(R.string.menu_inventario_posicion),new Intent(getContext(), Inventarios_PorPosicion.class),1));
+                    datos.add(new objetoMenu(getString(R.string.menu_inventario_articulo),new Intent(getContext(), Inventarios_PorProductoMulti.class),2));
+                    //datos.add(new objetoMenu(getString(R.string.menu_inventario_físico),new Intent(getContext(), Inventarios_PantallaPrincipal.class),3));
+                    Log.i("Elementos", String.valueOf(datos.size()));
+                    llenarRecyclerInventarios(recyclerView, datos);
+                    recyclerView.setVisibility(View.VISIBLE);
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                }
+            }
+        });
+        //-------------------------------------------- FIN DE MENÚS EN USO INMOTION--------------------------------------------------------------------
+
+        //--------------------------------------------MENÚS OCULTOS INMOTION--------------------------------------------------------------------
         CardProduccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,9 +302,7 @@ public class Fragmento_Menu extends Fragment{
                 }else{
                     recyclerView.setVisibility(View.GONE);
                 }
-               /* Intent intent = new Intent(getContext(),RecepcionSeleccionar.class);
-                startActivity(intent);
-                getActivity().overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);*/
+
             }
         });
 
@@ -261,69 +320,8 @@ public class Fragmento_Menu extends Fragment{
                 }
             }
         });
+        //--------------------------------------------FIN DE MENÚS OCULTOS INMOTION--------------------------------------------------------------------
 
-        CardAlmacen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecyclerView recyclerView = view.findViewById(R.id.recyclerAlmacen);
-                if (recyclerView.getVisibility() == View.GONE) {
-                    ArrayList<objetoMenu> datos = new ArrayList<>();
-                    //datos.add(new objetoMenu("Devolución",new Intent(getContext(), Seleccion_DevolucionPT.class)));
-                    datos.add(new objetoMenu("Validación",new Intent(getContext(), ValidacionIngreso.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_colocacion),new Intent(getContext(), ValidarColocar.class)));
-                    datos.add(new objetoMenu( getString(R.string.menu_reabastimiento),new Intent(getContext(), ReabPK_Seleccion_Material.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_reubicacion),new Intent(getContext(), Reubicar_Menu.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_ajustes),new Intent(getContext(), Almacen_Ajustes_Menu.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_cuarentena),new Intent(getContext(), MenuNuevo.class)));
-                    datos.add(new objetoMenu(getString(R.string.recepcion_recepcion_por_empaque_traspasos), new Intent(getContext(), MenuTraspaso.class)));
-                    datos.add(new objetoMenu("Devolución", new Intent(getContext(), SeleccionOrdenDevolucion.class)));
-                   llenarRecycler(recyclerView, datos);
-                    recyclerView.setVisibility(View.VISIBLE);
-                } else {
-                    recyclerView.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        CardSurtido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecyclerView recyclerView = view.findViewById(R.id.recyclerSurtido);
-                if (recyclerView.getVisibility() == View.GONE) {
-                    ArrayList<objetoMenu> datos = new ArrayList<>();
-                    datos.add(new objetoMenu(getString(R.string.menu_embarques),new Intent(getContext(), Surtido_Seleccion_Orden.class)));
-                    datos.add(new objetoMenu("Validación",new Intent(getContext(), Validacion_Seleccion_Orden.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_reempaque),new Intent(getContext(), Reempaque_Seleccion_Orden.class)));
-                 //   datos.add(new objetoMenu(getString(R.string.menu_validacion),new Intent(getContext(), Validacion_Seleccion_Orden.class)));
-
-                   // datos.add(new objetoMenu(getString(R.string.menu_cancelacion),new Intent(getContext(), CancelacionEmbarque.class)));    //AQUI SE METE CANCELACIÓN
-                    llenarRecycler(recyclerView, datos);
-                    recyclerView.setVisibility(View.VISIBLE);
-                } else {
-                    recyclerView.setVisibility(View.GONE);
-                }
-            }
-        });
-        CardInventarios.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecyclerView recyclerView = view.findViewById(R.id.recyclerInventarios);
-                if (recyclerView.getVisibility() == View.GONE) {
-                    ArrayList<objetoMenu> datos = new ArrayList<>();
-                    datos.add(new objetoMenu(getString(R.string.menu_inventario_posicion),new Intent(getContext(), Inventarios_PorPosicion.class),1));
-                    datos.add(new objetoMenu(getString(R.string.menu_inventario_articulo),new Intent(getContext(), Inventarios_PorProductoMulti.class),2));
-                    datos.add(new objetoMenu(getString(R.string.menu_inventario_físico),new Intent(getContext(), Inventarios_PantallaPrincipal.class),3));
-                    Log.i("Elementos", String.valueOf(datos.size()));
-                    llenarRecyclerInventarios(recyclerView, datos);
-                    recyclerView.setVisibility(View.VISIBLE);
-                } else {
-                    recyclerView.setVisibility(View.GONE);
-                }
-            }
-        });
-
-
-        
         binding.pantallaNegra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

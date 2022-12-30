@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#394264</color>
-    <color name="colorPrimaryDark">#323a59</color>
+    <!--Colores principales para InMotion-->
+    <color name="verdeLogoInMotion">#004225</color>
+    <color name="verdeClaro">#9BFAB0</color>
+    <color name="verdeAXCMax">#0C8042</color>
+    <color name="verdeAXCMid">#0C9A4E</color>
+    <color name="verdeAXCLow">#10CD68</color>
+
+    <color name="naranjaLogoInMotion">#E87D25</color>
+
+    <color name="grisOscuro">#666264</color>
+    <color name="grisMedio">#938F91</color>
+    <color name="grisClaro">#C2C1C1</color>
+    <!--Fin de Colores principales para InMotion-->
+
+    <color name="colorPrimary">#0C8042</color><!--#394264-->
+    <color name="colorPrimaryDark">#004225</color><!--#323a59-->
     <color name="colorAccent">#B3B3B3</color>
     <color name="grisAXC">#B3B3B3</color>
     <color name="grisAXCTrans">#90B3B3B3</color>
@@ -31,15 +45,15 @@
 
 
 
-    <color name="taskBarAzul">#394264</color>
-    <color name="fondoAzul">#3f4769</color>
-    <color name="camposAzul">#323a59</color>
+    <color name="taskBarAzul">#0C8042</color><!--#394264-->
+    <color name="fondoAzul">#0C8042</color><!--#3f4769-->
+    <color name="camposAzul">#666264</color><!--#323a59-->
 
 
     <!--Colores menu-->
-    <color name="verdeAXCMax">#0C8042</color>
-    <color name="verdeAXCMid">#0C9A4E</color>
-    <color name="verdeAXCLow">#10CD68</color>
+    <!--<color name="verdeAXCMax">#0C8042</color>-->
+    <!--<color name="verdeAXCMid">#0C9A4E</color>-->
+    <!--<color name="verdeAXCLow">#10CD68</color>-->
     <color name="verdeAXCxLox">#9CF6C6</color>
 
     <color name="naranjaAXCMax">#E87D25</color>
