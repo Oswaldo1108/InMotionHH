@@ -112,6 +112,7 @@
     <string name="menu_reabastimiento">Reabastecimiento</string>
     <string name="menu_colocacion">Colocación</string>
     <string name="menu_reubicacion">Reubicación</string>
+    <string name="menu_mov_misc">Movimientos misceláneos</string>
     <string name="menu_ajustes">Ajustes</string>
     <string name="menu_cuarentena">Cuarentena</string>
     <string name="menu_reempaque">Reempaque</string>
