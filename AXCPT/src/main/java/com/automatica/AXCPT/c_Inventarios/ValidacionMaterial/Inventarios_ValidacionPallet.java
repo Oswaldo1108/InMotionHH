@@ -545,19 +545,19 @@ public class Inventarios_ValidacionPallet extends AppCompatActivity implements f
                             tvCantidadTotal.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Unidades"));
                             edtx_Empaques.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Empaques"));
                             edtx_Lote.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Lote"));
+                            edtx_Unidades.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadXEmpaque"));
 
-                            if(dao.getSoapObject_parced().getPrimitivePropertyAsString("TipoReg").equals("1"))
+                            if(dao.getSoapObject_parced().getPrimitivePropertyAsString("TipoReg").equals("NE"))
                             {
                                 txtv_TipoReg.setText("No etiquetado");
                                 chk_Editar.setEnabled(true);
                                 btn_Empaques.setEnabled(false);
                             }
-                            else
+                            else if(dao.getSoapObject_parced().getPrimitivePropertyAsString("TipoReg").equals("E"))
                             {
                                 txtv_TipoReg.setText("Etiquetado");
-
-                                    chk_Editar.setEnabled(false);
-                                    btn_Empaques.setEnabled(true);
+                                chk_Editar.setEnabled(false);
+                                btn_Empaques.setEnabled(true);
 
                             }
 

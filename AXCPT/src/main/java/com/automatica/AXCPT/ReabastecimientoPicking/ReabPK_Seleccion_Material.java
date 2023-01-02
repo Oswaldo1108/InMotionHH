@@ -97,6 +97,7 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
 
                 taskbar_axc= (frgmnt_taskbar_AXC) frgmnt_taskbar_AXC.newInstance("","");
                 getSupportFragmentManager().beginTransaction().add(findViewById(R.id.FrameLayout).getId(),taskbar_axc,"FragmentoTaskBar").commit();
+                lanzaRebasteceSinOrden();
             }catch (Exception e)
             {
                 e.printStackTrace();
@@ -483,7 +484,7 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
 
     @Override
     public void onBackPressed() {
-        if (!taskbar_axc.toggle()){
+       /* if (!taskbar_axc.toggle()){
             return;
         }else {
             taskbar_axc.toggle();
@@ -496,7 +497,7 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
         if (getSupportFragmentManager().getBackStackEntryCount()>0){
             getSupportFragmentManager().popBackStack();
             return;
-        }
+        }*/
         Intent intent = new Intent(ReabPK_Seleccion_Material.this, Inicio_Menu_Dinamico.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
