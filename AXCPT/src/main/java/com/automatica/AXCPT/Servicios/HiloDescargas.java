@@ -48,11 +48,11 @@ public class HiloDescargas extends Service {
             SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             String Vversion = pref.getString("Vversion","1.0.0.0");
 
-            Version="AXCVDE"+Vversion;
+            Version="INMOTION"+Vversion;
             //http://192.168.1.181/AXCSchPT/APKS/AXCSchPT_1.0.0.1.apk
             //http://192.168.1.181/AXCSchPT/APKS/AXCSchPT_1.0.0.1.apk
 
-            String url = "http://"+pref.getString("direccionWebService","192.168.1.181")+"/"+pref.getString("Ruta","wsAXCVDE")+"/APKS/"+Version+".apk";
+            String url = "http://"+pref.getString("direccionWebService","192.168.1.181")+"/"+pref.getString("Ruta","wsINMOTION")+"/APKS/"+Version+".apk";
             Log.i("URL",url);
             final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
             request.setDescription("Descargando...");

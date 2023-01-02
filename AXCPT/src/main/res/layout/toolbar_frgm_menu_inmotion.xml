@@ -10,12 +10,12 @@
     app:contentInsetLeft="10dp"
     app:contentInsetStart="10dp"
     app:contentInsetStartWithNavigation="0dp"
-    app:logo="@drawable/ic_baseline_menu_24"
+    app:logo="@mipmap/inmotion_logo_mini"
     app:title="Titulo toolbar"
     app:titleMarginStart="15dp"
     app:titleTextAppearance="@style/ToolbarTitleTheme"
     app:titleTextColor="@color/blancoLetraStd">
     <!-- app:navigationIcon="@drawable/arrow_down"-->
-    <!--android:layout_height=wrap_content original-->
+
 </androidx.appcompat.widget.Toolbar>
 

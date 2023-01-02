@@ -239,7 +239,7 @@ Context contexto;
     public void CreaSeleccionador(String Titulo,final Activity activity, String[] Seleccionables,DialogInterface.OnClickListener listener)
     {
         AlertDialog.Builder builderSingle = new AlertDialog.Builder(activity);
-        builderSingle.setIcon(R.mipmap.logo_x_150x150_);
+        builderSingle.setIcon(R.mipmap.inmotion_logo_mini);
         builderSingle.setTitle(Titulo);
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(activity, android.R.layout.select_dialog_singlechoice);

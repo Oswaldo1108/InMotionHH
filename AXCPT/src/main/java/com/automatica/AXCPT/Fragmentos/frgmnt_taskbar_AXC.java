@@ -198,9 +198,9 @@ public class frgmnt_taskbar_AXC extends Fragment
         items.add(new Item(getString(R.string.taskbar_consulta_pallet),getContext().getResources().getDrawable(R.drawable.ic__1cons_pallet),FragmentoConsulta.newInstance(null,FragmentoConsulta.TIPO_PALLET),FragmentoConsulta.TAG));
         items.add(new Item(getString(R.string.taskbar_consulta_empaque),getContext().getResources().getDrawable(R.drawable.ic__2_cons_empaque),FragmentoConsulta.newInstance(null,FragmentoConsulta.TIPO_EMPAQUE),FragmentoConsulta.TAG));
         items.add(new Item(getString(R.string.taskbar_consulta_existencias),getContext().getResources().getDrawable(R.drawable.ic__3_cons_exist),FragmentoConsulta.newInstance(null,FragmentoConsulta.TIPO_EXISTENCIA),FragmentoConsulta.TAG));
-        items.add(new Item(getString(R.string.taskbar_consulta_referencia),getContext().getResources().getDrawable(R.drawable.ic__4_cons_referencia),FragmentoConsulta.newInstance(null,FragmentoConsulta.TIPO_REFERENCIA),FragmentoConsulta.TAG));
         items.add(new Item(getString(R.string.taskbar_consulta_posicion),getContext().getResources().getDrawable(R.drawable.ic__5_cons_posici_n),FragmentoConsulta.newInstance(null,FragmentoConsulta.TIPO_POSICION),FragmentoConsulta.TAG));
-        items.add(new Item(getString(R.string.taskbar_impresion),getContext().getResources().getDrawable(R.drawable.ic_impresion_producto), FragmentoImpresionesPorArticulo.newInstance(null, null, new FragmentoImpresionesPorArticulo.interfazImpresiones() {
+        //items.add(new Item(getString(R.string.taskbar_consulta_referencia),getContext().getResources().getDrawable(R.drawable.ic__4_cons_referencia),FragmentoConsulta.newInstance(null,FragmentoConsulta.TIPO_REFERENCIA),FragmentoConsulta.TAG));
+        /*items.add(new Item(getString(R.string.taskbar_impresion),getContext().getResources().getDrawable(R.drawable.ic_impresion_producto), FragmentoImpresionesPorArticulo.newInstance(null, null, new FragmentoImpresionesPorArticulo.interfazImpresiones() {
             @Override
             public void taskbarGoneButton() {
                 toggle();
@@ -220,7 +220,7 @@ public class frgmnt_taskbar_AXC extends Fragment
                 toggle();
                 toggle();
             }
-        }),FragmentoConsulta.TAG));
+        }),FragmentoConsulta.TAG));*/
     }
 
 

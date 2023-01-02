@@ -1,52 +1,37 @@
 package com.automatica.AXCPT.c_Almacen.Almacen_Ajustes;
 
-import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.ComponentName;
+import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenu;
 import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenuSeleccion;
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
-import com.automatica.AXCPT.Principal.Inicio_Menu_Dinamico;
-import com.automatica.AXCPT.Principal.adaptadorTablaMenuPrincipal;
-import com.automatica.AXCPT.Principal.constructorTablaMenuPrincipal;
 import com.automatica.AXCPT.R;
-import com.automatica.AXCPT.ReabastecimientoPicking.ReabPK_Seleccion_Material;
 import com.automatica.AXCPT.Servicios.cambiaColorStatusBar;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_Ciesa.Ajustes_AjustesContenedor;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_AjustePalletSCH;
-import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_BajaEmpaqueSCH;
-import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_CambioMercado;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_NuevoEmpaqueSCH;
 import com.automatica.AXCPT.databinding.ActivityMenuBinding;
-import com.automatica.AXCPT.objetos.objetoMenu;
 import com.automatica.AXCPT.objetos.objetoMenuContext;
 
 import java.util.ArrayList;
 
-import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;
-
-public class Almacen_Ajustes_Menu extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar
+public class Almacen_Mov_Misc_Menu_Salidas extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar
 {
     ListView ListaAlmacen;
     Context contexto = this;
@@ -63,10 +48,8 @@ public class Almacen_Ajustes_Menu extends AppCompatActivity implements frgmnt_ta
         registerForContextMenu(binding.recycler);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        this.getSupportActionBar().setTitle(getString(R.string.Ajustes));
-        new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Almacen_Ajustes_Menu.this);
-
-        //----------------------Código original v-------------------------------------------------------------------------
+        this.getSupportActionBar().setTitle(getString(R.string.misc_salidas));
+        new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Almacen_Mov_Misc_Menu_Salidas.this);
         /*ArrayList<objetoMenu> intentsEtiquetados= new ArrayList<>();
         intentsEtiquetados.add(new objetoMenu("Nuevo pallet",new Intent(contexto,Almacen_Ajustes_AjustePallet.class)));
         intentsEtiquetados.add(new objetoMenu("Nuevo empaque",new Intent(contexto,Almacen_Ajustes_NuevoEmpaque.class)));
@@ -75,26 +58,15 @@ public class Almacen_Ajustes_Menu extends AppCompatActivity implements frgmnt_ta
         ArrayList<objetoMenu> intentNE = new ArrayList<>();
         intentNE.add(new objetoMenu("Nuevo pallet NE",new Intent(contexto,Almacen_Ajustes_AjustePalletSCH.class)));
         intentNE.add(new objetoMenu("Nuevo empaque NE",new Intent(contexto,Almacen_Ajustes_NuevoEmpaqueSCH.class)));
-        intentNE.add(new objetoMenu("Baja empaque NE",new Intent(contexto,Almacen_Ajustes_BajaEmpaqueSCH.class)));
+        intentNE.add(new objetoMenu("Baja empaque NE",new Intent(contexto,Almacen_Ajustes_BajaEmpaqueSCH.class)));*/
 
         ArrayList<objetoMenuContext> objetos= new ArrayList<>();
-        objetos.add(new objetoMenuContext("Etiquetados",R.drawable.ic_ajuste_etiqueado, intentsEtiquetados));
-        objetos.add(new objetoMenuContext("No Etiquetados",R.drawable.ic_ajuste_noetiqueado, intentNE));
-        objetos.add(new objetoMenuContext("Baja pallet",R.drawable.ic_baja_pallet,new Intent(contexto,Almacen_Ajustes_BajaPallet.class)));
-        objetos.add(new objetoMenuContext("Ajustes contenedor",R.drawable.ic_ajuste_contenedor,new Intent(contexto, Ajustes_AjustesContenedor.class)));
-        objetos.add(new objetoMenuContext("Ajustes Múltiple SKU",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Almacen_Ajustes_MultipleSKU.class)));*/
-        //----------------------Código original ^-------------------------------------------------------------------------
-        //---------------------Código provisional para InMotion mov misc--------------------------------------------------
-        ArrayList<objetoMenuContext> objetos= new ArrayList<>();
-        objetos.add(new objetoMenuContext("Nuevo empaque",R.drawable.ic_baja_pallet,new Intent(contexto,Almacen_Ajustes_NuevoEmpaque.class)));
-        objetos.add(new objetoMenuContext("Nuevo pallet NE",R.drawable.ic_ajuste_contenedor,new Intent(contexto,Almacen_Ajustes_AjustePalletSCH.class)));
-        objetos.add(new objetoMenuContext("Unidades",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Ajustes_AjustesContenedor.class)));
-        objetos.add(new objetoMenuContext("Empaque NE a pallet",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Almacen_Ajustes_NuevoEmpaqueSCH.class)));
+        //objetos.add(new objetoMenuContext("Etiquetados",R.drawable.ic_ajuste_etiqueado, intentsEtiquetados));
+        //objetos.add(new objetoMenuContext("No Etiquetados",R.drawable.ic_ajuste_noetiqueado, intentNE));
         objetos.add(new objetoMenuContext("Baja empaque",R.drawable.ic_baja_pallet,new Intent(contexto,Almacen_Ajustes_BajaEmpaque.class)));
         objetos.add(new objetoMenuContext("Baja Pallet",R.drawable.ic_ajuste_contenedor,new Intent(contexto,Almacen_Ajustes_BajaPallet.class)));
         objetos.add(new objetoMenuContext("Baja Unidades",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Ajustes_AjustesContenedor.class)));
         objetos.add(new objetoMenuContext("Baja empaque NE",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Almacen_Ajustes_BajaEmpaque.class)));
-        //---------------------Fin de Código provisional para InMotion mov misc--------------------------------------------------
 
         llenarRecycler(binding.recycler,objetos);
         View logoView = getToolbarLogoIcon((Toolbar) findViewById(R.id.toolbar));
@@ -169,7 +141,7 @@ public class Almacen_Ajustes_Menu extends AppCompatActivity implements frgmnt_ta
             getSupportFragmentManager().popBackStack();
             return;
         }
-        Intent intent = new Intent(Almacen_Ajustes_Menu.this, Inicio_Menu_Dinamico.class);
+        Intent intent = new Intent(Almacen_Mov_Misc_Menu_Salidas.this, Almacen_Mov_Misc_SelecEntradasSalidas.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);

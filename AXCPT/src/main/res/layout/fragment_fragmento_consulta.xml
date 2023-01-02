@@ -34,52 +34,56 @@
 
 
             <LinearLayout
-                android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="8dp">
+
                 <TextView
                     android:id="@+id/subtitulo"
+                    style="@style/EstiloTexto_Blanco_Bold"
                     android:layout_width="wrap_content"
                     android:layout_height="30sp"
-                    android:text="Subtitulo:"
-                    style="@style/EstiloTexto_Blanco_Bold"/>
+                    android:text="Subtitulo:" />
+
                 <EditText
                     android:id="@+id/edtx_Codigo"
+                    style="@style/Estilo_EditText_WhiteBackground"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:hint=""
-                    android:singleLine="true"
-                    style="@style/Estilo_EditText_WhiteBackground"/>
+                    android:singleLine="true" />
             </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler"
-                android:visibility="gone"
-                android:layout_margin="8dp"
-                android:background="@drawable/orilla_layout_cuadro_top"
-                android:scrollbarThumbVertical="@drawable/thumb_scrollbar"
-                android:scrollbarTrackVertical="@drawable/track_scrollbar"
-                android:fadeScrollbars="false"
-                android:scrollbars="vertical"
-                android:scrollbarStyle="insideInset"
-                android:scrollbarSize="8dp"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-            <include layout="@layout/customtableview"
-                android:layout_margin="8dp"
-                android:visibility="gone"
-                android:id="@+id/hsv_tabla_embarques"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbarTrackHorizontal="@drawable/track_scrollbar_horizontal"
+                android:layout_margin="8dp"
+                android:background="@drawable/orilla_layout_cuadro_top"
+                android:fadeScrollbars="false"
+                android:orientation="vertical"
+                android:scrollbarSize="8dp"
+                android:scrollbarStyle="insideInset"
+                android:scrollbarThumbVertical="@drawable/thumb_scrollbar"
+                android:scrollbarTrackVertical="@drawable/track_scrollbar"
+                android:scrollbars="vertical"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/hsv_tabla_embarques"
+                layout="@layout/customtableview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
                 android:scrollbarThumbHorizontal="@drawable/thumb_scrollbar_horizontal"
+                android:scrollbarTrackHorizontal="@drawable/track_scrollbar_horizontal"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtv_Referencia"/>
+                app:layout_constraintTop_toBottomOf="@+id/txtv_Referencia" />
 
         </LinearLayout>
         <FrameLayout

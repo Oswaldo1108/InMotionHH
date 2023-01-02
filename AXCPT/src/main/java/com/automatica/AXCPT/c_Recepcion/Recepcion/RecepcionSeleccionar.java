@@ -216,7 +216,7 @@ public class RecepcionSeleccionar extends AppCompatActivity implements TableView
 
                     case "LlenarTabla":
 
-                        dao = ca.c_ListarOrdenesCompraContadas(documento);
+                        dao = ca.c_ListarOrdenesCompraLiberadas(documento);
 
                         break;
 

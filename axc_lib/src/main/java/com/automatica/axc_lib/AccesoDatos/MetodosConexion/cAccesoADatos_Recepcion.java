@@ -514,7 +514,7 @@ public class cAccesoADatos_Recepcion  extends conexionWS2{
     public DataAccessObject c_ListarPartidasOCLiberadas(String prmOrdenCompra)
     {
         conexionWS c = new conexionWS();
-        String METHOD_NAME = "WM_ListarPartidasOCContadas";
+        String METHOD_NAME = "WM_ListarPartidasOCLiberadas";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmOrdenCompra",prmOrdenCompra );
         request.addProperty("prmEstacion",Estacion);

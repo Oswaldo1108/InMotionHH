@@ -28,11 +28,11 @@
     <FrameLayout
         android:id="@+id/frameGrid"
         android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/negroTrans"
         android:clickable="true"
         android:focusable="true"
-        android:layout_height="0dp"
         android:visibility="gone"
-        android:background="@color/negroTrans"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,70 +60,68 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
-        android:layout_height="67dp"
-        android:background="@drawable/orilla_layout_linea_arriba"
+        android:layout_height="50dp"
+        android:background="@color/verdeLogoInMotion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+        <!--android:layout_height="67dp" original-->
 
         <Button
             android:id="@+id/BotonIzqu"
             android:layout_width="0dp"
-            android:focusableInTouchMode="true"
-            android:focusable="false"
-            android:layout_height="50dp"
+            android:layout_height="35dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="4dp"
-            android:textAlignment="center"
-            android:background="@drawable/boton_taskbar"
+            android:layout_marginEnd="8dp"
+            android:background="@color/verdeLogoInMotion"
             android:drawableStart="@drawable/ic_left_blanco"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:paddingStart="4dp"
             android:scaleType="centerInside"
             android:text="Atrás"
+            android:textAlignment="center"
             android:textColor="@color/blancoLetraStd"
             android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="75dp"
-            android:layout_height="65dp"
+            android:layout_width="54dp"
+            android:layout_height="39dp"
+            android:background="@drawable/boton_taskbar_central"
             android:clickable="true"
             android:focusable="false"
-            android:background="@drawable/boton_taskbar_central"
             android:scaleType="centerInside"
-            android:src="@mipmap/logo_x_150x150_"
+            android:src="@mipmap/ic_i_inmotion_prueba"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/BotonDer"
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="4dp"
-            android:textAlignment="center"
+            android:layout_height="35dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/boton_taskbar"
+            android:background="@color/verdeLogoInMotion"
             android:drawableEnd="@drawable/ic_right_blanco"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:paddingStart="4dp"
             android:scaleType="centerInside"
             android:text="Derecha"
+            android:textAlignment="center"
             android:textColor="@color/blancoLetraStd"
             android:visibility="visible"
-            android:focusableInTouchMode="true"
-            android:focusable="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageButton"
             app:layout_constraintTop_toTopOf="parent" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

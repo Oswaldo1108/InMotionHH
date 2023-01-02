@@ -174,7 +174,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setLogo(null);
-        getSupportActionBar().setTitle("VDE");
+        getSupportActionBar().setTitle(getString(R.string.app_name_titles));
 
         progressBarHolder = (FrameLayout) findViewById(R.id.progressBarHolder);
         et_contraseña = (EditText) findViewById(R.id.pass);
@@ -237,7 +237,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
         });
 
 
-        ImageView iv = (ImageView) findViewById(R.id.imgv_AXC);
+        ImageView iv = (ImageView) findViewById(R.id.imgv_INMOTION);
         iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -331,7 +331,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
                         SegundoPlanover sp = new SegundoPlanover();
                         sp.execute();
                     }
-                },null,R.mipmap.logo_x_150x150_);
+                },null,R.mipmap.inmotion_logo_mini);
             }
 
                /* if (id == R.id.InicioRapido)
@@ -565,7 +565,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
                                     pop.popUpGenericoDefault(getCurrentFocus(),getString(R.string.descarga_encurso),false);
                                 }
                             }
-                        },null,R.mipmap.logo_x_150x150_);
+                        },null,R.mipmap.inmotion_logo_mini);
 
 
                     }else{
