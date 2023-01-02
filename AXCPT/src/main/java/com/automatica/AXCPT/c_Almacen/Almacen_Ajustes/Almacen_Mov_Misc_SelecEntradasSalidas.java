@@ -156,7 +156,7 @@ public class Almacen_Mov_Misc_SelecEntradasSalidas extends AppCompatActivity imp
         binding.linearMiscSalidas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               intent = new Intent(contexto, Almacen_Ajustes_Menu.class);
+               intent = new Intent(contexto, Almacen_Mov_Misc_Menu_Salidas.class);//--Almacen_Ajustes_Menu.class orig --Almacen_Mov_Misc_Menu_Salidas.class
                startActivity(intent);
             }
         });
