@@ -331,7 +331,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
                         SegundoPlanover sp = new SegundoPlanover();
                         sp.execute();
                     }
-                },null,R.mipmap.logo_x_150x150_);
+                },null,R.mipmap.inmotion_logo_mini);
             }
 
                /* if (id == R.id.InicioRapido)
@@ -565,7 +565,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
                                     pop.popUpGenericoDefault(getCurrentFocus(),getString(R.string.descarga_encurso),false);
                                 }
                             }
-                        },null,R.mipmap.logo_x_150x150_);
+                        },null,R.mipmap.inmotion_logo_mini);
 
 
                     }else{

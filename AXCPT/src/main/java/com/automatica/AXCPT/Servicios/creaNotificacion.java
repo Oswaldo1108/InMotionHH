@@ -44,15 +44,15 @@ public class creaNotificacion {
         PendingIntent actionIntent = PendingIntent.getActivity(contexto,0,intentMontacarga, PendingIntent.FLAG_UPDATE_CURRENT);
         Uri sonido= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder= new NotificationCompat.Builder(contexto,"Notificacion");
-        builder.setSmallIcon(R.mipmap.logo_x_150x150_);
-        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.icono_axc_nuevo));
+        builder.setSmallIcon(R.mipmap.inmotion_logo_mini);
+        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.inmotion_logo_mini));
 
         long [] patron={12,50,12};
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(TextoLargo));
         builder.setVibrate(patron);
         builder.setSound(sonido)
         .setContentIntent(actionIntent)
-                .addAction(R.mipmap.logo_x_150x150_, "Pallet pendiente", actionIntent)//.setGroup("AXCNotification")
+                .addAction(R.mipmap.inmotion_logo_mini, "Pallet pendiente", actionIntent)//.setGroup("InMotionNotification")
         .setAutoCancel(true);
         builder.setContentTitle(titulo).setContentText(Contenido).setPriority(NotificationCompat.PRIORITY_MAX);
         //builder.build().flags|= Notification.GROUP_ALERT_ALL|NotificationCompat.GROUP_ALERT_ALL;
@@ -62,10 +62,10 @@ public class creaNotificacion {
                 (NotificationManager) contexto.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
-            String channelId = "CanalAXC1";
+            String channelId = "CanalInMotion1";
             NotificationChannel channel = new NotificationChannel(
                     channelId,
-                    "Canal notificaciones axc",
+                    "Canal notificaciones InMotion",
                     NotificationManager.IMPORTANCE_HIGH);
             channel.setShowBadge(true);
             channel.enableVibration(true);
@@ -99,12 +99,12 @@ public class creaNotificacion {
         CharSequence contentTitle = "Alert Mobile";
         Log.i("Intent", String.valueOf(intent));
         NotificationCompat.Builder builder= new NotificationCompat.Builder(contexto,"Notificacion");
-        builder.setSmallIcon(R.mipmap.logo_x_150x150_);
-        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.icono_axc_nuevo));
+        builder.setSmallIcon(R.mipmap.inmotion_logo_mini);
+        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.inmotion_logo_mini));
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(TextoLargo));
         builder
                 .setContentIntent(actionIntent)
-                .addAction(R.mipmap.logo_x_150x150_, contentTitle, actionIntent)//.setGroup("AXCNotification")
+                .addAction(R.mipmap.inmotion_logo_mini, contentTitle, actionIntent)//.setGroup("InMotionNotification")
                 .setAutoCancel(true);
         builder.setContentTitle(titulo).setContentText(Contenido).setPriority(NotificationCompat.PRIORITY_MAX);
         //builder.build().flags|= Notification.GROUP_ALERT_ALL|NotificationCompat.GROUP_ALERT_ALL;
@@ -114,10 +114,10 @@ public class creaNotificacion {
                 (NotificationManager) contexto.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
-            String channelId = "CanalAXC1";
+            String channelId = "CanalInMotion1";
             NotificationChannel channel = new NotificationChannel(
                     channelId,
-                    "Canal notificaciones axc",
+                    "Canal notificaciones InMotion",
                     NotificationManager.IMPORTANCE_HIGH);
             channel.setShowBadge(true);
             channel.enableVibration(true);
@@ -142,8 +142,8 @@ public class creaNotificacion {
 
         Uri sonido= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder= new NotificationCompat.Builder(contexto,"Notificacion");
-        builder.setSmallIcon(R.mipmap.logo_x_150x150_);
-        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.icono_axc_nuevo));
+        builder.setSmallIcon(R.mipmap.inmotion_logo_mini);
+        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.inmotion_logo_mini));
         long [] patron={12,50,12};
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(TextoLargo));
         builder.setVibrate(patron);
@@ -157,10 +157,10 @@ public class creaNotificacion {
                 (NotificationManager) contexto.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
-            String channelId = "CanalAXC1";
+            String channelId = "CanalInMotion1";
             NotificationChannel channel = new NotificationChannel(
                     channelId,
-                    "Canal notificaciones axc",
+                    "Canal notificaciones InMotion",
                     NotificationManager.IMPORTANCE_HIGH);
             channel.setShowBadge(true);
             channel.enableVibration(true);

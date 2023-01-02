@@ -14,7 +14,7 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
 
-        android:src="@mipmap/logo_x_150x150_"
+        android:src="@mipmap/inmotion_logo_mini"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

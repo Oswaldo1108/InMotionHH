@@ -73,7 +73,7 @@ public class popUpGenerico
             builder.setPositiveButton("Ok",listener);
             builder.setMessage(mensaje);
             aDialog = builder.create();
-            aDialog.setIcon(R.mipmap.logo_x_150x150_);
+            aDialog.setIcon(R.mipmap.inmotion_logo_mini);//        --orig: aDialog.setIcon(R.mipmap.logo_x_150x_150_.png);
             aDialog.setCancelable(false);
             aDialog.show();
         }catch (Exception e)
@@ -111,7 +111,7 @@ public class popUpGenerico
             builder.setTitle(TituloAVISO);
             builder.setMessage(mensaje);
             aDialog = builder.create();
-            aDialog.setIcon(R.mipmap.logo_x_150x150_);
+            aDialog.setIcon(R.mipmap.inmotion_logo_mini);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -241,7 +241,7 @@ public class popUpGenerico
 
 
             aDialog = builder.create();
-            aDialog.setIcon(R.mipmap.logo_x_150x150_);
+            aDialog.setIcon(R.mipmap.inmotion_logo_mini);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -349,7 +349,7 @@ public class popUpGenerico
 
 
             aDialog = builder.create();
-            aDialog.setIcon(R.mipmap.logo_x_150x150_);
+            aDialog.setIcon(R.mipmap.inmotion_logo_mini);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -455,7 +455,7 @@ public class popUpGenerico
 
 
             aDialog = builder.create();
-            aDialog.setIcon(R.mipmap.logo_x_150x150_);
+            aDialog.setIcon(R.mipmap.inmotion_logo_mini);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -511,7 +511,7 @@ public class popUpGenerico
                                 DialogInterface.OnClickListener listenerNo){
         try {
             Vibrator v = (Vibrator) contexto.getSystemService(VIBRATOR_SERVICE);
-            new AlertDialog.Builder(contexto,R.style.AlertDialog).setIcon(R.mipmap.logo_x_150x150_)
+            new AlertDialog.Builder(contexto,R.style.AlertDialog).setIcon(R.mipmap.inmotion_logo_mini)
 
                     .setTitle(Titulo).setCancelable(false)
                     .setPositiveButton("Si", listenerSi)
@@ -533,7 +533,7 @@ public class popUpGenerico
         try {
             Vibrator v = (Vibrator) contexto.getSystemService(VIBRATOR_SERVICE);
             AlertDialog.Builder builder = new AlertDialog.Builder(contexto,R.style.AlertDialog);
-            builder.setIcon(R.mipmap.logo_x_150x150_)
+            builder.setIcon(R.mipmap.inmotion_logo_mini)
                     .setMessage(Mensaje)
                     .setTitle(Titulo).setCancelable(false)
                     .setNegativeButton("No", listenerNo)
@@ -558,7 +558,7 @@ public class popUpGenerico
             Linkify.addLinks(s,Linkify.ALL);
             AlertDialog.Builder builder = new AlertDialog.Builder(contexto,R.style.AlertDialog);
             s.setSpan(new ForegroundColorSpan(contexto.getResources().getColor(color)),0,Link.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.setIcon(R.mipmap.logo_x_150x150_)
+            builder.setIcon(R.mipmap.inmotion_logo_mini)
                     .setMessage(s)
                     .setTitle(Titulo).setCancelable(false)
                     .setNegativeButton("No", listenerNo)
@@ -585,7 +585,7 @@ public class popUpGenerico
             Linkify.addLinks(s,Linkify.ALL);
             AlertDialog.Builder builder = new AlertDialog.Builder(contexto,R.style.AlertDialog);
             s.setSpan(new ForegroundColorSpan(contexto.getResources().getColor(color)),0,Link.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.setIcon(R.mipmap.logo_x_150x150_)
+            builder.setIcon(R.mipmap.inmotion_logo_mini)
                     .setMessage(s)
                     .setTitle(Titulo).setCancelable(false)
                     .setNegativeButton("No", listenerNo)
@@ -607,7 +607,7 @@ public class popUpGenerico
     public void CreaSeleccionador(String Titulo, final Activity activity, String[] Seleccionables, DialogInterface.OnClickListener listener)
     {
         AlertDialog.Builder builderSingle = new AlertDialog.Builder(activity);
-        builderSingle.setIcon(R.mipmap.logo_x_150x150_);
+        builderSingle.setIcon(R.mipmap.inmotion_logo_mini);
         builderSingle.setTitle(Titulo);
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(activity, android.R.layout.select_dialog_singlechoice);
@@ -638,7 +638,7 @@ public class popUpGenerico
                 LinearLayout.LayoutParams.MATCH_PARENT);
         input.setLayoutParams(lp);
         alertDialog.setView(input);
-        alertDialog.setIcon(R.mipmap.logo_x_150x150_);
+        alertDialog.setIcon(R.mipmap.inmotion_logo_mini);
         alertDialog.setPositiveButton("Aceptar",si);
         alertDialog.setNegativeButton("Cancelar",null);
         alertDialog.show();

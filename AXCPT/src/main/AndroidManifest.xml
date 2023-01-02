@@ -24,12 +24,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/inmotion_logo_mini"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/inmotion_logo_mini"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <!--android:icon="@mipmap/ic_launcher"-->
+        <!--android:roundIcon="@mipmap/ic_launcher_round"-->
         <activity
             android:name=".c_Almacen.Cuarentena.RecuperarPallet"
             android:exported="false" />
@@ -71,6 +73,9 @@
             android:exported="false" />
         <activity
             android:name=".c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_Menu_Entradas"
+            android:exported="false" />
+        <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_Menu_Salidas"
             android:exported="false" />
         <activity
             android:name=".Prueba.Prueba"

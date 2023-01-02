@@ -96,7 +96,7 @@
             android:clickable="true"
             android:focusable="false"
             android:scaleType="centerInside"
-            android:src="@mipmap/logo_x_150x150_"
+            android:src="@mipmap/ic_i_inmotion_prueba"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
