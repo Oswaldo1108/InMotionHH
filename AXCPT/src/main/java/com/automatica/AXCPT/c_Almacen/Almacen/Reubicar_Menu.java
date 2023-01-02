@@ -62,14 +62,14 @@ public class Reubicar_Menu extends AppCompatActivity implements frgmnt_taskbar_A
         new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Reubicar_Menu.this);
 
         ArrayList<objetoMenu> intentsPallet= new ArrayList<>();
-        intentsPallet.add(new objetoMenu("Disponible",new Intent(contexto,Reubicar.class)));
-        intentsPallet.add(new objetoMenu("Picking",new Intent(contexto,ReabastecerPallet.class)));
+        //intentsPallet.add(new objetoMenu("Disponible",new Intent(contexto,Reubicar.class)));
+        //intentsPallet.add(new objetoMenu("Picking",new Intent(contexto,ReabastecerPallet.class)));
 
 
 
 
         ArrayList<objetoMenuContext> objetos= new ArrayList<>();
-        objetos.add(new objetoMenuContext("Pallet",R.drawable.ic_reubicar_pallet,intentsPallet));
+        objetos.add(new objetoMenuContext("Pallet",R.drawable.ic_reubicar_pallet,new Intent(contexto,Reubicar.class)));
         objetos.add(new objetoMenuContext("Empaque",R.drawable.ic_reubicar_empaque,new Intent(contexto, ReubicarEmpaque.class)));
         objetos.add(new objetoMenuContext("Contenedor",R.drawable.ic_reubicar_contenedor,new Intent(contexto, ReubicarContenedor.class)));
         objetos.add(new objetoMenuContext("Piezas",R.drawable.ic_reubicar_contenedor,new Intent(contexto, Almacen_Reubicacion_Por_Cantidad.class)));

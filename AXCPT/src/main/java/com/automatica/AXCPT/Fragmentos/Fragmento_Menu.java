@@ -236,7 +236,7 @@ public class Fragmento_Menu extends Fragment{
                     datos.add(new objetoMenu(getString(R.string.menu_mov_misc),new Intent(getContext(), Almacen_Mov_Misc_SelecEntradasSalidas.class)));
                     //datos.add(new objetoMenu("Devolución",new Intent(getContext(), Seleccion_DevolucionPT.class)));
                     //datos.add(new objetoMenu("Validación",new Intent(getContext(), ValidacionIngreso.class)));
-                    //datos.add(new objetoMenu( getString(R.string.menu_reabastimiento),new Intent(getContext(), ReabPK_Seleccion_Material.class)));
+                    datos.add(new objetoMenu( getString(R.string.menu_reabastimiento),new Intent(getContext(), ReabPK_Seleccion_Material.class)));
                     //datos.add(new objetoMenu(getString(R.string.menu_cuarentena),new Intent(getContext(), MenuNuevo.class)));
                     //datos.add(new objetoMenu(getString(R.string.recepcion_recepcion_por_empaque_traspasos), new Intent(getContext(), MenuTraspaso.class)));
                     //datos.add(new objetoMenu("Devolución", new Intent(getContext(), SeleccionOrdenDevolucion.class)));
