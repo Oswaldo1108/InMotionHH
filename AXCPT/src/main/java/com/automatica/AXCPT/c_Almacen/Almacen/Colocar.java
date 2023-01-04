@@ -394,7 +394,7 @@ public class Colocar extends AppCompatActivity implements frgmnt_taskbar_AXC.int
                         case "ColocacionPallet":
 
                             ReiniciarVariables();
-                            new popUpGenerico(contexto, edtx_CodigoPallet, getString(R.string.pallet_colocado) + "en la ubicación [" +posicion + "]", dao.iscEstado(), true, true);
+                            new popUpGenerico(contexto, edtx_CodigoPallet, getString(R.string.pallet_colocado) + " en la ubicación [" +posicion + "]", dao.iscEstado(), true, true);
                             break;
 
                     }

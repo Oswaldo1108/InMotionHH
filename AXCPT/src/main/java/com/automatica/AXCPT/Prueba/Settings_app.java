@@ -8,8 +8,10 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
+import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.databinding.ActivityPruebaBinding;
 import com.automatica.axc_lib.Servicios.popUpGenerico;
@@ -33,6 +35,9 @@ public class Settings_app extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPruebaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getString(R.string.app_settings));
     }
 
     @Override
@@ -43,6 +48,6 @@ public class Settings_app extends AppCompatActivity {
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.DEFAULT);
+        //taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.DEFAULT);
     }
 }

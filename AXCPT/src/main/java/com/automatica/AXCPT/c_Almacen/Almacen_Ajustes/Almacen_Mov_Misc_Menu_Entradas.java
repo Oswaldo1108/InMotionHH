@@ -144,7 +144,7 @@ public class Almacen_Mov_Misc_Menu_Entradas extends AppCompatActivity implements
             getSupportFragmentManager().popBackStack();
             return;
         }
-        Intent intent = new Intent(Almacen_Mov_Misc_Menu_Entradas.this, Almacen_Mov_Misc_SelecEntradasSalidas.class);
+        Intent intent = new Intent(Almacen_Mov_Misc_Menu_Entradas.this, Inicio_Menu_Dinamico.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);

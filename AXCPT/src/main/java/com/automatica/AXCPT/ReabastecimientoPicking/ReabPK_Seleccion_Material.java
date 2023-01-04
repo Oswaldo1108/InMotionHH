@@ -52,10 +52,7 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
                                                                                 frgmnt_Reab_Empaques_SO.OnFragmentInteractionListener,
                                                                                 frgmnt_Reab_Pallet_SO.OnFragmentInteractionListener,
                                                                                 frgmnt_Reab_Piezas_SO.OnFragmentInteractionListener,
-                                                                                frgmnt_taskbar_AXC.interfazTaskbar
-
-
-{
+                                                                                frgmnt_taskbar_AXC.interfazTaskbar {
     //region variables
     private static final String frgtag_Indicadores_Por_Turno = "frgtag_Indicadores_Por_Turno";
     private static final String frgtag_ControladorSurtido = "frgtag_ControladorSurtido";
@@ -148,9 +145,7 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
     @Override
     protected void onResume()
     {
-
-        new SegundoPlano("ConsultarReabastecimientos").execute();
-
+        //new SegundoPlano("ConsultarReabastecimientos").execute();
         super.onResume();
     }
     private void declaraVariables()
@@ -194,7 +189,7 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
                 break;
 
             case R.id.recargar:
-                new SegundoPlano("ConsultarReabastecimientos").execute();
+                //new SegundoPlano("ConsultarReabastecimientos").execute();
                 break;
         }
 //        if (Recargar == true)
@@ -306,10 +301,7 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
     @Override
     public void refresh()
     {
-
-
-        new SegundoPlano("ConsultarReabastecimientos").execute();
-
+        //new SegundoPlano("ConsultarReabastecimientos").execute();
     }
 
     @Override
@@ -321,8 +313,6 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
     @Override
     public void lanzaRebasteceSinOrden()
     {
-
-
         Fragment f = getSupportFragmentManager().findFragmentByTag(frgtag_ControladorSurtido);
 
         if(f == null)
@@ -336,8 +326,6 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
             {
 
             }
-
-
     }
 
     @Override
@@ -484,17 +472,17 @@ public class ReabPK_Seleccion_Material extends AppCompatActivity implements  frg
 
     @Override
     public void onBackPressed() {
-       /* if (!taskbar_axc.toggle()){
+        if (!taskbar_axc.toggle()){
             return;
         }else {
             taskbar_axc.toggle();
         }
         if (getSupportFragmentManager().findFragmentByTag("fragmentoConsulta")!= null){
-                    taskbar_axc.cerrarFragmento();
-                    return;
+            taskbar_axc.cerrarFragmento();
+            return;
         }
 
-        if (getSupportFragmentManager().getBackStackEntryCount()>0){
+        /*if (getSupportFragmentManager().getBackStackEntryCount()>0){
             getSupportFragmentManager().popBackStack();
             return;
         }*/

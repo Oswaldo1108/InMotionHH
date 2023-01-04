@@ -630,7 +630,7 @@ public class RecepcionEmpaques extends AppCompatActivity implements frgmnt_taskb
             public boolean onLongClick(View v) {
 
                 if(txtv_Pallet.getText().toString().trim().equals("")|| txtv_Pallet.getText().toString().trim().equals("-")){
-                    new popUpGenerico(contexto,getCurrentFocus(),"Se debe crear un pallet para podder continuar",false,true,true);
+                    new popUpGenerico(contexto,getCurrentFocus(),"Se debe crear un pallet para poder continuar",false,true,true);
 
                 }else{
                     String[] datos = { txtv_Pallet.getText().toString() };
