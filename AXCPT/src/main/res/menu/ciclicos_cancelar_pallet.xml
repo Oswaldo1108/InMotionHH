@@ -2,11 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/cancelar_pallets"
-        android:icon="@drawable/cancelar_pallet"
-        android:title="Cancelar pallets"
-        app:showAsAction="always"
-        />
+
     <item android:id="@+id/recargar"
         android:icon="@drawable/ic_recargar"
         android:title="Recargar página"
@@ -17,5 +13,14 @@
         android:title="Información de este dispositivo"
         app:showAsAction="never"
         />
+
+    <!--
+    <item android:id="@+id/cancelar_pallets"
+        android:icon="@drawable/cancelar_pallet"
+        android:title="Cancelar pallets"
+        app:showAsAction="always"
+        />
+
+    -->
 
 </menu>
