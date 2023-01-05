@@ -24,9 +24,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/inmotion_logo_mini"
+        android:icon="@mipmap/ic_launcher_foreground_i"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/inmotion_logo_mini"
+        android:roundIcon="@mipmap/ic_launcher_foreground_i"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
