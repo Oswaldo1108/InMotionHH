@@ -33,6 +33,7 @@ import com.automatica.AXCPT.c_Almacen.Almacen.Colocar;
 import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenu;
 import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenuInventarios;
 import com.automatica.AXCPT.R;
+import com.automatica.AXCPT.c_Almacen.Almacen.Reubicar;
 import com.automatica.AXCPT.c_Almacen.Almacen.Reubicar_Menu;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Ajustes_Menu;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_Menu_Entradas;
@@ -234,7 +235,7 @@ public class Fragmento_Menu extends Fragment{
                 if (recyclerView.getVisibility() == View.GONE) {
                     ArrayList<objetoMenu> datos = new ArrayList<>();
                     datos.add(new objetoMenu(getString(R.string.menu_colocacion),new Intent(getContext(), ValidarColocar.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_reubicacion),new Intent(getContext(), Reubicar_Menu.class)));
+                    datos.add(new objetoMenu(getString(R.string.menu_reubicacion),new Intent(getContext(), Reubicar.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_mov_misc_entradas),new Intent(getContext(), Almacen_Mov_Misc_Menu_Entradas.class)));//Almacen_Mov_Misc_SelecEntradasSalidas
                     datos.add(new objetoMenu(getString(R.string.menu_mov_misc_salidas),new Intent(getContext(), Almacen_Mov_Misc_Menu_Salidas.class)));//Almacen_Ajustes_Menu.class
                     //datos.add(new objetoMenu("Devolución",new Intent(getContext(), Seleccion_DevolucionPT.class)));
@@ -258,7 +259,7 @@ public class Fragmento_Menu extends Fragment{
                 if (recyclerView.getVisibility() == View.GONE) {
                     ArrayList<objetoMenu> datos = new ArrayList<>();
                     datos.add(new objetoMenu(getString(R.string.menu_embarques),new Intent(getContext(), Surtido_Seleccion_Orden.class)));
-                    datos.add(new objetoMenu(getString(R.string.menu_validacion_ingreso),new Intent(getContext(), Validacion_Seleccion_Orden.class)));
+                    datos.add(new objetoMenu("Validación",new Intent(getContext(), Validacion_Seleccion_Orden.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_reempaque),new Intent(getContext(), Reempaque_Seleccion_Orden.class)));
                     //   datos.add(new objetoMenu(getString(R.string.menu_validacion),new Intent(getContext(), Validacion_Seleccion_Orden.class)));
                     // datos.add(new objetoMenu(getString(R.string.menu_cancelacion),new Intent(getContext(), CancelacionEmbarque.class)));    //AQUI SE METE CANCELACIÓN
