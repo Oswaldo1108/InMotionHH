@@ -38,6 +38,7 @@ import com.automatica.AXCPT.Fragmentos.FragmentoConsulta;
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
 import com.automatica.AXCPT.Fragmentos.Fragmento_Seleccion_Area;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
+import com.automatica.AXCPT.Prueba.Settings_app;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.SQLite.dbNotificaciones;
 import com.automatica.AXCPT.Servicios.ActivityHelpers;
@@ -52,6 +53,7 @@ import com.automatica.AXCPT.c_Consultas.Consultas_Menu_Dinamico;
 import com.automatica.AXCPT.c_Embarques.Embarques_Menu;
 import com.automatica.AXCPT.c_Inventarios.Menus.Inventarios_Menu;
 import com.automatica.AXCPT.c_Recepcion.Rec_Registro_Seleccion_OC;
+import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionSeleccionar;
 import com.automatica.AXCPT.databinding.PrincipalActivityMenuBinding;
 
 import java.util.ArrayList;
@@ -84,6 +86,54 @@ public class Inicio_Menu_Dinamico extends AppCompatActivity implements frgmnt_ta
     Bundle b;
     boolean seleccionArea;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        try
+        {
+            super.onCreate(savedInstanceState);
+            binding = PrincipalActivityMenuBinding.inflate(getLayoutInflater());
+            View view = binding.getRoot();
+            setContentView(view);
+            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Inicio_Menu_Dinamico.this);
+            int id= pref.getInt("IdNotificacion",0);
+            dbNotificaciones = new dbNotificaciones(getApplicationContext());
+            if (id==0){
+                SharedPreferences.Editor editor= pref.edit();
+                editor.putInt("IdNotificacion",0);
+                editor.apply();
+            }
+            if (!servicioActivo(HiloNotificaciones.class)){
+                Servicio = new Intent(getApplicationContext(), HiloNotificaciones.class);
+                /**
+                 * aqui se inicializa el servicio si es que no esta activo
+                 */
+                if (pref.getBoolean("booleanNotificaciones",false)){
+                    startService(Servicio);
+
+                }else {
+                    stopService(Servicio);
+                }
+                //
+                Log.i("Estado Servicio", String.valueOf(servicioActivo(HiloNotificaciones.class)));
+            }
+            progressBarHelper = new ProgressBarHelper(this);
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setTitle(getString(R.string.menu_principal));
+            activityHelpers = new ActivityHelpers();
+            activityHelpers.AgregarMenus(Inicio_Menu_Dinamico.this,R.id.Pantalla_principal,false);
+            binding.tvArea.setText(String.valueOf(pref.getString("area","")));
+
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            new popUpGenerico(contexto,vista,e.getMessage(),"false",true,true);
+        }
+    }
+
     @Override
     public void BotonDerecha() {
         Toast.makeText(contexto, "Prueba", Toast.LENGTH_SHORT).show();
@@ -100,27 +150,18 @@ public class Inicio_Menu_Dinamico extends AppCompatActivity implements frgmnt_ta
     try{
             b = getIntent().getExtras();
             seleccionArea = b.getBoolean("Area");
-            if (seleccionArea){
+            /*if (seleccionArea){
                 seleccion_area=Fragmento_Seleccion_Area.newInstance("","");
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_left)
                         .replace(R.id.FrameLayout, seleccion_area,"FragmentoCambioArea").addToBackStack("").commit();
                 seleccionArea = false;
-            }
+            }*/
         }
     catch (Exception e){
         e.printStackTrace();
-    }
-
+        }
 
       activityHelpers.getTaskbar_axc().cambiarResources(frgmnt_taskbar_AXC.DEFAULT);
-   /*       if (PreferenceManager.getDefaultSharedPreferences(Inicio_Menu_Dinamico.this).getBoolean("MostrarSeleccionArea", false)) {
-            seleccion_area=Fragmento_Seleccion_Area.newInstance("","");
-            getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_left)
-                    .replace(R.id.FrameLayout, seleccion_area,"FragmentoCambioArea").addToBackStack("").commit();
-        }
-*/
-
-        //taskbar_axc.cambiarResources(frgmnt_taskbar_AXC.REGISTRAR);
     }
 
     @Override
@@ -219,54 +260,6 @@ public class Inicio_Menu_Dinamico extends AppCompatActivity implements frgmnt_ta
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        try
-            {
-                super.onCreate(savedInstanceState);
-                binding = PrincipalActivityMenuBinding.inflate(getLayoutInflater());
-                View view = binding.getRoot();
-                setContentView(view);
-                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(Inicio_Menu_Dinamico.this);
-                int id= pref.getInt("IdNotificacion",0);
-                dbNotificaciones = new dbNotificaciones(getApplicationContext());
-                if (id==0){
-                    SharedPreferences.Editor editor= pref.edit();
-                    editor.putInt("IdNotificacion",0);
-                    editor.apply();
-                }
-                if (!servicioActivo(HiloNotificaciones.class)){
-                    Servicio = new Intent(getApplicationContext(), HiloNotificaciones.class);
-                    /**
-                     * aqui se inicializa el servicio si es que no esta activo
-                     */
-                    if (pref.getBoolean("booleanNotificaciones",false)){
-                        startService(Servicio);
-
-                    }else {
-                        stopService(Servicio);
-                    }
-                   //
-                    Log.i("Estado Servicio", String.valueOf(servicioActivo(HiloNotificaciones.class)));
-                }
-                progressBarHelper = new ProgressBarHelper(this);
-                Toolbar toolbar = findViewById(R.id.toolbar);
-                setSupportActionBar(toolbar);
-                getSupportActionBar().setTitle(getString(R.string.menu_principal));
-               activityHelpers = new ActivityHelpers();
-               activityHelpers.AgregarMenus(Inicio_Menu_Dinamico.this,R.id.Pantalla_principal,false);
-               binding.tvArea.setText(String.valueOf(pref.getString("area","")));
-
-
-            }catch (Exception e)
-            {
-                e.printStackTrace();
-                new popUpGenerico(contexto,vista,e.getMessage(),"false",true,true);
-            }
-    }
-
     @Override
     public void onBackPressed()
     {
@@ -300,12 +293,19 @@ public class Inicio_Menu_Dinamico extends AppCompatActivity implements frgmnt_ta
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+        try {
+            int id = item.getItemId();
+            if((id == R.id.AppSettings))
+            {
+                Intent intent = new Intent(contexto, Settings_app.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
 
-        if((id == R.id.InformacionDispositivo))
-        {
-            new sobreDispositivo(contexto,vista);
-        }
+            if((id == R.id.InformacionDispositivo))
+            {
+                new sobreDispositivo(contexto,vista);
+            }
         /*if((id == R.id.Mensajeria))
         {
             getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_left)
@@ -313,19 +313,22 @@ public class Inicio_Menu_Dinamico extends AppCompatActivity implements frgmnt_ta
             return false;
         }*/
 
-        if (id == R.id.CambioAreaDeTrabajo){
+            if (id == R.id.CambioAreaDeTrabajo){
 //-----------------------------------------------Cambio de area-------------------------------------------------\\
-            if (getSupportFragmentManager().findFragmentByTag("FragmentoCambioArea")==null){
-                seleccion_area=Fragmento_Seleccion_Area.newInstance("","");
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_left)
-                        .replace(R.id.FrameLayout, seleccion_area,"FragmentoCambioArea").addToBackStack("").commit();
-            }else {
-                getSupportFragmentManager().popBackStack();
+                if (getSupportFragmentManager().findFragmentByTag("FragmentoCambioArea")==null){
+                    seleccion_area=Fragmento_Seleccion_Area.newInstance("","");
+                    getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left,android.R.anim.slide_in_left,R.anim.slide_out_left)
+                            .replace(R.id.FrameLayout, seleccion_area,"FragmentoCambioArea").addToBackStack("").commit();
+                }else {
+                    getSupportFragmentManager().popBackStack();
+                }
+
+                return false;
             }
+        }catch  (Exception ex){
+            Toast.makeText( this, "Error en Toolbar", Toast.LENGTH_SHORT).show();
 
-            return false;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

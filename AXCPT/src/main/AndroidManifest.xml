@@ -81,6 +81,9 @@
             android:name=".Prueba.Prueba"
             android:exported="false" />
         <activity
+            android:name=".Prueba.Settings_app"
+            android:exported="false" />
+        <activity
             android:name=".c_Produccion.Surtido.ReempaqueProd"
             android:exported="false" />
         <activity

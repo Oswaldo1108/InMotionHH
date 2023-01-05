@@ -32,7 +32,7 @@
             android:id="@+id/appBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/camposAzul"
+            android:background="@color/colorPrimaryDark"
             android:theme="@style/AppTheme.AppBarOverlay"
             app:layout_constraintTop_toTopOf="parent">
 

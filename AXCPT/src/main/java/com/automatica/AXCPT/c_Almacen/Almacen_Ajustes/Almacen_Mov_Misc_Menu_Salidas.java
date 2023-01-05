@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenuSeleccion;
 import com.automatica.AXCPT.Fragmentos.Fragmento_Menu;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
+import com.automatica.AXCPT.Principal.Inicio_Menu_Dinamico;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.cambiaColorStatusBar;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
@@ -141,7 +142,7 @@ public class Almacen_Mov_Misc_Menu_Salidas extends AppCompatActivity implements 
             getSupportFragmentManager().popBackStack();
             return;
         }
-        Intent intent = new Intent(Almacen_Mov_Misc_Menu_Salidas.this, Almacen_Mov_Misc_SelecEntradasSalidas.class);
+        Intent intent = new Intent(Almacen_Mov_Misc_Menu_Salidas.this, Inicio_Menu_Dinamico.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);

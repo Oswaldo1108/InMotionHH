@@ -516,7 +516,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                         return false;
                     }
 
-                    if(!edtx_CodigoEmpaque.getText().toString().contains("WTU")&&!edtx_CodigoEmpaque.getText().toString().startsWith("P"))
+                    /*if(!edtx_CodigoEmpaque.getText().toString().contains("WTU")&&!edtx_CodigoEmpaque.getText().toString().startsWith("P"))
                     {
 
                         MediaPlayer mp = MediaPlayer.create(contexto, com.automatica.axc_lib.R.raw.beep);
@@ -537,8 +537,8 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                             }
                         },100);
                         return false;
-                    }
-                    if(edtx_CodigoEmpaque.getText().toString().length()<12&&!(edtx_CodigoEmpaque.getText().toString().startsWith("P")&&edtx_CodigoEmpaque.getText().toString().length()==10))
+                    }*/
+                    /*if(edtx_CodigoEmpaque.getText().toString().length()<12&&!(edtx_CodigoEmpaque.getText().toString().startsWith("P")&&edtx_CodigoEmpaque.getText().toString().length()==10))
                     {
                         new popUpGenerico(contexto,edtx_SKU,"Valide que haya escaneado un código serial ó de empaque. ["  + edtx_CodigoEmpaque.getText().toString()+ "]",false,true,true);
 
@@ -553,7 +553,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                             }
                         },100);
                         return false;
-                    }
+                    }*/
 
                     if(cb_DatosPedimento.isChecked())
                     {
