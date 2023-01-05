@@ -192,7 +192,7 @@ public class RecepcionPegadoEtiqueta extends AppCompatActivity implements  frgmn
 
                         case "ConsultaPallet":
                             new esconderTeclado(RecepcionPegadoEtiqueta.this);
-                           // binding.tvDocumento.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Documento"));
+                            binding.tvDocumento.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Documento"));
                             binding.tvArticulo.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("NumParte"));
                             binding.tvFecha.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Fecha"));
                             binding.tvPiezas.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadActual"));

@@ -378,7 +378,7 @@ public class Reubicar extends AppCompatActivity implements frgmnt_taskbar_AXC.in
             getSupportFragmentManager().popBackStack();
             return;
         }
-        Intent intent = new Intent(Reubicar.this, Reubicar_Menu.class);
+        Intent intent = new Intent(Reubicar.this, Inicio_Menu_Dinamico.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_left_in_close,R.anim.slide_left_out_close);

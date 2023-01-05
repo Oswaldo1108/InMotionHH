@@ -470,7 +470,7 @@ public class frgmnt_Reab_Piezas_SO extends Fragment
                                         binding.txtvPalletProducto.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("DescProd"));
                                         binding.txtvEstatus.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("DescStatus"));
                                         binding.txtvPalletCantidad.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadActual"));
-                                        binding.txtvLote.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("LoteProveedor"));
+                                        binding.txtvLote.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Ubicacion"));
 
                                         binding.edtxEmpaque2.requestFocus();
                                         break;

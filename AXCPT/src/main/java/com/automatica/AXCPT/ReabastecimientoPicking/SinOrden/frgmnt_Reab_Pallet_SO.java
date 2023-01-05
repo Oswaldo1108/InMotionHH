@@ -258,7 +258,7 @@ public class frgmnt_Reab_Pallet_SO extends Fragment
                             txtv_Cant.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadActual"));
                             txtv_Empaques.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Empaques"));
                             txtv_UM.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("UnidadMedida"));
-                            txtv_Pallet_Lote.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("LoteProveedor"));
+                            txtv_Pallet_Lote.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Ubicacion"));
                             edtx_ConfirmarEmpaque.requestFocus();
                             edtx_ConfirmarEmpaque.requestFocus();
 
