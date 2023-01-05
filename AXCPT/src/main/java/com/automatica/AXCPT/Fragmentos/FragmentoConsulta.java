@@ -178,6 +178,7 @@ public class FragmentoConsulta extends Fragment{
 
         progressBarHolder = binding.progressBarHolder;
         binding.edtxCodigo.requestFocus();
+
         binding.clHeader.botonBorrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -219,7 +220,7 @@ public class FragmentoConsulta extends Fragment{
                 }else{
                     block=true;
                     binding.clHeader.txtvTitulo.setText("Existencias");
-                    binding.subtitulo.setText("Existencias: ");
+                    binding.subtitulo.setText("Artículo: ");
                     binding.clHeader.botonBloqueados.setImageResource(R.drawable.ic_baseline_block_24);
                     binding.hsvTablaEmbarques.tableViewOC.getDataAdapter().clear();
                     if (!TextUtils.isEmpty(binding.edtxCodigo.getText().toString())){
@@ -294,32 +295,42 @@ public class FragmentoConsulta extends Fragment{
         }
         titulo.setText(getString(R.string.fragmento_consulta));
         String Subtitulo;
+
         switch (mParam2){
             case TIPO_PALLET:
                 Subtitulo=getString(R.string.consulta_pallet);
                 binding.clHeader.botonEmpaques.setVisibility(View.VISIBLE);
                 binding.clHeader.botonBloqueados.setVisibility(View.GONE);
+                binding.subtitulo.setText(Subtitulo+": ");
+                binding.clHeader.txtvTitulo.setText(Subtitulo);
                 break;
             case TIPO_EMPAQUE:
                 Subtitulo=getString(R.string.consulta_empaque);
                 binding.clHeader.botonEmpaques.setVisibility(View.GONE);
                 binding.clHeader.botonBloqueados.setVisibility(View.GONE);
+                binding.subtitulo.setText(Subtitulo+": ");
+                binding.clHeader.txtvTitulo.setText(Subtitulo);
                 break;
             case TIPO_EXISTENCIA:
-                Subtitulo=getString(R.string.consulta_existencia);
+                Subtitulo=getString(R.string.consulta_articulo);
                 binding.clHeader.botonEmpaques.setVisibility(View.GONE);
                 binding.clHeader.botonBloqueados.setVisibility(View.VISIBLE);
-
+                binding.subtitulo.setText(Subtitulo+": ");
+                binding.clHeader.txtvTitulo.setText(getString(R.string.consulta_existencia));
                 break;
             case TIPO_POSICION:
                 Subtitulo=getString(R.string.consulta_ubicacion);
                 binding.clHeader.botonEmpaques.setVisibility(View.GONE);
                 binding.clHeader.botonBloqueados.setVisibility(View.GONE);
+                binding.subtitulo.setText(Subtitulo+": ");
+                binding.clHeader.txtvTitulo.setText(Subtitulo);
                 break;
             case TIPO_REFERENCIA:
                 Subtitulo=getString(R.string.consulta_referencia);
                 binding.clHeader.botonEmpaques.setVisibility(View.GONE);
                 binding.clHeader.botonBloqueados.setVisibility(View.GONE);
+                binding.subtitulo.setText(Subtitulo+": ");
+                binding.clHeader.txtvTitulo.setText(Subtitulo);
                 break;
             case TIPO_PALLETNE:
                 Subtitulo= "Pallet";
@@ -327,8 +338,8 @@ public class FragmentoConsulta extends Fragment{
             default:
                 throw new IllegalStateException("Unexpected value: " + mParam2);
         }
-        binding.subtitulo.setText(Subtitulo+": ");
-        binding.clHeader.txtvTitulo.setText(Subtitulo);
+        /*binding.subtitulo.setText(Subtitulo+": ");
+        binding.clHeader.txtvTitulo.setText(Subtitulo);*/
         if (mParam1!=null){
             binding.edtxCodigo.setText(mParam1[0]);
             new SegundoPlano(mParam2).execute();
@@ -336,6 +347,7 @@ public class FragmentoConsulta extends Fragment{
 
 
         binding.edtxCodigo.requestFocus();
+        binding.edtxCodigo.setText("");
     }
 
     private class SegundoPlano extends AsyncTask<String, Void, Void> {
@@ -543,8 +555,32 @@ public class FragmentoConsulta extends Fragment{
             if (Etiqueta.equals("Status")){
                 continue;
             }
+            if (Etiqueta.equals("OrdenProd")){
+                continue;
+            }
+            if (Etiqueta.equals("CodigoPallet")){
+                Etiqueta = "CódigoPallet";
+            }
+            if (Etiqueta.equals("OrdenRecepcion")){
+                Etiqueta = "OrdenRecepción";
+            }
+            if (Etiqueta.equals("NumParte")){
+                Etiqueta = "Artículo";
+            }
+            if (Etiqueta.equals("DescProd")){
+                Etiqueta = "Descricpión";
+            }
+            if (Etiqueta.equals("LoteAXC")){
+                Etiqueta = "LoteIM";
+            }
+            if (Etiqueta.equals("Estacion")){
+                Etiqueta = "Estación";
+            }
+            if (Etiqueta.equals("FechaCrea")){
+                Etiqueta = "FechaCreación";
+            }
             if (Etiqueta.equals("Revision")) {
-                Etiqueta = "Tipo de reg.";
+                Etiqueta = "Tipo";
                 if (Dato.equals("PROD")){
                     Dato= "Producción";
                 }else if(Dato.equals("U")) {
@@ -554,9 +590,13 @@ public class FragmentoConsulta extends Fragment{
                 else if (Dato.equals("AE"))
                     Dato = "Ajuste por inventario";
                 else if (Dato.equals("NE"))
-                    Dato = "No Etiquetado";
+                    Dato = "NO ETIQUETADO";
+                else if (Dato.equals("E"))
+                    Dato = "ETIQUETADO";
+                else if (Dato.equals(""))
+                    Dato = "CARRITO";
                 else
-                    Dato = "AnyType()";
+                    Dato = "";
             }
             if (Etiqueta.equals("Ubicacion")) {
                 Etiqueta = "Posición";
@@ -594,17 +634,57 @@ public class FragmentoConsulta extends Fragment{
             if (Etiqueta.equals("Status")){
                 continue;
             }
-            if (Etiqueta.equals("Revision")) {
+            if (Etiqueta.equals("OrdenProd")){
                 continue;
+            }
+            if (Etiqueta.equals("Revision")) {
+                Etiqueta = "Tipo";
+                if (Dato.equals("PROD")){
+                    Dato= "Producción";
+                }else if(Dato.equals("U")) {
+                    Dato="Empaque único";
+                }else if (Dato.equals("DEV"))
+                    Dato = "Devolución";
+                else if (Dato.equals("AE"))
+                    Dato = "Ajuste por inventario";
+                else if (Dato.equals("NE"))
+                    Dato = "NO ETIQUETADO";
+                else if (Dato.equals("E"))
+                    Dato = "ETIQUETADO";
+                else if (Dato.equals(""))
+                    Dato = "";
+                else
+                    Dato = "";
             }
             if (Etiqueta.equals("Ubicacion")) {
                 Etiqueta = "Posición";
             }
+            if (Etiqueta.equals("CodigoPallet")) {
+                Etiqueta = "CódigoPallet";
+            }
+            if (Etiqueta.equals("No Disp.")) {
+                Etiqueta = "NoDisponibles";
+            }
             if (Etiqueta.equals("DescStatus")){
                 Etiqueta= "Estatus";
             }
-            if (Etiqueta.equals("Descripcion")){
-                continue;
+            if (Etiqueta.equals("OrdenRecepcion")){
+                Etiqueta = "OrdenRecepción";
+            }
+            if (Etiqueta.equals("NumParte")){
+                Etiqueta = "Artículo";
+            }
+            if (Etiqueta.equals("DescProd")){
+                Etiqueta = "Descricpión";
+            }
+            if (Etiqueta.equals("LoteAXC")){
+                Etiqueta = "LoteIM";
+            }
+            if (Etiqueta.equals("Estacion")){
+                Etiqueta = "Estación";
+            }
+            if (Etiqueta.equals("FechaCrea")){
+                Etiqueta = "FechaCreación";
             }
             Constructor_Dato dato = new Constructor_Dato(Etiqueta, Dato);
             Datos.add(dato);
