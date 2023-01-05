@@ -428,8 +428,8 @@ public class frgmnt_Reab_Empaques_SO extends Fragment
                         case "ConsultaMaterial":
                             txtv_Pallet_Cantidad .setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadActual"));
                             txtv_Pallet_Producto .setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("NumParte"));
-                            txtv_Pallet_Lote.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("LoteProveedor"));
-                            txtv_Estatus .setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("DescStatus"));
+                            txtv_Pallet_Lote.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Ubicacion"));
+                            txtv_Estatus .setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("UM"));
 
 
                             edtx_Posicion.requestFocus();
