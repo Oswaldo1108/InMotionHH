@@ -25,6 +25,7 @@
     <string name="txt_ip">Dirección IP:</string>
     <string name="txt_estación">Estación:</string>
     <string name="txt_version_app">Versión de la aplicación:</string>
+    <string name="app_settings">Ajustes</string>
 
     <string name="title_activity_prueba_soap">prueba_soap</string>
 
@@ -113,6 +114,8 @@
     <string name="menu_colocacion">Colocación</string>
     <string name="menu_reubicacion">Reubicación</string>
     <string name="menu_mov_misc">Movimientos misceláneos</string>
+    <string name="menu_mov_misc_entradas">Entradas misceláneas</string>
+    <string name="menu_mov_misc_salidas">Salidas misceláneas</string>
     <string name="menu_cuarentena">Cuarentena</string>
     <string name="menu_reempaque">Reempaque</string>
     <string name="menu_cancelacion">Cancelación</string>
@@ -260,7 +263,7 @@
     <string name="empaque_alta">Empaque registrado con éxito.</string>
     <string name="pallet_baja">Pallet dado de baja con éxito.</string>
     <string name="pallet_alta">Pallet registrado con éxito.</string>
-    <string name="pallet_colocado">Pallet colocado con éxito.</string>
+    <string name="pallet_colocado">Pallet colocado con éxito</string>
     <string name="empaque_colocado">Empaque colocado con éxito.</string>
     <string name="devolucion_linea_exito">Devolución registrada con éxito.</string>
     <string name="pallet_registrado_exito">Pallet registrado con éxito.</string>
@@ -446,7 +449,7 @@
     <string name="taskbar_axc_imprimir">IMPRIMIR</string>
 
     <!-- consultas por el taskbar-->
-    <string name="taskbar_consulta_pallet">Consultar Pallet</string>
+    <string name="taskbar_consulta_pallet">Consultar pallet</string>
     <string name="taskbar_consulta_empaque">Consultar empaque</string>
     <string name="taskbar_consulta_existencias">Consultar existencias</string>
     <string name="taskbar_consulta_referencia">Consultar referencia</string>

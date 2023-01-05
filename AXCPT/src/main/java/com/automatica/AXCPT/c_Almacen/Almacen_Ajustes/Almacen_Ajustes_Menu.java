@@ -63,7 +63,7 @@ public class Almacen_Ajustes_Menu extends AppCompatActivity implements frgmnt_ta
         registerForContextMenu(binding.recycler);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        this.getSupportActionBar().setTitle(getString(R.string.Ajustes));
+        this.getSupportActionBar().setTitle(getString(R.string.menu_mov_misc));
         new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Almacen_Ajustes_Menu.this);
 
         //----------------------Código original v-------------------------------------------------------------------------

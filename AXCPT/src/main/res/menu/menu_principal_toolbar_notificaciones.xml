@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/Mensajeria"
-        app:actionLayout="@layout/badge_item_message"
+    <item
+        android:id="@+id/Mensajeria"
         android:icon="@drawable/ic_baseline_local_post_office_24"
         android:title="Mensajeria"
-        app:showAsAction="ifRoom"
         android:visible="false"
-        />
+        app:actionLayout="@layout/badge_item_message"
+        app:showAsAction="ifRoom" />
 
     <item android:id="@+id/InformacionDispositivo"
         android:icon="@drawable/ic_borrar"
         android:title="Información de este dispositivo"
         app:showAsAction="never"
         />
+
+    <item android:id="@+id/AppSettings"
+        android:title="Ajustes"
+        android:visible="false"
+        app:showAsAction="never"/>
 
     <item android:id="@+id/CambioAreaDeTrabajo"
         android:title="Cambio de area"

@@ -31,8 +31,6 @@ public class frgmnt_ControlSurtidos_SO extends Fragment
     private static final String ARG_PARAM2 = "param2";
     private String Documento;
     private String Producto;
-
-
     private TextView txtv_Doc,txtv_Producto,txtv_CantidadActual,txtv_Minimo,txtv_Maximo,txtv_PalletSug,txtv_Lote,txtv_Posicion;
 
     //OBJETOS
@@ -40,26 +38,19 @@ public class frgmnt_ControlSurtidos_SO extends Fragment
     private AppBarLayout appBarLayout;
     private TabLayout tabLayout;
 
-
     //VIEWS
     private ViewPager viewPager;
     Toolbar actionBarToolBar;
 
-    //
    // private static final String frgtag_ConsultaDocumentos= "FRGCD";
     private static final String frgtag_ConsultaCamaraView = "FRGCMR";
 
     private static final String frgtag_Almacenes = "frgtag_Almacenes";
     private static final String frgtag_Articulos = "frgtag_Articulos";
 
-
     private DataAccessObject dao;
 
-
 //    frgmnt_Consulta_Documento_Det det = null;
-
-
-
 
     frgmnt_Reab_Empaques_SO emp = null;
     frgmnt_Reab_Pallet_SO pal = null;
@@ -114,7 +105,6 @@ public class frgmnt_ControlSurtidos_SO extends Fragment
         appBarLayout.setLiftable(false);
 //        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.miaxc_consulta_doc_OC));
 
-
         tabLayout = new TabLayout(getActivity());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
             {
@@ -122,15 +112,12 @@ public class frgmnt_ControlSurtidos_SO extends Fragment
             }
         appBarLayout.addView(tabLayout);
 
-
         viewPager = (ViewPager) view.findViewById(R.id.pager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
-
         viewPager.setOffscreenPageLimit(2);
-
 
         txtv_Doc                =(TextView) view.findViewById(R.id.txtv_Pedido);
         txtv_Producto           =(TextView) view.findViewById(R.id.txtv_Producto);
@@ -141,20 +128,9 @@ public class frgmnt_ControlSurtidos_SO extends Fragment
         txtv_Lote               =(TextView) view.findViewById(R.id.txtv_Lote);
         txtv_Posicion           =(TextView) view.findViewById(R.id.txtv_Posicion);
 
-
-
-
-
-
-
         emp = frgmnt_Reab_Empaques_SO.newInstance("ConsultaEmpaque", null);
-
-
         pal = frgmnt_Reab_Pallet_SO.newInstance("ConsultaEmpaque", null);
-
         pz = frgmnt_Reab_Piezas_SO.newInstance("ConsultaEmpaque", null);
-
-
 
         return view;
     }
@@ -231,15 +207,12 @@ public class frgmnt_ControlSurtidos_SO extends Fragment
             return titulos.length;
         }
 
-
         @Nullable
         @Override
         public CharSequence getPageTitle(int position)
         {
             return titulos[position];
         }
-
-
 
     }
 
@@ -265,7 +238,6 @@ public class frgmnt_ControlSurtidos_SO extends Fragment
         mListener = null;
     }
 
-
     public interface OnFragmentInteractionListener
     {
         void onFragmentInteraction(Uri uri);
@@ -274,14 +246,10 @@ public class frgmnt_ControlSurtidos_SO extends Fragment
 
     }
 
-
-
     public String[] getDocumentData()
     {
         return emp.getDatos();
     }
-
-
 
     public String[] getArticuloData()
     {
