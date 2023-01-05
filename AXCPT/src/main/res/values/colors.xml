@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Colores principales para InMotion-->
-    <color name="verdeLogoInMotion">#262626</color><!--#262626 este es el gris de la prop2-->
+    <color name="verdeLogoInMotion">#004225</color><!--#262626 este es el gris de la prop2-->
     <color name="verdeClaro">#9BFAB0</color>
     <color name="verdeAXCMax">#585858</color>
-    <color name="verdeAXCMid">#454545</color>
+    <color name="verdeAXCMid">#106942</color>
     <color name="verdeAXCLow">#10CD68</color>
 
     <color name="naranjaLogoInMotion">#E87D25</color>
@@ -15,11 +15,11 @@
     <!--Fin de Colores principales para InMotion-->
 
     <color name="colorPrimary">#0C8042</color><!--#394264-->
-    <color name="colorPrimaryDark">#262626</color><!--#323a59--><!--para la barrita de hasta arriba-->
+    <color name="colorPrimaryDark">#004225</color><!--#323a59--><!--para la barrita de hasta arriba-->
     <color name="colorAccent">#B3B3B3</color>
     <color name="grisAXC">#B3B3B3</color>
     <color name="grisAXCTrans">#90B3B3B3</color>
-    <color name="blancoLetraStd">#FFFFFF</color>
+    <color name="blancoLetraStd">#FFFFFF</color><!--FFFFFF-->
     <color name="Transparente">#00000000</color>
     <color name="negroLetrastd">#000000</color>
     <color name="grisAXCOscuro">#555555</color>
@@ -45,7 +45,7 @@
 
     <color name="taskBarAzul">#262626</color><!--#394264--><!--este es para los cuadritos de los avisos y los Consultar y al presionar i central-->
     <color name="fondoAzul">#106942</color><!--#3f4769-->
-    <color name="camposAzul">#454545</color><!--#323a59--><!--para las tablas fondo-->
+    <color name="camposAzul">#004225</color><!--#323a59--><!--para las tablas fondo-->
 
     <!--Colores menu-->
     <!--<color name="verdeAXCMax">#0C8042</color>-->

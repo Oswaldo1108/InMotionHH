@@ -174,7 +174,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setLogo(null);
-        getSupportActionBar().setTitle(getString(R.string.app_name_titles));
+        getSupportActionBar().setTitle(""); //getSupportActionBar().setTitle(getString(R.string.app_name_titles)); aquí ca el nombre del cliente
 
         progressBarHolder = (FrameLayout) findViewById(R.id.progressBarHolder);
         et_contraseña = (EditText) findViewById(R.id.pass);

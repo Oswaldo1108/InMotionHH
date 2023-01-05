@@ -461,13 +461,14 @@
     <string name="fragmento_consulta">Consulta</string>
     <string name="consulta_empaque">Empaque</string>
     <string name="consulta_existencia">Existencia</string>
+    <string name="consulta_articulo">Artículo</string>
     <string name="consulta_ubicacion">Ubicación</string>
     <string name="consulta_referencia">Referencia</string>
     <string name="consulta_pallet">Pallet</string>
 
     <string name="msg_llene_campo">Llene el campo del código</string>
     <string name="msg_llene_pallet">Llene el campo pallet</string>
-    <string name="msg_presionado">Manten presionado para buscar</string>
+    <string name="msg_presionado">Mantén presionado para buscar</string>
 
     <!-- fragment seleccion producto -->
     <string name="seleccion_producto">Selección de producto</string>
