@@ -53,23 +53,21 @@ public class Almacen_Mov_Misc_Menu_Entradas extends AppCompatActivity implements
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setTitle(getString(R.string.misc_entradas));
         new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Almacen_Mov_Misc_Menu_Entradas.this);
-        /*ArrayList<objetoMenu> intentsEtiquetados= new ArrayList<>();
+
+        ArrayList<objetoMenu> intentsEtiquetados= new ArrayList<>();
         intentsEtiquetados.add(new objetoMenu("Nuevo pallet",new Intent(contexto,Almacen_Ajustes_AjustePallet.class)));
         intentsEtiquetados.add(new objetoMenu("Nuevo empaque",new Intent(contexto,Almacen_Ajustes_NuevoEmpaque.class)));
-        intentsEtiquetados.add(new objetoMenu("Baja empaque",new Intent(contexto,Almacen_Ajustes_BajaEmpaque.class)));
+
 
         ArrayList<objetoMenu> intentNE = new ArrayList<>();
         intentNE.add(new objetoMenu("Nuevo pallet NE",new Intent(contexto,Almacen_Ajustes_AjustePalletSCH.class)));
         intentNE.add(new objetoMenu("Nuevo empaque NE",new Intent(contexto,Almacen_Ajustes_NuevoEmpaqueSCH.class)));
-        intentNE.add(new objetoMenu("Baja empaque NE",new Intent(contexto,Almacen_Ajustes_BajaEmpaqueSCH.class)));*/
 
         ArrayList<objetoMenuContext> objetos= new ArrayList<>();
-        //objetos.add(new objetoMenuContext("Etiquetados",R.drawable.ic_ajuste_etiqueado, intentsEtiquetados));
-        //objetos.add(new objetoMenuContext("No Etiquetados",R.drawable.ic_ajuste_noetiqueado, intentNE));
-        objetos.add(new objetoMenuContext("Nuevo empaque",R.drawable.ic_baja_pallet,new Intent(contexto,Almacen_Ajustes_NuevoEmpaque.class)));
-        objetos.add(new objetoMenuContext("Nuevo pallet NE",R.drawable.ic_ajuste_contenedor,new Intent(contexto,Almacen_Ajustes_AjustePalletSCH.class)));
+        objetos.add(new objetoMenuContext("Etiquetados",R.drawable.ic_ajuste_etiqueado, intentsEtiquetados));
+        objetos.add(new objetoMenuContext("No Etiquetados",R.drawable.ic_ajuste_noetiqueado, intentNE));
         objetos.add(new objetoMenuContext("Unidades",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Ajustes_AjustesContenedor.class)));
-        objetos.add(new objetoMenuContext("Empaque NE a pallet",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Almacen_Ajustes_NuevoEmpaqueSCH.class)));
+
 
         llenarRecycler(binding.recycler,objetos);
         View logoView = getToolbarLogoIcon((Toolbar) findViewById(R.id.toolbar));

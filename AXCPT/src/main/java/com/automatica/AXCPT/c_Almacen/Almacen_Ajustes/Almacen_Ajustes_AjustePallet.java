@@ -158,6 +158,7 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             this.getSupportActionBar().setTitle(getString(R.string.Ajustes_nuevo_pallet));
+            this.getSupportActionBar().setSubtitle("Etiquetado");
 
             // toolbar.setSubtitle("  Ajuste Pallet");
 //            toolbar.setLogo(R.mipmap.logo_axc);//   toolbar.setLogo(R.drawable.axc_logo_toolbar);
