@@ -681,7 +681,7 @@ public class Surtido_Surtido_Empaque_NE_Armado extends AppCompatActivity  implem
                     ReiniciarVariables(tarea);
                     if(dao.getcMensaje().contains("SURTIDA")||dao.getcMensaje().contains("Estatus de partida no "))
                     {
-                        new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", "true", true, true);
+                        new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", "true", true, true);
                         new  SegundoPlano("ConsultaPedidoSurtido").execute();
 
                     }

@@ -814,7 +814,7 @@ public class DevolucionPalletNE extends AppCompatActivity implements frgmnt_task
                                 case -1:
                                     int UPCSel=-2;
 
-                                    new popUpGenerico(contexto,binding.edtxSKU,"La partida con el SKU: [" + SKU +"]" + " ya fué completada" , false, true, true);
+                                    new popUpGenerico(contexto,binding.edtxSKU,"La partida con el SKU: [" + SKU +"]" + " ya ha sido completada." , false, true, true);
                                     new esconderTeclado(DevolucionPalletNE.this);
                                     return;
                                 case -3:

@@ -846,7 +846,7 @@ public class RecepcionEmpaques extends AppCompatActivity implements frgmnt_taskb
                                 case -1:
                                     int UPCSel=-2;
 
-                                    new popUpGenerico(contexto,edtx_SKU,"La partida con el SKU: [" + SKU +"]" + " ya fué completada" , false, true, true);
+                                    new popUpGenerico(contexto,edtx_SKU,"La partida con el SKU: [" + SKU +"]" + " ya ha sido completada." , false, true, true);
                                     new esconderTeclado(RecepcionEmpaques.this);
                                     return;
                                 case -3:

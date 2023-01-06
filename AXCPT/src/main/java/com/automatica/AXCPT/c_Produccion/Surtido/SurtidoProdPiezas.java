@@ -841,7 +841,7 @@ public class SurtidoProdPiezas extends AppCompatActivity implements TableViewDat
                         txtv_ConsProd.setText("");
                         txtv_ConsUM.setText("");
 
-                        new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", "true", true, true);
+                        new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", "true", true, true);
                         new  SegundoPlano("ConsultaPedidoSurtido").execute();
                     }
                     else

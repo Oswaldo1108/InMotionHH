@@ -831,7 +831,7 @@ public class Surtido_Surtido_Piezas_Armado extends AppCompatActivity  implements
                         txtv_ConsProd.setText("");
                         txtv_ConsUM.setText("");
 
-                        new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", "true", true, true);
+                        new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", "true", true, true);
                         new  SegundoPlano("ConsultaPedidoSurtido").execute();
                     }
                     else

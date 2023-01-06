@@ -570,7 +570,7 @@ public class SurtidoProdPallet extends AppCompatActivity implements TableViewDat
                     ReiniciarVariables(tarea);
                     if(dao.getcMensaje().contains("partida no válido"))
                     {
-                        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", true, true, true);
+                        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", true, true, true);
                         new SurtidoProdPallet.SegundoPlano("ConsultaPedidoSurtido").execute();
                     }
                     else

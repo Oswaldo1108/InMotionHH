@@ -364,7 +364,7 @@ public class SurtidoTraspasoPalletCompleto extends AppCompatActivity implements 
                    // ReiniciarVariables(tarea);
                     if(dao.getcMensaje().contains("partida no válido"))
                     {
-                        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", true, true, true);
+                        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", true, true, true);
                         new SurtidoTraspasoPalletCompleto.SegundoPlano("ConsultaPedidoSurtido").execute();
                     }
                     else

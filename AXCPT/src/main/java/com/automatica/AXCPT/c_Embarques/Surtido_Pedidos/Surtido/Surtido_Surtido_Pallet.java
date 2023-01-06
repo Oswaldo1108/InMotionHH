@@ -451,7 +451,7 @@ public class Surtido_Surtido_Pallet  extends AppCompatActivity {
                             ReiniciarVariables(tarea);
                             if(dao.getcMensaje().contains("partida no válido"))
                                 {
-                                    new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", "true", true, true);
+                                    new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", "true", true, true);
                                 }
                             else
                                 {
