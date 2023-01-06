@@ -23,6 +23,7 @@ import com.automatica.AXCPT.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 import static android.content.Context.VIBRATOR_SERVICE;
 
@@ -30,6 +31,14 @@ public class popUpGenerico
 {
 
     AlertDialog aDialog;
+    Context contexto;
+
+    public popUpGenerico(Context contexto) {
+        this.contexto = contexto;
+    }
+    String Correcto[]={"¡Bien hecho!","¡Buen trabajo!","Trabajo completado con éxito","Tarea exitosa",
+            "¡Muy bien!"};
+    String Incorrecto[]={"¡Algo salió mal!","Intenta nuevamente","¡Upss! Algo salió mal","Verifica los datos","Comprueba la información","¡Upss!,Vuelve a intentar"};
 
 
     public  popUpGenerico(Context contexto, final View view, String mensaje, String titulo, Boolean activarVibracion, Boolean activarSonido)
@@ -38,7 +47,7 @@ public class popUpGenerico
 
             final  Vibrator v = (Vibrator) contexto.getSystemService(VIBRATOR_SERVICE);
             String TituloAVISO = "Aviso";
-            AlertDialog.Builder builder = new AlertDialog.Builder(contexto, com.automatica.axc_lib.R.style.AlertDialog);
+            AlertDialog.Builder builder = new AlertDialog.Builder(contexto, com.automatica.axc_lib.R.style.AlertDialog);//estilo de los popups
 
             String boton = "OK";
             String botonPositivo = "Sí";
@@ -51,18 +60,18 @@ public class popUpGenerico
 
             switch (titulo) {
                 case "Error":
-                    foregroundColorSpanTitulo = new ForegroundColorSpan(Color.RED);
-                    foregroundColorSpanBoton = new ForegroundColorSpan(Color.RED);
+                    foregroundColorSpanTitulo = new ForegroundColorSpan(Color.YELLOW);
+                    foregroundColorSpanBoton = new ForegroundColorSpan(Color.WHITE);
                     builder.setPositiveButton(ssBuilderBoton, null);
                     break;
                 case "Advertencia":
-                    foregroundColorSpanTitulo = new ForegroundColorSpan(Color.RED);
-                    foregroundColorSpanBoton = new ForegroundColorSpan(Color.RED);
+                    foregroundColorSpanTitulo = new ForegroundColorSpan(Color.YELLOW);
+                    foregroundColorSpanBoton = new ForegroundColorSpan(Color.WHITE);
                     builder.setPositiveButton(ssBuilderBoton, null);
                     break;
                 case "false":
-                    foregroundColorSpanTitulo = new ForegroundColorSpan(Color.RED);
-                    foregroundColorSpanBoton = new ForegroundColorSpan(Color.RED);
+                    foregroundColorSpanTitulo = new ForegroundColorSpan(Color.YELLOW);
+                    foregroundColorSpanBoton = new ForegroundColorSpan(Color.WHITE);
                     builder.setPositiveButton(ssBuilderBoton, null);
                     break;
                 case "Acerca de este dispositivo":
@@ -110,7 +119,7 @@ public class popUpGenerico
             builder.setMessage( dateFormatWithZone.format(date) + "\n" + mensaje);
 
             aDialog = builder.create();
-            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.inmotion_logo_mini);
+            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.logo_im);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -191,8 +200,8 @@ public class popUpGenerico
             else
             {
 
-                foregroundColorSpanTitulo = new ForegroundColorSpan(Color.RED);
-                foregroundColorSpanBoton = new ForegroundColorSpan(Color.RED);
+                foregroundColorSpanTitulo = new ForegroundColorSpan(Color.YELLOW);
+                foregroundColorSpanBoton = new ForegroundColorSpan(Color.WHITE);
                 builder.setPositiveButton(ssBuilderBoton, null);
             }
 
@@ -223,7 +232,7 @@ public class popUpGenerico
 
 
             aDialog = builder.create();
-            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.inmotion_logo_mini);
+            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.logo_im);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -302,8 +311,8 @@ public class popUpGenerico
             else
             {
 
-                foregroundColorSpanTitulo = new ForegroundColorSpan(Color.RED);
-                foregroundColorSpanBoton = new ForegroundColorSpan(Color.RED);
+                foregroundColorSpanTitulo = new ForegroundColorSpan(Color.YELLOW);
+                foregroundColorSpanBoton = new ForegroundColorSpan(Color.WHITE);
                 builder.setPositiveButton(ssBuilderBoton, null);
             }
 
@@ -329,7 +338,7 @@ public class popUpGenerico
             builder.setMessage( dateFormatWithZone.format(date) + "\n" + e.getMessage());
 
             aDialog = builder.create();
-            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.inmotion_logo_mini);
+            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.logo_im);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -378,6 +387,88 @@ public class popUpGenerico
         }catch (Exception ex)
         {
             ex.printStackTrace();
+        }
+    }
+
+    public void popUpGenericoDefault(final View view, String mensaje, boolean estado){
+        try {
+            String TituloAVISO = "Aviso";
+            if (estado){
+                TituloAVISO = Correcto[new Random().nextInt(Correcto.length)];
+            }else {
+                TituloAVISO = Incorrecto[new Random().nextInt(Incorrecto.length)];
+            }
+            final  Vibrator v = (Vibrator) contexto.getSystemService(VIBRATOR_SERVICE);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(contexto, com.automatica.axc_lib.R.style.AlertDialog);
+
+            String boton = "OK";
+            if(estado)
+            {
+                builder.setPositiveButton("OK",null);
+                MediaPlayer mp = MediaPlayer.create(contexto, com.automatica.axc_lib.R.raw.tilin);
+                mp.start();
+            }
+            else
+            {
+                builder.setNegativeButton("OK", null);
+                MediaPlayer mp = MediaPlayer.create(contexto, com.automatica.axc_lib.R.raw.beep);
+                mp.start();
+
+            }
+            v.vibrate(150);
+            builder.setTitle(TituloAVISO);
+            builder.setMessage(mensaje);
+            aDialog = builder.create();
+            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.logo_im);
+            aDialog.setOnKeyListener(new Dialog.OnKeyListener()
+            {
+
+                @Override
+                public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event)
+                {
+                    try {
+                        if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
+                        {
+                            v.vibrate(100);
+
+                        }
+                        //aDialog.dismiss();
+                    }catch (NullPointerException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    return false;
+                }
+            });
+
+            aDialog.setOnDismissListener(new DialogInterface.OnDismissListener()
+            {
+                @Override
+                public void onDismiss(DialogInterface dialog)
+                {
+
+                    if(view!=null)
+                    {
+                        try {
+                            Log.d("SoapResponse", view.getClass().toString());
+                            if (view.getClass().toString().contains("EditText"))
+                            {
+                                EditText tmp = (EditText) view;
+                                tmp.setText("");
+                            }
+                        }catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
+            aDialog.setCancelable(false);
+            aDialog.show();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
         }
     }
 

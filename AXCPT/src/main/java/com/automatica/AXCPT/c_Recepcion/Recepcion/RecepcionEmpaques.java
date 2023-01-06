@@ -45,7 +45,7 @@ import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Recepcio
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.CreaDialogos;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
 
 import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;

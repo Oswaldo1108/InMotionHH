@@ -38,7 +38,7 @@ import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.CreaDialogos;
 import com.automatica.axc_lib.Servicios.cambiaColorStatusBar;
 import com.automatica.axc_lib.Servicios.esconderTeclado;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
 import de.codecrafters.tableview.SortableTableView;
 
 import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;

@@ -28,7 +28,7 @@ import com.automatica.AXCPT.databinding.ActivityValidacionIngresoBinding;
 import com.automatica.AXCPT.databinding.ActivityValidarColocarBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Recepcion;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.axc_lib.Servicios.sobreDispositivo;
 
 import de.codecrafters.tableview.SortableTableView;

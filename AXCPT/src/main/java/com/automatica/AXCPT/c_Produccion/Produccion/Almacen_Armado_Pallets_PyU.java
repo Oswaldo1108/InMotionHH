@@ -44,7 +44,7 @@ import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Consulta
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_RegistroPT;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.axc_lib.Servicios.sobreDispositivo;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
 
@@ -84,7 +84,7 @@ public class Almacen_Armado_Pallets_PyU extends AppCompatActivity implements Tab
     private ProgressBarHelper p;
     ActivityAlmacenArmadoPalletsPyUBinding binding;
     frgmnt_taskbar_AXC taskbar_axc;
-    popUpGenerico pop = new popUpGenerico(Almacen_Armado_Pallets_PyU.this);
+    popUpGenerico pop ;
     SimpleTableHeaderAdapter sthd;
     Boolean seleccionado,ReiniciarTabla= false;
 

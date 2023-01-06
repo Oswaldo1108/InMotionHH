@@ -41,15 +41,15 @@
     </style>
  <style name="PositiveButtonStyle" parent="@style/AlertDialog">
         <!-- text color for the button -->
-        <item name="android:textColor">@color/VerdeSemaforo</item>
+        <item name="android:textColor">@color/blancoLetraStd</item>
         <!-- Background tint for the button -->
-        <item name="android:background">@drawable/boton_dialog_reg</item>
+        <item name="android:background">@drawable/boton_dialog_reg</item><!--aquí para ver los colores de los botones-->
         <item name="paddingEnd">2dp</item>
         <!--<item name="backgroundTint">@color/negroTrans</item>-->
     </style>
 
     <style name="NegativeButtonStyle" parent="@style/AlertDialog">
-        <item name="android:textColor">@color/RojoSemaforo</item>
+        <item name="android:textColor">@color/blancoLetraStd</item>
         <!-- Background tint for the button -->
         <item name="android:background">@drawable/boton_dialog_reg</item>
         <item name="paddingEnd">2dp</item>
