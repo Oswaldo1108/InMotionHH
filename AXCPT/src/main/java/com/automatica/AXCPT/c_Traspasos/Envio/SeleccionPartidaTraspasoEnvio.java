@@ -346,7 +346,7 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
                                 }
 
                                 break;
-                            case R.id.EmpaqueNE:
+                           /* case R.id.EmpaqueNE:
                                 if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO")) {
                                     intent = new Intent(contexto, SurtidoTraspasoEmpaqueNE.class);
                                     usarCarrito = true;
@@ -363,7 +363,7 @@ public class SeleccionPartidaTraspasoEnvio extends AppCompatActivity  implements
                                     new popUpGenerico(contexto,binding.edtxCarrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                                     return;
                                 }
-                                break;
+                                break;*/
                             case R.id.PalletCompleto:
                                 if (tipoSurtido.equals("PALLET") || tipoSurtido.equals("TODO")) {
                                     intent = new Intent(contexto, SurtidoTraspasoPallet.class);

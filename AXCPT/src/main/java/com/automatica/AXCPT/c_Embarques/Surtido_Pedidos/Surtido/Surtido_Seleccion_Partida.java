@@ -350,7 +350,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                                 }
 
                                 break;
-                            case R.id.EmpaqueNE:
+                           /* case R.id.EmpaqueNE:
                                 if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO")) {
                                     intent = new Intent(contexto, Surtido_Surtido_Empaque_NE_Armado.class);
                                     usarCarrito = true;
@@ -367,7 +367,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                                     new popUpGenerico(contexto, edtx_Carrito, "Opción de surtido no válida, intente surtir por [" + tipoSurtido + "]", false, true, true);
                                     return;
                                 }
-                                break;
+                                break;*/
                             case R.id.PalletCompleto:
                                 if (tipoSurtido.equals("PALLET") || tipoSurtido.equals("TODO")) {
                                     intent = new Intent(contexto, Surtido_Surtido_Pallet_MultiplesProd.class);

@@ -355,7 +355,7 @@ public class SurtidoProdSeleccionPartida extends AppCompatActivity implements Ta
                                 }
 
                                 break;
-                            case R.id.EmpaqueNE:
+                            /*case R.id.EmpaqueNE:
                                 if (tipoSurtido.equals("PICKING") || tipoSurtido.equals("TODO"))
                                     intent = new Intent(contexto, SurtidoProdEmpaque_NE.class);
                                 else{
@@ -370,7 +370,7 @@ public class SurtidoProdSeleccionPartida extends AppCompatActivity implements Ta
                                     new com.automatica.AXCPT.Servicios.popUpGenerico(contexto,binding.edtxCarrito ,"Opción de surtido no válida, intente surtir por ["+tipoSurtido+"]" , false, true,true );
                                     return;
                                 }
-                                break;
+                                break;*/
                             case R.id.PalletCompleto:
                                 if (tipoSurtido.equals("PALLET") || tipoSurtido.equals("TODO"))
                                     intent = new Intent(contexto, SurtidoProdPallet.class);
