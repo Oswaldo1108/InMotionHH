@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
         >
 
         <ScrollView
@@ -46,11 +46,18 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Posición"
+                        android:text="Concepto:"
                         android:layout_gravity="center"
                        />
 
+                    <include layout="@layout/vw_spinner"
+                        android:id="@+id/spinner_alta"
+                        android:layout_height="30dp"
+                        android:layout_width="match_parent"
+                        />
+
                     <EditText
+                        android:visibility="gone"
                         android:id="@+id/edtx_Ubicacion"
                         style="@style/Estilo_EditText_WhiteBackground"
                         android:layout_width="match_parent"
@@ -71,10 +78,10 @@
 
                     <TextView
                         android:id="@+id/textView70"
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Código de\ncontenedor"
+                        android:text="Código de empaque:"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold"
@@ -89,7 +96,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:ems="10"
-                        android:hint="Capturar contenedor"
+                        android:hint="Capturar empaque"
                         android:textAllCaps="true"
                         android:singleLine="true"
                         android:layout_gravity="center"
@@ -394,6 +401,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/spinners"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -432,12 +440,7 @@
                 app:layout_constraintStart_toEndOf="@+id/radioGroup"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <include layout="@layout/vw_spinner"
-                    android:id="@+id/spinner_alta"
-                    android:layout_height="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_margin="8dp"
-                    />
+
 
                 <include layout="@layout/vw_spinner"
                     android:id="@+id/spinner_baja"

@@ -182,157 +182,12 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
         edtx_FechaRecibo.setEnabled(false);
         // Spinner spinner = new Spinner(this);
 
-        edtx_CantXEmp.setText("1");
-        edtx_CantXEmp.setEnabled(false);
 
     }
     private void agregaListeners()
     {
-
-        cb_EditarCantidad.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
-            {
-                edtx_CantXEmp.setEnabled(b);
-                if(b)
-                {
-                    edtx_CantXEmp.setText("");
-                }else
-                {
-                    edtx_CantXEmp.setText("1");
-                }
-            }
-        });
-
-
-
-        cb_DatosPedimento.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
-            {
-                edtx_Pedimento.setEnabled(b);
-                edtx_ClavePedimento.setEnabled(b);
-                edtx_Factura.setEnabled(b);
-                edtx_FechaPedimento.setEnabled(b);
-                edtx_FechaRecibo.setEnabled(b);
-            }
-        });
-
-
-        edtx_FechaPedimento.setOnLongClickListener(new View.OnLongClickListener()
-        {
-            @Override
-            public boolean onLongClick(View view)
-            {
-                newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        final String selectedDate = year  + "/" + (month + 1) + "/" + day;
-                        edtx_FechaPedimento.setText(selectedDate);
-                    }
-                });
-                newFragment.show(getSupportFragmentManager(), "datePicker");
-                return false;
-            }
-        });
-
-        edtx_FechaRecibo.setOnLongClickListener(new View.OnLongClickListener()
-        {
-            @Override
-            public boolean onLongClick(View view)
-            {
-                newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        final String selectedDate = year  + "/" + (month + 1) + "/" + day;
-                        edtx_FechaRecibo.setText(selectedDate);
-                    }
-                });
-                newFragment.show(getSupportFragmentManager(), "datePicker");
-                return false;
-            }
-        });
-
-
-        edtx_ClavePedimento.setOnKeyListener(new View.OnKeyListener()
-        {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event)
-            {
-                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
-                {
-                    if(edtx_ClavePedimento.getText().toString().equals(""))
-                    {
-                        new popUpGenerico(contexto,edtx_ClavePedimento,getString(R.string.error_ingrese_clave_pedimento),"Advertencia",true,true);
-                        edtx_ClavePedimento.setText("");
-                        edtx_ClavePedimento.requestFocus();
-                        return false;
-                    }
-
-                    edtx_Factura.requestFocus();
-
-                    new esconderTeclado(Almacen_Ajustes_NuevoEmpaque.this);
-
-                }
-                return false;
-            }
-        });
-
-        edtx_Factura.setOnKeyListener(new View.OnKeyListener()
-        {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event)
-            {
-                if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER))
-                {
-                    if(edtx_Factura.getText().toString().equals(""))
-                    {
-                        new popUpGenerico(contexto,vista,getString(R.string.error_ingrese_factura_pedimento),"Advertencia",true,true);
-                        edtx_Factura.setText("");
-                        edtx_Factura.requestFocus();
-                        return false;
-                    }
-
-                    //edtx_SKU.requestFocus();
-
-                    new esconderTeclado(Almacen_Ajustes_NuevoEmpaque.this);
-
-                }
-                return false;
-            }
-        });
-
-        checkNumSerie.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkNumSerie.isChecked())
-                    edtxNumSerie.setEnabled(true);
-                else
-                    edtxNumSerie.setEnabled(false);
-            }
-        });
-
-
-
-/*        edtx_CodigoPosicion.setOnFocusChangeListener(new View.OnFocusChangeListener()
-        {
-            @Override
-            public void onFocusChange(View view, boolean b)
-            {
-                if(b)
-                {
-
-                    if (ConfigTabla_Totales != null)
-                    {
-                        edtx_CodigoPosicion.setText("");
-                        ConfigTabla_Totales.CargarDatosTabla(null);
-                    }
-                }
-            }
-        });*/
-
+        
+        
         edtx_SKU.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -341,20 +196,6 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
             }
         });
 
-/*        edtx_SKU.setOnFocusChangeListener(new View.OnFocusChangeListener()
-        {
-            @Override
-            public void onFocusChange(View view, boolean b)
-            {
-                if(b)
-                {
-                    edtx_SKU.setText("");
-                    edtx_CodigoEmpaque.setText("");
-
-                    edtx_SKU.requestFocus();
-                }
-            }
-        });*/
 
         edtx_CodigoPosicion.setOnKeyListener(new View.OnKeyListener()
         {
@@ -407,7 +248,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
 
                     if(edtx_SKU.getText().toString().equals(""))
                     {
-                        new popUpGenerico(contexto,vista,"Ingrese un SKU o UPC.","false",true,true);
+                        new popUpGenerico(contexto,vista,"Ingrese un número de parte.","false",true,true);
                         edtx_SKU.setText("");
                         edtx_CodigoEmpaque.setText("");
                         //edtx_SKU.requestFocus();
@@ -456,6 +297,15 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                         edtx_SKU.setText("");
                         edtx_CodigoEmpaque.setText("");
                         //edtx_SKU.requestFocus();
+                        return false;
+                    }
+
+                    if(edtx_CantXEmp.getText().toString().equals(""))
+                    {
+                        new popUpGenerico(contexto,vista,"Ingrese la cantidad del empaque." ,false,true,true);
+                        edtx_CantXEmp.setText("");
+                        edtx_CodigoEmpaque.setText("");
+                        edtx_CantXEmp.requestFocus();
                         return false;
                     }
 
@@ -815,17 +665,8 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                             break;
                         case "AjusteNuevoEmpaquePalletExistente":
                             new SegundoPlano("ConsultaPallet").execute();
-                           // edtx_SKU.setText("");
                             edtx_CodigoEmpaque.setText("");
-                            edtxNumSerie.setText("");
-                            if (checkNumSerie.isChecked()){
-                                edtxNumSerie.requestFocus();
-                            }else
-                                edtx_CodigoEmpaque.requestFocus();
-                            //edtx_SKU.requestFocus();
-
-
-
+                            edtx_CodigoEmpaque.requestFocus();
                             MediaPlayer mp = MediaPlayer.create(contexto, com.automatica.axc_lib.R.raw.tilin);
                             mp.start();
 
@@ -855,7 +696,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                             edtx_SKU.setText("");
                             edtx_CodigoEmpaque.setText("");
                             edtxNumSerie.setText("");
-                            edtx_SKU.requestFocus();
+                            edtx_CodigoEmpaque.requestFocus();
                             break;
                     }
 

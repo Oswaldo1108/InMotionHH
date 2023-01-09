@@ -43,7 +43,6 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
                         android:text="Concepto"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
@@ -80,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Código Posición"
+                        android:text="Código del pallet"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold" />
@@ -93,7 +92,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="8dp"
                         android:ems="10"
-                        android:hint="@string/escanear_posicion"
+                        android:hint="Capturar pallet"
                         android:inputType="text"
                         android:textAllCaps="true" />
                 </LinearLayout>
@@ -104,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp" />
 
@@ -279,13 +278,57 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/textView76"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:visibility="gone"
+                    android:text="Número de parte:"
+                    android:textColor="@color/blancoLetraStd"
+                    android:textSize="@dimen/txtSize"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtx_SKU"
+                    style="@style/Estilo_EditText_Reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:ems="10"
+                    android:hint="Mantenga presionado para elegir número de parte"
+                    android:inputType="text" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp">
+
+                    <TextView
+                        android:id="@+id/textView92"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Cant. por\nEmpaque:"
+                        android:textColor="@color/blancoLetraStd"
+                        android:textSize="@dimen/txtSize"
+                        android:textStyle="bold" />
 
                     <CheckBox
+                        android:visibility="gone"
                         android:id="@+id/cb_EditarCantidad"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
@@ -299,32 +342,14 @@
                     <EditText
                         android:id="@+id/edtx_CantXEmp"
                         style="@style/Estilo_EditText_Reg"
-                        android:layout_width="60dp"
+                        android:layout_width="match_parent"
                         android:layout_height="29dp"
-                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_gravity="center"
                         android:ems="10"
                         android:inputType="number" />
 
-                    <TextView
-                        android:id="@+id/textView76"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="SKU:"
-                        android:textColor="@color/blancoLetraStd"
-                        android:textSize="@dimen/txtSize"
-                        android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtx_SKU"
-                        style="@style/Estilo_EditText_Reg"
-                        android:layout_width="match_parent"
-                        android:layout_height="29dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:ems="10"
-                        android:hint="SKU o UPC"
-                        android:inputType="text" />
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -332,6 +357,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <TextView
@@ -365,7 +391,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15px">
 
                     <TextView
                         android:id="@+id/textView77"

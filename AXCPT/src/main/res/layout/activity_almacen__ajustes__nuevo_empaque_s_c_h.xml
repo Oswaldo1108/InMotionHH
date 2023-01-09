@@ -41,10 +41,10 @@
 
                     <TextView
                         android:id="@+id/textView73"
-                        android:layout_width="70dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Ajuste"
+                        android:text="Concepto"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold"
@@ -83,10 +83,10 @@
 
                     <TextView
                         android:id="@+id/textView70"
-                        android:layout_width="70dp"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Código Pallet"
+                        android:text="Código del allet"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold"/>
@@ -146,13 +146,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="8dp"
                     android:ems="10"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
                     android:focusedByDefault="false"
-                    android:hint="Mantenga presionado para elegir SKU"
+                    android:hint="Mantenga presionado para elegir número de parte"
                     android:inputType="none"
                    />
 
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="15dp"
                     >
 
                     <TextView
