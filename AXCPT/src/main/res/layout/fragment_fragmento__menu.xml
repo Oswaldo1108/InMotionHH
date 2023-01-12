@@ -75,7 +75,7 @@
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:tint="@color/verdeAXCMax" />
+                                    app:tint="@color/naranjaAXCMid" />
 
                                 <TextView
                                     android:id="@+id/textView10"
@@ -185,7 +185,7 @@
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:tint="@color/verdeAXCLow" />
+                                    app:tint="@color/naranjaAXCMid" />
 
                                 <TextView
                                     android:id="@+id/textView12"
@@ -239,7 +239,7 @@
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:tint="@color/naranjaAXCLow" />
+                                    app:tint="@color/naranjaAXCMid" />
 
                                 <TextView
                                     android:id="@+id/textView13"

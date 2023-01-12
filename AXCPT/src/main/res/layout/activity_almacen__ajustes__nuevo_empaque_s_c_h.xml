@@ -86,10 +86,10 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Código del allet"
+                        android:text="Código de pallet"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/edtx_CodigoPallet"

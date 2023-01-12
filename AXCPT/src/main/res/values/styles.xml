@@ -130,7 +130,7 @@
 
     <style name="Estilo_Boton_Reg" parent="Base.Theme.AppCompat.Light.Dialog">
         <item name="android:textColor">@color/negroN</item>
-        <item name="android:background">@drawable/orilla_boton_layout</item>
+        <item name="android:background">@drawable/btngris</item>
         <item name="android:textColorPrimary">@color/negroN</item>
         <item name="android:height">70dp</item>
         <item name="android:width">155dp</item>

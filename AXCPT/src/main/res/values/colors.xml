@@ -20,6 +20,7 @@
     <color name="grisAXC">#B3B3B3</color> <!--B3B3B3--><!--checar orilla_layout.xml para los bordes para un futuro puedan ser naranjas -->
     <color name="grisAXCTrans">#90B3B3B3</color>
     <color name="blancoLetraStd">#FFFFFF</color><!--FFFFFF-->
+    <color name="white">#FFFFFF</color>
     <color name="Transparente">#00000000</color>
     <color name="negroLetrastd">#000000</color>
     <color name="grisAXCOscuro">#555555</color>
