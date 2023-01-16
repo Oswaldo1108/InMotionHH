@@ -248,7 +248,7 @@
                     android:id="@+id/textView1"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:text="SKU"
+                    android:text="Artículo"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -260,7 +260,7 @@
                     android:layout_height="29dp"
                     android:layout_marginStart="10dp"
                     android:ems="10"
-                    android:hint="Capturar SKU"
+                    android:hint="Capturar artículo"
                     android:inputType="textPersonName"
                     tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
@@ -348,6 +348,7 @@
                     android:layout_marginStart="10dp"
                     android:ems="10"
                     android:gravity="center_vertical"
+                    android:hint="Capturar cantidad"
                     android:inputType="number"
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 

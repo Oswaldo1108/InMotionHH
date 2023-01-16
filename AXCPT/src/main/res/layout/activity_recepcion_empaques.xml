@@ -225,7 +225,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="20dp">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -236,7 +236,7 @@
                     android:id="@+id/textView164"
                     android:layout_width="105dp"
                     android:layout_height="wrap_content"
-                    android:text="SKU"
+                    android:text="Artículo"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -248,13 +248,12 @@
                     android:layout_height="30dp"
                     android:layout_marginStart="10dp"
                     android:ems="10"
-                    android:hint="Capturar SKU"
+                    android:hint="Capturar artículo"
 
                     android:inputType="textPersonName" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -280,6 +279,7 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:ems="10"
+                    android:hint="Capturar cantidad"
                     android:inputType="numberDecimal"
                     android:nextFocusUp="@id/edtx_EmpxPallet"
                     android:nextFocusDown="@id/edtx_EmpxPallet"
@@ -404,12 +404,11 @@
                     android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:ems="10"
-                    android:hint="Capture empaque"
+                    android:hint="Capturar empaque"
                     android:inputType="textPersonName" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
-
 
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -432,9 +431,9 @@
                     android:id="@+id/txtv_EmpReg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginStart="10dp"
                     android:text="-"
-                    android:layout_gravity="center"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="18sp" />
 
@@ -444,8 +443,8 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <TextView

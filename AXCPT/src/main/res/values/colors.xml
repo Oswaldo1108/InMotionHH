@@ -3,18 +3,22 @@
     <!--Colores principales para InMotion-->
     <color name="verdeLogoInMotion">#004225</color><!--#262626 este es el gris de la prop2-->
     <color name="verdeClaro">#9BFAB0</color>
-    <color name="verdeAXCMax">#585858</color>
+    <color name="verdeAXCMax">#0C8042</color><!--este es el del TituloToolbar menú-->
+    <color name="verdeAXCMax1">#106942</color>
     <color name="verdeAXCMid">#106942</color>
     <color name="verdeAXCLow">#10CD68</color>
 
     <color name="naranjaLogoInMotion">#E87D25</color>
 
+    <color name="grisOsc">#585858</color>
     <color name="grisOscuro">#666264</color>
+    <color name="grisOscuro1">#454545</color>
     <color name="grisMedio">#938F91</color>
+    <color name="grisMedio1">#757374</color>
     <color name="grisClaro">#C2C1C1</color>
     <!--Fin de Colores principales para InMotion-->
 
-    <color name="colorPrimary">#0C8042</color><!--#394264-->
+    <color name="colorPrimary">#0C8042</color><!--#394264--><!--este para el icono al ver las tareas dela HH&ndash-->
     <color name="colorPrimaryDark">#004225</color><!--#323a59--><!--para la barrita de hasta arriba-->
     <color name="colorAccent">#B3B3B3</color>
     <color name="grisAXC">#B3B3B3</color> <!--B3B3B3--><!--checar orilla_layout.xml para los bordes para un futuro puedan ser naranjas -->
@@ -44,7 +48,7 @@
     <color name="AmarilloSemaforo">#ffff00</color>
     <color name="VerdeSemaforo">#0FFF00</color>
 
-    <color name="taskBarAzul">#262626</color><!--#394264--><!--este es para los cuadritos de los avisos y los Consultar y al presionar i central-->
+    <color name="taskBarAzul">#262626</color><!--#394264--><!--este es para los cuadritos de los avisos y los Consultar y al presionar m central-->
     <color name="fondoAzul">#106942</color><!--#3f4769-->
     <color name="camposAzul">#004225</color><!--#323a59--><!--para las tablas fondo      -->
 
@@ -131,70 +135,5 @@
     <color name="fondoAzulSemiTransp">#004225</color>&lt;!&ndash;#F53f4769&ndash;&gt;
     <color name="GrisTransparente">#90B3B3B3</color>-->
     <!--////////////////////////////////////////Fin de Código original para inmotion respaldo///////////////////////////////////////////-->
-
-    <!--/////////////////////////////////////////Código Propuesta 3//////////////////////////////////////////////////////////////////////-->
-    <!--<color name="verdeLogoInMotion">#262626</color>&lt;!&ndash;#262626 este es el gris de la prop2&ndash;&gt;
-    <color name="verdeClaro">#9BFAB0</color>
-    <color name="verdeAXCMax">#585858</color>&lt;!&ndash;este es el del TituloToolbar menú&ndash;&gt;
-    <color name="verdeAXCMid">#454545</color>
-    <color name="verdeAXCLow">#10CD68</color>
-
-    <color name="naranjaLogoInMotion">#E87D25</color>
-
-    <color name="grisOscuro">#666264</color>
-    <color name="grisMedio">#938F91</color>
-    <color name="grisClaro">#C2C1C1</color>
-    &lt;!&ndash;Fin de Colores principales para InMotion&ndash;&gt;
-
-    <color name="colorPrimary">#262626</color>&lt;!&ndash;#394264&ndash;&gt;&lt;!&ndash;este para el icono al ver las tareas dela HH&ndash;&gt;
-    <color name="colorPrimaryDark">#262626</color>&lt;!&ndash;#323a59&ndash;&gt;&lt;!&ndash;para la barrita de hasta arriba&ndash;&gt;
-    <color name="colorAccent">#B3B3B3</color>
-    <color name="grisAXC">#B3B3B3</color>
-    <color name="grisAXCTrans">#90B3B3B3</color>
-    <color name="blancoLetraStd">#FFFFFF</color>
-    <color name="Transparente">#00000000</color>
-    <color name="negroLetrastd">#000000</color>
-    <color name="grisAXCOscuro">#555555</color>
-    <color name="grisAXCdisabled">#80B3B3B3</color>
-    <color name="doradoLetrastd">#cfac00</color>
-    <color name="RojoStd">#ff0000</color>
-    <color name="RojoClaroStd">#ff4a4a</color>
-    <color name="VerdeStd">#00ff00</color>
-    <color name="AzulStd">#0000ff</color>
-    <color name="MoradoStd">#ff00ff</color>
-
-    <color name="ControlStd">#B6AAAA</color>
-    <color name="RengSelStd">#004225</color>&lt;!&ndash;#000064&ndash;&gt;
-    <color name="HeaderColor">#262626</color>&lt;!&ndash;#2A42B9&ndash;&gt;
-    <color name="ColorBackgroundMenu">#B3FFFFFF</color>
-
-    <color name="negroTrans">#99000000</color>
-    <color name="negroN">#000000</color>
-
-    <color name="RojoSemaforo">#FF0000</color>
-    <color name="AmarilloSemaforo">#ffff00</color>
-    <color name="VerdeSemaforo">#0FFF00</color>
-
-    <color name="taskBarAzul">#262626</color>&lt;!&ndash;#394264&ndash;&gt;&lt;!&ndash;este es para los cuadritos de los avisos y los Consultar y al presionar i central&ndash;&gt;
-    <color name="fondoAzul">#454545</color>&lt;!&ndash;#3f4769&ndash;&gt;
-    <color name="camposAzul">#262626</color>&lt;!&ndash;#323a59&ndash;&gt;&lt;!&ndash;para las tablas fondo&ndash;&gt;
-
-    &lt;!&ndash;Colores menu&ndash;&gt;
-    &lt;!&ndash;<color name="verdeAXCMax">#0C8042</color>&ndash;&gt;
-    &lt;!&ndash;<color name="verdeAXCMid">#0C9A4E</color>&ndash;&gt;
-    &lt;!&ndash;<color name="verdeAXCLow">#10CD68</color>&ndash;&gt;
-    <color name="verdeAXCxLox">#9CF6C6</color>
-
-    <color name="naranjaAXCMax">#E87D25</color>
-    <color name="naranjaAXCMid">#E99E5D</color>
-    <color name="naranjaAXCLow">#DAA578</color>
-    <color name="naranjaAXCxLow">#FFD7B3</color>
-
-    &lt;!&ndash;Elementos&ndash;&gt;
-    <color name="fondoAzulSemiTransp">#004225</color>&lt;!&ndash;#F53f4769&ndash;&gt;
-    <color name="GrisTransparente">#90B3B3B3</color>-->
-    <!--///////////////////////////////////////////////////////Fin de Código Propuesta 3////////////////////////////////////////////-->
-
-
 
 </resources>
