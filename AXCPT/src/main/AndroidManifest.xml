@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.automatica.AXCPT"
-    android:label="  AXC"
+    android:label="  INMOTION"
     android:windowSoftInputMode="stateHidden">
 
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -24,15 +24,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_logo_im"
+        android:icon="@mipmap/logo_im"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_logo_im
-"
+        android:roundIcon="@mipmap/logo_im"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <!--android:icon="@mipmap/ic_launcher"-->
         <!--android:roundIcon="@mipmap/ic_launcher_round"-->
+
+        <activity
+            android:name=".Principal.Splash"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".c_Almacen.Cuarentena.RecuperarPallet"
             android:exported="false" />
@@ -567,13 +577,8 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".Principal.Login"
-            android:launchMode="singleInstance"
+            android:exported="false"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Servicios.preferencias"

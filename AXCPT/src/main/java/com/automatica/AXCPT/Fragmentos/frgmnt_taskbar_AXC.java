@@ -226,7 +226,7 @@ public class frgmnt_taskbar_AXC extends Fragment
 
     public  void cargarRecycler(){
         binding.gridMenu.setLayoutManager(new GridLayoutManager(gridMenu.getContext(), 2, GridLayoutManager.VERTICAL, false));
-        AdaptadorItem adaptadorItem = new AdaptadorItem(items, new AdaptadorItem.taskbarInterface() {
+        AdaptadorItem adaptadorItem = new AdaptadorItem(items, new AdaptadorItem.taskbarInterface() { //click en AdaptadorItem para diseño de los botoenes consulta > item_layout
             @Override
             public void abrirFragmento(final Fragment fragment, String TAG) {
                 FragmentManager transaction= getActivity().getSupportFragmentManager();

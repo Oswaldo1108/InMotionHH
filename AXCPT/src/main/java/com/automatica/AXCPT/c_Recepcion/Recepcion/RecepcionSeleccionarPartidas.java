@@ -31,12 +31,12 @@ import com.automatica.AXCPT.Principal.Inicio_Menu_Dinamico;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.ReabastecimientoPicking.ReabPK_Seleccion_Material;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.TableHelpers.TableViewDataConfigurator;
 import com.automatica.AXCPT.databinding.ActivityRecepcionSeleccionarPartidasBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Recepcion;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.esconderTeclado;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
 import com.automatica.axc_lib.Servicios.sobreDispositivo;
 
 import de.codecrafters.tableview.SortableTableView;

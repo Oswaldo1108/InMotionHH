@@ -690,7 +690,7 @@ public class SurtidoProdEmpaque_NE extends AppCompatActivity  implements TableVi
                     ReiniciarVariables(tarea);
                     if(dao.getcMensaje().contains("SURTIDA")||dao.getcMensaje().contains("Estatus de partida no "))
                     {
-                        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", "true", true, true);
+                        new com.automatica.AXCPT.Servicios.popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", "true", true, true);
                         new SurtidoProdEmpaque_NE.SegundoPlano("ConsultaPedidoSurtido").execute();
 
                     }

@@ -36,7 +36,7 @@ import com.automatica.AXCPT.databinding.ActivityRecepcionSeleccionarHcBinding;
 import com.automatica.AXCPT.databinding.ActivitySeleccionarOrdenProdBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Recepcion;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.axc_lib.Servicios.sobreDispositivo;
 
 import de.codecrafters.tableview.SortableTableView;

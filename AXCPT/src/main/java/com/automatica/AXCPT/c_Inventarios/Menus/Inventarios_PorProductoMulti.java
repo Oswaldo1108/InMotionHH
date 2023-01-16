@@ -41,7 +41,7 @@ import com.automatica.AXCPT.objetos.spinnerCustomAdapter;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.adInventarios;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

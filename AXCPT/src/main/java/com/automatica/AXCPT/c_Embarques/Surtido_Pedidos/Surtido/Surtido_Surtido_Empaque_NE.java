@@ -594,7 +594,7 @@ public class Surtido_Surtido_Empaque_NE extends AppCompatActivity implements Tab
                     ReiniciarVariables(tarea);
                     if(dao.getcMensaje().contains("SURTIDA"))
                     {
-                        new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", true, true, true);
+                        new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", true, true, true);
                     }
                     else
                     {

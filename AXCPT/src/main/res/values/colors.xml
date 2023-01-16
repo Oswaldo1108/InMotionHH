@@ -21,9 +21,10 @@
     <color name="colorPrimary">#0C8042</color><!--#394264--><!--este para el icono al ver las tareas dela HH&ndash-->
     <color name="colorPrimaryDark">#004225</color><!--#323a59--><!--para la barrita de hasta arriba-->
     <color name="colorAccent">#B3B3B3</color>
-    <color name="grisAXC">#B3B3B3</color>
+    <color name="grisAXC">#B3B3B3</color> <!--B3B3B3--><!--checar orilla_layout.xml para los bordes para un futuro puedan ser naranjas -->
     <color name="grisAXCTrans">#90B3B3B3</color>
     <color name="blancoLetraStd">#FFFFFF</color><!--FFFFFF-->
+    <color name="white">#FFFFFF</color>
     <color name="Transparente">#00000000</color>
     <color name="negroLetrastd">#000000</color>
     <color name="grisAXCOscuro">#555555</color>
@@ -49,7 +50,7 @@
 
     <color name="taskBarAzul">#262626</color><!--#394264--><!--este es para los cuadritos de los avisos y los Consultar y al presionar m central-->
     <color name="fondoAzul">#106942</color><!--#3f4769-->
-    <color name="camposAzul">#004225</color><!--#323a59--><!--para las tablas fondo-->
+    <color name="camposAzul">#004225</color><!--#323a59--><!--para las tablas fondo      -->
 
     <!--Colores menu-->
     <!--<color name="verdeAXCMax">#0C8042</color>-->

@@ -523,7 +523,7 @@ public class Surtido_Traspaso_Pallet extends AppCompatActivity   implements Tabl
                             ReiniciarVariables(tarea);
                             if(dao.getcMensaje().contains("partida no válido"))
                                 {
-                                    new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", "true", true, true);
+                                    new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", "true", true, true);
                                 }
                             else
                                 {

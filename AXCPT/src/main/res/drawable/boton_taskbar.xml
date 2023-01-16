@@ -5,7 +5,7 @@
         android:state_enabled="true">
         <inset android:insetRight="-4dp" android:insetLeft="-4dp" android:insetTop="-4dp">
             <shape>
-                <solid android:color="@color/camposAzul"/>
+                <solid android:color="@color/naranjaLogoInMotion"/>
                 <stroke android:width="2dip" android:color="@color/grisAXCdisabled" />
                 <corners android:radius="2dip"/>
                 <padding android:left="0dip" android:top="0dip" android:right="0dip" android:bottom="0dip" />
@@ -17,7 +17,7 @@
         android:state_enabled="true">
         <inset android:insetRight="-4dp" android:insetLeft="-4dp" android:insetTop="-4dp">
             <shape>
-                <solid android:color="@color/taskBarAzul"/>
+                <solid android:color="@color/verdeAXCMid"/>
                 <stroke android:width="2dip" android:color="@color/grisAXCdisabled" />
                 <corners android:radius="2dip"/>
                 <padding android:left="0dip" android:top="0dip" android:right="0dip" android:bottom="0dip" />
@@ -28,7 +28,7 @@
     <item android:state_enabled="false">
         <inset android:insetRight="-4dp" android:insetLeft="-4dp" android:insetTop="-4dp">
             <shape>
-                <solid android:color="@color/camposAzul"/>
+                <solid android:color="@color/naranjaLogoInMotion"/>
                 <stroke android:width="2dip" android:color="@color/grisAXCdisabled" />
                 <corners android:radius="2dip"/>
                 <padding android:left="0dip" android:top="0dip" android:right="0dip" android:bottom="0dip" />

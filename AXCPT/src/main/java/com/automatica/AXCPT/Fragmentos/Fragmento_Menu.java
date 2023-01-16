@@ -259,7 +259,7 @@ public class Fragmento_Menu extends Fragment{
                 if (recyclerView.getVisibility() == View.GONE) {
                     ArrayList<objetoMenu> datos = new ArrayList<>();
                     datos.add(new objetoMenu(getString(R.string.menu_embarques),new Intent(getContext(), Surtido_Seleccion_Orden.class)));
-                    datos.add(new objetoMenu("Validación",new Intent(getContext(), Validacion_Seleccion_Orden.class)));
+                    datos.add(new objetoMenu(getString(R.string.Embarques_Valida),new Intent(getContext(), Validacion_Seleccion_Orden.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_reempaque),new Intent(getContext(), Reempaque_Seleccion_Orden.class)));
                     //   datos.add(new objetoMenu(getString(R.string.menu_validacion),new Intent(getContext(), Validacion_Seleccion_Orden.class)));
                     // datos.add(new objetoMenu(getString(R.string.menu_cancelacion),new Intent(getContext(), CancelacionEmbarque.class)));    //AQUI SE METE CANCELACIÓN
@@ -369,7 +369,7 @@ public class Fragmento_Menu extends Fragment{
 
     public void llenarRecycler(RecyclerView recyclerView, ArrayList<objetoMenu> menu) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new AdaptadorMenu(menu, getContext()));
+        recyclerView.setAdapter(new AdaptadorMenu(menu, getContext())); //AdaptadorMenu>item_list_menu>@drawable/boton_menu Para encontrar donde se cambia el color de los submenús
         ActivityManager am = (ActivityManager) getContext().getSystemService(Context.ACTIVITY_SERVICE);
         int sizeStack = am.getRunningTasks(5).size();
         for (int i = 0; i < sizeStack; i++) {

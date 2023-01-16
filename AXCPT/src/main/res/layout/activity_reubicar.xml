@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
 
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/orilla_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,12 +120,12 @@
 
         <TextView
             android:id="@+id/txtv_Producto"
+            style="@style/EstiloTexto_Blanco_Reg_Consulta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:text="-"
-            style="@style/EstiloTexto_Blanco_Reg_Consulta"
             app:layout_constraintBottom_toBottomOf="@+id/textView54"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView131"
@@ -214,10 +214,10 @@
     <TextView
         android:id="@+id/textView51"
         android:layout_width="wrap_content"
-        android:layout_height="43dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Nueva Posición"
+        android:layout_marginTop="10dp"
+        android:text="Nueva posición"
         android:textColor="@color/blancoLetraStd"
         android:textSize="@dimen/txtsize"
         android:textStyle="bold"
@@ -249,12 +249,12 @@
 
     <TextView
         android:id="@+id/textView50"
+        style="@style/EstiloTexto_Blanco_Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="18dp"
-        android:text="Código Pallet"
-        style="@style/EstiloTexto_Blanco_Bold"
+        android:layout_marginTop="10dp"
+        android:text="Código pallet"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 

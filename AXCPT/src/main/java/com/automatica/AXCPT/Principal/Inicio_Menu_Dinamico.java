@@ -9,29 +9,21 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
-
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.automatica.AXCPT.Fragmentos.FragNotificaciones;
 import com.automatica.AXCPT.Fragmentos.FragmentoConsulta;
@@ -47,13 +39,6 @@ import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.creaNotificacion;
 import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
-import com.automatica.AXCPT.c_Almacen.Almacen_Menu_Dinamico;
-import com.automatica.AXCPT.c_ArmadoPalletsRegProduccion.Almacen_Armado_Pallets.RegistroPT_Menu;
-import com.automatica.AXCPT.c_Consultas.Consultas_Menu_Dinamico;
-import com.automatica.AXCPT.c_Embarques.Embarques_Menu;
-import com.automatica.AXCPT.c_Inventarios.Menus.Inventarios_Menu;
-import com.automatica.AXCPT.c_Recepcion.Rec_Registro_Seleccion_OC;
-import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionSeleccionar;
 import com.automatica.AXCPT.databinding.PrincipalActivityMenuBinding;
 
 import java.util.ArrayList;

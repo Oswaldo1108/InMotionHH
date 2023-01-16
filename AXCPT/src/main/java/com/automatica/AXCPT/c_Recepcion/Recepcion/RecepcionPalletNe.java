@@ -35,6 +35,8 @@ import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.esconderTeclado;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
+import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Recepcion.Lote_Modificable.Recepcion_Registro_Pallet_NE_LoteModificable;
 import com.automatica.AXCPT.databinding.ActivityRecepcionContenedorBinding;
@@ -43,7 +45,7 @@ import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Recepcio
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.CreaDialogos;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
+//import com.automatica.axc_lib.Servicios.popUpGenerico;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
 
 import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;
@@ -51,7 +53,7 @@ import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;
 public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar, frgmnt_SKU_Conteo.OnFragmentInteractionListener {
 
     frgmnt_taskbar_AXC taskbar_axc;
-    popUpGenerico pop = new popUpGenerico(RecepcionPalletNe.this);
+    popUpGenerico pop; //popUpGenerico pop = new popUpGenerico(RecepcionPalletNe.this);
     ActivityRecepcionPalletNeBinding binding;
     EditText edtx_Cantidad,edtx_EmpxPallet,edtx_SKU, edtx_numSerie;
     CheckBox checkNumSerie;

@@ -670,7 +670,7 @@ public class Surtido_Surtido_Picking_NE_Armado extends AppCompatActivity impleme
                     ReiniciarVariables(tarea);
                     if(dao.getcMensaje().contains("SURTIDA"))
                     {
-                        new popUpGenerico(contexto, null, "Partida completada con exíto.", "true", true, true);
+                        new popUpGenerico(contexto, null, "Partida completada con éxito.", "true", true, true);
                     }
                     else
                     {

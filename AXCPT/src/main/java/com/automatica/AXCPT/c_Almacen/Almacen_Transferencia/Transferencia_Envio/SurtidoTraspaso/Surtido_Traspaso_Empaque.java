@@ -600,7 +600,7 @@ public class Surtido_Traspaso_Empaque extends AppCompatActivity  implements Tabl
                             ReiniciarVariables(tarea);
                             if(dao.getcMensaje().contains("SURTIDA")||dao.getcMensaje().contains("Estatus de partida no "))
                                 {
-                                    new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con exíto.", "true", true, true);
+                                    new popUpGenerico(contexto, getCurrentFocus(), "Partida completada con éxito.", "true", true, true);
                                 }
                             else
                                 {

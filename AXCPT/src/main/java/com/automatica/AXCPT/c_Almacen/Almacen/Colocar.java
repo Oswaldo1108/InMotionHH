@@ -40,7 +40,7 @@ import com.automatica.AXCPT.databinding.ActivityColocarBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Consultas;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
-import com.automatica.axc_lib.Servicios.popUpGenerico;
+import com.automatica.AXCPT.Servicios.popUpGenerico;
 
 import static com.automatica.AXCPT.Fragmentos.Fragmento_Menu.getToolbarLogoIcon;
 
