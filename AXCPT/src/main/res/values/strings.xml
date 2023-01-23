@@ -113,6 +113,7 @@
     <string name="menu_reabastimiento">Reabastecimiento</string>
     <string name="menu_colocacion">Colocación</string>
     <string name="menu_reubicacion">Reubicación</string>
+    <string name="menu_camb_etiquetas">Cambio de etiquetas</string>
     <string name="menu_mov_misc">Movimientos misceláneos</string>
     <string name="menu_mov_misc_entradas">Entradas misceláneas</string>
     <string name="menu_mov_misc_salidas">Salidas misceláneas</string>

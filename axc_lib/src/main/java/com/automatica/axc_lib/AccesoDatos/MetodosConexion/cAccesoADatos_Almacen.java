@@ -249,11 +249,96 @@ public class cAccesoADatos_Almacen extends conexionWS2 {
         return IniciaAccionSOAP(request, METHOD_NAME, context, null);
     }
 
+    public DataAccessObject c_CambiaMercadoPalletMenudeo(String prmCodigoPallet,String prmMercado) {
+        String METHOD_NAME = "WM_CambiaMercadoPalletMenudeo";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmCodigoPallet",prmCodigoPallet);
+        request.addProperty("prmMercado",prmMercado);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return IniciaAccionSOAP(request, METHOD_NAME, context, null);
+    }
+
+    public DataAccessObject c_CambiarPalletEtiquetado(String prmCodigoPallet) {
+        String METHOD_NAME = "WM_CambiarPalletEtiquetado";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmCodigoPallet",prmCodigoPallet);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return IniciaAccionSOAP(request, METHOD_NAME, context, null);
+    }
+
+    public DataAccessObject c_CambiaMercadoMenudeo(String prmCodigoPallet,String prmMercado, String prmPrimera, String prmUltima, String prmCantidad) {
+        String METHOD_NAME = "WM_CambiaMercadoMenudeo";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmCodigoPallet",prmCodigoPallet);
+        request.addProperty("prmMercado",prmMercado);
+        request.addProperty("prmPrimerEmpaque", prmPrimera);
+        request.addProperty("prmUltimoEmpaque", prmUltima);
+        request.addProperty("prmCantidad", prmCantidad);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return IniciaAccionSOAP(request, METHOD_NAME, context, null);
+    }
+
+    public DataAccessObject c_CambiarPalletNE(String prmCodigoPallet, String prmPrimera, String prmUltima, String prmCantidad) {
+        String METHOD_NAME = "WM_CambiarPalletNE";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmCodigoPallet",prmCodigoPallet);
+        request.addProperty("prmPrimerEmpaque", prmPrimera);
+        request.addProperty("prmUltimoEmpaque", prmUltima);
+        request.addProperty("prmCantidad", prmCantidad);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return IniciaAccionSOAP(request, METHOD_NAME, context, null);
+    }
+
+    public DataAccessObject c_registraEmpaqueCambioMercado(String prmCodigoPallet,String prmCodigoEmpaque, String prmMercado) {
+        String METHOD_NAME = "WM_CambiaMercadoEmpaque";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmCodigoPallet",prmCodigoPallet);
+        request.addProperty("prmCodigoEmpaque",prmCodigoEmpaque);
+        request.addProperty("prmMercado",prmMercado);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return IniciaAccionSOAP(request, METHOD_NAME, context, null);
+    }
+
+    public DataAccessObject c_registraEmpaqueCambioEtiqueta(String prmCodigoPallet,String prmCodigoEmpaque) {
+        String METHOD_NAME = "WM_CambiaEtiquetaEmpaque";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmCodigoPallet",prmCodigoPallet);
+        request.addProperty("prmCodigoEmpaque",prmCodigoEmpaque);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return IniciaAccionSOAP(request, METHOD_NAME, context, null);
+    }
+
+
     public DataAccessObject c_ReimprimirEtiquetasMercado(String prmPallet, String prmImpresora) {
         String METHOD_NAME = "WM_ReimprimirEtiquetasMercado";
         SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
         request.addProperty("prmCodigoPallet", prmPallet);
         request.addProperty("prmImpresora", prmImpresora);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return IniciaAccionSOAP(request, METHOD_NAME, context, null);
+    }
+
+    public DataAccessObject c_ReimprimirEtiquetasCambio(String prmPallet, String prmImpresora) {
+        String METHOD_NAME = "WM_ReimprimirEtiquetasCambio";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmCodigoPallet", prmPallet);
+        request.addProperty("prmImpresora", prmImpresora);
+        request.addProperty("prmEstacion", Estacion);
+        request.addProperty("prmUsuario", Usuario);
+        return IniciaAccionSOAP(request, METHOD_NAME, context, null);
+    }
+
+    public DataAccessObject c_CierraPalletCambio(String prmPallet) {
+        String METHOD_NAME = "WM_CierraPalletCambio";
+        SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+        request.addProperty("prmCodigoPallet",prmPallet);
         request.addProperty("prmEstacion", Estacion);
         request.addProperty("prmUsuario", Usuario);
         return IniciaAccionSOAP(request, METHOD_NAME, context, null);

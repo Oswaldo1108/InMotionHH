@@ -6,11 +6,37 @@
     android:layout_height="match_parent"
     android:id="@+id/Pantalla_principal"
     android:background="@color/fondoAzul"
-    tools:context=".c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_CambioMercado">
+    tools:context=".c_Almacen.Almacen.CambioEtiqueta">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/progressBarHolder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:animateLayoutChanges="true"
+        android:background="#000000"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:indeterminate="true" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -38,7 +64,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:singleLine="true"
-                android:paddingStart="5dp" />
+                android:paddingStart="5dp"
+                android:hint="Ingrese pallet"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -160,7 +187,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
 
-                android:text="Mercado" />
+                android:text="Tipo" />
 
             <TextView
                 android:id="@+id/txtv_Mercado"
@@ -171,15 +198,35 @@
         </LinearLayout>
     </LinearLayout>
 
+
+    <ScrollView
+        android:id="@+id/scroll1"
+        android:scrollbarThumbVertical="@drawable/thumb_scrollbar"
+        android:scrollbarTrackVertical="@drawable/track_scrollbar_transp"
+        android:layout_width="match_parent"
+        android:fadeScrollbars="false"
+        android:layout_height="0dp"
+        android:layout_marginBottom="67dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/ConstraintDeLosEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
     <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -190,12 +237,18 @@
                 style="@style/EstiloTexto_Blanco_Bold"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Mercado" />
+                android:text="Mercado"
+                android:visibility="gone"
+                />
 
             <include
                 android:id="@+id/vw_spinner"
-                layout="@layout/vw_spinner" />
+                layout="@layout/vw_spinner"
+                android:visibility="gone"
+                />
         </LinearLayout>
+
+
         <LinearLayout
             android:visibility="gone"
             android:layout_marginTop="8dp"
@@ -213,7 +266,12 @@
                 android:id="@+id/vw_spinner2"
                 layout="@layout/vw_spinner" />
         </LinearLayout>
+
+
     </LinearLayout>
+
+
+
 
     <LinearLayout
         android:layout_marginTop="8dp"
@@ -245,7 +303,8 @@
                 android:layout_gravity="center"
                 android:layout_height="30dp"
                 android:singleLine="true"
-                android:paddingStart="5dp" />
+                android:paddingStart="5dp"
+                android:hint="Confirmar pallet"/>
         </LinearLayout>
 
         <LinearLayout
@@ -276,7 +335,8 @@
                     android:layout_gravity="center"
                     android:layout_height="30dp"
                     android:singleLine="true"
-                    android:paddingStart="5dp" />
+                    android:paddingStart="5dp"
+                    android:hint="Ingresar primen empaque"/>
             </LinearLayout>
 
             <LinearLayout
@@ -299,7 +359,8 @@
                     android:layout_gravity="center"
                     android:layout_height="30dp"
                     android:singleLine="true"
-                    android:paddingStart="5dp" />
+                    android:paddingStart="5dp"
+                    android:hint="Ingresar ultimo empaque"/>
             </LinearLayout>
 
             <LinearLayout
@@ -313,7 +374,7 @@
                     style="@style/EstiloTexto_Blanco_Bold"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:text="Cantidad" />
+                    android:text="Cantidad de empaques" />
 
                 <EditText
                     android:id="@+id/edtxCantidad"
@@ -323,7 +384,8 @@
                     android:layout_height="30dp"
                     android:singleLine="true"
                     android:inputType="number"
-                    android:paddingStart="5dp" />
+                    android:paddingStart="5dp"
+                    android:hint="Empaques a tomar del pallet"/>
             </LinearLayout>
 
 
@@ -390,7 +452,8 @@
                         android:layout_gravity="center"
                         android:layout_height="30dp"
                         android:singleLine="true"
-                        android:paddingStart="5dp" />
+                        android:paddingStart="5dp"
+                        android:hint="Ingrese empaque"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -484,7 +547,8 @@
                         android:layout_gravity="center"
                         android:layout_height="30dp"
                         android:singleLine="true"
-                        android:paddingStart="5dp" />
+                        android:paddingStart="5dp"
+                        android:hint="Ingresar pallet"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -492,29 +556,11 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/progressBarHolder"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:alpha="0.4"
-        android:animateLayoutChanges="true"
-        android:background="#000000"
-        android:clickable="true"
-        android:elevation="10dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:elevation="10dp"
-            android:indeterminate="true" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </FrameLayout>
+       </ScrollView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

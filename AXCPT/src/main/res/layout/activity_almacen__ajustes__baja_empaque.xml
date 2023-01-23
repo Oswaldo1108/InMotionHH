@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="Ajuste"
+        android:text="Concepto"
         android:textColor="@color/blancoLetraStd"
         android:textSize="@dimen/txtSize"
         android:textStyle="bold"

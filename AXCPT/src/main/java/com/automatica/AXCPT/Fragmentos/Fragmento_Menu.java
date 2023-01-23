@@ -29,12 +29,14 @@ import com.automatica.AXCPT.ReabastecimientoPicking.ReabPK_Seleccion_Material;
 import com.automatica.AXCPT.Validacion.ValidacionCalidad;
 import com.automatica.AXCPT.Validacion.ValidacionIngreso;
 import com.automatica.AXCPT.Validacion.ValidarColocar;
+import com.automatica.AXCPT.c_Almacen.Almacen.CambioEtiqueta;
 import com.automatica.AXCPT.c_Almacen.Almacen.Colocar;
 import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenu;
 import com.automatica.AXCPT.Fragmentos.Adaptadores.AdaptadorMenuInventarios;
 import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.c_Almacen.Almacen.Reubicar;
 import com.automatica.AXCPT.c_Almacen.Almacen.Reubicar_Menu;
+import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_CambioMercado;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Ajustes_Menu;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_Menu_Entradas;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Mov_Misc_Menu_Salidas;
@@ -74,6 +76,7 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
+
 
 public class Fragmento_Menu extends Fragment{
 
@@ -236,6 +239,7 @@ public class Fragmento_Menu extends Fragment{
                     ArrayList<objetoMenu> datos = new ArrayList<>();
                     datos.add(new objetoMenu(getString(R.string.menu_colocacion),new Intent(getContext(), ValidarColocar.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_reubicacion),new Intent(getContext(), Reubicar.class)));
+                    datos.add(new objetoMenu(getString(R.string.menu_camb_etiquetas),new Intent(getContext(), CambioEtiqueta.class)));
                     datos.add(new objetoMenu(getString(R.string.menu_mov_misc_entradas),new Intent(getContext(), Almacen_Mov_Misc_Menu_Entradas.class)));//Almacen_Mov_Misc_SelecEntradasSalidas
                     datos.add(new objetoMenu(getString(R.string.menu_mov_misc_salidas),new Intent(getContext(), Almacen_Mov_Misc_Menu_Salidas.class)));//Almacen_Ajustes_Menu.class
                     //datos.add(new objetoMenu("Devolución",new Intent(getContext(), Seleccion_DevolucionPT.class)));

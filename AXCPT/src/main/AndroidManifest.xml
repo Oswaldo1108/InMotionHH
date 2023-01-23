@@ -30,19 +30,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <!--android:icon="@mipmap/ic_launcher"-->
-        <!--android:roundIcon="@mipmap/ic_launcher_round"-->
 
+        <!-- android:icon="@mipmap/ic_launcher" -->
+        <!-- android:roundIcon="@mipmap/ic_launcher_round" -->
         <activity
             android:name=".Principal.Splash"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".c_Almacen.Almacen.CambioEtiqueta"
+            android:exported="false" />
         <activity
             android:name=".c_Almacen.Cuarentena.RecuperarPallet"
             android:exported="false" />
@@ -578,8 +581,7 @@
         <activity
             android:name=".Principal.Login"
             android:exported="false"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Servicios.preferencias"
             android:label="preferencias de instalacion" />
