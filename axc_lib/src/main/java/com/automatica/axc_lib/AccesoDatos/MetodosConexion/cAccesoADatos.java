@@ -187,7 +187,7 @@ public class cAccesoADatos extends conexionWS2
 
     public DataAccessObject SOAPIncidencia(String prmArea, String prmDescripcion, byte[] imgBase64String)//,byte[] thumbNail)
     {
-        String METHOD_NAME = "WM_PruebaFoto";
+        String METHOD_NAME = "WM_RegistraIncidencia";
         SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
         request.addProperty("prmArea",prmArea);
         request.addProperty("prmDesc",prmDescripcion);

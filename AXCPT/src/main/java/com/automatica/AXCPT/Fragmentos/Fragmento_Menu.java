@@ -159,7 +159,6 @@ public class Fragmento_Menu extends Fragment{
         */
         transition.setDuration(200);
         transition.addTarget(R.id.pantallaNegra);
-
         TransitionManager.beginDelayedTransition((ViewGroup) vista.getRootView(),transition);
         if (pantallaNegra.getVisibility()==View.VISIBLE){
             pantallaNegra.setVisibility(View.GONE);

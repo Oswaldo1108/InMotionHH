@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="@dimen/footBarSpace"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/orilla_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,13 +115,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/textView157"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtx_Pedido" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <include
         android:id="@+id/customtableview2"
@@ -176,8 +176,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="12dp"
         android:text="Pedido:"
         android:textColor="@color/blancoLetraStd"
         android:textSize="18dp"
@@ -205,18 +204,16 @@
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:ems="10"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:inputType="numberSigned"
+        app:layout_constraintBottom_toBottomOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
 
     <EditText
         android:id="@+id/edtx_Carrito"

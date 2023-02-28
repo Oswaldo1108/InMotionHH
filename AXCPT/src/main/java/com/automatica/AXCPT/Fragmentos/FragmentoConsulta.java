@@ -537,7 +537,7 @@ public class FragmentoConsulta extends Fragment{
         recycler.setLayoutManager(new LinearLayoutManager(getContext()));
         //if (dao.getcTablaUnica() != null) {
         SoapObject objeto = dao.getSoapObject_parced();
-
+        int count=0;
 
         for (int i = 0; i < objeto.getPropertyCount(); i++) {
             pisp = new PropertyInfo();
@@ -558,11 +558,15 @@ public class FragmentoConsulta extends Fragment{
             if (Etiqueta.equals("OrdenProd")){
                 continue;
             }
+            if (Etiqueta.equals("Orden")){
+                if (Dato.equals("")){
+                    Dato="SIN ORDEN";
+                }else{
+                    Etiqueta="Orden";
+                }
+            }
             if (Etiqueta.equals("CodigoPallet")){
                 Etiqueta = "CódigoPallet";
-            }
-            if (Etiqueta.equals("OrdenRecepcion")){
-                Etiqueta = "OrdenRecepción";
             }
             if (Etiqueta.equals("NumParte")){
                 Etiqueta = "Artículo";
@@ -636,6 +640,13 @@ public class FragmentoConsulta extends Fragment{
             }
             if (Etiqueta.equals("OrdenProd")){
                 continue;
+            }
+            if (Etiqueta.equals("Orden")){
+                if (Dato.equals("")){
+                    Dato="SIN ORDEN";
+                }else{
+                    Etiqueta="Orden";
+                }
             }
             if (Etiqueta.equals("Revision")) {
                 Etiqueta = "Tipo";

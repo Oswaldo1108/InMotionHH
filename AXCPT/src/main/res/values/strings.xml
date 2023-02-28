@@ -476,6 +476,7 @@
     <string name="partida">Partida -</string>
     <string name="msg_ingresa_producto">Ingrese un producto.</string>
     <string name="txt_producto">Producto</string>
+    <string name="txt_articulo">Artículo</string>
     <string name="btn_seleccionar">SELECCIONAR</string>
 
     <string name="txt_sku">SKU</string>

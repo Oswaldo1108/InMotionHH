@@ -150,7 +150,7 @@ public class frgmnt_Seleccion_Producto extends Fragment
         txtv_Titulo  = view.findViewById(R.id.txtv_Titulo);
         txtv_Detalle= view.findViewById(R.id.txtv_Incidencia);
 
-        txtv_Detalle.setText(getString(R.string.seleccion_producto));
+        //txtv_Detalle.setText(getString(R.string.seleccion_producto));
         if (str_TipoConsulta.equals("")){
             txtv_Titulo.setText("");
         }else{

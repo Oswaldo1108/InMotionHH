@@ -314,7 +314,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
     public void BotonDerecha() {
 
         if (edtx_Documento.getText().toString().equals("")) {
-            new popUpGenerico(contexto, edtx_Documento, getString(R.string.error_seleccionar_registro), false, true, false);
+            new popUpGenerico(contexto, edtx_Documento, getString(R.string.error_seleccionar_registro), false, true, true);
             reiniciarDatos();
             return;
         }
@@ -464,7 +464,7 @@ public class Surtido_Seleccion_Partida extends AppCompatActivity implements Tabl
                         case "Tabla2":
                             tabla.getDataAdapter().clear();
                             if (ConfigTabla == null) {
-                                ConfigTabla = new TableViewDataConfigurator(5, "SURTIDA", "LIBERADA TOTAL", "10", tabla, dao, Surtido_Seleccion_Partida.this);
+                                ConfigTabla = new TableViewDataConfigurator(5, "SURTIDA", "LIBERADA TOTAL", "10", tabla2, dao, Surtido_Seleccion_Partida.this);
 
                             } else {
                                 ConfigTabla.CargarDatosTabla(dao);

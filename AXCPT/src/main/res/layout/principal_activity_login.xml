@@ -15,81 +15,100 @@
         layout="@layout/toolbar" />
 
 
-    <Button
-
-        android:id="@+id/btnIngresar"
-        style="@style/Estilo_Boton_Reg"
-        android:layout_width="181dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/btn_registrar"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
-
-    <EditText
-        android:id="@+id/Usuario"
-        style="@style/Estilo_EditText_Reg"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/edtxlogin"
-        android:ems="10"
-        android:hint="@string/txtUsuario"
-        android:inputType="number"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/pass"
-        style="@style/Estilo_EditText_Reg"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/edtxlogin"
-        android:ems="10"
-        android:hint="@string/txtContraseña"
-        android:inputType="numberPassword"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Usuario" />
-
-    <ImageView
-        android:id="@+id/imgv_INMOTION"
-        android:layout_width="0dp"
-        android:layout_height="112dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="TODO"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:srcCompat="@drawable/inmotion_logo_2022"
-        android:transitionName="logoTrans" />
-
-    <TextView
-        android:id="@+id/textView"
-        style="@style/EstiloTexto_Blanco_Bold"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/txtEmpresa"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgv_INMOTION" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ImageView
+            android:id="@+id/imgv_INMOTION"
+            android:layout_width="match_parent"
+            android:layout_height="152dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="TODO"
+            android:transitionName="logoTrans"
+            app:srcCompat="@drawable/inmotion_logo_2022" />
+
+        <!--<TextView
+            android:layout_gravity="center"
+            style="@style/EstiloTexto_Blanco_Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtEmpresa"
+            android:textSize="20sp"
+            android:transitionName="txtTrans"
+            />
+-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+
+            android:hint="@string/txtUsuario"
+            app:hintEnabled="false"
+            app:endIconMode="clear_text"
+            app:startIconDrawable="@drawable/ic_baseline_account_circle_24">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Usuario"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/edtxlogin"
+                android:hint="@string/txtUsuario"
+                android:inputType="numberPassword"
+                android:singleLine="true"
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            app:endIconMode="password_toggle"
+            app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
+            app:hintEnabled="false"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pass"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/edtxlogin"
+                android:hint="@string/txtContrasena"
+                android:inputType="numberPassword"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnIngresar"
+            style="@style/Estilo_Boton_Reg"
+            android:layout_width="181dp"
+            android:layout_height="41dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="228dp"
+            android:text="@string/btn_registrar" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     <FrameLayout
@@ -111,12 +130,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <ProgressBar
-            style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:elevation="10dp"
-            android:indeterminate="true" />
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/my_progress_indeterminate" />
     </FrameLayout>
 
 

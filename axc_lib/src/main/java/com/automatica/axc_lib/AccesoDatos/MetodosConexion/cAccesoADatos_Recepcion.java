@@ -19,6 +19,19 @@ public class cAccesoADatos_Recepcion  extends conexionWS2{
         this.context = context;
     }
 
+    //----
+    public DataAccessObject c_ListarOrdenesCompraLiberadas(String prmOrdenCompra)
+    {
+        conexionWS c = new conexionWS();
+        String METHOD_NAME = "WM_ListarOCLiberadas";
+        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
+        request.addProperty("prmOrdenCompra", prmOrdenCompra);
+        request.addProperty("prmEstacion",Estacion);
+        request.addProperty("prmUsuario",Usuario);
+        return c.IniciaAccionSOAP(request,METHOD_NAME, context,null);
+    }
+    //----
+
     public DataAccessObject c_ListarLotesOC(String prmOrdenCompra, String prmPartida, String prmNumParte)
     {
         String METHOD_NAME = "WM_ListarLotesOC";
@@ -574,17 +587,6 @@ public class cAccesoADatos_Recepcion  extends conexionWS2{
         request.addProperty("prmPartida", prmPartida);
         request.addProperty("prmCantidad", prmCantidad);
         request.addProperty("prmConteo", prmConteo);
-        request.addProperty("prmEstacion",Estacion);
-        request.addProperty("prmUsuario",Usuario);
-        return c.IniciaAccionSOAP(request,METHOD_NAME, context,null);
-    }
-
-    public DataAccessObject c_ListarOrdenesCompraLiberadas(String prmOrdenCompra)
-    {
-        conexionWS c = new conexionWS();
-        String METHOD_NAME = "WM_ListarOCLiberadas";
-        SoapObject request = new SoapObject(NAMESPACE,METHOD_NAME);
-        request.addProperty("prmOrdenCompra", prmOrdenCompra);
         request.addProperty("prmEstacion",Estacion);
         request.addProperty("prmUsuario",Usuario);
         return c.IniciaAccionSOAP(request,METHOD_NAME, context,null);

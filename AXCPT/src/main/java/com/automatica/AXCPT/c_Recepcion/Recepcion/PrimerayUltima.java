@@ -68,6 +68,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
         binding = ActivityPrimerayUltimaBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -95,7 +96,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
 
         new SegundoPlano("ConsultaPallet").execute();
         new SegundoPlano("Tabla").execute();
-
+        //edtx_SKU.requestFocus();
 
         handler.postDelayed(new Runnable()
         {
@@ -324,7 +325,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
                     Log.i("Tag1",((Constructor_Dato) sp_Partidas.getSelectedItem()).getTag1());
 //                if(!edtx_SKU.getText().toString().equals(((Constructor_Dato) sp_Partidas.getSelectedItem()).getDato()))
 //                {
-                    new SegundoPlano("DetallePartida").execute();
+                    //new SegundoPlano("DetallePartida").execute();
 //                }
 
                 }
@@ -696,7 +697,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
                         dao = ca.c_ListarPartidasOCEnProceso(OrdenCompra);
                         break;
 
-                    case"DetallePartida":
+                    case"DetallePartida"://en desuso
                         dao = ca.c_detalleReciboPartida(OrdenCompra,binding.txtvPartida.getText().toString());
                         break;
 
@@ -871,7 +872,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
 
                             binding.txtvPallet.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CodigoPallet"));
                             binding.txtvEmpReg.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("EmpaquesActuales"));
-                            binding.edtxEmpaque.requestFocus();
+                            //binding.edtxEmpaque.requestFocus();
                             break;
                     }
                 }

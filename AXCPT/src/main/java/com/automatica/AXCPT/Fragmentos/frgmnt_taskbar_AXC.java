@@ -138,6 +138,13 @@ public class frgmnt_taskbar_AXC extends Fragment
             }
         });
 
+        binding.frameGrid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggle();
+            }
+        });
+
         binding.BotonDer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

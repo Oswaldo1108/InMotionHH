@@ -248,7 +248,42 @@ public class Inicio_Menu_Dinamico extends AppCompatActivity implements frgmnt_ta
     @Override
     public void onBackPressed()
     {
-       activityHelpers.getTaskbar_axc().onBackPressed();
+        if (getSupportFragmentManager().findFragmentByTag("FragmentoMenu") != null) {
+            getSupportFragmentManager().popBackStack();
+            return;
+        }
+        if (!activityHelpers.getTaskbar_axc().toggle()) {
+            return;
+        } else {
+            activityHelpers.getTaskbar_axc().toggle();
+        }
+        if (getSupportFragmentManager().findFragmentByTag("FragmentoNoti") != null) {
+            getSupportFragmentManager().popBackStack();
+            return;
+        }
+        if (getSupportFragmentManager().findFragmentByTag("fragmentoConsulta") != null) {
+
+            activityHelpers.getTaskbar_axc().cerrarFragmento();
+            //getSupportFragmentManager().popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        } else {
+            new AlertDialog.Builder(this).setIcon(R.drawable.ic_warning_black_24dp)
+
+                    .setTitle("¿Desea cerrar la sesión?").setCancelable(false)
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(contexto);
+                            SharedPreferences.Editor edit = pref.edit();
+
+                            edit.putString("usuario", "--");
+                            edit.apply();
+
+                            // String usuarioPref = pref.getString("usuario", "null");
+                            Inicio_Menu_Dinamico.super.onBackPressed();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        }
     }
 
     @Override

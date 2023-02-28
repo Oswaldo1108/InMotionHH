@@ -45,25 +45,26 @@
         style="@style/EstiloTexto_Blanco_Bold"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="No. Documento"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-        <EditText
-            android:id="@+id/edtxOrden"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:focusable="true"
-            android:layout_marginTop="5dp"
-            android:focusableInTouchMode="true"
-            android:inputType="textNoSuggestions"
-            app:layout_constraintBottom_toBottomOf="@+id/tvOrden"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvOrden"
-            app:layout_constraintTop_toTopOf="@+id/tvOrden" />
+    <EditText
+        android:id="@+id/edtxOrden"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="8dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:inputType="textNoSuggestions"
+        app:layout_constraintBottom_toBottomOf="@+id/tvOrden"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvOrden"
+        app:layout_constraintTop_toTopOf="@+id/tvOrden" />
 
 
     <include
@@ -72,12 +73,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvOrden"
-        android:layout_marginBottom="80dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvOrden" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
