@@ -1,8 +1,5 @@
 package com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_Ciesa;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
@@ -25,6 +22,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.automatica.AXCPT.Fragmentos.FragmentoConsulta;
 import com.automatica.AXCPT.Fragmentos.frgmnt_taskbar_AXC;
 import com.automatica.AXCPT.R;
@@ -41,7 +41,7 @@ import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.Servicios.popUpGenerico;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
 
-public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar,frgmnt_Seleccion_Producto.OnFragmentInteractionListener
+public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements frgmnt_taskbar_AXC.interfazTaskbar,frgmnt_Seleccion_Producto.OnFragmentInteractionListener
 {
     //region variables
     EditText edtx_CodigoEmpaque,edtx_CodigoPallet,edtx_Producto_fragm;
@@ -62,12 +62,12 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
         super.onCreate(savedInstanceState);
         binding= ActivityAjustesAjustesContenedorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Ajustes_AjustesContenedor.this);
-        pop = new popUpGenerico(Ajustes_AjustesContenedor.this);
+        new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Ajustes_AjustesContenedorBaja.this);
+        pop = new popUpGenerico(Ajustes_AjustesContenedorBaja.this);
         declaraVariables();
         agregaListeners();
-        new SegundoPlano("ListarAjustesAltas").execute();
-        //new SegundoPlano("ListarAjustesBajas").execute();
+        //new SegundoPlano("ListarAjustesAltas").execute();
+        new SegundoPlano("ListarAjustesBajas").execute();
         activityHelpers = new ActivityHelpers();
         activityHelpers.AgregarMenus(this,R.id.Pantalla_principal,false);
 
@@ -90,17 +90,20 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
                         binding.switch1.setEnabled(true);
                         binding.switch1.setChecked(true);
                         binding.edtxUbicacion.requestFocus();
-                        break;
-                    case R.id.radio_baja:
+
                         binding.switch1.setEnabled(false);
                         binding.switch1.setChecked(false);
-                        edtx_Producto_fragm.setEnabled(false);
-                        binding.spinnerAlta.setEnabled(false);
-                        binding.spinnerBaja.setEnabled(true);
-                        binding.spinnerBaja.findViewById(R.id.spinner).setEnabled(true);
-                        binding.spinnerAlta.findViewById(R.id.spinner).setEnabled(false);
+                        binding.switch1.setVisibility(View.GONE);
+                        binding.edtxProductoFragm.setEnabled(true);
+                        binding.spinnerAlta.setEnabled(true);
+                        binding.spinnerBaja.setEnabled(false);
+                        binding.spinnerBaja.findViewById(R.id.spinner).setEnabled(false);
+                        binding.spinnerAlta.findViewById(R.id.spinner).setEnabled(true);
                         reiniciaCampos();
                         binding.edtxUbicacion.requestFocus();
+                        break;
+                    case R.id.radio_baja:
+
                         break;
                 }
             }
@@ -212,7 +215,7 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
                     new SegundoPlano("ConsultaPallet").execute();
 
 
-                    new esconderTeclado(Ajustes_AjustesContenedor.this);
+                    new esconderTeclado(Ajustes_AjustesContenedorBaja.this);
 
                 }
                 return false;
@@ -315,7 +318,7 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
                     {
                         new SegundoPlano("AjusteContenedorNegativo").execute();
                     }
-                    new esconderTeclado(Ajustes_AjustesContenedor.this);
+                    new esconderTeclado(Ajustes_AjustesContenedorBaja.this);
 
                 }
                 return false;
@@ -446,7 +449,7 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
     {
         String tarea;
         DataAccessObject dao = new DataAccessObject();
-        cAccesoADatos_Almacen ca = new cAccesoADatos_Almacen(Ajustes_AjustesContenedor.this);
+        cAccesoADatos_Almacen ca = new cAccesoADatos_Almacen(Ajustes_AjustesContenedorBaja.this);
         public SegundoPlano(String tarea)
         {
             this.tarea = tarea;
@@ -531,7 +534,7 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
                             edtx_CodigoEmpaque.requestFocus();
                             break;
                         case "ListarAjustesAltas":
-                            ((Spinner)binding.spinnerAlta.findViewById(R.id.spinner)).setAdapter(new CustomArrayAdapter(Ajustes_AjustesContenedor.this,android.R.layout.simple_spinner_item, dao.getcTablasSorteadas("Descripcion","Tag1","")));
+                            ((Spinner)binding.spinnerAlta.findViewById(R.id.spinner)).setAdapter(new CustomArrayAdapter(Ajustes_AjustesContenedorBaja.this,android.R.layout.simple_spinner_item, dao.getcTablasSorteadas("Descripcion","Tag1","")));
                             break;
                         /*case "ListarAjustesBajas":
                             ((Spinner)binding.spinnerBaja.findViewById(R.id.spinner)).setAdapter(new CustomArrayAdapter(Ajustes_AjustesContenedor.this,android.R.layout.simple_spinner_item, dao.getcTablasSorteadas("Descripcion","Tag1","")));

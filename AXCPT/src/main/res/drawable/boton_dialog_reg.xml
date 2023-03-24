@@ -3,10 +3,12 @@
     <item
         android:state_pressed="true"
         android:state_enabled="true"
-        android:drawable="@drawable/boton_dialog_normal" />
+        android:drawable="@drawable/boton_dialog_clicked" />
     <item
         android:state_enabled="true"
-        android:drawable="@drawable/boton_dialog_clicked" />
+        android:drawable="@drawable/boton_dialog_normal" />
+
+
     <item android:state_enabled="false"
         android:drawable="@drawable/boton_dialog_normal"/>
 </selector>

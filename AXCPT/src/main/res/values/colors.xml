@@ -8,6 +8,7 @@
     <color name="verdeAXCMid">#106942</color>
     <color name="verdeAXCLow">#10CD68</color>
 
+    <color name="amarilloInMotion">#F2BB13</color>
     <color name="naranjaLogoInMotion">#E87D25</color>
 
     <color name="grisOsc">#585858</color>
@@ -37,7 +38,7 @@
     <color name="MoradoStd">#ff00ff</color>
 
     <color name="ControlStd">#B6AAAA</color>
-    <color name="RengSelStd">#E87D25</color><!--#000064-->
+    <color name="RengSelStd">#F2BB13</color><!--#000064-->
     <color name="HeaderColor">#262626</color><!--#2A42B9-->
     <color name="ColorBackgroundMenu">#B3FFFFFF</color>
 

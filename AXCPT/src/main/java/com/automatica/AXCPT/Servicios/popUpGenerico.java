@@ -119,7 +119,7 @@ public class popUpGenerico
             builder.setMessage( dateFormatWithZone.format(date) + "\n" + mensaje);
 
             aDialog = builder.create();
-            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.logo_im);
+            aDialog.setIcon(R.mipmap.m_bco_amarillo);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -232,7 +232,7 @@ public class popUpGenerico
 
 
             aDialog = builder.create();
-            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.logo_im);
+            aDialog.setIcon(R.mipmap.m_bco_amarillo);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -338,7 +338,7 @@ public class popUpGenerico
             builder.setMessage( dateFormatWithZone.format(date) + "\n" + e.getMessage());
 
             aDialog = builder.create();
-            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.logo_im);
+            aDialog.setIcon(R.mipmap.m_bco_amarillo);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 
@@ -420,7 +420,7 @@ public class popUpGenerico
             builder.setTitle(TituloAVISO);
             builder.setMessage(mensaje);
             aDialog = builder.create();
-            aDialog.setIcon(com.automatica.axc_lib.R.mipmap.logo_im);
+            aDialog.setIcon(R.mipmap.m_bco_amarillo);
             aDialog.setOnKeyListener(new Dialog.OnKeyListener()
             {
 

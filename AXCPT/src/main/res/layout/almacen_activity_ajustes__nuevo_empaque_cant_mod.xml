@@ -79,7 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Código del pallet"
+                        android:text="Código de pallet"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold" />
@@ -300,11 +300,11 @@
                     style="@style/Estilo_EditText_Reg"
                     android:layout_width="match_parent"
                     android:layout_height="29dp"
-                    android:layout_marginEnd="8dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:ems="10"
-                    android:hint="Mantenga presionado para elegir número de parte"
+                    android:hint="Mantenga presionado para elegir artículo"
                     android:inputType="text" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>

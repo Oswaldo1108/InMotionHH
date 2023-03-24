@@ -2,12 +2,12 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="false">
 
-    <item android:drawable="@drawable/logo_im" android:duration="50" />
-    <item android:drawable="@drawable/logo_im" android:duration="50" />
-    <item android:drawable="@drawable/logo_im" android:duration="50" />
+    <item android:drawable="@drawable/m_bco_amarillo" android:duration="50" />
+    <item android:drawable="@drawable/m_bco_amarillo" android:duration="50" />
+    <item android:drawable="@drawable/m_bco_amarillo" android:duration="50" />
     <rotate
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:drawable="@drawable/logo_im"
+        android:drawable="@drawable/m_bco_amarillo"
         android:pivotX="50%"
         android:pivotY="50%"
         android:fromDegrees="330"

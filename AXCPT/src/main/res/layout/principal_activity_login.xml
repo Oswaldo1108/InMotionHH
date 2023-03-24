@@ -34,7 +34,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="TODO"
             android:transitionName="logoTrans"
-            app:srcCompat="@drawable/inmotion_logo_2022" />
+            app:srcCompat="@mipmap/inmotion_wms_splash" />
 
         <!--<TextView
             android:layout_gravity="center"

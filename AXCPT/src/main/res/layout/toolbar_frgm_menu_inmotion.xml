@@ -10,7 +10,7 @@
     app:contentInsetLeft="10dp"
     app:contentInsetStart="10dp"
     app:contentInsetStartWithNavigation="0dp"
-    app:logo="@mipmap/inmotion_logo_negativo_naranja_2023_mini"
+    app:logo="@drawable/ic_im_wms_bco"
     app:title="Titulo toolbar"
     app:titleMarginStart="15dp"
     app:titleTextAppearance="@style/ToolbarTitleTheme"

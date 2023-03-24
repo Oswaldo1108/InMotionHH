@@ -5,7 +5,7 @@
         android:state_enabled="true">
         <inset android:insetRight="-4dp" android:insetLeft="-4dp" android:insetTop="-4dp">
             <shape>
-                <solid android:color="@color/naranjaLogoInMotion"/>
+                <solid android:color="@color/amarilloInMotion"/>
                 <stroke android:width="2dip" android:color="@color/grisAXCdisabled" />
                 <corners android:radius="2dip"/>
                 <padding android:left="0dip" android:top="0dip" android:right="0dip" android:bottom="0dip" />
@@ -18,7 +18,7 @@
         <inset android:insetRight="-4dp" android:insetLeft="-4dp" android:insetTop="-4dp">
             <shape>
                 <solid android:color="@color/verdeAXCMid"/>
-                <stroke android:width="2dip" android:color="@color/grisAXCdisabled" />
+                <stroke android:width="2dip" android:color="@color/amarilloInMotion" />
                 <corners android:radius="2dip"/>
                 <padding android:left="0dip" android:top="0dip" android:right="0dip" android:bottom="0dip" />
             </shape>
@@ -28,8 +28,8 @@
     <item android:state_enabled="false">
         <inset android:insetRight="-4dp" android:insetLeft="-4dp" android:insetTop="-4dp">
             <shape>
-                <solid android:color="@color/naranjaLogoInMotion"/>
-                <stroke android:width="2dip" android:color="@color/grisAXCdisabled" />
+                <solid android:color="@color/amarilloInMotion"/>
+                <stroke android:width="2dip" android:color="@color/verdeAXCMid" />
                 <corners android:radius="2dip"/>
                 <padding android:left="0dip" android:top="0dip" android:right="0dip" android:bottom="0dip" />
             </shape>

@@ -19,7 +19,7 @@ import androidx.core.app.NotificationManagerCompat;
 import com.automatica.AXCPT.Validacion.ValidarColocar;
 import com.automatica.AXCPT.c_Almacen.Almacen.Colocar;
 import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionConteo;
-import com.automatica.axc_lib.R;
+import com.automatica.AXCPT.R;
 
 public class creaNotificacion {
     Context contexto;
@@ -44,15 +44,15 @@ public class creaNotificacion {
         PendingIntent actionIntent = PendingIntent.getActivity(contexto,0,intentMontacarga, PendingIntent.FLAG_UPDATE_CURRENT);
         Uri sonido= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder= new NotificationCompat.Builder(contexto,"Notificacion");
-        builder.setSmallIcon(R.mipmap.logo_im);
-        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.logo_im));
+        builder.setSmallIcon(R.mipmap.m_bco_amarillo);
+        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.m_bco_amarillo));
 
         long [] patron={12,50,12};
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(TextoLargo));
         builder.setVibrate(patron);
         builder.setSound(sonido)
         .setContentIntent(actionIntent)
-                .addAction(R.mipmap.logo_im, "Pallet pendiente", actionIntent)//.setGroup("InMotionNotification")
+                .addAction(R.mipmap.m_bco_amarillo, "Pallet pendiente", actionIntent)//.setGroup("InMotionNotification")
         .setAutoCancel(true);
         builder.setContentTitle(titulo).setContentText(Contenido).setPriority(NotificationCompat.PRIORITY_MAX);
         //builder.build().flags|= Notification.GROUP_ALERT_ALL|NotificationCompat.GROUP_ALERT_ALL;
@@ -99,12 +99,12 @@ public class creaNotificacion {
         CharSequence contentTitle = "Alert Mobile";
         Log.i("Intent", String.valueOf(intent));
         NotificationCompat.Builder builder= new NotificationCompat.Builder(contexto,"Notificacion");
-        builder.setSmallIcon(R.mipmap.logo_im);
-        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.logo_im));
+        builder.setSmallIcon(R.mipmap.m_bco_amarillo);
+        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.m_bco_amarillo));
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(TextoLargo));
         builder
                 .setContentIntent(actionIntent)
-                .addAction(R.mipmap.logo_im, contentTitle, actionIntent)//.setGroup("InMotionNotification")
+                .addAction(R.mipmap.m_bco_amarillo, contentTitle, actionIntent)//.setGroup("InMotionNotification")
                 .setAutoCancel(true);
         builder.setContentTitle(titulo).setContentText(Contenido).setPriority(NotificationCompat.PRIORITY_MAX);
         //builder.build().flags|= Notification.GROUP_ALERT_ALL|NotificationCompat.GROUP_ALERT_ALL;
@@ -142,8 +142,8 @@ public class creaNotificacion {
 
         Uri sonido= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder builder= new NotificationCompat.Builder(contexto,"Notificacion");
-        builder.setSmallIcon(R.mipmap.logo_im);
-        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.logo_im));
+        builder.setSmallIcon(R.mipmap.m_bco_amarillo);
+        builder.setLargeIcon(BitmapFactory.decodeResource(contexto.getResources(), R.mipmap.m_bco_amarillo));
         long [] patron={12,50,12};
         builder.setStyle(new NotificationCompat.BigTextStyle().bigText(TextoLargo));
         builder.setVibrate(patron);
