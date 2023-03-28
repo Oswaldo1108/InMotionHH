@@ -154,8 +154,8 @@ public class popUpGenerico
                             if (view.getClass().toString().contains("EditText"))
                             {
                                 EditText tmp = (EditText) view;
-                                tmp.setText("");
-                                tmp.requestFocus();
+                                //tmp.setText("");
+                                //tmp.requestFocus();
 
                             }
                         }catch (Exception e)
@@ -267,8 +267,8 @@ public class popUpGenerico
                             if (view.getClass().toString().contains("EditText"))
                             {
                                 EditText tmp = (EditText) view;
-                                tmp.setText("");
-                                tmp.requestFocus();
+                                //tmp.setText("");
+                                //tmp.requestFocus();
                             }
                         }catch (Exception e)
                         {

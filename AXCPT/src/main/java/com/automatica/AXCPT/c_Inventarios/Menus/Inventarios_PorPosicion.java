@@ -180,6 +180,7 @@ public class Inventarios_PorPosicion extends AppCompatActivity implements TableV
     public void BotonDerecha() {
         try
         {
+
             Intent intent = new Intent(Inventarios_PorPosicion.this, Inventarios_PantallaPrincipal.class);
             boolean bandera = true;
             if(seleccion)
@@ -336,6 +337,7 @@ public class Inventarios_PorPosicion extends AppCompatActivity implements TableV
                             break;
                     }
                 } else {
+
                     new popUpGenerico(contexto, null, dao.getcMensaje(), dao.iscEstado(), true, true);
                 }
 

@@ -39,6 +39,91 @@
     </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_ConsultaOrdenProd1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ConsultaOrdenProd3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+
+            android:id="@+id/txtv_Inventario"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/textView932"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView932"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Inventario:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_ConsultaOrdenProd3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/CL_ConsultaOrdenProd1"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <TextView
+            android:id="@+id/textView9323"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Posición:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtv_Posicion"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/textView9323"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/CL_ConsultaOrdenProd2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -109,378 +194,413 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView932" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
     <ScrollView
-        android:scrollbarThumbVertical="@drawable/thumb_scrollbar"
-        android:scrollbarTrackVertical="@drawable/track_scrollbar_transp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="67dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="67dp"
+        android:scrollbarThumbVertical="@drawable/thumb_scrollbar"
+        android:scrollbarTrackVertical="@drawable/track_scrollbar_transp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CL_ConsultaOrdenProd2">
+        app:layout_constraintTop_toBottomOf="@+id/CL_ConsultaOrdenProd1"
+        app:layout_constraintVertical_bias="1.0">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ConstraintDeLosEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintDeLosEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView154"
-        style="@style/EstiloTexto_Blanco_Bold"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Impresora"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView152" />
-
-
-
-
-        <TextView
-            android:id="@+id/txtv_EmpaquesReg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:text="-"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView34"
-            app:layout_constraintStart_toEndOf="@+id/textView34"
-            app:layout_constraintTop_toTopOf="@+id/textView34" />
-
-    <TextView
-        android:id="@+id/txtv_PalletReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="-"
-        android:textColor="@color/blancoLetraStd"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView152"
-        app:layout_constraintStart_toEndOf="@+id/textView152"
-        app:layout_constraintTop_toTopOf="@+id/textView152" />
-
-    <EditText
-            android:id="@+id/edtx_CodigoPallet"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="11dp"
-            android:ems="10"
-            android:hint="@string/escanear_empaque"
-            android:inputType="textCapSentences"
-            app:layout_constraintBottom_toBottomOf="@+id/textView33"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView30"
-            app:layout_constraintTop_toTopOf="@+id/textView33" />
-
-        <TextView
-
-            android:id="@+id/textView30"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Búsqueda"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView63"
-        style="@style/EstiloTexto_Blanco_Bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Producto"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
-
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Cantidad"
-        android:textColor="@color/blancoLetraStd"
-        android:textSize="18dp"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView99" />
-
-    <include
-        android:id="@+id/vw_spinner_prod"
-        layout="@layout/vw_spinner"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView63"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView30"
-        app:layout_constraintTop_toTopOf="@+id/textView63" />
-
-    <include
-        android:id="@+id/vw_spinner_imp"
-        layout="@layout/vw_spinner"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView154"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView30"
-        app:layout_constraintTop_toTopOf="@+id/textView154" />
+            <TextView
+                android:id="@+id/textView154"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Impresora"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView152" />
 
 
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Código\nEmpaque"
-        android:textColor="@color/blancoLetraStd"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFechaRecepcion" />
+            <TextView
+                android:id="@+id/txtv_EmpaquesReg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="-"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView34"
+                app:layout_constraintStart_toEndOf="@+id/textView34"
+                app:layout_constraintTop_toTopOf="@+id/textView34" />
 
-    <TextView
-        android:id="@+id/textView99"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="SKU"
-        android:textColor="@color/blancoLetraStd"
-        android:textSize="18dp"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView63" />
+            <TextView
+                android:id="@+id/txtv_PalletReg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="-"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView152"
+                app:layout_constraintStart_toEndOf="@+id/textView152"
+                app:layout_constraintTop_toTopOf="@+id/textView152" />
 
-    <TextView
-        android:id="@+id/textView999"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Pedimento"
-        android:textColor="@color/blancoLetraStd"
-        android:textSize="18dp"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+            <EditText
+                android:id="@+id/edtx_CodigoPallet"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="11dp"
+                android:ems="10"
+                android:hint="@string/escanear_empaque"
+                android:inputType="textCapSentences"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCodigoEmpaque"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvCodigoEmpaque" />
 
-        <TextView
-            android:id="@+id/tvclavepedimiento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Clave\nPedimento"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView999" />
-        <TextView
-            android:id="@+id/tvFactura"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Factura"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvclavepedimiento" />
-        <TextView
-            android:id="@+id/tvFechaPedimiento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Fecha\nPedimento"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFactura" />
-        <TextView
-            android:id="@+id/tvFechaRecepcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Fecha\nRecepcion"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:layout_marginTop="16dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFechaPedimiento" />
+            <TextView
 
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Empaques Registrados"
-        android:textColor="@color/blancoLetraStd"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+                android:id="@+id/tvBusqueda"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Búsqueda"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView152"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Pallet abierto"
-        android:textColor="@color/blancoLetraStd"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+            <TextView
+                android:id="@+id/tvArticulo"
+                style="@style/EstiloTexto_Blanco_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Artículo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBusqueda" />
 
-    <EditText
-            android:id="@+id/txtv_Producto"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:hint="@string/capturar_num_parte"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/textView30"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView30"
-            app:layout_constraintTop_toTopOf="@+id/textView30" />
+            <TextView
+                android:id="@+id/tvCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Cantidad"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLote" />
 
-        <EditText
-            android:id="@+id/edtx_Empaque"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
+            <include
+                android:id="@+id/vw_spinner_prod"
+                layout="@layout/vw_spinner"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvArticulo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvArticulo" />
 
-            android:hint="@string/capturar_cantidad_pieza"
-            android:inputType="number"
-            app:layout_constraintBottom_toBottomOf="@+id/textView31"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView30"
-            app:layout_constraintTop_toTopOf="@+id/textView31" />
+            <include
+                android:id="@+id/vw_spinner_imp"
+                layout="@layout/vw_spinner"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView154"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/textView154" />
 
-    <EditText
-        android:id="@+id/edtx_sku"
-        style="@style/Estilo_EditText_Reg"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="Capturar SKU"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textView99"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView30"
-        app:layout_constraintTop_toTopOf="@+id/textView99" />
 
-    <EditText
-        android:id="@+id/edtxPedimiento"
-        style="@style/Estilo_EditText_Reg"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="Capturar pedimento"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textView999"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView30"
-        app:layout_constraintTop_toTopOf="@+id/textView999" />
-        <EditText
-            android:id="@+id/edtxclavepedimiento"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:hint="Capturar Clave"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/tvclavepedimiento"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView30"
-            app:layout_constraintTop_toTopOf="@+id/tvclavepedimiento" />
-        <EditText
-            android:id="@+id/edtxFactura"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:hint="Capturar Factura"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="@+id/tvFactura"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView30"
-            app:layout_constraintTop_toTopOf="@+id/tvFactura" />
+            <TextView
+                android:id="@+id/textView99"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="SKU"
+                android:textColor="@color/blancoLetraStd"
+                android:visibility="gone"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvArticulo" />
 
-        <EditText
-            android:id="@+id/edtxFechaPedimiento"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:hint="Capturar Fecha"
-            android:inputType="date"
-            android:focusable="false"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="@+id/tvFechaPedimiento"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView30"
-            app:layout_constraintTop_toTopOf="@+id/tvFechaPedimiento" />
-        <EditText
-            android:id="@+id/edtxFechaRecepcion"
-            style="@style/Estilo_EditText_Reg"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:hint="Capturar Fecha"
-            android:inputType="date"
-            android:focusable="false"
-            android:clickable="true"            app:layout_constraintBottom_toBottomOf="@+id/tvFechaRecepcion"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView30"
-            app:layout_constraintTop_toTopOf="@+id/tvFechaRecepcion" />
+            <TextView
+                android:id="@+id/tvLote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Lote"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvArticulo" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/tvclavepedimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Clave\nPedimento"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLote" />
+
+            <TextView
+                android:id="@+id/tvFactura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Factura"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLote" />
+
+            <TextView
+                android:id="@+id/tvFechaPedimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Fecha\nPedimento"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFactura" />
+
+            <TextView
+                android:id="@+id/tvFechaRecepcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Fecha\nRecepcion"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvFechaPedimiento" />
+
+
+            <TextView
+                android:id="@+id/tvCodigoEmpaque"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Código\nEmpaque"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCantidad" />
+
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Empaques Registrados"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCodigoEmpaque" />
+
+            <TextView
+                android:id="@+id/textView152"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Pallet abierto"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+            <EditText
+                android:id="@+id/txtv_Producto"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/capturar_num_parte"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBusqueda"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvBusqueda" />
+
+
+            <EditText
+                android:id="@+id/edtx_sku"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Capturar SKU"
+                android:inputType="textPersonName"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/textView99"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/textView99" />
+
+            <EditText
+                android:id="@+id/edtx_Empaque"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="@string/capturar_cantidad_pieza"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCantidad"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvCantidad" />
+
+            <EditText
+                android:id="@+id/edtxLote"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Capturar lote"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/tvLote"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvLote" />
+
+            <EditText
+                android:id="@+id/edtxPedimiento"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Capturar pedimento"
+                android:inputType="textPersonName"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/textView999"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/textView999" />
+
+            <EditText
+                android:id="@+id/edtxclavepedimiento"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Capturar Clave"
+                android:inputType="textPersonName"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tvclavepedimiento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvclavepedimiento" />
+
+            <EditText
+                android:id="@+id/edtxFactura"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Capturar Factura"
+                android:inputType="textPersonName"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFactura"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvFactura" />
+
+            <EditText
+                android:id="@+id/edtxFechaPedimiento"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Capturar Fecha"
+                android:inputType="date"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFechaPedimiento"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvFechaPedimiento" />
+
+            <EditText
+                android:id="@+id/edtxFechaRecepcion"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Capturar Fecha"
+                android:inputType="date"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFechaRecepcion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvBusqueda"
+                app:layout_constraintTop_toTopOf="@+id/tvFechaRecepcion" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

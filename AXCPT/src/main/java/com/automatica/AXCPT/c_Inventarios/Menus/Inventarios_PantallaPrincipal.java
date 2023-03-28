@@ -452,7 +452,8 @@ public class Inventarios_PantallaPrincipal extends AppCompatActivity implements 
                     }
                 } else
                 {
-                    //new popUpGenerico(contexto, null, dao.getcMensaje(), false, true, true);
+                    ConfigTabla.CargarDatosTabla(null);
+                    new popUpGenerico(contexto, null, dao.getcMensaje(), false, true, true);
 
                 }
             } catch (Exception e)

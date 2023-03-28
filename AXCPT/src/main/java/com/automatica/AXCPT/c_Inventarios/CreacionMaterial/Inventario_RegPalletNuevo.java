@@ -37,7 +37,6 @@ import com.automatica.AXCPT.Servicios.DatePickerFragment;
 import com.automatica.AXCPT.Servicios.ProgressBarHelper;
 import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
-import com.automatica.AXCPT.databinding.ActivityRecepcionContenedorBinding;
 import com.automatica.AXCPT.databinding.InvActRegPalletNuevoBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.adInventarios;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
@@ -53,7 +52,7 @@ public class Inventario_RegPalletNuevo extends AppCompatActivity implements frgm
    private TextView txtv_Inventario, txtv_Posicion;
    private ProgressBarHelper progressBarHelper;
    private DatePickerFragment newFragment;
-   private EditText edtx_Producto, edtx_Cantidad, edtx_CodigoEmpaque,edtxsku,edtxPedimento,edtxClavePedimento,edtxFactura,edtxFechaPedimento,edtxFechaRecepcion;
+   private EditText edtx_Producto, edtx_Cantidad, edtx_CodigoEmpaque,edtxsku,edtxLote,edtxPedimento,edtxClavePedimento,edtxFactura,edtxFechaPedimento,edtxFechaRecepcion;
    private Spinner spnr_Prod,spnr_Impresora;
    private TextView txtv_EmpaquesRegistrados,txtv_PalletReg;
    private Bundle b;
@@ -177,6 +176,9 @@ public class Inventario_RegPalletNuevo extends AppCompatActivity implements frgm
             edtxsku = findViewById(R.id.edtx_sku);
             edtxsku.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
+            edtxLote = findViewById(R.id.edtxLote);
+            edtxLote.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
             txtv_EmpaquesRegistrados = (TextView) findViewById(R.id.txtv_EmpaquesReg);
             txtv_PalletReg = (TextView) findViewById(R.id.txtv_PalletReg);
             spnr_Prod = findViewById(R.id.vw_spinner_prod).findViewById(R.id.spinner);
@@ -223,7 +225,15 @@ public class Inventario_RegPalletNuevo extends AppCompatActivity implements frgm
                         if (!edtx_Producto.getText().toString().equals(""))
                         {
                             new SegundoPlano("ConsultaProducto").execute();
-                            edtxsku.requestFocus();
+
+                            handler.post(
+                                    new Runnable() {
+                                        public void run() {
+                                            edtxLote.setText("");
+                                            edtxLote.requestFocus();
+                                        }
+                                    }
+                            );
                         } else {
 
                             new popUpGenerico(contexto, getCurrentFocus(), "Ingrese un código de producto correcto.", "Advertencia", true, true);
@@ -242,24 +252,200 @@ public class Inventario_RegPalletNuevo extends AppCompatActivity implements frgm
                 }
             });
 
-            edtxsku.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+            edtxLote.setOnKeyListener(new View.OnKeyListener() {
                 @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
-                    if(TextUtils.isEmpty(edtxsku.getText().toString())){
-
-                        new popUpGenerico(contexto, vista, "Ingrese SKU", "Advertencia", true, true);
-
-                    }else{
-
-                        //edtxPedimento.requestFocus();
+                public boolean onKey(View view, int keyCode, KeyEvent  event) {
+                    if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
+                    {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                edtx_Cantidad.requestFocus();
+                            }
+                        });
 
                     }
+                    return false;
+                }
+            });
+
+
+
+          /*  edtxFechaRecepcion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                            final String selectedDate = year  + "/" + (month + 1) + "/" + day;
+                            edtxFechaRecepcion.setText(selectedDate);
+                            edtx_CodigoEmpaque.requestFocus();
+                        }
+                    });
+                    newFragment.show(getSupportFragmentManager(), "datePicker");
+
+                }
+            });
+            */
+
+
+            edtx_Cantidad.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event)
+                {
+                    if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
+                    {
+
+                        if (edtx_Cantidad.getText().toString().equals("")||Double.parseDouble(edtx_Cantidad.getText().toString())<=0)
+                        {
+
+                            new popUpGenerico(contexto, null, getString(R.string.ingrese_cantidad), "Advertencia", true, true);
+
+                            handler.post(
+                                    new Runnable() {
+                                        public void run() {
+                                            edtx_Cantidad.setText("");
+                                            edtx_Cantidad.requestFocus();
+                                        }
+                                    }
+                            );
+
+                        }
+                           else if (Float.parseFloat(edtx_Cantidad.getText().toString()) > 999999)
+                            {
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        handler.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                edtx_Cantidad.requestFocus();
+                                                edtx_Cantidad.setText("");
+                                            }
+                                        });
+                                    }
+                                });
+                                new popUpGenerico(contexto, getCurrentFocus(), getString(R.string.error_cantidad_mayor_999999), "false", true, true);
+                            }
+
+                            else{
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        edtx_CodigoEmpaque.requestFocus();
+                                    }
+                                });
+
+
+                            }
+
+
+                    }
+                    return false;
+                }
+            });
+
+
+
+            edtx_CodigoEmpaque.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                        if (spnr_Prod.getAdapter() == null) {
+
+                            handler.post(
+                                    new Runnable() {
+                                        public void run() {
+                                            new popUpGenerico(contexto, getCurrentFocus(), "Busque un articulo y posteriormente seleccionelo", "false", true, true);
+                                            edtx_Producto.requestFocus();
+                                        }
+                                    });
+                            return false;
+                        }
+
+                        else if (edtx_CodigoEmpaque.getText().toString().equals("")) {
+
+                            new popUpGenerico(contexto, null, getString(R.string.error_ingrese_empaque), "Advertencia", true, true);
+                            edtx_CodigoEmpaque.setText("");
+                            edtx_CodigoEmpaque.requestFocus();
+                            handler.post(
+                                    new Runnable() {
+                                        public void run() {
+                                            edtx_CodigoEmpaque.setText("");
+                                            edtx_CodigoEmpaque.requestFocus();
+                                        }
+                                    }
+                            );
+                        } else if (edtx_Cantidad.getText().toString().equals("")) {
+
+
+                            new popUpGenerico(contexto, null, "Ingrese la cantidad", "Advertencia", true, true);
+                            edtx_CodigoEmpaque.setText("");
+                            edtx_CodigoEmpaque.requestFocus();
+                            handler.post(
+                                    new Runnable() {
+                                        public void run() {
+                                            edtx_Cantidad.requestFocus();
+                                        }
+                                    }
+                            );
+
+
+
+                        }else {
+                                new SegundoPlano("RegistrarEmpaqueNuevo").execute();
+                            }
+
+
+
+                                          /*          if(((Constructor_Dato)spnr_Prod.getSelectedItem()).getTag2().equals(edtxsku.getText().toString())){
+
+
+
+                            }else{
+                                new popUpGenerico(contexto,getCurrentFocus(),"SKU diferente al producto seleccionado",false,true,true);
+                                edtxsku.setText("");
+                                edtxsku.requestFocus();
+                            }*/
+
+                    }
+
 
                     return false;
                 }
             });
-            edtxPedimento.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+        } catch (Exception e)
+        {
+            new popUpGenerico(contexto, null, e.getMessage(), "Advertencia", true, true);
+        }
+
+
+
+        /*            edtx_Cantidad.setOnLongClickListener(new View.OnLongClickListener()
+            {
+                @Override
+                public boolean onLongClick(View view)
+                {
+
+                    if(edtx_Producto.getText().toString().equals(""))
+                    {
+                        new popUpGenerico(contexto,edtx_Producto,"Antes de hacer el conteo, ingrese el SKU o UPC.",false,true,true);
+                        return false;
+                    }
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left, android.R.anim.slide_in_left, R.anim.slide_out_left)
+                            .add(R.id.Pantalla_principal, frgmnt_SKU_Conteo.newInstance(null, edtx_Producto.getText().toString()), "Fragmentosku").addToBackStack("Fragmentosku").commit();
+
+
+                    return true;
+                }
+            });*/
+
+        /*  edtxPedimento.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                 @Override
                 public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                     //edtxClavePedimento.requestFocus();
@@ -295,173 +481,8 @@ public class Inventario_RegPalletNuevo extends AppCompatActivity implements frgm
                     newFragment.show(getSupportFragmentManager(), "datePicker");
 
                 }
-            });
-            edtx_Cantidad.setOnLongClickListener(new View.OnLongClickListener()
-            {
-                @Override
-                public boolean onLongClick(View view)
-                {
+            });*/
 
-                    if(edtx_Producto.getText().toString().equals(""))
-                    {
-                        new popUpGenerico(contexto,edtx_Producto,"Antes de hacer el conteo, ingrese el SKU o UPC.",false,true,true);
-                        return false;
-                    }
-                    getSupportFragmentManager().beginTransaction()
-                            .setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left, android.R.anim.slide_in_left, R.anim.slide_out_left)
-                            .add(R.id.Pantalla_principal, frgmnt_SKU_Conteo.newInstance(null, edtx_Producto.getText().toString()), "Fragmentosku").addToBackStack("Fragmentosku").commit();
-
-
-                    return true;
-                }
-            });
-
-            edtxFechaRecepcion.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-                        @Override
-                        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                            final String selectedDate = year  + "/" + (month + 1) + "/" + day;
-                            edtxFechaRecepcion.setText(selectedDate);
-                            edtx_CodigoEmpaque.requestFocus();
-                        }
-                    });
-                    newFragment.show(getSupportFragmentManager(), "datePicker");
-
-                }
-            });
-            edtx_Cantidad.setOnKeyListener(new View.OnKeyListener() {
-                @Override
-                public boolean onKey(View v, int keyCode, KeyEvent event) {
-                    if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
-                    {
-                        if (!edtx_Cantidad.getText().toString().equals("")|| Double.parseDouble(edtx_Cantidad.getText().toString())<=0) {
-                            //Toast.makeText(Inventario_RegPalletNuevo.this,  "Ingrese una cantida correcta.", Toast.LENGTH_SHORT).show();
-
-                            handler.post(
-                                    new Runnable() {
-                                        public void run() {
-
-                                            edtxPedimento.requestFocus();
-                                        }
-                                    }
-                            );
-                        } else {
-                            new popUpGenerico(contexto, null, getString(R.string.ingrese_cantidad), "Advertencia", true, true);
-                            Log.i("PRUEBA",((Constructor_Dato)spnr_Prod.getSelectedItem()).getTag2());
-
-                                            edtx_Cantidad.setText("");
-                                            edtx_Cantidad.requestFocus();
-
-                        }
-                    }
-                    return false;
-                }
-            });
-
-            edtx_Cantidad.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-
-                    if(edtxsku.getText().toString().equals(""))
-                    {
-                        new popUpGenerico(contexto,edtxsku,"Antes de hacer el conteo, ingrese el SKU o UPC.",false,true,true);
-                        return false;
-                    }
-                    getSupportFragmentManager().beginTransaction()
-                            .setCustomAnimations(android.R.anim.slide_in_left, R.anim.slide_out_left, android.R.anim.slide_in_left, R.anim.slide_out_left)
-                            .add(R.id.Pantalla_principal, frgmnt_SKU_Conteo.newInstance(null, edtxsku.getText().toString()), "Fragmentosku").addToBackStack("Fragmentosku").commit();
-
-
-
-                    return true;
-                }
-            });
-
-            edtx_Cantidad.setCustomSelectionActionModeCallback(new ActionMode.Callback2()
-            {
-                @Override
-                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                    return false;
-                }
-
-                @Override
-                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                    return false;
-                }
-
-                @Override
-                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                    return false;
-                }
-
-                @Override
-                public void onDestroyActionMode(ActionMode mode) {
-
-                }
-            });
-
-            edtx_CodigoEmpaque.setOnKeyListener(new View.OnKeyListener() {
-                @Override
-                public boolean onKey(View v, int keyCode, KeyEvent event) {
-                    if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
-                    {
-
-                        if (spnr_Prod.getAdapter()== null)
-                        {
-
-                            handler.post(
-                                    new Runnable() {
-                                        public void run()
-                                        {
-                                            new popUpGenerico(contexto, getCurrentFocus(), getString(R.string.error_ingrese_producto), "false", true, true);
-                                            edtx_Producto.requestFocus();
-                                        }
-                                    });
-                            return false;
-                        }
-
-                        if (edtx_CodigoEmpaque.getText().toString().equals(""))
-                        {
-
-                            new popUpGenerico(contexto, null, getString(R.string.error_ingrese_empaque), "Advertencia", true, true);
-                            edtx_CodigoEmpaque.setText("");
-                            edtx_CodigoEmpaque.requestFocus();
-                            handler.post(
-                                    new Runnable()
-                                    {
-                                        public void run()
-                                        {
-                                            edtx_CodigoEmpaque.setText("");
-                                            edtx_CodigoEmpaque.requestFocus();
-                                        }
-                                    }
-                            );
-                        }else{
-                            if(((Constructor_Dato)spnr_Prod.getSelectedItem()).getTag2().equals(edtxsku.getText().toString())){
-
-                                new SegundoPlano("RegistrarEmpaqueNuevo").execute();
-
-                            }else{
-                                new popUpGenerico(contexto,getCurrentFocus(),"SKU diferente al producto seleccionado",false,true,true);
-                                edtxsku.setText("");
-                                edtxsku.requestFocus();
-                            }
-
-
-                        }
-                        }
-
-
-                    return false;
-                }
-            });
-
-        } catch (Exception e)
-        {
-            new popUpGenerico(contexto, null, e.getMessage(), "Advertencia", true, true);
-        }
     }
 
     @Override
@@ -559,11 +580,12 @@ public class Inventario_RegPalletNuevo extends AppCompatActivity implements frgm
                                                                         ((Constructor_Dato)spnr_Prod.getSelectedItem()).getDato(),
                                                                         edtx_Cantidad.getText().toString(),
                                                                         UbicacionIntent,
-                                                                        edtxPedimento.getText().toString(),
-                                                                        edtxClavePedimento.getText().toString(),
-                                                                        edtxFactura.getText().toString(),
-                                                                        edtxFechaPedimento.getText().toString(),
-                                                                        edtxFechaRecepcion.getText().toString());
+                                                                        edtxLote.getText().toString(),
+                                                                        "NA",
+                                                                        "NA",
+                                                                        "NA",
+                                                                        "1900-01-01",
+                                                                        "1900-01-01");
                         break;
                     case "RegistraPalletNuevo":
                         dao = ca.c_CierraPalletInventario(IdInventario,txtv_PalletReg.getText().toString(),spnr_Impresora.getSelectedItem().toString());
