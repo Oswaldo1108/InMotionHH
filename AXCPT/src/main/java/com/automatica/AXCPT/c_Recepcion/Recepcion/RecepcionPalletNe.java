@@ -74,7 +74,6 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
     String OrdenCompra, FechaCaducidad,ModificaCant,PartidaERP,NumParte,UM,CantidadTotal,CantidadRecibida,CantidadEmpaques,EmpaquesPallet,SKU;
     TextView txtv_OrdenCompra;
     boolean recargar;
-    Handler h = new Handler();
     int registroAnteriorSpinner=0;
 
     @Override
@@ -90,7 +89,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle("Recepción");
-            getSupportActionBar().setSubtitle("Pallet No Etiquetado");
+            getSupportActionBar().setSubtitle("Pallet no etiquetado");
             View logoView = getToolbarLogoIcon(toolbar);
             logoView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -217,7 +216,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
             }
         });
 
-        edtx_SKU.setOnKeyListener(new View.OnKeyListener()
+        binding.edtxSKU.setOnKeyListener(new View.OnKeyListener()
         {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event)
@@ -232,11 +231,11 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                             edtx_SKU.setText("");
                             edtx_SKU.requestFocus();
 
-                            new popUpGenerico(contexto,edtx_SKU,"Ingrese un SKU." , false, true, true);
+                            new popUpGenerico(contexto,edtx_SKU,"Ingrese un artículo." , false, true, true);
                             return false;
                         }
 
-                        edtx_SKU.setText(edtx_SKU.getText().toString().replace(" "," ").replace("\t","").replace("\n",""));
+                        edtx_SKU.setText(edtx_SKU.getText().toString());
 
                         int SKUSel = -2;
                         SKUSel  = CustomArrayAdapter.getIndex(sp_Partidas,edtx_SKU.getText().toString());
@@ -247,7 +246,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                 new popUpGenerico(contexto,edtx_SKU,"Error interno." , false, true, true);
                                 new esconderTeclado(RecepcionPalletNe.this);
 
-                                h.postDelayed(new Runnable()
+                                handler.postDelayed(new Runnable()
                                 {
                                     @Override
                                     public void run()
@@ -264,7 +263,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                     case -2:
                                         new popUpGenerico(contexto,edtx_SKU,"Error interno." , false, true, true);
                                         new esconderTeclado(RecepcionPalletNe.this);
-                                        h.postDelayed(new Runnable()
+                                        handler.postDelayed(new Runnable()
                                         {
                                             @Override
                                             public void run()
@@ -275,9 +274,9 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                         },100);
                                         break;
                                     case -1:
-                                        new popUpGenerico(contexto,edtx_SKU,"No se encontro el SKU dentro del listado de partidas, verifique que sea correcto. [" + edtx_SKU.getText().toString() +"]" , false, true, true);
+                                        new popUpGenerico(contexto,edtx_SKU,"No se encontro el artículo dentro del listado de partidas, verifique que sea correcto. [" + edtx_SKU.getText().toString() +"]" , false, true, true);
                                         new esconderTeclado(RecepcionPalletNe.this);
-                                        h.postDelayed(new Runnable()
+                                        handler.postDelayed(new Runnable()
                                         {
                                             @Override
                                             public void run()
@@ -294,16 +293,46 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                 break;
                             default:
                                 sp_Partidas.setSelection(SKUSel);
+                                break;
                         }
-                            edtx_Cantidad.requestFocus();
-                        new esconderTeclado(RecepcionPalletNe.this);
-
-
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                binding.edtxLote.requestFocus();
+                            }
+                        });
+                        //new esconderTeclado(RecepcionPalletNe.this);
                     }catch (Exception e)
                     {
                         e.printStackTrace();
                         new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), false, true, true);
                     }
+                }
+                return false;
+            }
+        });
+
+        binding.edtxLote.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                try {
+                    if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER)){
+                            /*if(binding.edtxLote.getText().toString().equals("")){
+
+                            }*/
+                        //binding.edtxEmpaque.requestFocus();
+
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                binding.edtxEmpaque.requestFocus();
+                                //new esconderTeclado(RecepcionPalletNe.this);
+                            }
+                        });
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    new popUpGenerico(contexto, getCurrentFocus(), e.getMessage(), false, true, true);
                 }
                 return false;
             }
@@ -323,7 +352,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                 Log.i("Tag1",((Constructor_Dato) sp_Partidas.getSelectedItem()).getTag1());
 //                if(!edtx_SKU.getText().toString().equals(((Constructor_Dato) sp_Partidas.getSelectedItem()).getDato()))
 //                {
-                new SegundoPlano("DetallePartida").execute();
+                //new SegundoPlano("DetallePartida").execute();
 //                }
 
             }
@@ -362,7 +391,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
         });
 
 
-        edtx_Cantidad.setOnFocusChangeListener(new View.OnFocusChangeListener()
+        /*edtx_Cantidad.setOnFocusChangeListener(new View.OnFocusChangeListener()
         {
             @Override
             public void onFocusChange(View v, boolean hasFocus)
@@ -400,7 +429,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                     }
                 }
             }
-        });
+        });*/
 
 
         edtx_Cantidad.setOnKeyListener(new View.OnKeyListener()
@@ -415,7 +444,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                         if (edtx_Cantidad.getText().toString().equals(""))
                         {
 
-                            h.post(new Runnable()
+                            handler.post(new Runnable()
                             {
                                 @Override
                                 public void run()
@@ -425,6 +454,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                 }
                             });
                             new popUpGenerico(contexto, getCurrentFocus(),getString(R.string.error_ingrese_cantidad),"Advertencia", true, true);
+                            return false;
 
                         }
                         try {
@@ -433,11 +463,11 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                 edtx_EmpxPallet.requestFocus();
 
                             } else {
-                                h.post(new Runnable() {
+                                handler.post(new Runnable() {
                                     @Override
                                     public void run() {
 
-                                        h.post(new Runnable() {
+                                        handler.post(new Runnable() {
                                             @Override
                                             public void run() {
                                                 edtx_Cantidad.requestFocus();
@@ -447,11 +477,12 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                     }
                                 });
                                 new popUpGenerico(contexto, getCurrentFocus(), getString(R.string.error_cantidad_mayor_999999), "false", true, true);
+                                return  false;
 
                             }
                         }catch (NumberFormatException ex)
                         {
-                            h.post(new Runnable()
+                            handler.post(new Runnable()
                             {
                                 @Override
                                 public void run()
@@ -484,7 +515,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                     {
                         if(edtx_EmpxPallet.getText().toString().equals(""))
                         {
-                            h.post(new Runnable() {
+                            handler.post(new Runnable() {
                                 @Override
                                 public void run() {
                                     edtx_EmpxPallet.setText("");
@@ -494,9 +525,6 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                             new popUpGenerico(contexto,getCurrentFocus(),"Ingrese candidad de empaques" , "false", true, true);
                             return false;
                         }
-
-
-
 
                         if(Integer.parseInt(edtx_EmpxPallet.getText().toString()) <=0)
                         {
@@ -512,7 +540,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
 
                         if(edtx_Cantidad.getText().toString().equals(""))
                         {
-                            h.post(new Runnable() {
+                            handler.post(new Runnable() {
                                 @Override
                                 public void run() {
                                     edtx_EmpxPallet.setText("");
@@ -524,7 +552,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                         }
                         if (edtx_EmpxPallet.getText().toString().equals(""))
                         {
-                            h.post(new Runnable() {
+                            handler.post(new Runnable() {
                                 @Override
                                 public void run() {
                                     edtx_EmpxPallet.setText("");
@@ -636,8 +664,9 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
         try
         {
             edtx_Cantidad.setText("");
-            edtx_EmpxPallet .setText("");
-            edtx_Cantidad.requestFocus();
+            edtx_EmpxPallet.setText("");
+            binding.edtxLote.setText("");
+            binding.edtxLote.requestFocus();
         }catch (Exception e)
         {
             e.printStackTrace();
@@ -653,7 +682,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                 if (Integer.parseInt(txtv_EmpaquesRegistrados.getText().toString()) > 0) {
 
 
-                    new CreaDialogos("¿Cerrar tarima?",
+                    new CreaDialogos("¿Cerrar pallet?",
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -753,7 +782,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
 
                             dao = ca.c_RegistrarPalletCompra_NE(OrdenCompra,
                                     txtv_Partida.getText().toString(),
-                                    "",
+                                    binding.edtxLote.getText().toString(),
                                     edtx_Cantidad.getText().toString(),
                                     edtx_EmpxPallet.getText().toString(), NumSerie);
 
@@ -803,7 +832,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                 CustomArrayAdapter c;
                                 sp_Partidas.setAdapter(c = new CustomArrayAdapter(RecepcionPalletNe.this,
                                         android.R.layout.simple_spinner_item,
-                                        dao.getcTablasSorteadas("SKU","Partida","Artículo","Cant. Total")));
+                                        dao.getcTablasSorteadas("Artículo","Partida","Artículo","Cant. Total")));
 
                                 sp_NumSerie.setAdapter(c = new CustomArrayAdapter(RecepcionPalletNe.this,
                                         android.R.layout.simple_spinner_item,
@@ -828,7 +857,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                                 case -1:
                                     int UPCSel=-2;
 
-                                    new popUpGenerico(contexto,edtx_SKU,"No se encontro el SKU dentro del listado de partidas, verifique que sea correcto. [" + SKU +"]" , false, true, true);
+                                    new popUpGenerico(contexto,edtx_SKU,"No se encontro el artículo dentro del listado de partidas, verifique que sea correcto. [" + SKU +"]" , false, true, true);
                                     new esconderTeclado(RecepcionPalletNe.this);
                                     return;
                                 case -3:
@@ -895,7 +924,7 @@ public class RecepcionPalletNe extends AppCompatActivity implements frgmnt_taskb
                             txtv_EmpaquesRegistrados.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("EmpaquesActuales"));
                             break;
                         case "RegistraPalletNuevo":
-                            new popUpGenerico(contexto, LastView,"Pallet "+"["+dao.getcMensaje()+"] Cerrado con éxito",dao.iscEstado(), true, true);
+                            new popUpGenerico(contexto, LastView,"Pallet "+"["+dao.getcMensaje()+"] cerrado con éxito.",dao.iscEstado(), true, true);
                             new SegundoPlano("ConsultaPallet").execute();
                             break;
 

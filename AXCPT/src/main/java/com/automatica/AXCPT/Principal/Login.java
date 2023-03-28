@@ -660,7 +660,7 @@ public class Login extends AppCompatActivity implements frgmnt_Registra_Configur
         protected Void doInBackground(Void... voids) {
             try {
 
-                Log.e("TOKEN", firebaseInstallations.getId().toString());
+                //Log.e("TOKEN", firebaseInstallations.getId().toString());
                 can = new cAccesoADatos(contexto);
                 daon = can.cConsultaversion(verapp);
             }catch (Exception e){

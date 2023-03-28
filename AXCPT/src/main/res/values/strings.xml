@@ -440,7 +440,7 @@
     <string name="taskbar_axc_recibir">RECIBIR</string>
     <string name="taskbar_axc_seleccionar">SELECCIONAR</string>
     <string name="taskbar_axc_siguiente">SIGUIENTE</string>
-    <string name="taskbar_axc_cerrar_tarima">CERRAR\nTARIMA</string>
+    <string name="taskbar_axc_cerrar_tarima">CERRAR\nPALLET</string>
     <string name="taskbar_axc_cerrar_reempaque">CERRAR\nREEMPAQUE</string>
     <string name="taskbar_axc_cerrar_carrito">"CERRAR\nCARRITO</string>
     <string name="taskbar_axc_rebastecimiento">SIN DOCUMENTO</string>

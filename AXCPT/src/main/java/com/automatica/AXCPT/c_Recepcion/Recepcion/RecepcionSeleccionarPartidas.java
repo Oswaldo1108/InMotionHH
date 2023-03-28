@@ -271,19 +271,19 @@ public class RecepcionSeleccionarPartidas extends AppCompatActivity implements T
                 public void listenerItem(MenuItem item) {
                     try{
                         switch (item.getItemId()){
-                            case R.id.PyU:
+                            case R.id.PyU://this
                                 intent= new Intent(contexto, PrimerayUltima.class);
                                 intent.putExtras(b);
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
                                 break;
-                            case R.id.etiquetado:
+                            case R.id.etiquetado://this
                                 intent= new Intent(contexto, RecepcionEmpaques.class);
                                 intent.putExtras(b);
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
                                 break;
-                            case R.id.registrorefacciones:
+                            /*case R.id.registrorefacciones:
                                 intent= new Intent(contexto, Recepcion_Refacciones.class);
                                 intent.putExtras(b);
                                 startActivity(intent);
@@ -300,8 +300,8 @@ public class RecepcionSeleccionarPartidas extends AppCompatActivity implements T
                                 intent.putExtras(b);
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.slide_right_in_enter,R.anim.slide_right_out_enter);
-                                break;
-                            case R.id.palletne:
+                                break;*/
+                            case R.id.palletne://this
                                 intent= new Intent(contexto, RecepcionPalletNe.class);
                                 intent.putExtras(b);
                                 startActivity(intent);
@@ -374,8 +374,8 @@ public class RecepcionSeleccionarPartidas extends AppCompatActivity implements T
     public void onTableClick(int rowIndex, String[] clickedData, boolean Seleccionado, String IdentificadorTabla) {
         b.putString("IdRecepcion", IdRecepcion);
         b.putString("PartidaERP", clickedData[0]);
-        b.putString("NumParte", clickedData[2]);
-        b.putString("SKU", clickedData[10]);
+        b.putString("NumParte", clickedData[1]);
+        b.putString("SKU", clickedData[1]);
 
         b.putString("CantidadTotal", clickedData[3]);
         b.putString("CantidadRecibida", clickedData[5]);

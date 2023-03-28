@@ -260,11 +260,12 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
                                 edtx_SKU.setText("");
                                 edtx_SKU.requestFocus();
 
-                                new popUpGenerico(contexto,edtx_SKU,"Ingrese un SKU." , false, true, true);
+                                new popUpGenerico(contexto,edtx_SKU,"Ingrese un artículo." , false, true, true);
                                 return false;
                             }
 
-                            edtx_SKU.setText(edtx_SKU.getText().toString().replace(" ","").replace("\t","").replace("\n",""));
+                            //edtx_SKU.setText(edtx_SKU.getText().toString().replace(" ","").replace("\t","").replace("\n",""));
+                            edtx_SKU.setText(edtx_SKU.getText().toString());
 
                             int SKUSel = -2;
                             SKUSel  = CustomArrayAdapter.getIndex(sp_Partidas,edtx_SKU.getText().toString());
@@ -285,7 +286,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
 
                                             break;
                                         case -1:
-                                            new popUpGenerico(contexto,edtx_SKU,"No se encontró el SKU dentro del listado de partidas, verifique que sea correcto. [" + edtx_SKU.getText().toString() +"]" , false, true, true);
+                                            new popUpGenerico(contexto,edtx_SKU,"No se encontró el artículo dentro del listado de partidas, verifique que sea correcto. [" + edtx_SKU.getText().toString() +"]" , false, true, true);
                                             new esconderTeclado(PrimerayUltima.this);
 
                                             break;
@@ -400,26 +401,19 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
                         {
                             if (!binding.edtxEmpxPallet.getText().toString().equals(""))
                             {
-                                try {
-                                    if (Integer.parseInt(binding.edtxEmpxPallet.getText().toString()) > 999999)
-                                    {
-                                        binding.edtxEmpxPallet.setText("");
-                                        binding.edtxEmpxPallet.requestFocus();
-                                        pop.popUpGenericoDefault(vista,getString(R.string.error_cantidad_mayor_999999),false);
-                                    } else {
-
-
-
-
-                                    }
-                                }catch (NumberFormatException ex)
+                                if (Integer.parseInt(binding.edtxEmpxPallet.getText().toString()) > 999999)
                                 {
-                                    pop.popUpGenericoDefault(vista,getString(R.string.error_cantidad_valida),false);
-
-                                            binding.edtxEmpxPallet.setText("");
-                                            binding.edtxEmpxPallet.requestFocus();
-
+                                    binding.edtxEmpxPallet.setText("");
+                                    binding.edtxEmpxPallet.requestFocus();
+                                    pop.popUpGenericoDefault(vista,getString(R.string.error_cantidad_mayor_999999),false);
+                                    return false;
                                 }
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        binding.edtxLote.requestFocus();
+                                    }
+                                });
                             }else
                             {
                                 pop.popUpGenericoDefault(vista,getString(R.string.error_ingrese_cantidad),false);
@@ -440,7 +434,30 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
                 }
             });
 
+            binding.edtxLote.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    try {
+                        if((event.getAction()==KeyEvent.ACTION_DOWN)&&(keyCode==KeyEvent.KEYCODE_ENTER)){
+                            /*if(binding.edtxLote.getText().toString().equals("")){
 
+                            }*/
+
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    binding.edtxPrimerEmpaque.requestFocus();
+                                    new esconderTeclado(PrimerayUltima.this);
+                                }
+                            });
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        pop.popUpGenericoDefault(vista,e.getMessage(),false);
+                    }
+                    return false;
+                }
+            });
 
             binding.edtxPrimerEmpaque.setOnKeyListener(new View.OnKeyListener()
             {
@@ -593,6 +610,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
             binding.edtxPrimerEmpaque.setText("");
             binding.edtxUltimoEmpaque.setText("");
             binding.edtxCantidadEmpaques.setText("");
+            binding.edtxLote.setText("");
             binding.edtxEmpaque.requestFocus();
         }catch (Exception e)
         {
@@ -717,7 +735,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
 
                             dao = ca.c_RegistraMPPrimerasYUltimas(OrdenCompra,
                                     binding.txtvPartida.getText().toString(),
-                                    "",
+                                    binding.edtxLote.getText().toString(),//agregado Lote
                                     binding.edtxEmpaque.getText().toString(),
                                     binding.edtxEmpxPallet.getText().toString(),
                                     binding.edtxPrimerEmpaque.getText().toString(),
@@ -771,14 +789,11 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
                                 CustomArrayAdapter c;
                                 sp_Partidas.setAdapter(c = new CustomArrayAdapter(PrimerayUltima.this,
                                         android.R.layout.simple_spinner_item,
-                                        dao.getcTablasSorteadas("SKU","Partida","Artículo","Cant. Total")));
+                                        dao.getcTablasSorteadas("Artículo","Partida","Artículo","Cant. Total")));
                             }else
                             {
                                 sp_Partidas.setAdapter(null);
                             }
-
-
-
 
                             int SKUSel = -2;
                             SKUSel  = CustomArrayAdapter.getIndex(sp_Partidas,SKU);
@@ -794,7 +809,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
                                 case -1:
                                     int UPCSel=-2;
 
-                                    new popUpGenerico(contexto,edtx_SKU,"No se encontró el SKU dentro del listado de partidas, verifique que sea correcto. [" + SKU +"]" , false, true, true);
+                                    new popUpGenerico(contexto,edtx_SKU,"No se encontró el artículo dentro del listado de partidas, verifique que sea correcto. [" + SKU +"]" , false, true, true);
                                     new esconderTeclado(PrimerayUltima.this);
                                     return;
                                 case -3:
@@ -855,7 +870,7 @@ public class PrimerayUltima extends AppCompatActivity implements frgmnt_taskbar_
 
 
                         case "RegistraPalletNuevo":
-                            new popUpGenerico(contexto, getCurrentFocus(),"Pallet ["+dao.getcMensaje()+"] Cerrado con éxito",dao.iscEstado(), true, true);
+                            new popUpGenerico(contexto, getCurrentFocus(),"Pallet ["+dao.getcMensaje()+"] cerrado con éxito",dao.iscEstado(), true, true);
 
                             new SegundoPlano("ConsultaPallet").execute();
 
