@@ -197,7 +197,7 @@ public class adInventarios extends conexionWS2
     }
     public DataAccessObject c_RegistraEmpaqueNuevoPalletInventario(String prmInventario,String prmEmpaque,
                                                                    String prmNumParte,String prmCantidad,
-                                                                   String prmPosicion,String prmPedimento,String prmClavePedimento,String prmFactura,
+                                                                   String prmPosicion, String prmLote, String prmPedimento,String prmClavePedimento,String prmFactura,
                                                                    String prmFechaPedimento, String prmFechaRecepcion)
     {
         String METHOD_NAME = "WM_RegistraEmpaqueNuevoPalletInventario";
@@ -206,6 +206,7 @@ public class adInventarios extends conexionWS2
         request.addProperty("prmEmpaque",prmEmpaque);
         request.addProperty("prmNumParte",prmNumParte);
         request.addProperty("prmCantidad",prmCantidad);
+        request.addProperty("prmLote",prmLote);
         request.addProperty("prmPosicion",prmPosicion);
         request.addProperty("prmPedimento",prmPedimento);
         request.addProperty("prmClavePedimento",prmClavePedimento);
@@ -219,7 +220,9 @@ public class adInventarios extends conexionWS2
 
     public DataAccessObject c_RegistraEmpaqueNuevoPalletInventario_NE(String prmInventario,String prmEmpaques,
                                                                       String prmNumParte,String prmCantidad,
-                                                                      String prmPosicion,String prmPedimento,String prmClavePedimento,String prmFactura,
+                                                                      String prmPosicion, String prmLote,
+                                                                      String prmPedimento,
+                                                                      String prmClavePedimento,String prmFactura,
                                                                       String prmFechaPedimento, String prmFechaRecepcion)
     {
         String METHOD_NAME = "WM_RegistraEmpaqueNuevoPalletInventario_NE";
@@ -229,6 +232,7 @@ public class adInventarios extends conexionWS2
         request.addProperty("prmNumParte",prmNumParte);
         request.addProperty("prmCantidad",prmCantidad);
         request.addProperty("prmPosicion",prmPosicion);
+        request.addProperty("prmLote",prmLote);
         request.addProperty("prmPedimento",prmPedimento);
         request.addProperty("prmClavePedimento",prmClavePedimento);
         request.addProperty("prmFactura",prmFactura);
