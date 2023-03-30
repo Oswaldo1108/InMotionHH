@@ -158,7 +158,7 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
 
-            this.getSupportActionBar().setTitle("Ajustes contenedor");
+            this.getSupportActionBar().setTitle("Ajuste unidades a emapques");
             p = new ProgressBarHelper(this);
             binding.edtxUbicacion.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
             edtx_CodigoPallet = (EditText) findViewById(R.id.edtx_CodigoPallet);
@@ -364,6 +364,7 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
         txtv_Producto.setText("");
         txtv_Cantidad.setText("");
         binding.edtxCodigoPallet.setText("");
+        binding.txtvLote.setText("");
         binding.txtvEstatus.setText("");
     }
 
@@ -517,6 +518,7 @@ public class Ajustes_AjustesContenedor extends AppCompatActivity implements frgm
                             txtv_Cantidad.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("CantidadActual"));
                             edtx_Producto_fragm.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("NumParte"));
                             binding.txtvEstatus.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("DescStatus"));
+                            binding.txtvLote.setText(dao.getSoapObject_parced().getPrimitivePropertyAsString("Lote"));
                             Log.i("Cantidad", String.valueOf(Float.parseFloat(txtv_Cantidad.getText().toString())));
 
                             if (Float.parseFloat(txtv_Cantidad.getText().toString())>0)

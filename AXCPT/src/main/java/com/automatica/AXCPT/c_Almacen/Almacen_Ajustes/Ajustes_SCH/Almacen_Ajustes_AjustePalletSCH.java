@@ -41,6 +41,7 @@ import com.automatica.AXCPT.Servicios.cambiaColorStatusBar;
 import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Ajustes_AjustePallet;
+import com.automatica.AXCPT.databinding.ActivityAlmacenAjustesAjustePalletSCHBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
@@ -56,7 +57,7 @@ public class Almacen_Ajustes_AjustePalletSCH extends AppCompatActivity implement
     Button btn_CerrarTarima;
     Spinner spnr_Ajuste, spnr_NumParte;
     private ProgressBarHelper p;
-
+    ActivityAlmacenAjustesAjustePalletSCHBinding binding;
     String Ajuste;
     String NumParte;
     View vista;
@@ -71,7 +72,8 @@ public class Almacen_Ajustes_AjustePalletSCH extends AppCompatActivity implement
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_almacen__ajustes__ajuste_pallet_s_c_h);
+        binding = ActivityAlmacenAjustesAjustePalletSCHBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         try
         {
             new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Almacen_Ajustes_AjustePalletSCH.this);
@@ -83,7 +85,7 @@ public class Almacen_Ajustes_AjustePalletSCH extends AppCompatActivity implement
             spe= new SegundoPlano("ListarAjustes");
             spe.execute();
 
-            new SegundoPlano("ListarMercados").execute();
+            //new SegundoPlano("ListarMercados").execute();
             handler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -314,11 +316,6 @@ public class Almacen_Ajustes_AjustePalletSCH extends AppCompatActivity implement
                                 return false;
                             }
 
-
-
-
-
-
                             if (!edtx_CodigoEmpaque.getText().toString().equals(""))
                             {
                                 SegundoPlano sp = new SegundoPlano("RegistraEmpaqueNvoPallet");
@@ -533,43 +530,28 @@ public class Almacen_Ajustes_AjustePalletSCH extends AppCompatActivity implement
                         dao = ca.c_RegistraEmpaqueUnico(((Constructor_Dato)spnr_NumParte.getSelectedItem()).getDato(),edtx_Cantidad.getText().toString()
                                 ,spnr_Ajuste.getSelectedItem().toString(),"");
                         break;
-
                     case "ConsultaPallet":
-                        //sa.SOAPConsultaPalletAbiertoSinAfecta(contexto);
                         dao= ca.c_ConsultaPalletAbiertoSinAfecta();
-                        break;
-
-                    case "RegistrarAjusteNuevoPallet":
-                        //sa.SOAPRegistrarAjusteNuevoPallet(CodigoEmpaque,Cantidad,IdAjusteBundle,contexto);
-                        //dao = ca.c_RegistrarAjusteNuevoPalletSCH(edtx_CodigoEmpaque.getText().toString(),Cantidad,IdAjusteBundle);
                         break;
                     case "ListarAjustes":
                         String TipoAjuste = "1";
-                        //sa.SOAPListarConceptosAjuste(TipoAjuste,contexto);
                         dao= ca.c_ListarConceptosAjuste(TipoAjuste);
                         break;
-                    case "ListarMercados":
-                        dao= ca.c_ListaMercados();
-                        break;
                     case "BusquedaNumeroParte":
-                        //sa.SOAPBuscarArticulos(edtx_Producto.getText().toString(),contexto);
                         dao = ca.c_ConsultaCoincidenciaArticulo(edtx_Producto.getText().toString());
                         break;
                     case "RegistraEmpaqueNvoPallet":
                         //sa.SOAPRegistraEmpaqueNuevoPallet(edtx_CodigoEmpaque.getText().toString(),NumParte,edtx_Cantidad.getText().toString(),
                         //      Ajuste,edtx_Caducidad.getText().toString(),edtx_Lote.getText().toString(),contexto);
 
-                        dao= ca.c_RegistraEmpaqueNvoPallet_NE(edtx_CodigoEmpaque.getText().toString(),((Constructor_Dato)spnr_NumParte.getSelectedItem()).getTag1(),edtx_Cantidad.getText().toString(),spnr_Ajuste.getSelectedItem().toString()
-                                ,"","","");
-                        Log.i("Tag",((Constructor_Dato)spnr_NumParte.getSelectedItem()).getDato());
-                        Log.i("Tag",((Constructor_Dato)spnr_NumParte.getSelectedItem()).getTag1());
-                        break;
-                    case "RegistrarEmpaqueUnico":
-                        //sa.SOAPRegistraEmpaqueUnico(NumParte,edtx_Cantidad.getText().toString(),Ajuste,contexto);
-                        dao= ca.c_RegistraEmpaqueUnico(NumParte,edtx_Cantidad.getText().toString(),Ajuste,"");
+                        dao= ca.c_RegistraEmpaqueNvoPallet_NE(edtx_CodigoEmpaque.getText().toString(),
+                                ((Constructor_Dato)spnr_NumParte.getSelectedItem()).getTag1(),
+                                edtx_Cantidad.getText().toString(),spnr_Ajuste.getSelectedItem().toString(),
+                                "",binding.edtxLote.getText().toString(),"");
+//                        Log.i("Tag",((Constructor_Dato)spnr_NumParte.getSelectedItem()).getDato());
+//                        Log.i("Tag",((Constructor_Dato)spnr_NumParte.getSelectedItem()).getTag1());
                         break;
                     case "CierraPallet":
-                        //sa.SOAPCierraPalletAjuste(txtv_Pallet.getText().toString(),contexto);
                         dao = ca.c_CierraPalletAjuste(txtv_Pallet.getText().toString());
                         break;
 
@@ -599,14 +581,12 @@ public class Almacen_Ajustes_AjustePalletSCH extends AppCompatActivity implement
                             reiniciarCampos();
                             new popUpGenerico(contexto,vista,getString(R.string.pallet_empaque_unico_exito) + "[" + dao.getSoapObject_parced().getPrimitivePropertyAsString("CodigoPallet") + "].",String.valueOf(dao.iscEstado()),true,true);
                             break;
-
                         case "ConsultaPallet":
                             String mensaje[]= dao.getcMensaje().split("#");
                             txtv_EmpaquesRegistrados.setText(mensaje[1]);
                             txtv_Pallet.setText(mensaje[0]);
 
                             break;
-
                         case "RegistraEmpaqueNvoPallet":
                             btn_CerrarTarima.setEnabled(true);
                             //   new popUpGenerico(contexto, vista, mensaje,decision, true, true);
@@ -618,8 +598,6 @@ public class Almacen_Ajustes_AjustePalletSCH extends AppCompatActivity implement
                         case "CierraPallet":
                             reiniciarCampos();
                             new popUpGenerico(contexto, vista,"Se ha registrado correctamente el Pallet" + "["+dao.getcMensaje()+"]",String.valueOf(dao.iscEstado()), true, true);
-
-
                             txtv_EmpaquesRegistrados.setText("-");
                             txtv_Pallet.setText("");
                             break;
@@ -631,11 +609,9 @@ public class Almacen_Ajustes_AjustePalletSCH extends AppCompatActivity implement
                             spnr_NumParte.setAdapter(new CustomArrayAdapter(Almacen_Ajustes_AjustePalletSCH.this,android.R.layout.simple_spinner_item, dao.getcTablasSorteadas("NumPartePantalla","NumParte","")));
                             edtx_Cantidad.requestFocus();
                             break;
-
                     }
 
                 }
-
                 else
                 {
                     new popUpGenerico(contexto, vista, dao.getcMensaje(),"false", true, true);

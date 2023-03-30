@@ -45,6 +45,7 @@ import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.frgmnt_Seleccion_Producto;
 import com.automatica.AXCPT.c_Recepcion.Recepcion.RecepcionSeleccionar;
+import com.automatica.AXCPT.databinding.AlmacenActivityAjustesNuevoEmpaqueCantModBinding;
 import com.automatica.AXCPT.objetos.ObjetoEtiquetaSKU;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
@@ -69,7 +70,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
 
     private CheckBox cb_DatosPedimento,cb_EditarCantidad;
     private EditText edtx_Pedimento,edtx_ClavePedimento,edtx_Factura,edtx_FechaPedimento,edtx_FechaRecibo;
-
+    AlmacenActivityAjustesNuevoEmpaqueCantModBinding binding;
     Handler h = new Handler();
 
     private ProgressBarHelper p;
@@ -79,7 +80,8 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.almacen_activity_ajustes__nuevo_empaque_cant_mod);
+        binding = AlmacenActivityAjustesNuevoEmpaqueCantModBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Almacen_Ajustes_NuevoEmpaque.this);
         declaraVariables();
         agregaListeners();
@@ -407,7 +409,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
 
                     if(cb_DatosPedimento.isChecked())
                     {
-                        new SegundoPlano("AjusteNuevoEmpaquePalletExistentePedimento").execute();
+                        new SegundoPlano("AjusteNuevoEmpaquePalletExistente").execute();
 
                     }else
                     {
@@ -602,7 +604,7 @@ public class Almacen_Ajustes_NuevoEmpaque extends AppCompatActivity implements f
                                     CodigoPallet,
                                     edtx_SKU.getText().toString(),
                                     edtx_CantXEmp.getText().toString(),
-                                    "",
+                                    binding.edtxLote.getText().toString(),//aquí es el prmRevision pero se enviará el Lote
                                     spnr_Ajuste.getSelectedItem().toString(),
                                     edtxNumSerie.getText().toString());
                     break;

@@ -71,19 +71,17 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:text="Concepto:"
+                        android:text="Concepto"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
-                        android:textStyle="bold"
-                       />
+                        android:textStyle="bold" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayout6"
                         style="@style/Estilo_EditText_Reg"
                         android:layout_width="match_parent"
-                        android:layout_height="33dp"
-                        android:layout_marginEnd="8dp"
-                        >
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="8dp">
 
                         <Spinner
                             android:id="@+id/spnr_Ajuste"
@@ -110,63 +108,85 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Búsqueda:"
+                    android:text="Búsqueda"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="@dimen/txtSize"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/txtv_Producto"
                     style="@style/Estilo_EditText_Reg"
                     android:layout_width="match_parent"
-                    android:layout_height="31dp"
+                    android:layout_height="30dp"
                     android:layout_marginEnd="8dp"
                     android:ems="10"
-                    android:singleLine="true"
                     android:hint="@string/capturar_producto"
-                   />
-
-
+                    android:singleLine="true" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:id="@+id/textView61"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Articulo:"
-                    android:textColor="@color/blancoLetraStd"
-                    android:textSize="@dimen/txtSize"
-                    android:textStyle="bold"
-                    />
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout4"
-                    style="@style/Estilo_EditText_Reg"
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
-                    android:layout_marginEnd="8dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <Spinner
-                        android:id="@+id/spnr_NumParte"
-                        android:layout_width="0dp"
-                        android:layout_height="31dp"
-                        android:backgroundTint="#111111"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/textView61"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Artículo"
+                        android:textColor="@color/blancoLetraStd"
+                        android:textSize="@dimen/txtSize"
+                        android:textStyle="bold" />
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout4"
+                        style="@style/Estilo_EditText_Reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="8dp">
 
+                        <Spinner
+                            android:id="@+id/spnr_NumParte"
+                            android:layout_width="0dp"
+                            android:layout_height="31dp"
+                            android:backgroundTint="#111111"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/textView90"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Lote"
+                        android:textColor="@color/blancoLetraStd"
+                        android:textSize="@dimen/txtSize"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edtx_Lote"
+                        style="@style/Estilo_EditText_Reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="8dp"
+                        android:ems="10"
+                        android:hint="@string/capturar_lote_producto"
+                        android:singleLine="true" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -179,20 +199,20 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Cantidad:"
+                    android:text="Cantidad"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="@dimen/txtSize"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtx_Empaque"
                     style="@style/Estilo_EditText_Reg"
                     android:layout_width="match_parent"
-                    android:layout_height="29dp"
+                    android:layout_height="30dp"
                     android:layout_marginEnd="8dp"
                     android:ems="10"
                     android:hint="Cantidad por empaque"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal" />
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -248,22 +268,20 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Código de empaque"
+                    android:text="Empaque"
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="@dimen/txtSize"
-                    android:textStyle="bold"
-                   />
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtx_CodigoPallet"
                     style="@style/Estilo_EditText_Reg"
                     android:layout_width="match_parent"
-                    android:layout_height="31dp"
+                    android:layout_height="30dp"
                     android:layout_marginEnd="8dp"
                     android:ems="10"
-                    android:hint="Escanear empaque"
-                    android:inputType="text"
-                   />
+                    android:hint="Capturar código empaque"
+                    android:inputType="text" />
 
 
 
@@ -327,6 +345,43 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textView66"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Impresora:"
+                        android:textColor="@color/blancoLetraStd"
+                        android:textSize="@dimen/txtSize"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout99"
+                        style="@style/Estilo_EditText_Reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="8dp">
+
+                        <Spinner
+                            android:id="@+id/spnr_imp"
+                            android:layout_width="0dp"
+                            android:layout_height="31dp"
+                            android:backgroundTint="#111111"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
                 <TextView
                     android:visibility="gone"
                     android:id="@+id/textView97"
@@ -352,19 +407,6 @@
                     android:textColor="@color/blancoLetraStd"
                     android:textSize="@dimen/txtSize"
                     android:textStyle="bold"
-                    />
-
-                <EditText
-                    android:visibility="gone"
-                    android:id="@+id/edtx_Lote"
-                    style="@style/Estilo_EditText_Reg"
-                    android:layout_width="0dp"
-                    android:layout_height="31dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:ems="10"
-                    android:hint="@string/capturar_lote_producto"
-                    android:inputType="textPersonName"
                     />
 
                 <Button

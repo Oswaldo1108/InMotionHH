@@ -14,7 +14,6 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +34,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <TextView
@@ -58,7 +58,7 @@
                         <Spinner
                             android:id="@+id/spnr_Ajuste"
                             android:layout_width="0dp"
-                            android:layout_height="31dp"
+                            android:layout_height="30dp"
                             android:backgroundTint="#111111"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +71,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <TextView
@@ -78,8 +80,7 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:text="Código de pallet"
+                        android:text="Posición"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold" />
@@ -92,7 +93,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="8dp"
                         android:ems="10"
-                        android:hint="Capturar pallet"
+                        android:hint="@string/capturar_posicion"
                         android:inputType="text"
                         android:textAllCaps="true" />
                 </LinearLayout>
@@ -278,57 +279,57 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
 
-                <TextView
-                    android:id="@+id/textView76"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:visibility="gone"
-                    android:text="Número de parte:"
-                    android:textColor="@color/blancoLetraStd"
-                    android:textSize="@dimen/txtSize"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/edtx_SKU"
-                    style="@style/Estilo_EditText_Reg"
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
-                    android:layout_height="29dp"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:ems="10"
-                    android:hint="Mantenga presionado para elegir artículo"
-                    android:inputType="text" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <TextView
+                        android:id="@+id/textView76"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Número de parte:"
+                        android:textColor="@color/blancoLetraStd"
+                        android:textSize="@dimen/txtSize"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
+                    <EditText
+                        android:id="@+id/edtx_SKU"
+                        style="@style/Estilo_EditText_Reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:ems="10"
+                        android:hint="Mantenga presionado para elegir artículo"
+                        android:inputType="text" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="15dp">
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/textView92"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Cant. por\nEmpaque:"
+                        android:text="Cantidad"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold" />
 
                     <CheckBox
-                        android:visibility="gone"
                         android:id="@+id/cb_EditarCantidad"
                         style="@style/EstiloTexto_Blanco_Bold"
                         android:layout_width="wrap_content"
@@ -337,28 +338,55 @@
                         android:layout_marginBottom="8dp"
                         android:background="@null"
                         android:buttonTint="@color/blancoLetraStd"
-                        android:text="Cant:" />
+                        android:text="Cant:"
+                        android:visibility="gone" />
 
                     <EditText
                         android:id="@+id/edtx_CantXEmp"
                         style="@style/Estilo_EditText_Reg"
                         android:layout_width="match_parent"
                         android:layout_height="29dp"
-                        android:layout_marginEnd="8dp"
                         android:layout_gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Cantidad por empaque"
                         android:ems="10"
                         android:inputType="number" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/textView99"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Lote"
+                        android:textColor="@color/blancoLetraStd"
+                        android:textSize="@dimen/txtSize"
+                        android:textStyle="bold" />
 
-
+                    <EditText
+                        android:id="@+id/edtx_Lote"
+                        style="@style/Estilo_EditText_Reg"
+                        android:layout_width="match_parent"
+                        android:layout_height="29dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:hint="Capturar lote"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/textView1"
@@ -391,15 +419,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="15px">
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/textView77"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Empaque:"
+                        android:text="Empaque"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold" />
@@ -411,7 +440,7 @@
                         android:layout_height="30dp"
                         android:layout_marginEnd="8dp"
                         android:ems="10"
-                        android:hint="Capturar empaque"
+                        android:hint="Capturar código empaque"
                         android:inputType="textNoSuggestions" />
 
 

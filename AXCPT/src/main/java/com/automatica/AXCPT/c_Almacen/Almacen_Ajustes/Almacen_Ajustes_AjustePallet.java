@@ -44,6 +44,7 @@ import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_AjustePalletSCH;
 import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Validacion.Validacion_PorPallet;
+import com.automatica.AXCPT.databinding.ActivityAlmacenAjustesAjustePalletBinding;
 import com.automatica.AXCPT.objetos.ObjetoEtiquetaSKU;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.Constructor_Dato;
@@ -59,14 +60,15 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
     TextView txtv_EmpaquesRegistrados,txtv_Pallet;
     frgmnt_taskbar_AXC taskbar_axc;
     Button btn_CerrarTarima;
-    Spinner spnr_Ajuste, spnr_NumParte;
+    Spinner spnr_Ajuste, spnr_NumParte, spnr_imp;
     CheckBox checkNumSerie;
-    String Ajuste;
+    String Ajuste, ImpresoraSelec;
     View vista;
     Context contexto = this;
     Handler handler = new Handler();
     private ProgressBarHelper p;
     private ActivityHelpers activityHelpers;
+    ActivityAlmacenAjustesAjustePalletBinding binding;
 
     //endregion
 
@@ -74,14 +76,13 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_almacen__ajustes__ajuste_pallet);
+        binding = ActivityAlmacenAjustesAjustePalletBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         try
         {
             new cambiaColorStatusBar(contexto,R.color.doradoLetrastd,Almacen_Ajustes_AjustePallet.this);
             declaraVariables();
             agregaListeners();
-
-
 
             SegundoPlano spe = new SegundoPlano("ConsultaPallet");
             spe.execute();
@@ -164,31 +165,25 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
 //            toolbar.setLogo(R.mipmap.logo_axc);//   toolbar.setLogo(R.drawable.axc_logo_toolbar);
 
             p = new ProgressBarHelper(this);
-            edtx_CodigoEmpaque = (EditText) findViewById(R.id.edtx_CodigoPallet);
+            edtx_CodigoEmpaque = findViewById(R.id.edtx_CodigoPallet);
           //  edtx_CodigoEmpaque.setEnabled(false);
             edtx_CodigoEmpaque.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
-            edtx_Cantidad = (EditText) findViewById(R.id.edtx_Empaque);
-            edtx_Producto = (EditText) findViewById(R.id.txtv_Producto);
-            edtxNumSerie = (EditText) findViewById(R.id.edtxNumSerie) ;
+            edtx_Cantidad = findViewById(R.id.edtx_Empaque);
+            edtx_Producto = findViewById(R.id.txtv_Producto);
+            edtxNumSerie = findViewById(R.id.edtxNumSerie);
            // edtx_Producto.setFilters(new InputFilter[] {new InputFilter.AllCaps()});
-            btn_CerrarTarima= (Button) findViewById(R.id.btn_CerrarTarima);
-            checkNumSerie = (CheckBox) findViewById(R.id.checkNumSerie);
-            txtv_EmpaquesRegistrados= (TextView) findViewById(R.id.txtv_EmpaquesReg);
-            txtv_Pallet = (TextView) findViewById(R.id.txtv_Pallet);
+            btn_CerrarTarima= findViewById(R.id.btn_CerrarTarima);
+            checkNumSerie = findViewById(R.id.checkNumSerie);
+            txtv_EmpaquesRegistrados= findViewById(R.id.txtv_EmpaquesReg);
+            txtv_Pallet = findViewById(R.id.txtv_Pallet);
 
-
-            spnr_Ajuste = (Spinner) findViewById(R.id.spnr_Ajuste);
-            spnr_NumParte= (Spinner) findViewById(R.id.spnr_NumParte);
-
-
+            spnr_Ajuste = findViewById(R.id.spnr_Ajuste);
+            spnr_NumParte= findViewById(R.id.spnr_NumParte);
+            spnr_imp = findViewById(R.id.spnr_imp);
         }catch (Exception e)
         {
             new popUpGenerico(contexto,vista,e.getMessage(),"Advertencia",true,true);
         }
-
-
-
-
 
     }
     private void agregaListeners()
@@ -196,9 +191,6 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
 
         try
         {
-
-
-
             edtx_Cantidad.setOnKeyListener(new View.OnKeyListener()
             {
                 @Override
@@ -363,10 +355,7 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
             checkNumSerie.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (checkNumSerie.isChecked())
-                        edtxNumSerie.setEnabled(true);
-                    else
-                        edtxNumSerie.setEnabled(false);
+                    edtxNumSerie.setEnabled(checkNumSerie.isChecked());
                 }
             });
 
@@ -465,7 +454,17 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
                 }
             });
 
+            spnr_imp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    ImpresoraSelec = spnr_imp.getSelectedItem().toString();
+                }
 
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            }); //stand by por ahora
 
             edtx_Cantidad.setOnLongClickListener(new View.OnLongClickListener()
             {
@@ -580,7 +579,6 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
 
                 switch (tarea)
                 {
-
                     case "RegistroEmpaqueUnico":
                         dao= ca.c_RegistraEmpaqueUnico(((Constructor_Dato)spnr_NumParte.getSelectedItem()).getTag1(),edtx_Cantidad.getText().toString()
                                 ,spnr_Ajuste.getSelectedItem().toString(),"");
@@ -602,7 +600,8 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
                         //sa.SOAPRegistraEmpaqueNuevoPallet(edtx_CodigoEmpaque.getText().toString(),NumParte,edtx_Cantidad.getText().toString(),
                           //      Ajuste,edtx_Caducidad.getText().toString(),edtx_Lote.getText().toString(),contexto);
                         dao= ca.c_RegistraEmpaqueNvoPalletv2(edtx_CodigoEmpaque.getText().toString(),((Constructor_Dato)spnr_NumParte.getSelectedItem()).getTag1(),edtx_Cantidad.getText().toString(),
-                                ((Constructor_Dato)spnr_Ajuste.getSelectedItem()).getDato(),"","",edtxNumSerie.getText().toString());
+                                ((Constructor_Dato)spnr_Ajuste.getSelectedItem()).getDato(),"",
+                                binding.edtxLote.getText().toString(), "");
                         break;
                     case "CierraPallet":
                         //sa.SOAPCierraPalletAjuste(txtv_Pallet.getText().toString(),contexto);
@@ -634,7 +633,7 @@ public class Almacen_Ajustes_AjustePallet extends AppCompatActivity implements f
                             break;
 
                         case "ConsultaPallet":
-                                String mensaje[]= dao.getcMensaje().split("#");
+                                String[] mensaje = dao.getcMensaje().split("#");
                                 txtv_EmpaquesRegistrados.setText(mensaje[1]);
                                 txtv_Pallet.setText(mensaje[0]);
                             break;

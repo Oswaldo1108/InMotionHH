@@ -335,7 +335,7 @@
 
 
     <string name="error_cerrar_pallet_sin_empaques">No puede cerrar una tarima sin empaques.</string>
-    <string name="error_seleccionar_numero_parte">Debe seleccionar un número de parte.</string>
+    <string name="error_seleccionar_numero_parte">Debe seleccionar un artículo.</string>
     <string name="error_seleccionar_ajuste">Debe seleccionar un ajuste.</string>
     <string name="error_seleccionar_registro">Debe seleccionar un registro.</string>
     <string name="error_seleccionar_partida">Debe seleccionar una partida.</string>

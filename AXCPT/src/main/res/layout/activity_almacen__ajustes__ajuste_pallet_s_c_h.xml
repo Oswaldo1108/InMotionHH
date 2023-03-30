@@ -56,7 +56,7 @@
                 android:id="@+id/constraintLayout4"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView61"
@@ -67,7 +67,7 @@
                 <Spinner
                     android:id="@+id/spnr_NumParte"
                     android:layout_width="0dp"
-                    android:layout_height="31dp"
+                    android:layout_height="0dp"
                     android:backgroundTint="#111111"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -102,19 +102,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
 
-
             <TextView
                 android:id="@+id/textView57"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Ajuste:"
+                android:text="Concepto"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView60"
@@ -122,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Búsqueda:"
+                android:text="Búsqueda"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
@@ -135,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
-                android:text="Articulo:"
+                android:text="Artículo"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
@@ -147,26 +146,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:text="Cantidad:"
+                android:layout_marginTop="16dp"
+                android:text="Cantidad"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView61" />
+                app:layout_constraintTop_toBottomOf="@+id/textView99" />
 
             <TextView
                 android:id="@+id/textView62"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="27dp"
-                android:text="Cant. de \nempaques:"
+                android:layout_marginTop="16dp"
+                android:text="Empaques\npor Pallet"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView99" />
+                app:layout_constraintTop_toBottomOf="@+id/textView67" />
 
             <TextView
                 android:visibility="gone"
@@ -183,18 +182,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView67" />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/textView99"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="16dp"
                 android:text="Lote"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
+                android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView97" />
+                app:layout_constraintTop_toBottomOf="@+id/textView61" />
 
             <TextView
                 android:id="@+id/textView63"
@@ -213,7 +212,7 @@
                 android:id="@+id/edtx_Empaque"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
-                android:layout_height="29dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
@@ -228,7 +227,7 @@
                 android:id="@+id/txtv_Producto"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
-                android:layout_height="31dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
@@ -243,11 +242,11 @@
                 android:id="@+id/edtx_CodigoPallet"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
-                android:layout_height="31dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
-                android:hint="Capturar cantidad"
+                android:hint="Cantidad de empaques"
                 android:inputType="number"
                 app:layout_constraintBottom_toBottomOf="@+id/textView62"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -278,16 +277,16 @@
                 app:layout_constraintTop_toTopOf="@+id/textView97" />
 
             <EditText
-                android:visibility="gone"
                 android:id="@+id/edtx_Lote"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
-                android:layout_height="31dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
                 android:hint="@string/capturar_lote_producto"
                 android:inputType="textPersonName"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/textView99"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -325,7 +324,7 @@
                 android:id="@+id/constraintLayout6"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
-                android:layout_height="33dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView57"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -335,7 +334,7 @@
                 <Spinner
                     android:id="@+id/spnr_Ajuste"
                     android:layout_width="0dp"
-                    android:layout_height="35dp"
+                    android:layout_height="0dp"
                     android:backgroundTint="#111111"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

@@ -86,7 +86,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:ems="10"
-                        android:hint="Capturar empaque"
+                        android:hint="@string/capturar_posicion"
                         android:singleLine="true"
                         android:textAllCaps="true" />
                 </LinearLayout>
@@ -141,6 +141,32 @@
                         android:paddingBottom="8dp">
 
                         <TextView
+                            android:id="@+id/txtv_Lote"
+                            style="@style/EstiloTexto_Blanco_Reg"
+                            android:layout_width="0dp"
+                            android:layout_height="27dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="-"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView31"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/txtv_Producto"
+                            app:layout_constraintTop_toTopOf="@+id/textView31"
+                            app:layout_constraintVertical_bias="1.0" />
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            style="@style/EstiloTexto_Blanco_Bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+
+                            android:text="Lote:"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView71" />
+
+                        <TextView
                             android:id="@+id/txtv_CantPend"
                             style="@style/EstiloTexto_Blanco_Reg"
                             android:layout_width="0dp"
@@ -151,19 +177,6 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/txtv_Producto"
                             app:layout_constraintTop_toTopOf="@+id/textView72" />
-
-                        <TextView
-                            android:id="@+id/txtv_Lote"
-                            style="@style/EstiloTexto_Blanco_Reg"
-                            android:layout_width="148dp"
-                            android:layout_height="27dp"
-                            android:layout_marginTop="25dp"
-                            android:layout_marginEnd="58dp"
-                            android:text="-"
-                            android:visibility="gone"
-
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/txtv_Producto" />
 
                         <TextView
                             android:id="@+id/txtv_Producto"
@@ -188,7 +201,7 @@
                             android:layout_margin="16dp"
                             android:text="Cantidad:"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textView71" />
+                            app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
                         <TextView
                             android:id="@+id/textView74"
@@ -210,7 +223,7 @@
                             android:layout_height="0dp"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
-                            android:text="Articulo:"
+                            android:text="Artículo:"
 
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -256,7 +269,7 @@
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:focusedByDefault="false"
-                        android:hint="Mantenga presionado para elegir SKU"
+                        android:hint="Mantener para elegir artículo"
                         android:inputType="none" />
 
                 </LinearLayout>
@@ -273,10 +286,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="Cantidad \nde piezas:"
+                        android:text="Cantidad"
                         android:textColor="@color/blancoLetraStd"
                         android:textSize="@dimen/txtSize"
                         android:textStyle="bold"
+                        android:layout_gravity="center"
                         />
 
                     <EditText
@@ -284,8 +298,8 @@
                         android:id="@+id/edtx_CodigoEmpaque"
                         style="@style/Estilo_EditText_Reg"
                         android:layout_width="match_parent"
-                        android:layout_height="29dp"
-                        android:hint="Capturar cantidad"
+                        android:layout_height="30dp"
+                        android:hint="Cantidad de piezas"
                         android:inputType="number"
                         android:layout_marginEnd="10dp"
                         android:layout_marginStart="8dp"

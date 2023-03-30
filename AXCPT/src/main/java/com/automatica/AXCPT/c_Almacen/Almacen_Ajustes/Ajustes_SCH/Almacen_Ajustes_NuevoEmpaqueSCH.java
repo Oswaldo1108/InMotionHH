@@ -42,7 +42,7 @@ import com.automatica.AXCPT.Servicios.popUpGenerico;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.SoapConection.SoapAction;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Ajustes_NuevoEmpaque;
-import com.automatica.AXCPT.c_Recepcion.Rec_Registro_Seleccion_Partida;
+import com.automatica.AXCPT.databinding.ActivityAlmacenAjustesNuevoEmpaqueSCHBinding;
 import com.automatica.axc_lib.AccesoDatos.MetodosConexion.cAccesoADatos_Almacen;
 import com.automatica.axc_lib.AccesoDatos.ObjetosConexion.DataAccessObject;
 import com.automatica.axc_lib.views.CustomArrayAdapter;
@@ -69,7 +69,7 @@ public class Almacen_Ajustes_NuevoEmpaqueSCH extends AppCompatActivity implement
     int renglonAnterior=-1;
     boolean Seleccionado;
     Spinner spnr_Ajuste;
-
+    ActivityAlmacenAjustesNuevoEmpaqueSCHBinding binding;
     frgmnt_taskbar_AXC taskbar_axc;
 
 
@@ -82,7 +82,8 @@ public class Almacen_Ajustes_NuevoEmpaqueSCH extends AppCompatActivity implement
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_almacen__ajustes__nuevo_empaque_s_c_h);
+        binding = ActivityAlmacenAjustesNuevoEmpaqueSCHBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         new cambiaColorStatusBar(contexto,R.color.doradoLetrastd, Almacen_Ajustes_NuevoEmpaqueSCH.this);
         declaraVariables();
         agregaListeners();
@@ -348,7 +349,7 @@ try
             }
         });
 
-        tabla.addDataClickListener(new ListenerClickTabla());
+        //tabla.addDataClickListener(new ListenerClickTabla());
         tabla.addHeaderClickListener(new headerClickListener());
         tabla.addDataLongClickListener(new ListenerLongClickTabla());
 
@@ -556,7 +557,8 @@ try
                     String TipoEvento = spnr_Ajuste.getSelectedItem().toString();
                     String Revision ="";
                     //sa.SOAPAjusteNuevoEmpaquePalletExistente(CodigoEmpaque,CodigoPallet,Producto,Cantidad,Revision,TipoEvento,contexto);
-                    dao = ca.c_AjusteNuevoEmpaque_NE(CodigoEmpaque,edtx_CodigoPallet.getText().toString(),edtx_Producto_fragm.getText().toString(),Cantidad,TipoEvento,"");
+                    dao = ca.c_AjusteNuevoEmpaque_NE(CodigoEmpaque,edtx_CodigoPallet.getText().toString(),
+                            edtx_Producto_fragm.getText().toString(),Cantidad,TipoEvento,binding.edtxLote.getText().toString());
                     break;
 
 
