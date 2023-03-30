@@ -7,209 +7,6 @@
     android:background="@color/fondoAzul"
     android:id="@+id/Pantalla_principal"
     tools:context="com.automatica.AXCPT.c_Inventarios.ValidacionMaterial.Inventarios_ValidacionPallet">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/CL_ConsultaOrdenProd2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/orilla_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-        <TextView
-
-            android:id="@+id/txtv_Inventario"
-            style="@style/EstiloTexto_Blanco_Reg"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="-"
-            app:layout_constraintStart_toEndOf="@+id/textView932"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-
-            android:id="@+id/txtv_Posicion"
-            style="@style/EstiloTexto_Blanco_Reg"
-            android:layout_width="0dp"
-
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="-"
-            app:layout_constraintBottom_toBottomOf="@+id/textView882"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView882"
-            app:layout_constraintTop_toTopOf="@+id/textView882" />
-
-        <TextView
-            android:id="@+id/textView932"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-
-            android:layout_marginTop="8dp"
-            android:text="Inventario:"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView882"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Posición:"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView932" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/CL_ConsultaOrdenProd"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/orilla_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26">
-
-        <TextView
-
-            android:id="@+id/txtv_Desc"
-            style="@style/EstiloTexto_Blanco_Reg"
-            android:layout_width="0dp"
-
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="8dp"
-            android:text="-"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView19"
-            app:layout_constraintTop_toBottomOf="@+id/txtv_Producto" />
-
-        <TextView
-
-            android:id="@+id/txtv_Producto"
-            style="@style/EstiloTexto_Blanco_Reg"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="-"
-            app:layout_constraintStart_toEndOf="@+id/textView93"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-
-            android:layout_marginTop="5dp"
-            android:text="Desc."
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView93" />
-
-        <TextView
-            android:id="@+id/textView93"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-
-            android:layout_marginTop="8dp"
-            android:text="Producto:"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView65"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="8dp"
-            android:text="Tipo"
-            android:textColor="@color/blancoLetraStd"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtv_Desc" />
-
-        <TextView
-
-            android:id="@+id/txtv_TipoReg"
-            style="@style/EstiloTexto_Blanco_Reg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="16dp"
-            android:text="-"
-            app:layout_constraintBottom_toBottomOf="@+id/textView65"
-            app:layout_constraintStart_toEndOf="@+id/textView65"
-            app:layout_constraintTop_toTopOf="@+id/textView65" />
-
-        <TextView
-            android:id="@+id/tv4cant"
-            style="@style/EstiloTexto_Blanco_Reg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="Total:"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/txtv_TipoReg"
-            app:layout_constraintStart_toEndOf="@+id/txtv_TipoReg"
-            app:layout_constraintTop_toTopOf="@+id/txtv_TipoReg" />
-
-        <TextView
-            android:id="@+id/tvCanttotal"
-            android:text="-"
-            style="@style/EstiloTexto_Blanco_Reg"
-            android:textSize="18dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv4cant"
-            app:layout_constraintTop_toTopOf="@+id/tv4cant"
-            app:layout_constraintStart_toEndOf="@+id/tv4cant"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
@@ -240,6 +37,262 @@
             android:indeterminate="true" />
     </FrameLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_ConsultaOrdenProd1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ConsultaOrdenProd3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+
+            android:id="@+id/txtv_Inventario"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/textView932"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView932"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Inventario:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_ConsultaOrdenProd3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/CL_ConsultaOrdenProd1"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <TextView
+            android:id="@+id/textView9323"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Posición:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtv_Posicion"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/textView9323"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvCodigoPallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Pallet:"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CL_ConsultaOrdenProd1" />
+
+
+    <EditText
+        android:id="@+id/txtv_Pallet"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCodigoPallet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvCodigoPallet"
+        app:layout_constraintTop_toTopOf="@+id/tvCodigoPallet" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_ConsultaOrdenProd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCodigoPallet">
+
+        <TextView
+
+            android:id="@+id/txtv_Desc"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/textView19"
+            app:layout_constraintStart_toStartOf="@+id/txtv_Producto"
+            app:layout_constraintTop_toTopOf="@+id/textView19" />
+
+        <TextView
+
+            android:id="@+id/txtv_Producto"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/textView93"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+
+            android:id="@+id/edtx_Lote_Empaque"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/textView93"
+            app:layout_constraintTop_toBottomOf="@+id/txtv_Desc" />
+
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="5dp"
+            android:text="Desc:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView93" />
+
+        <TextView
+            android:id="@+id/textView93"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="8dp"
+            android:text="Producto:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:text="Tipo:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv4cant" />
+
+        <TextView
+
+            android:id="@+id/txtv_TipoReg"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="-"
+            app:layout_constraintBottom_toBottomOf="@+id/textView65"
+            app:layout_constraintStart_toStartOf="@+id/tvCanttotal"
+            app:layout_constraintTop_toTopOf="@+id/textView65" />}
+
+
+        <TextView
+            android:id="@+id/tvLote"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Lote:"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <TextView
+            android:id="@+id/tv4cant"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Total:"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLote" />
+
+        <TextView
+            android:id="@+id/tvCanttotal"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tv4cant"
+            app:layout_constraintStart_toStartOf="@+id/txtv_Desc"
+            app:layout_constraintTop_toTopOf="@+id/tv4cant" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <TextView
         android:id="@+id/textView39"
@@ -251,6 +304,7 @@
         android:textColor="@color/blancoLetraStd"
         android:textSize="@dimen/txtSize"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/CL_ConsultaOrdenProd" />
 
@@ -258,6 +312,7 @@
         android:id="@+id/textView40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="Cant."
         android:textColor="@color/blancoLetraStd"
         android:textSize="@dimen/txtSize"
@@ -277,6 +332,7 @@
         android:textColor="@color/blancoLetraStd"
         android:textSize="@dimen/txtSize"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/edtx_Unidades"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/edtx_Unidades"
@@ -293,7 +349,7 @@
         android:textSize="@dimen/txtSize"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtx_Lote_Empaque" />
+        app:layout_constraintTop_toBottomOf="@+id/CL_ConsultaOrdenProd" />
 
     <TextView
         android:id="@+id/textView44"
@@ -308,19 +364,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llbtn" />
 
-    <EditText
-        android:id="@+id/txtv_Pallet"
-        style="@style/Estilo_EditText_Reg"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textView26"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView26"
-        app:layout_constraintTop_toTopOf="@+id/textView26" />
 
     <EditText
         android:id="@+id/edtx_Unidades"
@@ -328,10 +371,11 @@
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/textView40"
-        app:layout_constraintEnd_toStartOf="@+id/textView27"
+        app:layout_constraintEnd_toStartOf="@+id/chkbx_Editar"
         app:layout_constraintStart_toEndOf="@+id/textView40"
         app:layout_constraintTop_toTopOf="@+id/textView40" />
 
@@ -341,7 +385,6 @@
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/textView41"
@@ -350,7 +393,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView41" />
 
     <EditText
-        android:id="@+id/edtx_Lote_Empaque"
+        android:id="@+id/edtx_Lote_Empaques"
         style="@style/Estilo_EditText_Reg"
         android:layout_width="0dp"
         android:layout_height="30dp"
@@ -358,6 +401,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textNoSuggestions"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/textView39"
         app:layout_constraintEnd_toStartOf="@+id/chkbx_Editar"
         app:layout_constraintStart_toEndOf="@+id/textView39"
@@ -377,18 +421,7 @@
         app:layout_constraintStart_toEndOf="@+id/textView44"
         app:layout_constraintTop_toTopOf="@+id/textView44" />
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Código\nPallet"
-        android:textColor="@color/blancoLetraStd"
-        android:textSize="@dimen/txtSize"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CL_ConsultaOrdenProd2" />
+
 
 
     <LinearLayout
@@ -410,12 +443,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="Empaques"
             android:enabled="false"
+            android:text="Empaques"
 
             app:layout_constraintEnd_toStartOf="@+id/btn_Confirmar"
-            app:layout_constraintStart_toStartOf="parent"
-          />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btn_Confirmar"
@@ -437,13 +469,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:background="@null"
+
         android:buttonTint="@color/blancoLetraStd"
         android:enabled="false"
         android:text="Editar"
         android:textColor="@color/blancoLetraStd"
-        app:layout_constraintBottom_toBottomOf="@+id/edtx_Lote_Empaque"
+        app:layout_constraintBottom_toBottomOf="@+id/edtx_Unidades"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/edtx_Lote_Empaque" />
+        app:layout_constraintStart_toEndOf="@+id/edtx_Unidades"
+        app:layout_constraintTop_toTopOf="@+id/edtx_Unidades" />
+
     <FrameLayout
         android:id="@+id/FrameLayout"
         android:layout_width="match_parent"
@@ -451,5 +486,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

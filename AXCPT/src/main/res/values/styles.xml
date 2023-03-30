@@ -121,11 +121,18 @@
         <item name="android:textColor">@color/negroN</item>
         <item name="android:background">@drawable/orilla_layout_edtx</item>
         <item name="android:textColorPrimary">@color/negroN</item>
-        <item name="android:height">28dp</item>
+        <item name="android:height">33dp</item>
         <item name="android:width">170dp</item>
         <item name="android:colorAccent" tools:targetApi="lollipop">@color/negroLetrastd</item>
         <item name="android:textSize">@dimen/txtsize</item>
         <item name="android:paddingLeft">3dp</item>
+    </style>
+
+
+    <style name="MyScrollBarTrackVertical" parent="@android:style/Widget.ScrollView">
+        <item name="android:scrollbarThumbVertical">@drawable/thumb_scrollbar</item>
+        <item name="android:scrollbarTrackVertical">@drawable/track_scrollbar_transp</item>
+        <item name="android:padding">16dp</item>
     </style>
 
     <style name="Estilo_Boton_Reg" parent="Base.Theme.AppCompat.Light.Dialog">

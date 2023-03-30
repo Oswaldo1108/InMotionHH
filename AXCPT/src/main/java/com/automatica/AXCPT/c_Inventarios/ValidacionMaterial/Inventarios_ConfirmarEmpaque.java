@@ -65,7 +65,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
 
     private EditText edtx_Empaque, edtx_Unidades, edtx_ConfirmarEmpaque,edtxPedimento,edtxClavePedimento,edtxFactura,edtxFechaPedimento,edtxFechaRecepcion;
     private EditText edtx_Producto;
-    private TextView txtv_Pallet;
+    private EditText txtv_Pallet, edtxLote;
     private CheckBox chk_Editar;
     private String Pallet;
     private String UbicacionIntent, IdInventario;
@@ -119,7 +119,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
             SacaExtrasIntent();
             AgregaListeners();
 
-            new SegundoPlano("llenarTabla").execute();
+            new SegundoPlano(LLENAR_TABLA).execute();
 
             txtv_Pallet.setText(Pallet);
             edtx_Producto.setEnabled(false);
@@ -167,7 +167,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
             if ((id == R.id.recargar))
             {
 
-                new SegundoPlano("llenarTabla").execute();
+                new SegundoPlano(LLENAR_TABLA).execute();
             }
         } catch (Exception e)
         {
@@ -193,13 +193,14 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
             spnr_Prod.setAdapter(null);
             edtx_Empaque.setText("");
             edtx_Unidades.setText("");
-            edtx_Producto.setText("");
+            //edtx_Producto.setText("");
             chk_Editar.setChecked(false);
             EmpaqueNuevo = false;
             edtxClavePedimento.setText("");
             edtxFactura.setText("");
             edtxFechaPedimento.setText("");
             edtxPedimento.setText("");
+            //edtxLote.setText("");
             edtx_Empaque.requestFocus();
 
         } catch (Exception e) {
@@ -226,7 +227,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
             edtx_Unidades.setEnabled(false);
             edtx_ConfirmarEmpaque.setEnabled(true);
 
-            txtv_Pallet = (TextView) findViewById(R.id.txtv_Pallet);
+            txtv_Pallet = (EditText) findViewById(R.id.txtv_Pallet);
 
             tabla = (SortableTableView) findViewById(R.id.tableView_OC);
             chk_Editar = (CheckBox) findViewById(R.id.chkb_ConfirmarEmpaque);
@@ -239,12 +240,17 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
 
             edtxPedimento = findViewById(R.id.edtxPedimiento);
             edtxPedimento.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
+            edtxLote = findViewById(R.id.edtxLote);
+            edtxLote.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
             edtxClavePedimento = findViewById(R.id.edtxclavepedimiento);
             edtxFactura = findViewById(R.id.edtxFactura);
             edtxFechaPedimento = findViewById(R.id.edtxFechaPedimiento);
             edtxFechaRecepcion = findViewById(R.id.edtxFechaRecepcion);
 
 
+            edtxLote.setEnabled(false);
             edtxFactura.setEnabled(false);
             edtxClavePedimento.setEnabled(false);
             edtxPedimento.setEnabled(false);
@@ -289,7 +295,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
 
                             if (!edtx_Empaque.getText().toString().equals(""))
                             {
-                                new SegundoPlano("ConsultaEmpaque").execute();
+                                new SegundoPlano(CONSULTA_EMPAQUE).execute();
 
                             } else {
                                 Handler handler = new Handler();
@@ -338,7 +344,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
                 }
             });
 
-            edtx_Unidades.setOnLongClickListener(new View.OnLongClickListener() {
+/*            edtx_Unidades.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
 
@@ -350,7 +356,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
 
                     return true;
                 }
-            });
+            });*/
 
             edtx_Unidades.setCustomSelectionActionModeCallback(new ActionMode.Callback2()
             {
@@ -474,6 +480,8 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
                     return false;
                 }
             });
+
+
             edtx_Producto.setOnKeyListener(new View.OnKeyListener()
             {
                 @Override
@@ -605,6 +613,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
             edtx_Empaque.setText(clickedData[1]);
             edtx_Producto.setText(clickedData[2]);
             edtx_Unidades.setText(clickedData[3]);
+            edtxLote.setText(clickedData[4]);
 
             new SegundoPlano(CONSULTA_EMPAQUE).execute();
 
@@ -688,21 +697,46 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
                     case CONSULTA_EMPAQUE:
                         dao = ca.c_ConsultaEmpaqueInventario(IdInventario, edtx_Empaque.getText().toString());
                         break;
+
+
+                    case REGISTRA_EMPAQUE_NORMAL:
+                        dao = ca.c_RegistraEmpaqueInventario(
+                                IdInventario,
+                                edtx_Empaque.getText().toString(),
+                                txtv_Pallet.getText().toString(),
+                                "",
+                                UbicacionIntent);
+                        break;
+
+                    case EDITAR_EMPAQUE:
+                        dao = ca.c_EditaRegistroEmpaqueInventario(IdInventario,
+                                txtv_Pallet.getText().toString(),
+                                edtx_Empaque.getText().toString(),
+                                UbicacionIntent,
+                                edtx_Unidades.getText().toString());
+                        break;
+
                     case REGISTRAR_NUEVO_EMPAQUE:
 
-                        dao = ca.c_RegistraNuevoEmpaquePalletInventario(IdInventario,  txtv_Pallet.getText().toString(), edtx_Empaque.getText().toString(),
-                               edtx_Unidades.getText().toString(), UbicacionIntent, edtxPedimento.getText().toString(),
-                                edtxClavePedimento.getText().toString(),edtxFechaPedimento.getText().toString(),edtxFechaRecepcion.getText().toString());
+                        dao = ca.c_RegistraNuevoEmpaquePalletInventario(
+                                IdInventario,
+                                txtv_Pallet.getText().toString(),
+                                edtx_Empaque.getText().toString(),
+                                edtx_Unidades.getText().toString(),
+                                UbicacionIntent,
+                                "",
+                                "",
+                                "1900-01-01",
+                                "1900-01-01"
+                        );
                         break;
-                    case REGISTRA_EMPAQUE_NORMAL:
-                        dao = ca.c_RegistraEmpaqueInventario(IdInventario, edtx_Empaque.getText().toString(), txtv_Pallet.getText().toString(),"", UbicacionIntent);
-                        break;
+
+
                     case BAJA_PALLET:
                         dao = ca.c_BajaEmpaqueInventario(IdInventario,params[0]);
                         break;
-                    case EDITAR_EMPAQUE:
-                        dao = ca.c_EditaRegistroEmpaqueInventario(IdInventario,  txtv_Pallet.getText().toString(), edtx_Empaque.getText().toString(), UbicacionIntent,edtx_Unidades.getText().toString());
-                        break;
+
+
                 }
             } catch (Exception e)
             {
@@ -753,22 +787,24 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
                             edtxFechaPedimento.setEnabled(false);
                             edtxFechaRecepcion.setEnabled(false);
                             edtx_Empaque.setText("");
-                            edtx_Producto.setText("");
+                            //edtx_Producto.setText("");
                             edtx_Unidades.setText("");
                             edtxFactura.setText("");
                             edtxClavePedimento.setText("");
                             edtxPedimento.setText("");
+                            //edtxLote.setText("");
                             edtxFechaPedimento.setText("");
                             edtxFechaRecepcion.setText("");
                         case REGISTRA_EMPAQUE_NORMAL:
-                            new SegundoPlano("llenarTabla").execute();
+                            new SegundoPlano(LLENAR_TABLA).execute();
                             edtx_ConfirmarEmpaque.setText("");
                             edtx_Empaque.setText("");
-                            edtx_Producto.setText("");
+                            //edtx_Producto.setText("");
                             edtx_Unidades.setText("");
                             edtxFactura.setText("");
                             edtxClavePedimento.setText("");
                             edtxPedimento.setText("");
+                            //edtxLote.setText("");
                             edtxFechaPedimento.setText("");
                             edtxFechaRecepcion.setText("");
                             edtx_Empaque.requestFocus();
@@ -779,7 +815,7 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
 
                         case BAJA_PALLET:
                             new popUpGenerico(contexto, getCurrentFocus(), getString(R.string.empaque_baja), dao.iscEstado(), true, true);
-                            new SegundoPlano("llenarTabla").execute();
+                            new SegundoPlano(LLENAR_TABLA).execute();
                             reiniciaVariables();
                             break;
                     }
@@ -788,17 +824,15 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
                 else
                 {
 
-                    if (tarea.equals("ConsultaEmpaque") && dao.getcMensaje().equals("0")) {
+                    if (tarea.equals(CONSULTA_EMPAQUE) && dao.getcMensaje().equals("0")) {
                         new AlertDialog.Builder(contexto).setIcon(R.drawable.ic_warning_black_24dp)
 
                                 .setTitle("Empaque no encontrado, ¿Dar de alta?").setCancelable(false)
                                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        edtx_Producto.setText("");
                                         spnr_Prod.setAdapter(null);
                                         edtx_Unidades.setText("");
-                                        edtx_Unidades.setText("");
-                                        edtx_Producto.requestFocus();
+                                        edtx_Unidades.requestFocus();
                                         EmpaqueNuevo = true;
                                         chk_Editar.setChecked(true);
                                         chk_Editar.setText("Nuevo");
@@ -813,10 +847,10 @@ public class Inventarios_ConfirmarEmpaque extends AppCompatActivity  implements 
                                 })
                                 .setNegativeButton("No", null)
                                 .show();
-                    }  else if (tarea.equals("ConsultaEmpaque") && dao.getcMensaje().equals("1")) {
+                    }  else if (tarea.equals(CONSULTA_EMPAQUE) && dao.getcMensaje().equals("1")) {
                     new popUpGenerico(contexto, getCurrentFocus(), "No se puede agregar contenedores a un pallet ", dao.iscEstado(), true, true);
 
-                    } else if (tarea.equals("llenarTabla")) {
+                    } else if (tarea.equals(LLENAR_TABLA)) {
                         edtx_Empaque.requestFocus();
                     } else {
                         new popUpGenerico(contexto, getCurrentFocus(), dao.getcMensaje(), dao.iscEstado(), true, true);

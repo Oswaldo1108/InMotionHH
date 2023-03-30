@@ -71,7 +71,7 @@ public class Inventarios_ConfirmarEmpaqueGranel extends AppCompatActivity implem
     public static final String CONSULTA_PEDIMENTO = "ConsultaPedimento";
     public static final String DETALLE_PEDIMENTO = "DetallePedimento";
     private EditText edtx_Posicion,edtx_Empaque, edtx_Unidades, edtx_ConfirmarEmpaque,edtxPedimento,edtxClavePedimento,edtxFactura,edtxFechaPedimento,edtxFechaRecepcion;
-    private EditText edtx_Producto;
+    private EditText edtx_Producto, edtx_Lote;
     private CheckBox chk_Editar;
     private ActivityHelpers activityHelpers;
     private String Pallet;
@@ -112,6 +112,7 @@ public class Inventarios_ConfirmarEmpaqueGranel extends AppCompatActivity implem
 
             edtx_Producto.setEnabled(false);
             edtx_Unidades.setEnabled(false);
+            edtx_Lote.setEnabled(false);
             txtv_Inventario.setText(IdInventario);
             edtx_Posicion.setText(UbicacionIntent);
 
@@ -181,6 +182,7 @@ public class Inventarios_ConfirmarEmpaqueGranel extends AppCompatActivity implem
             edtx_Empaque.setText("");
             edtx_Unidades.setText("");
             edtx_Producto.setText("");
+            edtx_Lote.setText("");
             chk_Editar.setChecked(false);
             EmpaqueNuevo = false;
             edtxClavePedimento.setText("");
@@ -204,6 +206,10 @@ public class Inventarios_ConfirmarEmpaqueGranel extends AppCompatActivity implem
 
             edtx_Posicion = (EditText) findViewById(R.id.edtx_Posicion);
             edtx_Posicion.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
+            edtx_Lote = (EditText) findViewById(R.id.edtx_Lote);
+            edtx_Lote.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+
             txtv_Inventario = (TextView) findViewById(R.id.txtv_Inventario);
 
 
@@ -633,7 +639,7 @@ public class Inventarios_ConfirmarEmpaqueGranel extends AppCompatActivity implem
             edtx_Empaque.setText(clickedData[1]);
             edtx_Producto.setText(clickedData[2]);
             edtx_Unidades.setText(clickedData[3]);
-            edtxPedimento.setText(clickedData[5]);
+            edtx_Lote.setText(clickedData[4]);
             if(clickedData[7].equals("C")){
                 Tipo = true;
             }else{
@@ -715,21 +721,46 @@ public class Inventarios_ConfirmarEmpaqueGranel extends AppCompatActivity implem
                     case CONSULTA_EMPAQUE:
                         dao = ca.c_ConsultaEmpaqueInventario(IdInventario, edtx_Empaque.getText().toString());
                         break;
-                    case REGISTRAR_NUEVO_EMPAQUE:
 
-                        dao = ca.c_RegistraNuevoEmpaquePalletInventarioPicking(IdInventario,  edtx_Posicion.getText().toString(), edtx_Empaque.getText().toString(),
-                                edtx_Unidades.getText().toString(), UbicacionIntent, edtxPedimento.getText().toString(),
-                                edtxClavePedimento.getText().toString(),edtxFactura.getText().toString(),edtxFechaPedimento.getText().toString(),edtxFechaRecepcion.getText().toString(),spnr_Prod.getSelectedItem().toString());
-                        break;
+
                     case REGISTRA_EMPAQUE_NORMAL:
-                        dao = ca.c_RegistraEmpaqueInventarioPK(IdInventario, edtx_Empaque.getText().toString(), edtx_Posicion.getText().toString(),"", UbicacionIntent);
+                        dao = ca.c_RegistraEmpaqueInventarioPK(IdInventario,
+                                edtx_Empaque.getText().toString(),
+                                edtx_Posicion.getText().toString(),
+                                "",
+                                UbicacionIntent);
                         break;
+
+                    case EDITAR_EMPAQUE:
+                        dao = ca.c_EditaRegistroEmpaqueInventarioPK(
+                                IdInventario,
+                                edtx_Posicion.getText().toString(),
+                                edtx_Empaque.getText().toString(),
+                                UbicacionIntent,
+                                edtx_Unidades.getText().toString());
+                        break;
+
+
+                    case REGISTRAR_NUEVO_EMPAQUE:
+                        dao = ca.c_RegistraNuevoEmpaquePalletInventarioPicking(
+                                IdInventario,
+                                edtx_Posicion.getText().toString(),
+                                edtx_Empaque.getText().toString(),
+                                edtx_Unidades.getText().toString(),
+                                UbicacionIntent,
+                                edtx_Lote.getText().toString(),
+                                "",
+                                "",
+                                "1900-01-01",
+                                "1900-01-01",
+                                spnr_Prod.getSelectedItem().toString());
+                        break;
+
+
                     case BAJA_PALLET:
                         dao = ca.c_BajaEmpaqueInventario(IdInventario,params[0]);
                         break;
-                    case EDITAR_EMPAQUE:
-                        dao = ca.c_EditaRegistroEmpaqueInventarioPK(IdInventario, edtx_Posicion.getText().toString(), edtx_Empaque.getText().toString(), UbicacionIntent, edtx_Unidades.getText().toString());
-                        break;
+
                     case EDITAR_CONTENEDOR:
                         dao = ca.c_EditaRegistroContenedorInventario(IdInventario,edtx_Posicion.getText().toString(),edtx_Empaque.getText().toString(),UbicacionIntent,edtx_Unidades.getText().toString(),spnr_Prod.getSelectedItem().toString(),edtxPedimento.getText().toString());
                         break;

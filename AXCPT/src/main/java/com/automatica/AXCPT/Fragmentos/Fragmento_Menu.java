@@ -55,6 +55,7 @@ import com.automatica.AXCPT.c_Embarques.Surtido_Pedidos.Validacion.Validacion_Se
 import com.automatica.AXCPT.c_Inventarios.Menus.Inventarios_PantallaPrincipal;
 import com.automatica.AXCPT.c_Inventarios.Menus.Inventarios_PorPosicion;
 import com.automatica.AXCPT.c_Inventarios.Menus.Inventarios_PorProductoMulti;
+import com.automatica.AXCPT.c_Inventarios.Menus.Inventarios_Total;
 import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets;
 import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets_NE;
 import com.automatica.AXCPT.c_Produccion.Produccion.Almacen_Armado_Pallets_PyU;
@@ -281,7 +282,7 @@ public class Fragmento_Menu extends Fragment{
                     ArrayList<objetoMenu> datos = new ArrayList<>();
                     datos.add(new objetoMenu(getString(R.string.menu_inventario_posicion),new Intent(getContext(), Inventarios_PorPosicion.class),1));
                     datos.add(new objetoMenu(getString(R.string.menu_inventario_articulo),new Intent(getContext(), Inventarios_PorProductoMulti.class),2));
-                    datos.add(new objetoMenu(getString(R.string.menu_inventario_físico),new Intent(getContext(), Inventarios_PantallaPrincipal.class),3));
+                    datos.add(new objetoMenu(getString(R.string.menu_inventario_físico),new Intent(getContext(), Inventarios_Total.class),3));
                     Log.i("Elementos", String.valueOf(datos.size()));
                     llenarRecyclerInventarios(recyclerView, datos);
                     recyclerView.setVisibility(View.VISIBLE);

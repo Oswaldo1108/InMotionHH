@@ -46,8 +46,8 @@ public class Inventarios_ValidacionPallet extends AppCompatActivity implements f
     private final static String ConfirmarPallet = "ConfirmarPallet";
     private final static String PalletEditado   = "PalletEditado";
 
-    private EditText edtx_Pallet, edtx_Lote, edtx_ConfirmarPallet;
-    private TextView txtv_Inventario, txtv_Posicion;
+    private EditText edtx_Pallet, edtx_ConfirmarPallet;
+    private TextView txtv_Inventario, txtv_Posicion, edtx_Lote;
     private TextView txtv_Producto, txtv_Desc, txtv_TipoReg,tvCantidadTotal;
     private EditText edtx_Unidades, edtx_Empaques;
     private Button btn_Empaques, btn_Confirmar;
@@ -127,7 +127,7 @@ public class Inventarios_ValidacionPallet extends AppCompatActivity implements f
             progressBarHelper = new ProgressBarHelper(this);
 
             edtx_Pallet = (EditText) findViewById(R.id.txtv_Pallet);
-            edtx_Lote = (EditText) findViewById(R.id.edtx_Lote_Empaque);
+            edtx_Lote = (TextView) findViewById(R.id.edtx_Lote_Empaque);
             edtx_ConfirmarPallet = (EditText) findViewById(R.id.edtx_ConfirmarPallet);
             edtx_Unidades = (EditText) findViewById(R.id.edtx_Unidades);
             edtx_Empaques = (EditText) findViewById(R.id.edtx_Empaques);
@@ -231,7 +231,7 @@ public class Inventarios_ValidacionPallet extends AppCompatActivity implements f
                 {
 
 
-                        edtx_Lote.setEnabled(b);
+                        //edtx_Lote.setEnabled(b);
                         edtx_Unidades.setEnabled(b);
                         edtx_Empaques.setEnabled(b);
 
@@ -549,14 +549,14 @@ public class Inventarios_ValidacionPallet extends AppCompatActivity implements f
 
                             if(dao.getSoapObject_parced().getPrimitivePropertyAsString("TipoReg").equals("NE"))
                             {
-                                txtv_TipoReg.setText("No etiquetado");
+                                txtv_TipoReg.setText("NO ETIQUETADO");
                                 chk_Editar.setEnabled(true);
                                 btn_Empaques.setEnabled(false);
                             }
                             else if(dao.getSoapObject_parced().getPrimitivePropertyAsString("TipoReg").equals("E"))
                             {
-                                txtv_TipoReg.setText("Etiquetado");
-                                chk_Editar.setEnabled(false);
+                                txtv_TipoReg.setText("ETIQUETADO");
+                                chk_Editar.setVisibility(View.GONE);
                                 btn_Empaques.setEnabled(true);
 
                             }

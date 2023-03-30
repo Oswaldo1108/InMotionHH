@@ -41,7 +41,7 @@
             android:indeterminate="true" />
     </FrameLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+   <!-- <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/CL_ConsultaOrdenProd2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -58,12 +58,11 @@
             android:id="@+id/txtv_Pallet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="-"
             android:textColor="@color/blancoLetraStd"
             android:textSize="@dimen/txtSize"
             app:layout_constraintBottom_toBottomOf="@+id/textView29"
-            app:layout_constraintStart_toEndOf="@+id/textView29"
+            app:layout_constraintStart_toStartOf="@+id/txtv_Posicion"
             app:layout_constraintTop_toTopOf="@+id/textView29" />
 
         <TextView
@@ -74,7 +73,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
 
-            android:text="Pallet"
+            android:text="Pallet:"
             android:textColor="@color/blancoLetraStd"
             android:textSize="@dimen/txtSize"
             android:textStyle="bold"
@@ -103,12 +102,10 @@
 
             android:layout_height="wrap_content"
 
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:text="-"
             app:layout_constraintBottom_toBottomOf="@+id/textView882"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView882"
+            app:layout_constraintStart_toStartOf="@+id/txtv_Inventario"
             app:layout_constraintTop_toTopOf="@+id/textView882" />
 
         <TextView
@@ -140,17 +137,134 @@
             app:layout_constraintTop_toBottomOf="@+id/textView932" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+-->
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_ConsultaOrdenProd1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toStartOf="@+id/CL_ConsultaOrdenProd3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+
+            android:id="@+id/txtv_Inventario"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/textView932"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView932"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Inventario:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CL_ConsultaOrdenProd3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/orilla_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/CL_ConsultaOrdenProd1"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+        <TextView
+            android:id="@+id/textView9323"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Posición:"
+            android:textColor="@color/blancoLetraStd"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtv_Posicion"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintStart_toEndOf="@+id/textView9323"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvCodigoPallet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Pallet:"
+        android:textColor="@color/blancoLetraStd"
+        android:textSize="@dimen/txtSize"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CL_ConsultaOrdenProd1" />
+
+
+    <EditText
+        android:id="@+id/txtv_Pallet"
+        style="@style/Estilo_EditText_Reg"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCodigoPallet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvCodigoPallet"
+        app:layout_constraintTop_toTopOf="@+id/tvCodigoPallet" />
+
     <include
         android:id="@+id/customtableview_totales"
         layout="@layout/customtableview"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="195dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CL_ConsultaOrdenProd2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCodigoPallet" />
 
     <ScrollView
         android:id="@+id/scrollview"
@@ -158,11 +272,13 @@
         android:scrollbarTrackVertical="@drawable/track_scrollbar_transp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fadeScrollbars="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/customtableview_totales"
-        android:layout_marginBottom="70dp">
+        android:layout_marginBottom="55dp"
+        >
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -179,7 +295,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Empaque"
+                android:text="Empaque:"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
@@ -191,22 +307,22 @@
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:ems="10"
-                android:hint="@string/escanear_empaque"
+                android:hint="Capturar código de empaque"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toBottomOf="@+id/textView43"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView45"
+                app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
                 app:layout_constraintTop_toTopOf="@+id/textView43" />
+
             <TextView
                 android:id="@+id/textView45"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:text="Búsqueda"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Artículo:"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
@@ -218,73 +334,87 @@
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:clickable="false"
                 android:ems="10"
                 android:focusable="true"
                 android:inputType="text"
                 app:layout_constraintBottom_toBottomOf="@+id/textView45"
-                app:layout_constraintEnd_toStartOf="@+id/chkb_ConfirmarEmpaque"
-                app:layout_constraintStart_toEndOf="@+id/textView45"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/edtxLote"
                 app:layout_constraintTop_toTopOf="@+id/textView45" />
+
             <CheckBox
                 android:id="@+id/chkb_ConfirmarEmpaque"
                 android:layout_width="94dp"
-                android:layout_height="39dp"
+                android:layout_height="28dp"
                 android:layout_marginEnd="8dp"
                 android:background="@null"
                 android:buttonTint="@color/blancoLetraStd"
                 android:text="Editar"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
-                app:layout_constraintBottom_toBottomOf="@+id/edtx_Producto"
+                app:layout_constraintBottom_toBottomOf="@+id/edtx_Unidades"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/edtx_Producto" />
+                app:layout_constraintTop_toTopOf="@+id/edtx_Unidades" />
 
             <include
                 android:id="@+id/vw_spinner_prod"
                 layout="@layout/vw_spinner"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/textView28"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView45"
+                app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
                 app:layout_constraintTop_toTopOf="@+id/textView28" />
 
 
             <TextView
                 android:id="@+id/textView28"
-                android:layout_width="78dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:text="Producto"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Artículo:"
+                android:textColor="@color/blancoLetraStd"
+                android:textSize="@dimen/txtSize"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView45" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Lote:"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView45" />
+                app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
             <EditText
                 android:id="@+id/edtx_ConfirmarEmpaque"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="8dp"
 
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="9dp"
                 android:ems="10"
-                android:hint="@string/volver_escanear_empaque"
+                android:hint="Confirmar código de empaque"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toBottomOf="@+id/textView48"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.166"
-                app:layout_constraintStart_toEndOf="@+id/textView45"
+                app:layout_constraintStart_toEndOf="@+id/textView48"
                 app:layout_constraintTop_toTopOf="@+id/textView48" />
 
 
@@ -292,29 +422,29 @@
                 android:id="@+id/textView47"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:text="Cantidad"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Cantidad:"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView28" />
-
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
 
             <EditText
                 android:id="@+id/edtx_Unidades"
                 style="@style/Estilo_EditText_Reg"
-                android:layout_width="82dp"
+                android:layout_width="0dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="8dp"
 
+                android:layout_marginEnd="8dp"
                 android:ems="10"
                 android:hint="@string/unidades"
                 android:inputType="numberDecimal"
                 app:layout_constraintBottom_toBottomOf="@+id/textView47"
-                app:layout_constraintStart_toEndOf="@+id/textView45"
+                app:layout_constraintEnd_toStartOf="@+id/chkb_ConfirmarEmpaque"
+                app:layout_constraintStart_toStartOf="@+id/edtx_ConfirmarEmpaque"
                 app:layout_constraintTop_toTopOf="@+id/textView47" />
 
             <TextView
@@ -322,11 +452,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Pedimento"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="18dp"
-                android:layout_marginTop="16dp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
@@ -335,47 +466,54 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Clave\nPedimento"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="18dp"
-                android:layout_marginTop="16dp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView999" />
+
             <TextView
                 android:id="@+id/tvFactura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Factura"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="18dp"
-                android:layout_marginTop="16dp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvclavepedimiento" />
+
             <TextView
                 android:id="@+id/tvFechaPedimiento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Fecha\nPedimento"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="18dp"
-                android:layout_marginTop="16dp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvFactura" />
+
             <TextView
                 android:id="@+id/tvFechaRecepcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Fecha\nRecepcion"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="18dp"
-                android:layout_marginTop="16dp"
                 android:textStyle="bold"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvFechaPedimiento" />
 
@@ -384,40 +522,55 @@
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
                 android:layout_height="33dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="Capturar pedimento"
                 android:inputType="textPersonName"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/textView999"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
+                app:layout_constraintStart_toStartOf="@+id/edtx_Unidades"
                 app:layout_constraintTop_toTopOf="@+id/textView999" />
+
+            <EditText
+                android:id="@+id/edtxLote"
+                style="@style/Estilo_EditText_Reg"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintBottom_toBottomOf="@+id/textView23"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/edtx_Unidades"
+                app:layout_constraintTop_toTopOf="@+id/textView23" />
+
             <EditText
                 android:id="@+id/edtxclavepedimiento"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
                 android:layout_height="33dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:ems="10"
 
                 android:hint="Capturar Clave"
                 android:inputType="textPersonName"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvclavepedimiento"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
                 app:layout_constraintTop_toTopOf="@+id/tvclavepedimiento" />
+
             <EditText
                 android:id="@+id/edtxFactura"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
                 android:layout_height="33dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:ems="10"
                 android:hint="Capturar Factura"
                 android:inputType="textPersonName"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvFactura"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
@@ -428,31 +581,32 @@
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
                 android:layout_height="33dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
                 android:ems="10"
-                android:singleLine="true"
+                android:focusable="false"
                 android:hint="Capturar Fecha"
                 android:inputType="date"
-                android:focusable="false"
-                android:clickable="true"
+                android:singleLine="true"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvFechaPedimiento"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
                 app:layout_constraintTop_toTopOf="@+id/tvFechaPedimiento" />
+
             <EditText
                 android:id="@+id/edtxFechaRecepcion"
                 style="@style/Estilo_EditText_Reg"
                 android:layout_width="0dp"
                 android:layout_height="33dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:hint="Capturar Fecha"
-                android:singleLine="true"
-                android:inputType="date"
-                android:focusable="false"
+                android:layout_marginEnd="16dp"
                 android:clickable="true"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Capturar Fecha"
+                android:inputType="date"
+                android:singleLine="true"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@+id/tvFechaRecepcion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/edtx_Producto"
@@ -464,12 +618,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Confirmar\nEmpaque"
+                android:text="Confirmar:"
                 android:textColor="@color/blancoLetraStd"
                 android:textSize="@dimen/txtSize"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvFechaRecepcion" />
+                app:layout_constraintTop_toBottomOf="@+id/textView47" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

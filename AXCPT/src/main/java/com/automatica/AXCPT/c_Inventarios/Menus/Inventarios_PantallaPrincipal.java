@@ -313,7 +313,6 @@ public class Inventarios_PantallaPrincipal extends AppCompatActivity implements 
     @Override
     public void onTableLongClick(int rowIndex, String[] clickedData, String MensajeCompleto, String IdentificadorTabla)
     {
-
     }
 
     @Override
@@ -333,6 +332,13 @@ public class Inventarios_PantallaPrincipal extends AppCompatActivity implements 
                 @Override
                 public void listenerItem(MenuItem item) {
                     switch (item.getItemId()){
+
+                        case R.id.validar_inventarios:
+                            if(seleccion){
+                                btn_Pallet.callOnClick();
+                            }
+                            break;
+
                         case R.id.baja_inventarios:
                             if(seleccion){
                                 btn_Baja.callOnClick();
@@ -341,11 +347,8 @@ public class Inventarios_PantallaPrincipal extends AppCompatActivity implements 
                         case R.id.alta_inventarios:
                             btn_Nuevo.callOnClick();
                             break;
-                        case R.id.validar_inventarios:
-                            if(seleccion){
-                                btn_Pallet.callOnClick();
-                            }
-                            break;
+
+
                         default:
                             break;
                     }
