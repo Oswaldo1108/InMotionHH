@@ -7,34 +7,31 @@
     android:id="@+id/Pantalla_principal"
     android:background="@color/fondoAzul"
     tools:context="com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Almacen_Ajustes_BajaEmpaque">
+
     <EditText
         android:id="@+id/edtx_CodigoPallet"
+        style="@style/Estilo_EditText_Reg"
         android:layout_width="0dp"
         android:layout_height="29dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        style="@style/Estilo_EditText_Reg"
         android:ems="10"
         android:hint="@string/escanear_empaque"
         android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/textView70"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView70"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout12" />
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout12"
+        app:layout_constraintTop_toTopOf="@+id/textView70" />
+
     <EditText
         android:id="@+id/edtx_ConfirmacionEmpaque"
+        style="@style/Estilo_EditText_Reg"
         android:layout_width="0dp"
         android:layout_height="29dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        style="@style/Estilo_EditText_Reg"
+        android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="@string/volver_escanear_empaque"
+        android:hint="@string/confirma_empaque"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView70"
@@ -44,19 +41,20 @@
         android:id="@+id/textView70"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="Código \nEmpaque"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Empaque"
         android:textColor="@color/blancoLetraStd"
         android:textSize="@dimen/txtSize"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView73" />
+
     <TextView
         android:id="@+id/textView76"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Empaque"
         android:textColor="@color/blancoLetraStd"
@@ -69,8 +67,8 @@
         android:id="@+id/textView73"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
         android:text="Concepto"
         android:textColor="@color/blancoLetraStd"
         android:textSize="@dimen/txtSize"
@@ -110,65 +108,66 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_DatosReciboPedimento"
         android:layout_width="0dp"
-        android:layout_height="170dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/orilla_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView70">
+        app:layout_constraintTop_toBottomOf="@+id/edtx_CodigoPallet">
 
         <TextView
             android:id="@+id/txtv_CantPend"
-            android:layout_width="148dp"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="0dp"
             android:layout_height="27dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginTop="20dp"
             android:text="-"
-            style="@style/EstiloTexto_Blanco_Reg"
 
+            app:layout_constraintBottom_toBottomOf="@+id/textView72"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtv_Lote" />
+            app:layout_constraintStart_toStartOf="@+id/txtv_Lote"
+            app:layout_constraintTop_toTopOf="@+id/textView72" />
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/txtv_Lote"
-            android:layout_width="148dp"
+            style="@style/EstiloTexto_Blanco_Reg"
+            android:layout_width="0dp"
             android:layout_height="27dp"
             android:layout_marginEnd="58dp"
-            android:layout_marginTop="25dp"
             android:text="-"
-            style="@style/EstiloTexto_Blanco_Reg"
+            android:visibility="visible"
 
+            app:layout_constraintBottom_toBottomOf="@+id/textView74"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtv_Producto" />
+            app:layout_constraintStart_toStartOf="@+id/txtv_Producto"
+            app:layout_constraintTop_toTopOf="@+id/textView74" />
 
         <TextView
             android:id="@+id/txtv_Producto"
             style="@style/EstiloTexto_Blanco_Reg_Consulta"
             android:layout_width="0dp"
             android:layout_height="27dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="25dp"
             android:layout_marginEnd="8dp"
+
+
             android:text="-"
-
-
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/txtv_CantPend"
+            app:layout_constraintStart_toEndOf="@+id/textView71"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView72"
+            style="@style/EstiloTexto_Blanco_Bold"
             android:layout_width="80dp"
             android:layout_height="23dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="16dp"
             android:text="Cantidad:"
-            style="@style/EstiloTexto_Blanco_Bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView74" />
 
@@ -176,9 +175,11 @@
             android:id="@+id/textView159"
             style="@style/EstiloTexto_Blanco_Bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
             android:text="Estatus:"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView72" />
 
@@ -196,26 +197,26 @@
             app:layout_constraintTop_toTopOf="@+id/textView159" />
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/textView74"
+            style="@style/EstiloTexto_Blanco_Bold"
             android:layout_width="80dp"
             android:layout_height="23dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="16dp"
             android:text="Lote:"
-            style="@style/EstiloTexto_Blanco_Bold"
+            android:visibility="visible"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView71" />
 
         <TextView
             android:id="@+id/textView71"
+            style="@style/EstiloTexto_Blanco_Bold"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="25dp"
             android:text="Articulo:"
-            style="@style/EstiloTexto_Blanco_Bold"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -228,14 +229,12 @@
         style="@style/Estilo_EditText_Reg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView73"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView70"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintStart_toEndOf="@+id/textView73"
+        app:layout_constraintTop_toTopOf="@+id/textView73">
 
         <Spinner
             android:id="@+id/spnr_Ajuste"

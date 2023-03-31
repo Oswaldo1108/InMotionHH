@@ -264,6 +264,10 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
+            android:name=".c_Almacen.Almacen_Ajustes.Ajustes_Ciesa.Ajustes_AjustesContenedorBaja"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
             android:name=".c_Almacen.Almacen.ColocarContenedor"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />

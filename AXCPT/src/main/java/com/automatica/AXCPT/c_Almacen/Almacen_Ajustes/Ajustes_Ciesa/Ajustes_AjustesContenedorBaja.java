@@ -84,22 +84,15 @@ public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements 
                         binding.spinnerBaja.setEnabled(false);
                         binding.spinnerAlta.setEnabled(true);
                         binding.edtxProductoFragm.setEnabled(true);
-                        binding.spinnerBaja.findViewById(R.id.spinner).setEnabled(false);
                         binding.spinnerAlta.findViewById(R.id.spinner).setEnabled(true);
                         reiniciaCampos();
                         binding.switch1.setEnabled(true);
                         binding.switch1.setChecked(true);
-                        binding.edtxUbicacion.requestFocus();
+                        //binding.edtxCodigoPallet.requestFocus();
 
-                        binding.switch1.setEnabled(false);
-                        binding.switch1.setChecked(false);
+                       /*binding.switch1.setEnabled(false);
+                        binding.switch1.setChecked(false);*/
                         binding.switch1.setVisibility(View.GONE);
-                        binding.edtxProductoFragm.setEnabled(true);
-                        binding.spinnerAlta.setEnabled(true);
-                        binding.spinnerBaja.setEnabled(false);
-                        binding.spinnerBaja.findViewById(R.id.spinner).setEnabled(false);
-                        binding.spinnerAlta.findViewById(R.id.spinner).setEnabled(true);
-                        reiniciaCampos();
                         binding.edtxUbicacion.requestFocus();
                         break;
                     case R.id.radio_baja:
@@ -161,7 +154,7 @@ public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements 
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
 
-            this.getSupportActionBar().setTitle("Ajustes contenedor");
+            this.getSupportActionBar().setTitle("Baja unidades empaque");
             p = new ProgressBarHelper(this);
             binding.edtxUbicacion.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
             edtx_CodigoPallet = (EditText) findViewById(R.id.edtx_CodigoPallet);
@@ -274,11 +267,11 @@ public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements 
                         new popUpGenerico(contexto, edtx_CodigoPallet, "Ingrese código de contenedor", false, true, true);
                         return false;
                     }
-                    if (edtx_Producto_fragm.getText().toString().equals(""))
-                    {
-                        new popUpGenerico(contexto, edtx_Producto_fragm, getString(R.string.error_ingrese_producto), false, true, true);
-                        return false;
-                    }
+//                    if (edtx_Producto_fragm.getText().toString().equals(""))
+//                    {
+//                        new popUpGenerico(contexto, edtx_Producto_fragm, getString(R.string.error_ingrese_producto), false, true, true);
+//                        return false;
+//                    }
                     if (edtx_CodigoEmpaque.getText().toString().equals(""))
                     {
                         new popUpGenerico(contexto, edtx, "Ingrese una cantidad valida", false, true, true);
@@ -309,10 +302,10 @@ public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements 
                     {
                         if (binding.switch1.isChecked())
                         {
-                            new SegundoPlano("AjusteContenedorSKU").execute();
+                            new SegundoPlano("AjusteContenedorNegativo").execute();
                         } else
                         {
-                            new SegundoPlano("AjusteContenedorNumParte").execute();
+                            new SegundoPlano("AjusteContenedorNegativo").execute();
                         }
                     } else
                     {
@@ -331,13 +324,13 @@ public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements 
                 if (isChecked)
                 {
 //                    binding.edtxProductoFragm.setEnabled(false);
-                    binding.textView76.setText("SKU: ");
-                    binding.edtxCodigoEmpaque.setHint("Capturar SKU");
+                    binding.textView76.setText("Cantidad");
+                    binding.edtxCodigoEmpaque.setHint("Cantidad de piezas");
                     binding.edtxCodigoEmpaque.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
                 }else
                 {
-                    binding.textView76.setText("Cantidad\nde piezas:");
-                    binding.edtxCodigoEmpaque.setHint("Capturar cantidad");
+                    binding.textView76.setText("Cantidad");
+                    binding.edtxCodigoEmpaque.setHint("Cantidad de piezas");
                     binding.edtxCodigoEmpaque.setInputType(InputType.TYPE_CLASS_NUMBER);
 
                 }
@@ -364,10 +357,11 @@ public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements 
         edtx_Producto_fragm.setText("");
         binding.edtxUbicacion.requestFocus();
         binding.edtxUbicacion.setText("");
-        txtv_Producto.setText("");
-        txtv_Cantidad.setText("");
+        txtv_Producto.setText("-");
+        txtv_Cantidad.setText("-");
         binding.edtxCodigoPallet.setText("");
-        binding.txtvEstatus.setText("");
+        binding.txtvLote.setText("-");
+        binding.txtvEstatus.setText("-");
     }
 
     @Override
@@ -473,30 +467,30 @@ public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements 
                         dao = ca.c_ConsultaContenedorAjustes(edtx_CodigoPallet.getText().toString());
                         break;
 
-                    case "ListarAjustesAltas"://Se usa para llenar el Spinner
+                    /*case "ListarAjustesAltas"://Se usa para llenar el Spinner
                         dao = ca.c_ListarConceptosAjuste("1");
-                        break;
+                        break;*/
 
-                    /*case "ListarAjustesBajas"://Se usa para llenar el Spinner
+                    case "ListarAjustesBajas"://Se usa para llenar el Spinner
                         dao = ca.c_ListarConceptosAjuste("2");
                         break;
-                    case "AjusteContenedor":
+                    /*case "AjusteContenedor":
                         dao = ca.c_AjusteContenedorPositivo(edtx_CodigoPallet.getText().toString(), edtx_CodigoEmpaque.getText().toString(),
                                 binding.edtxUbicacion.getText().toString(), ((Constructor_Dato) spnr_Alta.getSelectedItem()).getDato());
                         break;*/
 
-                    case "AjusteContenedorNumParte":
+                    /*case "AjusteContenedorNumParte":
                         dao = ca.c_AjusteContenedorPositivoNumParte(edtx_CodigoPallet.getText().toString(), edtx_CodigoEmpaque.getText().toString(),
                                 binding.edtxUbicacion.getText().toString(), ((Constructor_Dato) spnr_Alta.getSelectedItem()).getDato(), edtx_Producto_fragm.getText().toString());
-                        break;
-                    /*case "AjusteContenedorNegativo":
-                        dao = ca.c_AjusteContenedorNegativo(edtx_CodigoPallet.getText().toString(), edtx_CodigoEmpaque.getText().toString(),
-                                binding.edtxUbicacion.getText().toString(), ((Constructor_Dato) spnr_Baja.getSelectedItem()).getDato());
                         break;*/
-                    case "AjusteContenedorSKU":
+                    case "AjusteContenedorNegativo":
+                        dao = ca.c_AjusteContenedorNegativo(edtx_CodigoPallet.getText().toString(), edtx_CodigoEmpaque.getText().toString(),
+                                "", ((Constructor_Dato) spnr_Alta.getSelectedItem()).getDato());
+                        break;
+                    /*case "AjusteContenedorSKU":
                         dao = ca.c_AjusteContenedorPositivoSKU(edtx_CodigoPallet.getText().toString(), edtx_CodigoEmpaque.getText().toString(),
                                 binding.edtxUbicacion.getText().toString(), ((Constructor_Dato) spnr_Alta.getSelectedItem()).getDato(), edtx_Producto_fragm.getText().toString());
-                        break;
+                        break;*/
                 }
             }catch (Exception e)
             {
@@ -533,12 +527,12 @@ public class Ajustes_AjustesContenedorBaja extends AppCompatActivity implements 
 
                             edtx_CodigoEmpaque.requestFocus();
                             break;
-                        case "ListarAjustesAltas":
+                        /*case "ListarAjustesAltas":
+                            ((Spinner)binding.spinnerAlta.findViewById(R.id.spinner)).setAdapter(new CustomArrayAdapter(Ajustes_AjustesContenedorBaja.this,android.R.layout.simple_spinner_item, dao.getcTablasSorteadas("Descripcion","Tag1","")));
+                            break;*/
+                        case "ListarAjustesBajas":
                             ((Spinner)binding.spinnerAlta.findViewById(R.id.spinner)).setAdapter(new CustomArrayAdapter(Ajustes_AjustesContenedorBaja.this,android.R.layout.simple_spinner_item, dao.getcTablasSorteadas("Descripcion","Tag1","")));
                             break;
-                        /*case "ListarAjustesBajas":
-                            ((Spinner)binding.spinnerBaja.findViewById(R.id.spinner)).setAdapter(new CustomArrayAdapter(Ajustes_AjustesContenedor.this,android.R.layout.simple_spinner_item, dao.getcTablasSorteadas("Descripcion","Tag1","")));
-                            break;*/
                         case "AjusteContenedor":
                         case "AjusteContenedorNumParte":
                         case "AjusteContenedorSKU":

@@ -25,6 +25,7 @@ import com.automatica.AXCPT.R;
 import com.automatica.AXCPT.Servicios.cambiaColorStatusBar;
 import com.automatica.AXCPT.Servicios.sobreDispositivo;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_Ciesa.Ajustes_AjustesContenedor;
+import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_Ciesa.Ajustes_AjustesContenedorBaja;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_AjustePalletSCH;
 import com.automatica.AXCPT.c_Almacen.Almacen_Ajustes.Ajustes_SCH.Almacen_Ajustes_NuevoEmpaqueSCH;
 import com.automatica.AXCPT.databinding.ActivityMenuBinding;
@@ -65,8 +66,8 @@ public class Almacen_Mov_Misc_Menu_Salidas extends AppCompatActivity implements 
         //objetos.add(new objetoMenuContext("Etiquetados",R.drawable.ic_ajuste_etiqueado, intentsEtiquetados));
         //objetos.add(new objetoMenuContext("No Etiquetados",R.drawable.ic_ajuste_noetiqueado, intentNE));
         objetos.add(new objetoMenuContext("Baja empaque",R.drawable.ic_baja_pallet,new Intent(contexto,Almacen_Ajustes_BajaEmpaque.class)));
-        objetos.add(new objetoMenuContext("Baja Pallet",R.drawable.ic_ajuste_contenedor,new Intent(contexto,Almacen_Ajustes_BajaPallet.class)));
-        objetos.add(new objetoMenuContext("Baja Unidades",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Ajustes_AjustesContenedor.class)));
+        objetos.add(new objetoMenuContext("Baja pallet",R.drawable.ic_ajuste_contenedor,new Intent(contexto,Almacen_Ajustes_BajaPallet.class)));
+        objetos.add(new objetoMenuContext("Baja unidades empaque",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Ajustes_AjustesContenedorBaja.class)));
         objetos.add(new objetoMenuContext("Baja empaque NE",R.drawable.ic_baseline_settings_suggest_24,new Intent(contexto, Almacen_Ajustes_BajaEmpaque.class)));
 
         llenarRecycler(binding.recycler,objetos);

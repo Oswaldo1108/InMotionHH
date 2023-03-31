@@ -42,12 +42,11 @@
 
     <TextView
         android:id="@+id/textView35"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Código\nde Pallet"
+        android:layout_marginTop="10dp"
+        android:text="Pallet"
         android:textColor="@color/blancoLetraStd"
         android:textSize="@dimen/txtSize"
         android:textStyle="bold"
@@ -58,25 +57,22 @@
         android:id="@+id/edtx_CodigoPallet"
         style="@style/Estilo_EditText_Reg"
         android:layout_width="0dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
         android:ems="10"
-        android:hint="Código Pallet"
+        android:hint="Capturar pallet"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView35"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView35"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView35" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/orilla_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
-            android:text="Producto:"
+            android:text="Artículo:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -160,9 +156,9 @@
             android:id="@+id/txtv_Producto"
             style="@style/EstiloTexto_Blanco_Reg_Consulta"
             android:layout_width="0dp"
-            android:layout_marginEnd="8dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
             android:text="-"
             app:layout_constraintBottom_toBottomOf="@+id/textView38"
             app:layout_constraintEnd_toEndOf="parent"
@@ -174,9 +170,10 @@
             style="@style/EstiloTexto_Blanco_Reg"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
+            android:layout_marginStart="8dp"
             android:text="-"
             app:layout_constraintBottom_toBottomOf="@+id/textView42"
-            app:layout_constraintStart_toStartOf="@+id/txtv_Producto"
+            app:layout_constraintStart_toEndOf="@+id/textView42"
             app:layout_constraintTop_toTopOf="@+id/textView42" />
 
         <TextView
@@ -215,7 +212,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
 
         android:layout_marginBottom="16dp"
@@ -256,9 +253,9 @@
 
     <TextView
         android:id="@+id/textView36"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="@dimen/footBarSpace"
         android:text="Posición"
         android:textColor="@color/blancoLetraStd"
@@ -271,15 +268,14 @@
         android:id="@+id/edtx_Ubicacion"
         style="@style/Estilo_EditText_Reg"
         android:layout_width="0dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
         android:ems="10"
-        android:hint="Código de Posición"
+        android:hint="Capturar posición"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView36"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView36"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView36" />
 
 
